@@ -4,7 +4,7 @@ report 50011 "JP Sales Quotation"
     ApplicationArea = All;
     Caption = 'Sales Quotation (JP)';
     DefaultLayout = RDLC;
-    RDLCLayout = 'src\09.ReportLayout\JPSalesQuotation.rdlc';
+    RDLCLayout = 'src\08.Report\JPSalesQuotation.rdlc';
     dataset
     {
         dataitem(SalesHeader; "Sales Header")
