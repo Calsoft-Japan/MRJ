@@ -1,10 +1,10 @@
-report 50011 "JP Sales Quotation"
+report 50011 "MRJ Sales Quotation"
 {
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     Caption = 'Sales Quotation (JP)';
     DefaultLayout = RDLC;
-    RDLCLayout = 'src\08.Report\JPSalesQuotation.rdlc';
+    RDLCLayout = 'src\08.Report\MRJSalesQuotation.rdlc';
     dataset
     {
         dataitem(SalesHeader; "Sales Header")
