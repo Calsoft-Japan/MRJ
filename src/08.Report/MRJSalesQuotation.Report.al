@@ -180,5 +180,5 @@ report 50011 "MRJ Sales Quotation"
         TotalVAT: Decimal;
         TotalInclVAT: Decimal;
 
-        ShowOrderInfo: Boolean; // from requestpage (used in later requirement)
+        ShowOrderInfo: Boolean; // from requestpage (used in later requirement)//
 }
