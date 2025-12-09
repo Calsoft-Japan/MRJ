@@ -58,7 +58,7 @@ report 50011 "MRJ Sales Quotation"
                                "Document No." = field("No.");
                 DataItemTableView = sorting("Document Type", "Document No.", "Line No.");
 
-                column(LineNo_; "No.") { }                   // 80.01X15-0682...
+                column(LineNo_; "No.") { }                   // 80.01X15-0682......
                 column(LineDescription; Description) { }     // 品名
                 column(LineQuantity; Quantity) { }           // 数量
                 column(LineUOM; "Unit of Measure Code") { }  // 単位 (PC etc.)
