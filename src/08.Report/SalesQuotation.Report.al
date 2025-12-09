@@ -4,7 +4,7 @@ report 50011 "JP Sales Quotation"
     ApplicationArea = All;
     Caption = 'Sales Quotation (JP)';
     DefaultLayout = RDLC;
-    //RDLCLayout = 'src\ReportLayout\JPSalesQuotation.rdlc';
+    RDLCLayout = 'src\09.ReportLayout\JPSalesQuotation.rdlc';
     dataset
     {
         dataitem(SalesHeader; "Sales Header")
@@ -50,6 +50,39 @@ report 50011 "JP Sales Quotation"
             column(TotalVAT; TotalVAT) { }                     // 消費税
             column(TotalInclVAT; TotalInclVAT) { }             // 消費税込合計
 
+            // ==== Detail lines (品名 / 数量 / 単位 / 単価 / 金額) ====
+            dataitem(SalesLine; "Sales Line")
+            {
+                DataItemLinkReference = SalesHeader;
+                DataItemLink = "Document Type" = field("Document Type"),
+                               "Document No." = field("No.");
+                DataItemTableView = sorting("Document Type", "Document No.", "Line No.");
+
+                column(LineNo_; "No.") { }                   // 80.01X15-0682...
+                column(LineDescription; Description) { }     // 品名
+                column(LineQuantity; Quantity) { }           // 数量
+                column(LineUOM; "Unit of Measure Code") { }  // 単位 (PC etc.)
+                column(LineUnitPrice; "Unit Price") { }      // 単価
+                column(LineAmount; "Line Amount") { }        // 金額
+
+                trigger OnPreDataItem()
+                begin
+                    // Optional: ignore completely blank lines
+                    // (you can remove this filter if you want to show comments)
+                    // SetFilter(Quantity, '<>0');
+                end;
+            }
+
+            // ==== 摘要 ====
+            dataitem(SalesCommentLine; "Sales Comment Line")
+            {
+                DataItemLinkReference = SalesHeader;
+                DataItemTableView = sorting("Document Type", "No.", "Document Line No.", "Line No.")
+                                    where("Document Type" = const(Quote));
+                DataItemLink = "No." = field("No.");
+
+                column(CommentText; Comment) { }
+            }
             trigger OnAfterGetRecord()
             var
                 SalesLineTmp: Record "Sales Line";
@@ -68,7 +101,7 @@ report 50011 "JP Sales Quotation"
                     ExpirationDateTxt := '';
 
                 // ----- Addresses -----
-                FormatAddr.SalesHeaderSellTo(CustAddr, Rec);
+                FormatAddr.SalesHeaderSellTo(CustAddr, SalesHeader);
                 CompanyInfo.Get();
                 FormatAddr.Company(CompanyAddr, CompanyInfo);
 
@@ -102,41 +135,7 @@ report 50011 "JP Sales Quotation"
 
                 TotalVAT := TotalInclVAT - TotalExclVAT;
             end;
-
-            // ==== Detail lines (品名 / 数量 / 単位 / 単価 / 金額) ====
-            dataitem(SalesLine; "Sales Line")
-        {
-                DataItemLinkReference = SalesHeader;
-                DataItemLink = "Document Type" = field("Document Type"),
-                               "Document No." = field("No.");
-                DataItemTableView = sorting("Document Type", "Document No.", "Line No.");
-
-            column(LineNo_; "No.") { }                   // 80.01X15-0682...
-            column(LineDescription; Description) { }     // 品名
-            column(LineQuantity; Quantity) { }           // 数量
-            column(LineUOM; "Unit of Measure Code") { }  // 単位 (PC etc.)
-            column(LineUnitPrice; "Unit Price") { }      // 単価
-            column(LineAmount; "Line Amount") { }        // 金額
-
-            trigger OnPreDataItem()
-            begin
-                // Optional: ignore completely blank lines
-                // (you can remove this filter if you want to show comments)
-                // SetFilter(Quantity, '<>0');
-            end;
         }
-
-        // ==== 摘要 ====
-        dataitem(SalesCommentLine; "Sales Comment Line")
-        {
-            DataItemLinkReference = SalesHeader;
-            DataItemTableView = sorting("Document Type", "No.", "Document Line No.", "Line No.")
-                                    where("Document Type" = const(Quote));
-            DataItemLink = "No." = field("No.");
-
-            column(CommentText; Comment) { }
-        }
-    }
     }
 
     requestpage
