@@ -4,7 +4,7 @@ report 50011 "MRJ Sales Quotation"
     ApplicationArea = All;
     Caption = 'Sales Quotation (JP)';
     DefaultLayout = RDLC;
-    RDLCLayout = 'src\08.Report\MRJSalesQuotation.rdlc';
+    RDLCLayout = 'src\08.Report\MRJSalesQuotationReport.rdlc';
     dataset
     {
         dataitem(SalesHeader; "Sales Header")
@@ -17,8 +17,11 @@ report 50011 "MRJ Sales Quotation"
             column(QuoteNo; "No.") { }                         // 見積書番号
             column(QuoteDateTxt; QuoteDateTxt) { }             // 見積日 (2018年03月30日)
             column(TitleTxt; TitleTxt) { }                     // 御見積書（or 御見積書 兼 注文書）
+            column(ShowOrderInfoHdr; ShowOrderInfo) { }           // (for internal use only)
+
 
             column(SellToCustomerNo; "Sell-to Customer No.") { }
+            column(DocumentNo; "No.") { }
 
             // 担当者 / 支払条件 / 有効期限
             column(SalesPersonTxt; SalesPersonTxt) { }
@@ -34,6 +37,8 @@ report 50011 "MRJ Sales Quotation"
             column(CustAddr6; CustAddr[6]) { }
             column(CustAddr7; CustAddr[7]) { }
             column(CustAddr8; CustAddr[8]) { }
+            column(CustPostCode; "Sell-to Post Code") { }     // 顧客郵便番号
+            column(CustNo; "Sell-to Customer No.") { }   // 顧客コード
 
             // Company address (right)
             column(CompanyAddr1; CompanyAddr[1]) { }
@@ -44,6 +49,9 @@ report 50011 "MRJ Sales Quotation"
             column(CompanyAddr6; CompanyAddr[6]) { }
             column(CompanyAddr7; CompanyAddr[7]) { }
             column(CompanyAddr8; CompanyAddr[8]) { }
+            column(CompanyFaxNo; CompanyInfo."Fax No.") { }   // 会社FAX番号
+            column(CompanyPhoneNo; CompanyInfo."Phone No.") { } // 会社電話番号
+            column(SalesPersonName; SalesPersonTxt) { }        // 担当者名
 
             // Totals for bottom-right
             column(TotalExclVAT; TotalExclVAT) { }             // 消費税抜合計
@@ -64,7 +72,8 @@ report 50011 "MRJ Sales Quotation"
                 column(LineUOM; "Unit of Measure Code") { }  // 単位 (PC etc.)
                 column(LineUnitPrice; "Unit Price") { }      // 単価
                 column(LineAmount; "Line Amount") { }        // 金額
-
+                column(Type_Line; Type) { }                  // (for internal use only)       
+                column(ShowOrderInfo; ShowOrderInfo) { }
                 trigger OnPreDataItem()
                 begin
                     // Optional: ignore completely blank lines
