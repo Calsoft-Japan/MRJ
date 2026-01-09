@@ -1,21 +1,20 @@
-
-report 50027 "MRJ Delivery Note"
+report 50014 "MRJ Sales Invoice"
 {
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
-    Caption = 'MRJ Sales Shipment (JP)';
+    Caption = 'MRJ Sales Invoice (JP)';
     DefaultLayout = RDLC;
-    RDLCLayout = 'src\07.ReportLayout\MRJDeliveryNoteReport.rdlc';
+    RDLCLayout = 'src\07.ReportLayout\MRJSalesInvoiceReport.rdlc';
 
     dataset
     {
-        dataitem("Sales Shipment Header"; "Sales Shipment Header")
+        dataitem("Sales Invoice Header"; "Sales Invoice Header")
         {
             DataItemTableView = sorting("No.");
             RequestFilterFields = "No.", "Sell-to Customer No.";
 
             // ==== Header fields ====
-            column(ShipmentNo; "No.") { }
+            column(Customer_No; "No.") { }
             column(PostingDateTxt; PostingDateTxt) { }
             column(ShipmentDateTxt; ShipmentDateTxt) { }
             column(OrderNo; "Order No.") { }
@@ -27,16 +26,13 @@ report 50027 "MRJ Delivery Note"
             column(Sell_to_Customer_No; "Sell-to Customer No.") { }
             column(Sell_to_Address; "Sell-to Address") { }
             column(Sell_to_Address_2; "Sell-to Address 2") { }
-            column(Sell_to_City; "Sell-to City") { }
             column(Sell_to_Post_Code; "Sell-to Post Code") { }
-            column(Sell_to_Phone_No; "Sell-to Phone No.") { }
 
             // Ship- to (left)
             column(Ship_to_Customer_No; "Ship-to Code") { }
             column(Ship_to_Name; "Ship-to Name") { }
             column(Ship_to_Address; "Ship-to Address") { }
             column(Ship_to_Address_2; "Ship-to Address 2") { }
-            column(Ship_to_City; "Ship-to City") { }
             column(Ship_to_Post_Code; "Ship-to Post Code") { }
 
             // Qualified invoice requirement
@@ -50,7 +46,7 @@ report 50027 "MRJ Delivery Note"
             // ==== Detail lines ====
             dataitem("Sales Shipment Line"; "Sales Shipment Line")
             {
-                DataItemLinkReference = "Sales Shipment Header";
+                DataItemLinkReference = "Sales Invoice Header";
                 DataItemLink = "Document No." = field("No.");
                 DataItemTableView = sorting("Document No.", "Line No.");
 
@@ -195,28 +191,28 @@ report 50027 "MRJ Delivery Note"
             VatSummaryDict.Set(VatPct, CurrBase);
         end else begin
             VatSummaryDict.Add(VatPct, VatBase);
-            InsertSortedVatPct(VatPct);
+            //InsertSortedVatPct(VatPct);
         end;
     end;
 
-    local procedure InsertSortedVatPct(VatPct: Decimal)
-    var
-        i: Integer;
-        Curr: Decimal;
-    begin
-        // Insert VAT% in ascending order to avoid needing List.Sort()
-        for i := 1 to VatPctList.Count() do begin
-            VatPctList.Get(i, Curr);
-            if VatPct < Curr then begin
-                VatPctList.Insert(i, VatPct);
-                exit;
-            end;
-            if VatPct = Curr then
-                exit;
-        end;
-        // Append if larger than all existing values or list empty
-        VatPctList.Add(VatPct);
-    end;
+    // local procedure InsertSortedVatPct(VatPct: Decimal)
+    // var
+    //     i: Integer;
+    //     Curr: Decimal;
+    // begin
+    //     // Insert VAT% in ascending order to avoid needing List.Sort()
+    //     for i := 1 to VatPctList.Count() do begin
+    //         VatPctList.Get(i, Curr);
+    //         if VatPct < Curr then begin
+    //             VatPctList.Insert(i, VatPct);
+    //             exit;
+    //         end;
+    //         if VatPct = Curr then
+    //             exit; // already present (defensive)
+    //     end;
+    //     // Append if larger than all existing values or list empty
+    //     VatPctList.Add(VatPct);
+    // end;
 
     local procedure RoundWithPrecision(Amount: Decimal): Decimal
     begin
