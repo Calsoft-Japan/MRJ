@@ -4,7 +4,7 @@ report 50012 "MRJ Sales Order Confirmation"
     ApplicationArea = All;
     Caption = 'Sales Order Confirmation (JP)';
     DefaultLayout = RDLC;
-    RDLCLayout = 'src\08.Report\MRJSalesOrderConfirmationReport.rdlc';
+    RDLCLayout = 'src\07.ReportLayout\MRJSalesOrderConfirmationReport.rdlc';
 
     dataset
     {
@@ -20,9 +20,10 @@ report 50012 "MRJ Sales Order Confirmation"
             column(CustomerOrderNo; CustomerOrderNo) { }        // 御注文番号 (External Document No.)
             column(DocumentNo; "No.") { }                      // 内部管理用受注番号
 
-            // 支払条件 / 支払方法
+            // 支払条件 / 支払方法 / 担当者名
             column(PaymentTermTxt; PaymentTermTxt) { }
             column(PaymentMethodTxt; PaymentMethodTxt) { }
+            //column(SalesPersonName; SalesPersonTxt) { }
 
             // Customer address (left)
             column(CustAddr1; CustAddr[1]) { }
@@ -69,17 +70,7 @@ report 50012 "MRJ Sales Order Confirmation"
                 column(LineUOM; "Unit of Measure Code") { }     // 単位
                 column(LineUnitPrice; "Unit Price") { }         // 単価
                 column(LineAmount; "Line Amount") { }           // 金額
-                column(Type_Line; Type) { }                     // for RDLC conditions if needed
-                column(SalesPersonName; SalesPersonTxt) { }       // 担当者名
-
-                trigger OnAfterGetRecord()
-                var
-                    SalesPerson: Record "Salesperson/Purchaser";
-                begin
-                    // Match clean output like your quotation:
-                    if Type = Type::" " then
-                        CurrReport.Skip();
-                end;
+                column(Type_Line; Type) { }                     // for RDLC conditions if needed                
             }
 
             // ==== 摘要 / コメント ====
@@ -124,6 +115,12 @@ report 50012 "MRJ Sales Order Confirmation"
                 end else
                     PaymentMethodTxt := '';
 
+                // ----- Salesperson (Header) -----
+                // SalesPersonTxt := '';
+                // if "Salesperson Code" <> '' then
+                //     if SalesPerson.Get("Salesperson Code") then
+                //         SalesPersonTxt := SalesPerson.Name;
+
                 // ----- Totals from lines (same pattern as 50011) -----
                 TotalExclVAT := 0;
                 TotalInclVAT := 0;
@@ -161,7 +158,8 @@ report 50012 "MRJ Sales Order Confirmation"
         PaymentTermTxt: Text[100];
         PaymentMethodTxt: Text[100];
 
-        SalesPersonTxt: Text[100];
+        //SalesPersonTxt: Text[100];
+        //SalesPerson: Record "Salesperson/Purchaser";
 
         TotalExclVAT: Decimal;
         TotalVAT: Decimal;

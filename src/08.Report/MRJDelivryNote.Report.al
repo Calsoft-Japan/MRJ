@@ -1,4 +1,3 @@
-
 report 50027 "MRJ Delivery Note"
 {
     UsageCategory = ReportsAndAnalysis;
@@ -22,7 +21,7 @@ report 50027 "MRJ Delivery Note"
             column(CustomerOrderNo; CustomerOrderNo) { }
             column(Ship_to_Country_Region_Code; "Ship-to Country/Region Code") { }
 
-            //Sell- to (right)
+            // Sell-to (right)
             column(Sell_to_Name; "Sell-to Customer Name") { }
             column(Sell_to_Customer_No; "Sell-to Customer No.") { }
             column(Sell_to_Address; "Sell-to Address") { }
@@ -31,7 +30,7 @@ report 50027 "MRJ Delivery Note"
             column(Sell_to_Post_Code; "Sell-to Post Code") { }
             column(Sell_to_Phone_No; "Sell-to Phone No.") { }
 
-            // Ship- to (left)
+            // Ship-to (left)
             column(Ship_to_Customer_No; "Ship-to Code") { }
             column(Ship_to_Name; "Ship-to Name") { }
             column(Ship_to_Address; "Ship-to Address") { }
@@ -42,7 +41,7 @@ report 50027 "MRJ Delivery Note"
             // Qualified invoice requirement
             column(CompanyRegistrationNo; CompanyInfo."VAT Registration No.") { }
 
-            // Totals
+            // Totals (for header)
             column(TotalExclVAT; TotalExclVAT) { }
             column(TotalVAT; TotalVAT) { }
             column(TotalInclVAT; TotalInclVAT) { }
@@ -59,8 +58,13 @@ report 50027 "MRJ Delivery Note"
                 column(LineUOM; "Unit of Measure Code") { }
                 column(LineUnitPrice; "Unit Price") { }
 
-                // Tax-excl amount for shipment
-                column(LineAmount; "VAT Base Amount") { }
+                // Tax-excl line amount used on Delivery Note (must match totals)
+                column(LineAmountExclVAT; LineAmtExclVAT) { }
+
+                trigger OnAfterGetRecord()
+                begin
+                    LineAmtExclVAT := CalcShipmentLineBase("Sales Shipment Line");
+                end;
             }
 
             // ==== VAT Summary (dynamic via Integer) ====
@@ -70,20 +74,18 @@ report 50027 "MRJ Delivery Note"
 
                 // ① 非課税 / xx%対象
                 column(VATDisplayTxt; VATDisplayTxt) { }
-                // ② VAT Base Amount (summed)
+                // ② 課税対象額（税抜）
                 column(VATBaseAmount; VATBaseAmount) { }
-                // ③ 消費税ラベル
+                // ③ 消費税（ラベル）
                 column(VATLabelTxt; '消費税') { }
-                // ④ VAT Amount
+                // ④ 消費税額
                 column(VATAmount; VATAmount) { }
 
                 trigger OnPreDataItem()
                 begin
-                    // If there is no VAT data, do not print this section
                     if VatPctList.Count() = 0 then
                         CurrReport.Break();
 
-                    // Loop Integer from 1..N (N = number of VAT% buckets)
                     SetRange(Number, 1, VatPctList.Count());
                 end;
 
@@ -92,10 +94,7 @@ report 50027 "MRJ Delivery Note"
                     VatPct: Decimal;
                     BaseDec: Decimal;
                 begin
-                    // Get VAT% at current index (ascending order ensured by insertion)
                     VatPctList.Get(Number, VatPct);
-
-                    // Get summed VAT Base Amount for this VAT%
                     VatSummaryDict.Get(VatPct, BaseDec);
 
                     if VatPct = 0 then
@@ -104,7 +103,9 @@ report 50027 "MRJ Delivery Note"
                         VATDisplayTxt := Format(VatPct) + '%対象';
 
                     VATBaseAmount := BaseDec;
-                    VATAmount := RoundWithPrecision(VATBaseAmount * VatPct / 100);
+
+                    // VAT amount per rate (FDD: round to 1 decimal place)
+                    VATAmount := Round(VATBaseAmount * VatPct / 100, 0.1);
                 end;
             }
 
@@ -114,11 +115,9 @@ report 50027 "MRJ Delivery Note"
                 SalesHeader: Record "Sales Header";
                 LineVAT: Decimal;
             begin
-                // Dates (JP)
                 PostingDateTxt := Format("Posting Date", 0, '<Year4>年<Month,2>月<Day,2>日');
                 ShipmentDateTxt := Format("Shipment Date", 0, '<Year4>年<Month,2>月<Day,2>日');
 
-                // Customer Order No. (from Sales Order → External Document No.)
                 CustomerOrderNo := '';
                 if "Order No." <> '' then begin
                     SalesHeader.Reset();
@@ -128,60 +127,62 @@ report 50027 "MRJ Delivery Note"
                         CustomerOrderNo := SalesHeader."External Document No.";
                 end;
 
-                // Totals reset
                 TotalExclVAT := 0;
                 TotalVAT := 0;
                 TotalInclVAT := 0;
 
-                // VAT summary reset
                 Clear(VatSummaryDict);
                 Clear(VatPctList);
 
-                // Build totals + VAT summary buffer from Sales Shipment Lines
                 SalesShptLineTmp.Reset();
                 SalesShptLineTmp.SetRange("Document No.", "No.");
 
                 if SalesShptLineTmp.FindSet() then
                     repeat
-                        if SalesShptLineTmp."VAT Base Amount" = 0 then
+                        // Only include real item lines in totals and VAT summary
+                        if SalesShptLineTmp.Type <> SalesShptLineTmp.Type::Item then
                             continue;
 
-                        // Totals (tax-excl, tax, tax-incl)
-                        TotalExclVAT += SalesShptLineTmp."VAT Base Amount";
+                        if SalesShptLineTmp.Quantity = 0 then
+                            continue;
 
-                        LineVAT := RoundWithPrecision(
-                            SalesShptLineTmp."VAT Base Amount" * SalesShptLineTmp."VAT %" / 100
-                        );
+                        LineBase := CalcShipmentLineBase(SalesShptLineTmp);
+                        if LineBase = 0 then
+                            continue;
+
+                        TotalExclVAT += LineBase;
+
+                        // For header totals, keep consistent rounding with VAT summary (0.1)
+                        LineVAT := Round(LineBase * SalesShptLineTmp."VAT %" / 100, 0.1);
+
                         TotalVAT += LineVAT;
-                        TotalInclVAT += SalesShptLineTmp."VAT Base Amount" + LineVAT;
+                        TotalInclVAT += LineBase + LineVAT;
 
-                        // VAT Summary: per VAT% accumulate base amount
-                        AddOrUpdateVatSummary(
-                            SalesShptLineTmp."VAT %",
-                            SalesShptLineTmp."VAT Base Amount"
-                        );
+                        AddOrUpdateVatSummary(SalesShptLineTmp."VAT %", LineBase);
 
                     until SalesShptLineTmp.Next() = 0;
-
-                // (Optional) If you want these always consistent:
-                // TotalInclVAT := RoundWithPrecision(TotalExclVAT + TotalVAT);
             end;
         }
     }
 
     trigger OnPreReport()
     begin
-        // Load Company info and rounding once
         CompanyInfo.Get();
         GLSetup.Get();
 
         AmountPrecision := GLSetup."Amount Rounding Precision";
         if AmountPrecision = 0 then
-            AmountPrecision := 1; // Safe default for JPY (¥ units)
+            AmountPrecision := 1; // safe default (JPY)
     end;
 
-    // Accumulate VAT summary using Dictionary(Key: VAT %, Value: Base Sum)
-    // Maintain a sorted List of VAT% by insertion (ascending)
+    // ===== Helpers =====
+
+    local procedure CalcShipmentLineBase(var ShptLine: Record "Sales Shipment Line"): Decimal
+    begin
+        // Calculate line base amount without line discount amount field.
+        exit(Round(ShptLine.Quantity * ShptLine."Unit Price", AmountPrecision));
+    end;
+
     local procedure AddOrUpdateVatSummary(VatPct: Decimal; VatBase: Decimal)
     var
         CurrBase: Decimal;
@@ -204,7 +205,6 @@ report 50027 "MRJ Delivery Note"
         i: Integer;
         Curr: Decimal;
     begin
-        // Insert VAT% in ascending order to avoid needing List.Sort()
         for i := 1 to VatPctList.Count() do begin
             VatPctList.Get(i, Curr);
             if VatPct < Curr then begin
@@ -214,13 +214,7 @@ report 50027 "MRJ Delivery Note"
             if VatPct = Curr then
                 exit;
         end;
-        // Append if larger than all existing values or list empty
         VatPctList.Add(VatPct);
-    end;
-
-    local procedure RoundWithPrecision(Amount: Decimal): Decimal
-    begin
-        exit(Round(Amount, AmountPrecision));
     end;
 
     var
@@ -232,15 +226,16 @@ report 50027 "MRJ Delivery Note"
         ShipmentDateTxt: Text[50];
         CustomerOrderNo: Text[50];
 
+        LineAmtExclVAT: Decimal;
+        LineBase: Decimal;
+
         TotalExclVAT: Decimal;
         TotalVAT: Decimal;
         TotalInclVAT: Decimal;
 
-        // VAT summary structures
-        VatSummaryDict: Dictionary of [Decimal, Decimal]; // Key: VAT %, Value: summed VAT Base Amount
+        VatSummaryDict: Dictionary of [Decimal, Decimal]; // Key: VAT %, Value: summed base
         VatPctList: List of [Decimal];
 
-        // VATSummary output fields
         VATDisplayTxt: Text[20];
         VATBaseAmount: Decimal;
         VATAmount: Decimal;
