@@ -15,9 +15,6 @@ codeunit 50015 MRJDimensionLinkMgt
             exit;
 
         PurchSetup.TestField("Vendor Dimension");
-
-        DefDimension.Init();
-
         if not DimensionValue.Get(PurchSetup."Vendor Dimension", Rec."No.") then begin
             DimensionValue.Init();
             DimensionValue."Dimension Code" := PurchSetup."Vendor Dimension";
@@ -26,7 +23,7 @@ codeunit 50015 MRJDimensionLinkMgt
             DimensionValue.Insert(true);
         end;
 
-        if not DefDimension.Get(Database::Vendor, Rec."No.", DimensionValue.Code) then begin
+        if not DefDimension.Get(Database::Vendor, Rec."No.", PurchSetup."Vendor Dimension") then begin
             DefDimension.Init;
             DefDimension.Validate("Table ID", Database::Vendor);
             DefDimension."No." := Rec."No.";
@@ -51,11 +48,7 @@ codeunit 50015 MRJDimensionLinkMgt
         SalesSetup.Get();
         if not SalesSetup."Enable Cust. Dimension Link" then
             exit;
-
         SalesSetup.TestField("Customer Dimension");
-
-        DefDimension.Init();
-
         if not DimensionValue.Get(SalesSetup."Customer Dimension", Rec."No.") then begin
             DimensionValue.Init();
             DimensionValue."Dimension Code" := SalesSetup."Customer Dimension";
@@ -64,9 +57,9 @@ codeunit 50015 MRJDimensionLinkMgt
             DimensionValue.Insert(true);
         end;
 
-        if not DefDimension.Get(Database::Vendor, Rec."No.", DimensionValue.Code) then begin
+        if not DefDimension.Get(Database::Customer, Rec."No.", SalesSetup."Customer Dimension") then begin
             DefDimension.Init;
-            DefDimension.Validate("Table ID", Database::Vendor);
+            DefDimension.Validate("Table ID", Database::Customer);
             DefDimension."No." := Rec."No.";
 
             DefDimension."Dimension Code" := SalesSetup."Customer Dimension";
