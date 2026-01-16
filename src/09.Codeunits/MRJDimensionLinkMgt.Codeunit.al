@@ -1,4 +1,4 @@
-codeunit 50015 MRJDimLinkMgt
+codeunit 50015 MRJDimensionLinkMgt
 {
     [EventSubscriber(ObjectType::Table, Database::"Vendor", 'OnAfterInsertEvent', '', true, true)]
     procedure SetVendorDefDim(var Rec: Record Vendor);
