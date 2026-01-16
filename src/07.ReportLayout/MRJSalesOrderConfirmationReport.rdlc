@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-12-22T03:58:48.6677162Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-01-13T23:40:45.5421728Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -436,38 +436,6 @@
               </Textbox>
               <Rectangle Name="Rectangle8">
                 <ReportItems>
-                  <Textbox Name="Textbox22">
-                    <rd:DefaultName>Textbox12</rd:DefaultName>
-                    <CanGrow>true</CanGrow>
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>担当者:</Value>
-                            <Style>
-                              <FontFamily>MS UI Gothic</FontFamily>
-                              <FontSize>9pt</FontSize>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style />
-                      </Paragraph>
-                    </Paragraphs>
-                    <Top>0.64548cm</Top>
-                    <Left>10.16599cm</Left>
-                    <Height>0.53277cm</Height>
-                    <Width>1.2067cm</Width>
-                    <Style>
-                      <Border>
-                        <Style>None</Style>
-                      </Border>
-                      <PaddingLeft>2pt</PaddingLeft>
-                      <PaddingRight>2pt</PaddingRight>
-                      <PaddingTop>2pt</PaddingTop>
-                      <PaddingBottom>2pt</PaddingBottom>
-                    </Style>
-                  </Textbox>
                   <Textbox Name="Textbox27">
                     <rd:DefaultName>Textbox12</rd:DefaultName>
                     <CanGrow>true</CanGrow>
@@ -489,7 +457,6 @@
                     <Left>13.53902cm</Left>
                     <Height>1.03919cm</Height>
                     <Width>1.43793cm</Width>
-                    <ZIndex>1</ZIndex>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -520,7 +487,7 @@
                     <Left>15.11806cm</Left>
                     <Height>1.03919cm</Height>
                     <Width>1.43793cm</Width>
-                    <ZIndex>2</ZIndex>
+                    <ZIndex>1</ZIndex>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -572,7 +539,7 @@
                     <Left>13.53902cm</Left>
                     <Height>0.51412cm</Height>
                     <Width>1.43793cm</Width>
-                    <ZIndex>3</ZIndex>
+                    <ZIndex>2</ZIndex>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -625,7 +592,7 @@
                     <Left>15.11806cm</Left>
                     <Height>0.51412cm</Height>
                     <Width>1.43793cm</Width>
-                    <ZIndex>4</ZIndex>
+                    <ZIndex>3</ZIndex>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -648,40 +615,6 @@
                         <Width>1pt</Width>
                       </RightBorder>
                       <VerticalAlign>Bottom</VerticalAlign>
-                      <PaddingLeft>2pt</PaddingLeft>
-                      <PaddingRight>2pt</PaddingRight>
-                      <PaddingTop>2pt</PaddingTop>
-                      <PaddingBottom>2pt</PaddingBottom>
-                    </Style>
-                  </Textbox>
-                  <Textbox Name="Textbox23">
-                    <rd:DefaultName>Textbox23</rd:DefaultName>
-                    <CanGrow>true</CanGrow>
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>=Fields!SalesPersonName.Value</Value>
-                            <Style>
-                              <FontFamily>MS UI Gothic</FontFamily>
-                              <FontSize>9pt</FontSize>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style />
-                      </Paragraph>
-                    </Paragraphs>
-                    <Top>0.64548cm</Top>
-                    <Left>11.3727cm</Left>
-                    <Height>0.53277cm</Height>
-                    <Width>2.7854cm</Width>
-                    <ZIndex>5</ZIndex>
-                    <Style>
-                      <Border>
-                        <Style>None</Style>
-                      </Border>
-                      <VerticalAlign>Middle</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1250,7 +1183,7 @@
                     <Left>0.33355cm</Left>
                     <Height>1.37612cm</Height>
                     <Width>16.22242cm</Width>
-                    <ZIndex>6</ZIndex>
+                    <ZIndex>4</ZIndex>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -1296,7 +1229,7 @@
                     <Left>0.33355cm</Left>
                     <Height>0.82078cm</Height>
                     <Width>6.68253cm</Width>
-                    <ZIndex>7</ZIndex>
+                    <ZIndex>5</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1315,7 +1248,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value EvaluationMode="Constant">支払方法　:</Value>
+                            <Value>="支払方法　:" &amp; "  " &amp; Fields!PaymentMethodTxt.value</Value>
                             <Style>
                               <FontFamily>MS UI Gothic</FontFamily>
                               <FontSize>9pt</FontSize>
@@ -1329,7 +1262,7 @@
                     <Left>0.33355cm</Left>
                     <Height>0.4686cm</Height>
                     <Width>6.68253cm</Width>
-                    <ZIndex>8</ZIndex>
+                    <ZIndex>6</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1353,7 +1286,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>支払条件 :</Value>
+                            <Value>="支払条件 :" &amp; "  " &amp; Fields!PaymentTermTxt.value</Value>
                             <Style>
                               <FontFamily>MS UI Gothic</FontFamily>
                               <FontSize>9pt</FontSize>
@@ -1367,7 +1300,7 @@
                     <Left>0.33355cm</Left>
                     <Height>0.45911cm</Height>
                     <Width>6.68253cm</Width>
-                    <ZIndex>9</ZIndex>
+                    <ZIndex>7</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1407,7 +1340,7 @@
                     <Left>13.78993cm</Left>
                     <Height>0.49417cm</Height>
                     <Width>2.5cm</Width>
-                    <ZIndex>10</ZIndex>
+                    <ZIndex>8</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1442,7 +1375,7 @@
                     <Left>13.78993cm</Left>
                     <Height>0.45183cm</Height>
                     <Width>2.5cm</Width>
-                    <ZIndex>11</ZIndex>
+                    <ZIndex>9</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1477,7 +1410,7 @@
                     <Left>13.78993cm</Left>
                     <Height>0.49417cm</Height>
                     <Width>2.5cm</Width>
-                    <ZIndex>12</ZIndex>
+                    <ZIndex>10</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1513,7 +1446,7 @@
                     <Left>10.31088cm</Left>
                     <Height>0.49417cm</Height>
                     <Width>3.33794cm</Width>
-                    <ZIndex>13</ZIndex>
+                    <ZIndex>11</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1549,7 +1482,7 @@
                     <Left>10.31088cm</Left>
                     <Height>0.45183cm</Height>
                     <Width>3.33794cm</Width>
-                    <ZIndex>14</ZIndex>
+                    <ZIndex>12</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1585,7 +1518,7 @@
                     <Left>10.31088cm</Left>
                     <Height>0.49417cm</Height>
                     <Width>3.33794cm</Width>
-                    <ZIndex>15</ZIndex>
+                    <ZIndex>13</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1794,7 +1727,9 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <Top>1.2223cm</Top>
@@ -2065,9 +2000,6 @@ End Function
         </Field>
         <Field Name="Type_Line">
           <DataField>Type_Line</DataField>
-        </Field>
-        <Field Name="SalesPersonName">
-          <DataField>SalesPersonName</DataField>
         </Field>
         <Field Name="CommentText">
           <DataField>CommentText</DataField>
