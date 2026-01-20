@@ -1,3 +1,4 @@
+
 tableextension 50000 "PurchSetup Ext" extends "Purchases & Payables Setup"
 {
     fields
