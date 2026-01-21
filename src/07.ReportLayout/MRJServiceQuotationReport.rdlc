@@ -1367,7 +1367,11 @@
                   <KeepWithGroup>After</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="Details" />
+                  <Group Name="Details">
+                    <GroupExpressions>
+                      <GroupExpression>LineNo_ServLine</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
@@ -2662,7 +2666,7 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <Top>3.82647cm</Top>
+            <Top>4.14397cm</Top>
             <Left>0.31934cm</Left>
             <Height>1.15523cm</Height>
             <Width>18.28402cm</Width>
@@ -2707,7 +2711,7 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.56381cm</Top>
-              <Left>2.17191in</Left>
+              <Left>1.54691in</Left>
               <Height>19.99495pt</Height>
               <Width>8.98954cm</Width>
               <Style>
