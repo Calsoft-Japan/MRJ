@@ -31,10 +31,12 @@ report 50021 "MRJ Service Quotation"
             column(CompanyEMail; CompanyInfo."E-Mail") { }
             column(Email; CompanyInfo."E-Mail") { }
 
-            column(PaymentTermTxt; "Payment Terms Code") { }
-            column(PaymentMethodTxt; "Payment Method Code") { }
+            column(PaymentTermTxt; PaymentTermDesc) { }
+            column(PaymentMethodTxt; PaymentMethodDesc) { }
 
-            // --- Caption（見出し）項目の不足分を追加 ---
+            column(DueDate; "Due Date") { }
+
+            // --- Caption
             column(EmailCaption; CompanyInfo.FieldCaption("E-Mail")) { }
             column(HomePageCaption; CompanyInfo.FieldCaption("Home Page")) { }
             column(PhoneNoCaption; CompanyInfo.FieldCaption("Phone No.")) { }
@@ -122,6 +124,7 @@ report 50021 "MRJ Service Quotation"
             column(CompanyPhoneNo; CompanyInfo."Phone No.") { }
             column(CompanyFaxNo; CompanyInfo."Fax No.") { }
             column(CompanyPostCode; CompanyInfo."Post Code") { }
+            column(CompanyNameJP; CompanyInfo."Ship-to Name") { }
 
             dataitem(ServiceItemLine; "Service Item Line")
             {
@@ -143,6 +146,8 @@ report 50021 "MRJ Service Quotation"
                     DataItemLinkReference = ServiceItemLine;
                     DataItemLink = "Document Type" = field("Document Type"), "Document No." = field("Document No."), "Service Item Line No." = field("Line No.");
                     DataItemTableView = sorting("Document Type", "Document No.", "Line No.");
+
+
 
                     column(LineNo_ServLine; "Line No.") { }
                     column(Type_ServLine; Type) { } // ★追加
@@ -172,18 +177,31 @@ report 50021 "MRJ Service Quotation"
                 column(FlatLineNo_ServLine; Number) { }
                 column(FlatLineDescription; TempServiceLine.Description) { }
                 column(FlatLineQuantity; TempServiceLine.Quantity) { }
-                column(FlatLineAmount; TempServiceLine."Line Amount") { }
-                column(FlatAmt; TempServiceLine."Line Amount") { }
+                column(FlatLineUOM; TempServiceLine."Unit of Measure Code") { }
+                column(FlatUnitPrice; TempServiceLine."Unit Price") { } // 単価
+                column(FlatLineAmount; TempServiceLine."Line Amount") { } // 金額(税抜)
+                column(FlatGrossAmt; TempServiceLine."Amount Including VAT") { } // 金額(税込)
 
                 trigger OnPreDataItem()
                 begin
-                    if not SummarizeLines then CurrReport.Break();
+
+                    if not SummarizeLines then
+                        CurrReport.Break();
+
+                    SummarizeServiceLines();
+
                     SetRange(Number, 1, TempServiceLine.Count());
                 end;
 
                 trigger OnAfterGetRecord()
                 begin
-                    if Number = 1 then TempServiceLine.FindSet() else TempServiceLine.Next();
+                    if Number = 1 then
+                        TempServiceLine.FindSet()
+                    else
+                        TempServiceLine.Next();
+                    // デバッグ用メッセージ
+                    Message('Loop: %1, Desc: %2, Total Count: %3', Number, TempServiceLine.Description, TempServiceLine.Count());
+
                 end;
             }
 
@@ -234,6 +252,8 @@ report 50021 "MRJ Service Quotation"
         FormatAddr: Codeunit "Format Address";
         ServiceFormatAddr: Codeunit "Service Format Address";
         TempServiceLine: Record "Service Line" temporary;
+        PaymentTermDesc: Text[100];
+        PaymentMethodDesc: Text[100];
         QuoteDateTxt: Text[50];
         TitleTxt: Text[50];
         CustAddr: array[8] of Text[100];
@@ -247,13 +267,25 @@ report 50021 "MRJ Service Quotation"
     local procedure UpdateHeaderInfo()
     var
         ServiceLineRec: Record "Service Line";
+        PaymentTerms: Record "Payment Terms";
+        PaymentMethod: Record "Payment Method";
     begin
         if ShowOrderInfo then
-            TitleTxt := '御見積書 兼 注文書'
+            TitleTxt := 'サービス見積書 兼 注文書'
         else
             TitleTxt := '御見積書';
 
         QuoteDateTxt := Format(ServiceHeader."Document Date", 0, '<Year4>年<Month,2>月<Day,2>日');
+
+        // 支払条件の名称取得
+        PaymentTermDesc := '';
+        if PaymentTerms.Get(ServiceHeader."Payment Terms Code") then
+            PaymentTermDesc := PaymentTerms.Description;
+
+        // 支払方法の名称取得
+        PaymentMethodDesc := '';
+        if PaymentMethod.Get(ServiceHeader."Payment Method Code") then
+            PaymentMethodDesc := PaymentMethod.Description;
 
         CompanyInfo.Get();
         ServiceFormatAddr.ServiceHeaderSellTo(CustAddr, ServiceHeader);
@@ -277,6 +309,7 @@ report 50021 "MRJ Service Quotation"
         Resource: Record Resource;
         ResGroup: Record "Resource Group";
         GroupKey: Text[100];
+        TargetUnitPrice: Decimal;
     begin
         TempServiceLine.Reset();
         TempServiceLine.DeleteAll();
@@ -285,26 +318,42 @@ report 50021 "MRJ Service Quotation"
         ServiceLine.SetRange("Document No.", ServiceHeader."No.");
         if ServiceLine.FindSet() then
             repeat
+                // --- 集計キー（品名/グループ名）と単価の決定 ---
                 GroupKey := ServiceLine.Description;
+                TargetUnitPrice := ServiceLine."Unit Price";
+
                 if ServiceLine.Type = ServiceLine.Type::Resource then begin
                     if Resource.Get(ServiceLine."No.") then begin
                         if ResGroup.Get(Resource."Resource Group No.") then
                             GroupKey := ResGroup.Name;
                     end;
+                    // リソースの場合は単価を 0 に固定（RDLCで非表示にするため）
+                    TargetUnitPrice := 0;
                 end;
 
+                // --- 既存行の検索 ---
+                // 「品名 + 単価 + 単位」の3要素がすべて一致する場合のみ合算する
                 TempServiceLine.Reset();
                 TempServiceLine.SetRange(Description, GroupKey);
+                TempServiceLine.SetRange("Unit Price", TargetUnitPrice);
+                TempServiceLine.SetRange("Unit of Measure Code", ServiceLine."Unit of Measure Code"); // ★単位を検索条件に追加
+
                 if TempServiceLine.FindFirst() then begin
+                    // 一致する行があれば数量と金額を加算
                     TempServiceLine.Quantity += ServiceLine.Quantity;
                     TempServiceLine."Line Amount" += ServiceLine."Line Amount";
+                    TempServiceLine."Amount Including VAT" += ServiceLine."Amount Including VAT";
                     TempServiceLine.Modify();
                 end else begin
+                    // 一致する行がなければ新しい集計行を作成
                     TempServiceLine.Init();
                     TempServiceLine."Line No." := TempServiceLine."Line No." + 10000;
                     TempServiceLine.Description := GroupKey;
                     TempServiceLine.Quantity := ServiceLine.Quantity;
+                    TempServiceLine."Unit of Measure Code" := ServiceLine."Unit of Measure Code"; // 単位を保持
+                    TempServiceLine."Unit Price" := TargetUnitPrice;
                     TempServiceLine."Line Amount" := ServiceLine."Line Amount";
+                    TempServiceLine."Amount Including VAT" := ServiceLine."Amount Including VAT";
                     TempServiceLine.Insert();
                 end;
             until ServiceLine.Next() = 0;
