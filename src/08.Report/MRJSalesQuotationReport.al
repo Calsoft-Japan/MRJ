@@ -53,6 +53,7 @@ report 50011 "MRJ Sales Quotation"
             column(CompanyFaxNo; CompanyInfo."Fax No.") { }   // 会社FAX番号
             column(CompanyPhoneNo; CompanyInfo."Phone No.") { } // 会社電話番号
             column(SalesPersonName; SalesPersonTxt) { }        // 担当者名
+            column(Sell_to_Contact; "Sell-to Contact") { }         // 請求先担当者
 
             // Totals for bottom-right
             column(TotalExclVAT; TotalExclVAT) { }             // 消費税抜合計
