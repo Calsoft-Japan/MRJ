@@ -26,9 +26,7 @@ report 50027 "MRJ Delivery Note"
             column(Sell_to_Customer_No; "Sell-to Customer No.") { }
             column(Sell_to_Address; "Sell-to Address") { }
             column(Sell_to_Address_2; "Sell-to Address 2") { }
-            column(Sell_to_City; "Sell-to City") { }
-            column(Sell_to_Post_Code; "Sell-to Post Code") { }
-            column(Sell_to_Phone_No; "Sell-to Phone No.") { }
+            column(Sell_to_Contact; "Sell-to Contact") { }
 
             // Ship-to (left)
             column(Ship_to_Customer_No; "Ship-to Code") { }

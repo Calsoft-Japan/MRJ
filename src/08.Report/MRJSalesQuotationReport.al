@@ -29,6 +29,7 @@ report 50011 "MRJ Sales Quotation"
             column(ExpirationDateTxt; ExpirationDateTxt) { }
 
             // Customer address (left)
+            column(CustAddr; "Sell-to Address") { }
             column(CustAddr1; CustAddr[1]) { }
             column(CustAddr2; CustAddr[2]) { }
             column(CustAddr3; CustAddr[3]) { }
@@ -52,6 +53,7 @@ report 50011 "MRJ Sales Quotation"
             column(CompanyFaxNo; CompanyInfo."Fax No.") { }   // 会社FAX番号
             column(CompanyPhoneNo; CompanyInfo."Phone No.") { } // 会社電話番号
             column(SalesPersonName; SalesPersonTxt) { }        // 担当者名
+            column(Sell_to_Contact; "Sell-to Contact") { }         // 請求先担当者
 
             // Totals for bottom-right
             column(TotalExclVAT; TotalExclVAT) { }             // 消費税抜合計
@@ -74,6 +76,10 @@ report 50011 "MRJ Sales Quotation"
                 column(LineAmount; "Line Amount") { }        // 金額
                 column(Type_Line; Type) { }                  // (for internal use only)       
                 column(ShowOrderInfo; ShowOrderInfo) { }
+                column(TypeText; Format(Type)) { }          // "Item", "Resource", "Comment", ...
+                column(TypeInt; Type.AsInteger()) { }            // (for internal use only)
+                column(LineNoInt; "Line No.") { }        // (for internal use only)
+
                 trigger OnPreDataItem()
                 begin
                     // Optional: ignore completely blank lines

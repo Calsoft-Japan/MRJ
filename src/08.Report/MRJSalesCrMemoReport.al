@@ -46,6 +46,7 @@ report 50082 "MRJ Sales Credit Memo"
             column(CompanyAddr8; CompanyAddr[8]) { }
             column(CompanyFaxNo; CompanyInfo."Fax No.") { }
             column(CompanyPhoneNo; CompanyInfo."Phone No.") { }
+            column(Sell_to_Contact; "Sell-to Contact") { }
 
             // Totals for bottom-right
             column(TotalExclVAT; TotalExclVAT) { }                          // 消費税抜合計
