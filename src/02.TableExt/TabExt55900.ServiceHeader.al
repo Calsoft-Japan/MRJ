@@ -5,19 +5,17 @@ tableextension 55900 "Service Header Ext" extends "Service Header"
         field(70000; "Parts From Location Code"; Code[20])
         {
             DataClassification = ToBeClassified;
-            Description = 'UPG';
             TableRelation = Location.Code;
         }
         field(70010; "Parts From Bin Code"; Code[20])
         {
             DataClassification = ToBeClassified;
-            Description = 'UPG';
         }
         field(90000; "Bin Code"; Code[20])
         {
             Caption = 'Def. Bin Code';
             DataClassification = ToBeClassified;
-            Description = 'UPG';
+            TableRelation = Bin.Code where("Location Code" = field("Location Code"), "Customer No." = field("Customer No."));
         }
         field(90001; "Parts Receive TO No. Filter"; Text[250])
         {
