@@ -24,136 +24,6 @@
       <rd:DataSourceID>b23244e3-9790-4712-be0f-6041ac5f0e69</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="ShipmentNo">
-          <DataField>ShipmentNo</DataField>
-        </Field>
-        <Field Name="PostingDateTxt">
-          <DataField>PostingDateTxt</DataField>
-        </Field>
-        <Field Name="ShipmentDateTxt">
-          <DataField>ShipmentDateTxt</DataField>
-        </Field>
-        <Field Name="OrderNo">
-          <DataField>OrderNo</DataField>
-        </Field>
-        <Field Name="CustomerOrderNo">
-          <DataField>CustomerOrderNo</DataField>
-        </Field>
-        <Field Name="Ship_to_Country_Region_Code">
-          <DataField>Ship_to_Country_Region_Code</DataField>
-        </Field>
-        <Field Name="Sell_to_Name">
-          <DataField>Sell_to_Name</DataField>
-        </Field>
-        <Field Name="Sell_to_Customer_No">
-          <DataField>Sell_to_Customer_No</DataField>
-        </Field>
-        <Field Name="Sell_to_Address">
-          <DataField>Sell_to_Address</DataField>
-        </Field>
-        <Field Name="Sell_to_Address_2">
-          <DataField>Sell_to_Address_2</DataField>
-        </Field>
-        <Field Name="Sell_to_City">
-          <DataField>Sell_to_City</DataField>
-        </Field>
-        <Field Name="Sell_to_Post_Code">
-          <DataField>Sell_to_Post_Code</DataField>
-        </Field>
-        <Field Name="Sell_to_Phone_No">
-          <DataField>Sell_to_Phone_No</DataField>
-        </Field>
-        <Field Name="Ship_to_Customer_No">
-          <DataField>Ship_to_Customer_No</DataField>
-        </Field>
-        <Field Name="Ship_to_Name">
-          <DataField>Ship_to_Name</DataField>
-        </Field>
-        <Field Name="Ship_to_Address">
-          <DataField>Ship_to_Address</DataField>
-        </Field>
-        <Field Name="Ship_to_Address_2">
-          <DataField>Ship_to_Address_2</DataField>
-        </Field>
-        <Field Name="Ship_to_City">
-          <DataField>Ship_to_City</DataField>
-        </Field>
-        <Field Name="Ship_to_Post_Code">
-          <DataField>Ship_to_Post_Code</DataField>
-        </Field>
-        <Field Name="CompanyRegistrationNo">
-          <DataField>CompanyRegistrationNo</DataField>
-        </Field>
-        <Field Name="TotalExclVAT">
-          <DataField>TotalExclVAT</DataField>
-        </Field>
-        <Field Name="TotalExclVATFormat">
-          <DataField>TotalExclVATFormat</DataField>
-        </Field>
-        <Field Name="TotalVAT">
-          <DataField>TotalVAT</DataField>
-        </Field>
-        <Field Name="TotalVATFormat">
-          <DataField>TotalVATFormat</DataField>
-        </Field>
-        <Field Name="TotalInclVAT">
-          <DataField>TotalInclVAT</DataField>
-        </Field>
-        <Field Name="TotalInclVATFormat">
-          <DataField>TotalInclVATFormat</DataField>
-        </Field>
-        <Field Name="LineDescription">
-          <DataField>LineDescription</DataField>
-        </Field>
-        <Field Name="LineQuantity">
-          <DataField>LineQuantity</DataField>
-        </Field>
-        <Field Name="LineQuantityFormat">
-          <DataField>LineQuantityFormat</DataField>
-        </Field>
-        <Field Name="LineUOM">
-          <DataField>LineUOM</DataField>
-        </Field>
-        <Field Name="LineUnitPrice">
-          <DataField>LineUnitPrice</DataField>
-        </Field>
-        <Field Name="LineUnitPriceFormat">
-          <DataField>LineUnitPriceFormat</DataField>
-        </Field>
-        <Field Name="LineAmountExclVAT">
-          <DataField>LineAmountExclVAT</DataField>
-        </Field>
-        <Field Name="LineAmountExclVATFormat">
-          <DataField>LineAmountExclVATFormat</DataField>
-        </Field>
-        <Field Name="VATDisplayTxt">
-          <DataField>VATDisplayTxt</DataField>
-        </Field>
-        <Field Name="VATBaseAmount">
-          <DataField>VATBaseAmount</DataField>
-        </Field>
-        <Field Name="VATBaseAmountFormat">
-          <DataField>VATBaseAmountFormat</DataField>
-        </Field>
-        <Field Name="VATLabelTxt">
-          <DataField>VATLabelTxt</DataField>
-        </Field>
-        <Field Name="VATAmount">
-          <DataField>VATAmount</DataField>
-        </Field>
-        <Field Name="VATAmountFormat">
-          <DataField>VATAmountFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2230,12 +2100,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -2273,4 +2137,128 @@ End Function
 </Code>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="ShipmentNo">
+          <DataField>ShipmentNo</DataField>
+        </Field>
+        <Field Name="PostingDateTxt">
+          <DataField>PostingDateTxt</DataField>
+        </Field>
+        <Field Name="ShipmentDateTxt">
+          <DataField>ShipmentDateTxt</DataField>
+        </Field>
+        <Field Name="OrderNo">
+          <DataField>OrderNo</DataField>
+        </Field>
+        <Field Name="CustomerOrderNo">
+          <DataField>CustomerOrderNo</DataField>
+        </Field>
+        <Field Name="Ship_to_Country_Region_Code">
+          <DataField>Ship_to_Country_Region_Code</DataField>
+        </Field>
+        <Field Name="Sell_to_Name">
+          <DataField>Sell_to_Name</DataField>
+        </Field>
+        <Field Name="Sell_to_Customer_No">
+          <DataField>Sell_to_Customer_No</DataField>
+        </Field>
+        <Field Name="Sell_to_Address">
+          <DataField>Sell_to_Address</DataField>
+        </Field>
+        <Field Name="Sell_to_Address_2">
+          <DataField>Sell_to_Address_2</DataField>
+        </Field>
+        <Field Name="Sell_to_Contact">
+          <DataField>Sell_to_Contact</DataField>
+        </Field>
+        <Field Name="Ship_to_Customer_No">
+          <DataField>Ship_to_Customer_No</DataField>
+        </Field>
+        <Field Name="Ship_to_Name">
+          <DataField>Ship_to_Name</DataField>
+        </Field>
+        <Field Name="Ship_to_Address">
+          <DataField>Ship_to_Address</DataField>
+        </Field>
+        <Field Name="Ship_to_Address_2">
+          <DataField>Ship_to_Address_2</DataField>
+        </Field>
+        <Field Name="Ship_to_City">
+          <DataField>Ship_to_City</DataField>
+        </Field>
+        <Field Name="Ship_to_Post_Code">
+          <DataField>Ship_to_Post_Code</DataField>
+        </Field>
+        <Field Name="CompanyRegistrationNo">
+          <DataField>CompanyRegistrationNo</DataField>
+        </Field>
+        <Field Name="TotalExclVAT">
+          <DataField>TotalExclVAT</DataField>
+        </Field>
+        <Field Name="TotalExclVATFormat">
+          <DataField>TotalExclVATFormat</DataField>
+        </Field>
+        <Field Name="TotalVAT">
+          <DataField>TotalVAT</DataField>
+        </Field>
+        <Field Name="TotalVATFormat">
+          <DataField>TotalVATFormat</DataField>
+        </Field>
+        <Field Name="TotalInclVAT">
+          <DataField>TotalInclVAT</DataField>
+        </Field>
+        <Field Name="TotalInclVATFormat">
+          <DataField>TotalInclVATFormat</DataField>
+        </Field>
+        <Field Name="LineDescription">
+          <DataField>LineDescription</DataField>
+        </Field>
+        <Field Name="LineQuantity">
+          <DataField>LineQuantity</DataField>
+        </Field>
+        <Field Name="LineQuantityFormat">
+          <DataField>LineQuantityFormat</DataField>
+        </Field>
+        <Field Name="LineUOM">
+          <DataField>LineUOM</DataField>
+        </Field>
+        <Field Name="LineUnitPrice">
+          <DataField>LineUnitPrice</DataField>
+        </Field>
+        <Field Name="LineUnitPriceFormat">
+          <DataField>LineUnitPriceFormat</DataField>
+        </Field>
+        <Field Name="LineAmountExclVAT">
+          <DataField>LineAmountExclVAT</DataField>
+        </Field>
+        <Field Name="LineAmountExclVATFormat">
+          <DataField>LineAmountExclVATFormat</DataField>
+        </Field>
+        <Field Name="VATDisplayTxt">
+          <DataField>VATDisplayTxt</DataField>
+        </Field>
+        <Field Name="VATBaseAmount">
+          <DataField>VATBaseAmount</DataField>
+        </Field>
+        <Field Name="VATBaseAmountFormat">
+          <DataField>VATBaseAmountFormat</DataField>
+        </Field>
+        <Field Name="VATLabelTxt">
+          <DataField>VATLabelTxt</DataField>
+        </Field>
+        <Field Name="VATAmount">
+          <DataField>VATAmount</DataField>
+        </Field>
+        <Field Name="VATAmountFormat">
+          <DataField>VATAmountFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>
