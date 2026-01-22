@@ -22,11 +22,12 @@ report 50027 "MRJ Delivery Note"
             column(Ship_to_Country_Region_Code; "Ship-to Country/Region Code") { }
 
             // Sell-to (right)
-            column(Sell_to_Name; "Sell-to Customer Name") { }
-            column(Sell_to_Customer_No; "Sell-to Customer No.") { }
-            column(Sell_to_Address; "Sell-to Address") { }
-            column(Sell_to_Address_2; "Sell-to Address 2") { }
-            column(Sell_to_Contact; "Sell-to Contact") { }
+            column(CompanyLogo; CompanyInfo.Picture) { }
+            column(CompanyAddr1; CompanyInfo.Name) { }
+            column(CompanyAddr2; CompanyInfo."Post Code") { }
+            column(CompanyAddr3; CompanyInfo.Address) { }
+            column(CompanyAddr4; CompanyInfo."Fax No.") { }   // 会社FAX番号
+            column(CompanyAddr5; CompanyInfo."Phone No.") { } // 会社電話番号
 
             // Ship-to (left)
             column(Ship_to_Customer_No; "Ship-to Code") { }

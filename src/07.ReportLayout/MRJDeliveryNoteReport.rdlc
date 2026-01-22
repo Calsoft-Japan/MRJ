@@ -46,48 +46,6 @@
         <Field Name="CustomerOrderNo">
           <DataField>CustomerOrderNo</DataField>
         </Field>
-        <Field Name="Ship_to_Country_Region_Code">
-          <DataField>Ship_to_Country_Region_Code</DataField>
-        </Field>
-        <Field Name="Sell_to_Name">
-          <DataField>Sell_to_Name</DataField>
-        </Field>
-        <Field Name="Sell_to_Customer_No">
-          <DataField>Sell_to_Customer_No</DataField>
-        </Field>
-        <Field Name="Sell_to_Address">
-          <DataField>Sell_to_Address</DataField>
-        </Field>
-        <Field Name="Sell_to_Address_2">
-          <DataField>Sell_to_Address_2</DataField>
-        </Field>
-        <Field Name="Sell_to_City">
-          <DataField>Sell_to_City</DataField>
-        </Field>
-        <Field Name="Sell_to_Post_Code">
-          <DataField>Sell_to_Post_Code</DataField>
-        </Field>
-        <Field Name="Sell_to_Phone_No">
-          <DataField>Sell_to_Phone_No</DataField>
-        </Field>
-        <Field Name="Ship_to_Customer_No">
-          <DataField>Ship_to_Customer_No</DataField>
-        </Field>
-        <Field Name="Ship_to_Name">
-          <DataField>Ship_to_Name</DataField>
-        </Field>
-        <Field Name="Ship_to_Address">
-          <DataField>Ship_to_Address</DataField>
-        </Field>
-        <Field Name="Ship_to_Address_2">
-          <DataField>Ship_to_Address_2</DataField>
-        </Field>
-        <Field Name="Ship_to_City">
-          <DataField>Ship_to_City</DataField>
-        </Field>
-        <Field Name="Ship_to_Post_Code">
-          <DataField>Ship_to_Post_Code</DataField>
-        </Field>
         <Field Name="CompanyRegistrationNo">
           <DataField>CompanyRegistrationNo</DataField>
         </Field>
@@ -204,45 +162,12 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>manr</Value>
+                        <Value>=Fields!CompanyLogo.Value</Value>
                         <Style>
-                          <FontFamily>Segoe UI</FontFamily>
+                          <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>16pt</FontSize>
                           <FontWeight>SemiBold</FontWeight>
                           <Color>Gray</Color>
-                        </Style>
-                      </TextRun>
-                      <TextRun>
-                        <Value>o</Value>
-                        <Style>
-                          <FontFamily>Segoe UI</FontFamily>
-                          <FontSize>16pt</FontSize>
-                          <FontWeight>SemiBold</FontWeight>
-                          <Color>Blue</Color>
-                        </Style>
-                      </TextRun>
-                      <TextRun>
-                        <Value>land</Value>
-                        <Style>
-                          <FontFamily>Segoe UI</FontFamily>
-                          <FontSize>16pt</FontSize>
-                          <FontWeight>SemiBold</FontWeight>
-                          <Color>Gray</Color>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Right</TextAlign>
-                    </Style>
-                  </Paragraph>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>sheetfed</Value>
-                        <Style>
-                          <FontFamily>Segoe UI</FontFamily>
-                          <FontWeight>SemiBold</FontWeight>
-                          <Color>Red</Color>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -251,49 +176,16 @@
                     </Style>
                   </Paragraph>
                 </Paragraphs>
-                <Top>0.80879cm</Top>
+                <Top>0.11392cm</Top>
                 <Left>12.65236cm</Left>
                 <Height>1.34111cm</Height>
-                <Width>3.63757cm</Width>
+                <Width>3.94269cm</Width>
                 <ZIndex>1</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
                   </Border>
                   <VerticalAlign>Middle</VerticalAlign>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Textbox Name="Textbox14">
-                <rd:DefaultName>Textbox12</rd:DefaultName>
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>=Fields!Sell_to_Contact.Value+ " " + "様"</Value>
-                        <Style>
-                          <FontFamily>MS UI Gothic</FontFamily>
-                          <FontSize>9pt</FontSize>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style />
-                  </Paragraph>
-                </Paragraphs>
-                <Top>3.17615cm</Top>
-                <Left>1.04475cm</Left>
-                <Height>0.47486cm</Height>
-                <Width>5.97133cm</Width>
-                <ZIndex>2</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
                   <PaddingLeft>2pt</PaddingLeft>
                   <PaddingRight>2pt</PaddingRight>
                   <PaddingTop>2pt</PaddingTop>
@@ -322,7 +214,7 @@
                 <Left>1.04475cm</Left>
                 <Height>0.50952cm</Height>
                 <Width>5.97133cm</Width>
-                <ZIndex>3</ZIndex>
+                <ZIndex>2</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -355,7 +247,7 @@
                 <Left>1.04475cm</Left>
                 <Height>0.49972cm</Height>
                 <Width>5.97133cm</Width>
-                <ZIndex>4</ZIndex>
+                <ZIndex>3</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -374,7 +266,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!Sell_to_Address.Value</Value>
+                        <Value>=Fields!CompanyAddr4.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -384,11 +276,11 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
-                <Top>3.91435cm</Top>
+                <Top>3.04309cm</Top>
                 <Left>10.31088cm</Left>
                 <Height>0.52318cm</Height>
                 <Width>6.28417cm</Width>
-                <ZIndex>5</ZIndex>
+                <ZIndex>4</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -407,7 +299,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>="〒" + Fields!Sell_to_Post_Code.Value</Value>
+                        <Value>="〒" + =Fields!CompanyAddr3.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -417,11 +309,11 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
-                <Top>3.39489cm</Top>
+                <Top>2.52363cm</Top>
                 <Left>10.31088cm</Left>
                 <Height>0.48418cm</Height>
                 <Width>6.28417cm</Width>
-                <ZIndex>6</ZIndex>
+                <ZIndex>5</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -440,7 +332,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!Sell_to_Name.Value</Value>
+                        <Value>=Fields!CompanyAddr1.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -450,44 +342,11 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
-                <Top>2.29101cm</Top>
+                <Top>1.45503cm</Top>
                 <Left>10.31088cm</Left>
                 <Height>0.51014cm</Height>
                 <Width>6.28417cm</Width>
-                <ZIndex>7</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <PaddingLeft>2pt</PaddingLeft>
-                  <PaddingRight>2pt</PaddingRight>
-                  <PaddingTop>2pt</PaddingTop>
-                  <PaddingBottom>2pt</PaddingBottom>
-                </Style>
-              </Textbox>
-              <Textbox Name="Textbox24">
-                <rd:DefaultName>Textbox12</rd:DefaultName>
-                <CanGrow>true</CanGrow>
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>="(" + Fields!Sell_to_Customer_No.value + ")"</Value>
-                        <Style>
-                          <FontFamily>MS UI Gothic</FontFamily>
-                          <FontSize>9pt</FontSize>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style />
-                  </Paragraph>
-                </Paragraphs>
-                <Top>1.58623cm</Top>
-                <Left>1.04475cm</Left>
-                <Height>0.47486cm</Height>
-                <Width>5.97133cm</Width>
-                <ZIndex>8</ZIndex>
+                <ZIndex>6</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -506,7 +365,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>="登録番号 :"　+ "  " + Fields!CompanyRegistrationNo.Value</Value>
+                        <Value>="登録番号 :"　+ "  " + Fields!CompanyAddr2.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -516,11 +375,11 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
-                <Top>2.87171cm</Top>
+                <Top>2.00045cm</Top>
                 <Left>10.31088cm</Left>
                 <Height>0.51014cm</Height>
                 <Width>6.28417cm</Width>
-                <ZIndex>9</ZIndex>
+                <ZIndex>7</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -552,7 +411,7 @@
                 <Left>13.51684cm</Left>
                 <Height>1.03919cm</Height>
                 <Width>1.43793cm</Width>
-                <ZIndex>10</ZIndex>
+                <ZIndex>8</ZIndex>
                 <Style>
                   <Border>
                     <Color>LightGrey</Color>
@@ -583,7 +442,7 @@
                 <Left>15.09588cm</Left>
                 <Height>1.03919cm</Height>
                 <Width>1.43793cm</Width>
-                <ZIndex>11</ZIndex>
+                <ZIndex>9</ZIndex>
                 <Style>
                   <Border>
                     <Color>LightGrey</Color>
@@ -635,7 +494,7 @@
                 <Left>13.51684cm</Left>
                 <Height>0.51412cm</Height>
                 <Width>1.43793cm</Width>
-                <ZIndex>12</ZIndex>
+                <ZIndex>10</ZIndex>
                 <Style>
                   <Border>
                     <Color>LightGrey</Color>
@@ -688,7 +547,7 @@
                 <Left>15.09588cm</Left>
                 <Height>0.51412cm</Height>
                 <Width>1.43793cm</Width>
-                <ZIndex>13</ZIndex>
+                <ZIndex>11</ZIndex>
                 <Style>
                   <Border>
                     <Color>LightGrey</Color>
@@ -1240,7 +1099,7 @@
                 <Left>0.31136cm</Left>
                 <Height>1.37612cm</Height>
                 <Width>16.22242cm</Width>
-                <ZIndex>14</ZIndex>
+                <ZIndex>12</ZIndex>
                 <Style>
                   <Border>
                     <Color>LightGrey</Color>
@@ -1282,11 +1141,11 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
-                <Top>5.1029cm</Top>
-                <Left>0.31136cm</Left>
+                <Top>5.13818cm</Top>
+                <Left>0.33355cm</Left>
                 <Height>0.50328cm</Height>
                 <Width>6.68253cm</Width>
-                <ZIndex>15</ZIndex>
+                <ZIndex>13</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1319,7 +1178,7 @@
                 <Left>0.31136cm</Left>
                 <Height>0.50328cm</Height>
                 <Width>6.68253cm</Width>
-                <ZIndex>16</ZIndex>
+                <ZIndex>14</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1588,7 +1447,7 @@
                 <Left>11.76378cm</Left>
                 <Height>1.48551cm</Height>
                 <Width>4.77cm</Width>
-                <ZIndex>17</ZIndex>
+                <ZIndex>15</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -1787,13 +1646,46 @@
                 <Left>4.04444cm</Left>
                 <Height>0.49517cm</Height>
                 <Width>7.48284cm</Width>
-                <ZIndex>18</ZIndex>
+                <ZIndex>16</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
                   </Border>
                 </Style>
               </Tablix>
+              <Textbox Name="Textbox21">
+                <rd:DefaultName>Textbox12</rd:DefaultName>
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=Fields!CompanyAddr5.Value</Value>
+                        <Style>
+                          <FontFamily>MS UI Gothic</FontFamily>
+                          <FontSize>9pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <Top>3.60155cm</Top>
+                <Left>10.31088cm</Left>
+                <Height>0.52318cm</Height>
+                <Width>6.28417cm</Width>
+                <ZIndex>17</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.02719cm</Top>
