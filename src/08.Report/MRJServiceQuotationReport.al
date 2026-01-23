@@ -305,55 +305,53 @@ report 50021 "MRJ Service Quotation"
 
     local procedure SummarizeServiceLines()
     var
-        ServiceLine: Record "Service Line";
-        Resource: Record Resource;
-        ResGroup: Record "Resource Group";
-        GroupKey: Text[100];
-        TargetUnitPrice: Decimal;
+        ServiceMgtSetup: Record "Service Mgt. Setup";
+        ResourceGroup: Record "Resource Group";
+        TargetGroupCode: Code[20];
+        TargetGroupName: Text[100];
     begin
-        TempServiceLine.Reset();
-        TempServiceLine.DeleteAll();
+        ServiceMgtSetup.Get();
+        TempServiceLine.DeleteAll(); // 一時テーブルのクリア
 
-        ServiceLine.SetRange("Document Type", ServiceHeader."Document Type");
-        ServiceLine.SetRange("Document No.", ServiceHeader."No.");
         if ServiceLine.FindSet() then
             repeat
-                // --- 集計キー（品名/グループ名）と単価の決定 ---
-                GroupKey := ServiceLine.Description;
-                TargetUnitPrice := ServiceLine."Unit Price";
+                // 1. デフォルトの集計キーをセット
+                TargetGroupCode := ServiceLine."Resource Group No.";
+                TargetGroupName := '';
 
-                if ServiceLine.Type = ServiceLine.Type::Resource then begin
-                    if Resource.Get(ServiceLine."No.") then begin
-                        if ResGroup.Get(Resource."Resource Group No.") then
-                            GroupKey := ResGroup.Name;
+                // 2. フィルター設定がある場合、読み替え判定を行う
+                if (ServiceMgtSetup."Resource Group Filter" <> '') and (TargetGroupCode <> '') then begin
+                    // ダミーのRecord変数にフィルターを適用して、現在の行が含まれるか判定
+                    ResourceGroup.Reset();
+                    ResourceGroup.SetFilter("No.", ServiceMgtSetup."Resource Group Filter");
+                    ResourceGroup.SetRange("No.", TargetGroupCode);
+
+                    if not ResourceGroup.IsEmpty then begin
+                        // フィルターに合致した場合は、集約用のグループコードに読み替える
+                        TargetGroupCode := ServiceMgtSetup."Resource Group for Sort";
+
+                        // 集約後の名称を取得（任意で説明文を書き換える場合）
+                        if ResourceGroup.Get(TargetGroupCode) then
+                            TargetGroupName := ResourceGroup.Name;
                     end;
-                    // リソースの場合は単価を 0 に固定（RDLCで非表示にするため）
-                    TargetUnitPrice := 0;
                 end;
 
-                // --- 既存行の検索 ---
-                // 「品名 + 単価 + 単位」の3要素がすべて一致する場合のみ合算する
+                // 3. 一時テーブル（TempServiceLine）への集計処理
                 TempServiceLine.Reset();
-                TempServiceLine.SetRange(Description, GroupKey);
-                TempServiceLine.SetRange("Unit Price", TargetUnitPrice);
-                TempServiceLine.SetRange("Unit of Measure Code", ServiceLine."Unit of Measure Code"); // ★単位を検索条件に追加
+                TempServiceLine.SetRange("Resource Group No.", TargetGroupCode);
 
                 if TempServiceLine.FindFirst() then begin
-                    // 一致する行があれば数量と金額を加算
+                    // すでに対象グループの行があれば金額・数量を加算
                     TempServiceLine.Quantity += ServiceLine.Quantity;
                     TempServiceLine."Line Amount" += ServiceLine."Line Amount";
                     TempServiceLine."Amount Including VAT" += ServiceLine."Amount Including VAT";
                     TempServiceLine.Modify();
                 end else begin
-                    // 一致する行がなければ新しい集計行を作成
-                    TempServiceLine.Init();
-                    TempServiceLine."Line No." := TempServiceLine."Line No." + 10000;
-                    TempServiceLine.Description := GroupKey;
-                    TempServiceLine.Quantity := ServiceLine.Quantity;
-                    TempServiceLine."Unit of Measure Code" := ServiceLine."Unit of Measure Code"; // 単位を保持
-                    TempServiceLine."Unit Price" := TargetUnitPrice;
-                    TempServiceLine."Line Amount" := ServiceLine."Line Amount";
-                    TempServiceLine."Amount Including VAT" := ServiceLine."Amount Including VAT";
+                    // 新規グループとして一行作成
+                    TempServiceLine := ServiceLine;
+                    TempServiceLine."Resource Group No." := TargetGroupCode;
+                    if TargetGroupName <> '' then
+                        TempServiceLine.Description := TargetGroupName; // 名称を読み替え後のものに
                     TempServiceLine.Insert();
                 end;
             until ServiceLine.Next() = 0;
