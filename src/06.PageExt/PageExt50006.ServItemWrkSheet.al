@@ -61,6 +61,9 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet Su
         PurchHeader."Service Order No." := Rec."Document No.";
         PurchHeader."Service Item Line No." := Rec."Line No.";
         PurchHeader."Responsibility Center" := Rec."Responsibility Center";
+        PurchHeader."Shortcut Dimension 1 Code" := Rec."Shortcut Dimension 1 Code";
+        PurchHeader."Shortcut Dimension 2 Code" := Rec."Shortcut Dimension 2 Code";
+        PurchHeader."Dimension Set ID" := Rec."Dimension Set ID";
         PurchHeader.Modify(true);
 
         //if Rec."Document Type" = Rec."Document Type"::Order then
