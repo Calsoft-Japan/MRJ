@@ -4540,12 +4540,6 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="FlatLineAmountFormat">
           <DataField>FlatLineAmountFormat</DataField>
         </Field>
-        <Field Name="FlatGrossAmt">
-          <DataField>FlatGrossAmt</DataField>
-        </Field>
-        <Field Name="FlatGrossAmtFormat">
-          <DataField>FlatGrossAmtFormat</DataField>
-        </Field>
         <Field Name="CommentText">
           <DataField>CommentText</DataField>
         </Field>
