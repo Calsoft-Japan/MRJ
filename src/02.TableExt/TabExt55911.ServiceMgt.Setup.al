@@ -4,12 +4,12 @@ tableextension 55911 "Service Mgt. Setup Ext" extends "Service Mgt. Setup"
     {
         field(50100; "Resource Group Filter"; Text[250])
         {
-            Caption = 'Resource Group Filter';
+            Caption = '作業費リソースグループフィルター';
             DataClassification = CustomerContent;
         }
         field(50101; "Resource Group for Sort"; Code[20])
         {
-            Caption = 'Resource Group for Sort';
+            Caption = 'ソード優先リソースグループ';
             DataClassification = CustomerContent;
             TableRelation = "Resource Group";
         }
