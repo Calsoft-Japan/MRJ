@@ -12,6 +12,10 @@ pageextension 55919 "Service Mgt. Setup Ext" extends "Service Mgt. Setup"
             {
                 ApplicationArea = All;
             }
+            field("G/L Account for Repair"; Rec."G/L Account for Repair")
+            {
+                ApplicationArea = All;
+            }
         }
     }
 }
