@@ -14,28 +14,28 @@ report 50027 "MRJ Delivery Note"
             RequestFilterFields = "No.", "Sell-to Customer No.";
 
             // ==== Header fields ====
+            column(CompanyLogo; CompanyInfo.Picture) { }
             column(ShipmentNo; "No.") { }
             column(PostingDateTxt; PostingDateTxt) { }
             column(ShipmentDateTxt; ShipmentDateTxt) { }
             column(OrderNo; "Order No.") { }
             column(CustomerOrderNo; CustomerOrderNo) { }
+            column(CustNo; "Sell-to Customer No.") { }
             column(Ship_to_Country_Region_Code; "Ship-to Country/Region Code") { }
 
             // Sell-to (right)
-            column(CompanyLogo; CompanyInfo.Picture) { }
             column(CompanyAddr1; CompanyInfo.Name) { }
             column(CompanyAddr2; CompanyInfo."Post Code") { }
             column(CompanyAddr3; CompanyInfo.Address) { }
-            column(CompanyAddr4; CompanyInfo."Fax No.") { }   // 会社FAX番号
-            column(CompanyAddr5; CompanyInfo."Phone No.") { } // 会社電話番号
+            column(CompanyAddr4; CompanyInfo."Fax No.") { }
+            column(CompanyAddr5; CompanyInfo."Phone No.") { }
 
             // Ship-to (left)
-            column(Ship_to_Customer_No; "Ship-to Code") { }
-            column(Ship_to_Name; "Ship-to Name") { }
-            column(Ship_to_Address; "Ship-to Address") { }
-            column(Ship_to_Address_2; "Ship-to Address 2") { }
-            column(Ship_to_City; "Ship-to City") { }
-            column(Ship_to_Post_Code; "Ship-to Post Code") { }
+            column(CustName; "Ship-to Name") { }
+            column(CustAddr1; "Ship-to Post Code") { }
+            column(CustAddr2; "Ship-to Address") { }
+            column(CustAddr3; "Ship-to Address 2") { }
+            column(CustAddr4; "Ship-to Contact") { }
 
             // Qualified invoice requirement
             column(CompanyRegistrationNo; CompanyInfo."VAT Registration No.") { }
@@ -57,12 +57,14 @@ report 50027 "MRJ Delivery Note"
                 column(LineUOM; "Unit of Measure Code") { }
                 column(LineUnitPrice; "Unit Price") { }
 
-                // Tax-excl line amount used on Delivery Note (must match totals)
+                // ✅ calculated (tax excl., incl. discount) from Sales Order line
                 column(LineAmountExclVAT; LineAmtExclVAT) { }
+
+                column(LineDiscountPct; "Line Discount %") { } // optional
 
                 trigger OnAfterGetRecord()
                 begin
-                    LineAmtExclVAT := CalcShipmentLineBase("Sales Shipment Line");
+                    LineAmtExclVAT := CalcShptLineAmountFromSource("Sales Shipment Line");
                 end;
             }
 
@@ -71,13 +73,9 @@ report 50027 "MRJ Delivery Note"
             {
                 DataItemTableView = sorting(Number);
 
-                // ① 非課税 / xx%対象
                 column(VATDisplayTxt; VATDisplayTxt) { }
-                // ② 課税対象額（税抜）
                 column(VATBaseAmount; VATBaseAmount) { }
-                // ③ 消費税（ラベル）
                 column(VATLabelTxt; '消費税') { }
-                // ④ 消費税額
                 column(VATAmount; VATAmount) { }
 
                 trigger OnPreDataItem()
@@ -102,8 +100,6 @@ report 50027 "MRJ Delivery Note"
                         VATDisplayTxt := Format(VatPct) + '%対象';
 
                     VATBaseAmount := BaseDec;
-
-                    // VAT amount per rate (FDD: round to 1 decimal place)
                     VATAmount := Round(VATBaseAmount * VatPct / 100, 0.1);
                 end;
             }
@@ -138,22 +134,21 @@ report 50027 "MRJ Delivery Note"
 
                 if SalesShptLineTmp.FindSet() then
                     repeat
-                        // Only include real item lines in totals and VAT summary
-                        if SalesShptLineTmp.Type <> SalesShptLineTmp.Type::Item then
+                        // Include Item + Resource
+                        if not (SalesShptLineTmp.Type in [SalesShptLineTmp.Type::Item, SalesShptLineTmp.Type::Resource]) then
                             continue;
 
                         if SalesShptLineTmp.Quantity = 0 then
                             continue;
 
-                        LineBase := CalcShipmentLineBase(SalesShptLineTmp);
+                        // ✅ calculate base from source Sales Order line
+                        LineBase := CalcShptLineAmountFromSource(SalesShptLineTmp);
                         if LineBase = 0 then
                             continue;
 
                         TotalExclVAT += LineBase;
 
-                        // For header totals, keep consistent rounding with VAT summary (0.1)
                         LineVAT := Round(LineBase * SalesShptLineTmp."VAT %" / 100, 0.1);
-
                         TotalVAT += LineVAT;
                         TotalInclVAT += LineBase + LineVAT;
 
@@ -171,15 +166,7 @@ report 50027 "MRJ Delivery Note"
 
         AmountPrecision := GLSetup."Amount Rounding Precision";
         if AmountPrecision = 0 then
-            AmountPrecision := 1; // safe default (JPY)
-    end;
-
-    // ===== Helpers =====
-
-    local procedure CalcShipmentLineBase(var ShptLine: Record "Sales Shipment Line"): Decimal
-    begin
-        // Calculate line base amount without line discount amount field.
-        exit(Round(ShptLine.Quantity * ShptLine."Unit Price", AmountPrecision));
+            AmountPrecision := 1;
     end;
 
     local procedure AddOrUpdateVatSummary(VatPct: Decimal; VatBase: Decimal)
@@ -216,6 +203,26 @@ report 50027 "MRJ Delivery Note"
         VatPctList.Add(VatPct);
     end;
 
+    local procedure CalcShptLineAmountFromSource(ShptLine: Record "Sales Shipment Line"): Decimal
+    var
+        SrcSalesLine: Record "Sales Line";
+        Amt: Decimal;
+    begin
+        // Most environments: shipment amounts are 0; use source Sales Order line amount
+        if (ShptLine."Order No." <> '') and (ShptLine."Order Line No." <> 0) then begin
+            SrcSalesLine.Reset();
+            SrcSalesLine.SetRange("Document Type", SrcSalesLine."Document Type"::Order);
+            SrcSalesLine.SetRange("Document No.", ShptLine."Order No.");
+            SrcSalesLine.SetRange("Line No.", ShptLine."Order Line No.");
+            if SrcSalesLine.FindFirst() then
+                exit(SrcSalesLine."Line Amount");
+        end;
+
+        // Fallback: compute from shipment fields
+        Amt := ShptLine.Quantity * ShptLine."Unit Price" * (1 - ShptLine."Line Discount %" / 100);
+        exit(Round(Amt, AmountPrecision));
+    end;
+
     var
         CompanyInfo: Record "Company Information";
         GLSetup: Record "General Ledger Setup";
@@ -225,14 +232,14 @@ report 50027 "MRJ Delivery Note"
         ShipmentDateTxt: Text[50];
         CustomerOrderNo: Text[50];
 
-        LineAmtExclVAT: Decimal;
         LineBase: Decimal;
+        LineAmtExclVAT: Decimal;
 
         TotalExclVAT: Decimal;
         TotalVAT: Decimal;
         TotalInclVAT: Decimal;
 
-        VatSummaryDict: Dictionary of [Decimal, Decimal]; // Key: VAT %, Value: summed base
+        VatSummaryDict: Dictionary of [Decimal, Decimal];
         VatPctList: List of [Decimal];
 
         VATDisplayTxt: Text[20];
