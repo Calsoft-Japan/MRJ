@@ -22,15 +22,28 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet Su
                     Caption = 'Create (Parts)';
                     Image = CreateDocument;
                     trigger OnAction()
-                    var
-                        Text007: Label 'Do you want to create Purchase Order?';
-                        Text020: Label 'The function is effective on the Service Order only.';
                     begin
                         if Rec."Document Type" <> Rec."Document Type"::Order then
                             Error(Text020);
 
                         if Dialog.Confirm(Text007, true) then
                             CreatePurchOrder(false);
+                    end;
+                }
+                action(CreateOutsource)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Create (Outsource)';
+                    Image = CreateDocument;
+                    trigger OnAction()
+                    var
+
+                    begin
+                        if Rec."Document Type" <> Rec."Document Type"::Order then
+                            Error(Text020);
+
+                        if Dialog.Confirm(Text007, true) then
+                            CreatePurchOrder(true);
                     end;
                 }
             }
@@ -44,8 +57,6 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet Su
         PurchLine: Record "Purchase Line";
         ServLine: Record "Service Line";
         VendorNo: Code[20];
-        Text009: Label 'Process is cancelled because Vendor No.  is empty.';
-        Text011: Label 'Purchase Order ''%1'' was created, do you want to open?';
     begin
         Clear(Vendor);
         VendorNo := '';
@@ -98,13 +109,19 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet Su
                     PurchLine.Validate(Quantity, ServLine.Quantity);
                     PurchLine.Validate("Unit of Measure Code", ServLine."Unit of Measure Code");
                     PurchLine.Insert(true);
-                until (ServLine.Next() = 0);
+                until ServLine.Next() = 0;
             end;
         end;
 
         if Dialog.Confirm(StrSubstNo(Text011, PurchHeader."No."), true) then begin
             Commit();
             Page.RunModal(Page::"Purchase Order", PurchHeader);
-        END;
+        end;
     end;
+
+    var
+        Text007: Label 'Do you want to create Purchase Order?';
+        Text009: Label 'Process is cancelled because Vendor No.  is empty.';
+        Text011: Label 'Purchase Order ''%1'' was created, do you want to open?';
+        Text020: Label 'The function is effective on the Service Order only.';
 }
