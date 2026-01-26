@@ -14,6 +14,7 @@ report 50021 "MRJ Service Quotation"
             RequestFilterFields = "No.", "Customer No.";
 
             column(No_ServHeader; "No.") { }
+            column(Description_ServHeader; Description) { }
             column(DocumentType_ServHeader; "Document Type") { }
             column(OutputNo; 1) { }
             column(QuoteNo; "No.") { }
@@ -30,13 +31,9 @@ report 50021 "MRJ Service Quotation"
             column(CompanyPicture; CompanyInfo.Picture) { }
             column(CompanyEMail; CompanyInfo."E-Mail") { }
             column(Email; CompanyInfo."E-Mail") { }
-
             column(PaymentTermTxt; PaymentTermDesc) { }
             column(PaymentMethodTxt; PaymentMethodDesc) { }
-
             column(DueDate; "Due Date") { }
-
-            // --- Caption
             column(EmailCaption; CompanyInfo.FieldCaption("E-Mail")) { }
             column(HomePageCaption; CompanyInfo.FieldCaption("Home Page")) { }
             column(PhoneNoCaption; CompanyInfo.FieldCaption("Phone No.")) { }
@@ -47,18 +44,13 @@ report 50021 "MRJ Service Quotation"
             column(BankAccountNoCaption; CompanyInfo.FieldCaption("Bank Account No.")) { }
             column(SerHdrOrderDateCaption; ServiceHeader.FieldCaption("Order Date")) { }
             column(ServiceItemLinesCaption; 'サービス品目ライン') { }
-
-
-            // --- 番号・日付・ページ等の見出し不足分を一挙追加 ---
             column(No1_ServHeaderCaption; ServiceHeader.FieldCaption("No.")) { }
             column(OrderDate_ServHeaderCaption; ServiceHeader.FieldCaption("Order Date")) { }
             column(OrderTime_ServHeaderCaption; ServiceHeader.FieldCaption("Order Time")) { }
             column(Status_ServHeaderCaption; ServiceHeader.FieldCaption(Status)) { }
             column(PageNoCaption; 'ページ番号') { }
             column(PageCaption; 'ページ') { }
-
             column(DocumentDateCaption; '日付') { }
-            // --- CompanyInfo系のCaption（見出し）不足分を追加 ---
             column(CompanyInfoPhoneNoCaption; CompanyInfo.FieldCaption("Phone No.")) { }
             column(CompanyInfoFaxNoCaption; CompanyInfo.FieldCaption("Fax No.")) { }
             column(CompanyInfoEmailCaption; CompanyInfo.FieldCaption("E-Mail")) { }
@@ -67,29 +59,21 @@ report 50021 "MRJ Service Quotation"
             column(CompanyInfoGiroNoCaption; CompanyInfo.FieldCaption("Giro No.")) { }
             column(CompanyInfoBankNameCaption; CompanyInfo.FieldCaption("Bank Name")) { }
             column(CompanyInfoBankAccNoCaption; CompanyInfo.FieldCaption("Bank Account No.")) { }
-
-
-            // ==== ★追加項目 (RDLCのHidden式や住所計算エラーの解消用) ====
             column(No1_ServHeader; "No.") { }
             column(Status_ServHeader; Status) { }
             column(OrderDate_ServHeader; Format("Order Date")) { }
             column(OrderTime_ServHeader; "Order Time") { }
             column(CompanyInfoPhoneNo; CompanyInfo."Phone No.") { }
             column(VATRegistrationNo_ServHeader; "VAT Registration No.") { }
-
-            // 顧客・請求先連絡先
             column(PhoneNo_ServHeader; "Phone No.") { }
             column(FaxNo_ServHeader; "Fax No.") { }
             column(EMail_ServHeader; "E-Mail") { }
             column(CustNo_ServHeader; "Customer No.") { }
-            // --- 宛先・見出し系の不足項目をまとめて追加 ---
             column(CustName; "Name") { }
             column(InvoicetoCaption; '請求先') { } // 直接テキスト、または見出し変数
             column(AppliestoDocType_ServHeaderCaption; ServiceHeader.FieldCaption("Applies-to Doc. Type")) { }
             column(AppliestoDocNo_ServHeaderCaption; ServiceHeader.FieldCaption("Applies-to Doc. No.")) { }
             column(ServiceOrderNo_ServHeaderCaption; 'サービス注文番号') { }
-
-            // Bill-to Customer 関連
             column(BilltoCustNo_ServHeader; "Bill-to Customer No.") { }
             column(BilltoName_ServHeader; "Bill-to Name") { }
             column(BilltoName2_ServHeader; "Bill-to Name 2") { }
@@ -100,8 +84,6 @@ report 50021 "MRJ Service Quotation"
             column(BilltoCounty_ServHeader; "Bill-to County") { }
             column(BilltoCountryCode_ServHeader; "Bill-to Country/Region Code") { }
             column(BilltoContact_ServHeader; "Bill-to Contact") { }
-
-            // 顧客住所 (配列)
             column(CustAddr1; CustAddr[1]) { }
             column(CustAddr2; CustAddr[2]) { }
             column(CustAddr3; CustAddr[3]) { }
@@ -111,8 +93,6 @@ report 50021 "MRJ Service Quotation"
             column(CustAddr7; CustAddr[7]) { }
             column(CustAddr8; CustAddr[8]) { }
             column(CustPostCode; "Post Code") { }
-
-            // 自社住所 (配列)
             column(CompanyAddr1; CompanyAddr[1]) { }
             column(CompanyAddr2; CompanyAddr[2]) { }
             column(CompanyAddr3; CompanyAddr[3]) { }
@@ -157,12 +137,10 @@ report 50021 "MRJ Service Quotation"
                     column(Amt; "Line Amount") { }
                     column(GrossAmt; "Amount Including VAT") { }
                     column(LineUOM; "Unit of Measure Code") { }
-
                     column(SerItemSlNo_ServLineCaption; FieldCaption("Service Item Line No.")) { }
                     column(Quantity_ServLineCaption; FieldCaption(Quantity)) { }
                     column(UnitPrice_ServLineCaption; FieldCaption("Unit Price")) { }
                     column(Description_ServLineCaption; FieldCaption(Description)) { }
-
 
                     trigger OnPreDataItem()
                     begin
@@ -174,34 +152,40 @@ report 50021 "MRJ Service Quotation"
             dataitem(SummarizedLine; "Integer")
             {
                 DataItemTableView = sorting(Number);
+
+                // レコードフィールドではなく、グローバル変数を参照させる
                 column(FlatLineNo_ServLine; Number) { }
-                column(FlatLineDescription; TempServiceLine.Description) { }
-                column(FlatLineQuantity; TempServiceLine.Quantity) { }
-                column(FlatLineUOM; TempServiceLine."Unit of Measure Code") { }
-                column(FlatUnitPrice; TempServiceLine."Unit Price") { } // 単価
-                column(FlatLineAmount; TempServiceLine."Line Amount") { } // 金額(税抜)
-                column(FlatGrossAmt; TempServiceLine."Amount Including VAT") { } // 金額(税込)
+                column(FlatLineDescription; Description) { } // Text型のDescription変数
+                column(FlatLineQuantity; FlatQty) { }
+                column(FlatLineUOM; FlatUOM) { }
+                column(FlatUnitPrice; FlatPrice) { }
+                column(FlatLineAmount; FlatAmount) { }
 
                 trigger OnPreDataItem()
                 begin
-
                     if not SummarizeLines then
                         CurrReport.Break();
 
                     SummarizeServiceLines();
-
                     SetRange(Number, 1, TempServiceLine.Count());
+
+                    if TempServiceLine.FindSet() then;
                 end;
 
                 trigger OnAfterGetRecord()
                 begin
-                    if Number = 1 then
-                        TempServiceLine.FindSet()
-                    else
-                        TempServiceLine.Next();
-                    // デバッグ用メッセージ
-                    Message('Loop: %1, Desc: %2, Total Count: %3', Number, TempServiceLine.Description, TempServiceLine.Count());
+                    // 現在のレコードの内容を変数に代入（これでRDLCに確実に値が流れる）
+                    Description := TempServiceLine.Description;
+                    FlatQty := TempServiceLine.Quantity;
+                    FlatUOM := TempServiceLine."Unit of Measure Code";
+                    FlatPrice := TempServiceLine."Unit Price";
+                    FlatAmount := TempServiceLine."Line Amount";
 
+                    // メッセージで「代入された瞬間」を確認
+                    Message('Loop: %1, Exporting: %2', Number, Description);
+
+                    // 次のレコードへ移動
+                    if TempServiceLine.Next() = 0 then;
                 end;
             }
 
@@ -263,6 +247,11 @@ report 50021 "MRJ Service Quotation"
         TotalInclVAT: Decimal;
         ShowOrderInfo: Boolean;
         SummarizeLines: Boolean;
+        Description: Text;
+        FlatQty: Decimal;
+        FlatUOM: Code[10];
+        FlatPrice: Decimal;
+        FlatAmount: Decimal;
 
     local procedure UpdateHeaderInfo()
     var
@@ -273,7 +262,7 @@ report 50021 "MRJ Service Quotation"
         if ShowOrderInfo then
             TitleTxt := 'サービス見積書 兼 注文書'
         else
-            TitleTxt := '御見積書';
+            TitleTxt := 'サービス見積書';
 
         QuoteDateTxt := Format(ServiceHeader."Document Date", 0, '<Year4>年<Month,2>月<Day,2>日');
 
@@ -305,57 +294,69 @@ report 50021 "MRJ Service Quotation"
 
     local procedure SummarizeServiceLines()
     var
-        ServiceLine: Record "Service Line";
-        Resource: Record Resource;
-        ResGroup: Record "Resource Group";
-        GroupKey: Text[100];
-        TargetUnitPrice: Decimal;
+        ServiceLineRec: Record "Service Line";
+        Res: Record Resource;
+        ResGrp: Record "Resource Group";
+        NextLineNo: Integer;
+        CurrentResGrp: Code[20];
     begin
+        // 一時テーブルを初期化
         TempServiceLine.Reset();
         TempServiceLine.DeleteAll();
+        NextLineNo := 10000;
 
-        ServiceLine.SetRange("Document Type", ServiceHeader."Document Type");
-        ServiceLine.SetRange("Document No.", ServiceHeader."No.");
-        if ServiceLine.FindSet() then
+        // 実際の明細（5件）を取得
+        ServiceLineRec.SetRange("Document Type", ServiceHeader."Document Type");
+        ServiceLineRec.SetRange("Document No.", ServiceHeader."No.");
+
+        if ServiceLineRec.FindSet() then
             repeat
-                // --- 集計キー（品名/グループ名）と単価の決定 ---
-                GroupKey := ServiceLine.Description;
-                TargetUnitPrice := ServiceLine."Unit Price";
+                CurrentResGrp := '';
 
-                if ServiceLine.Type = ServiceLine.Type::Resource then begin
-                    if Resource.Get(ServiceLine."No.") then begin
-                        if ResGroup.Get(Resource."Resource Group No.") then
-                            GroupKey := ResGroup.Name;
+                // --- 判定：リソースの場合のみマスタからグループ番号を引く ---
+                if ServiceLineRec.Type = ServiceLineRec.Type::Resource then begin
+                    if Res.Get(ServiceLineRec."No.") then
+                        CurrentResGrp := Res."Resource Group No.";
+                end;
+
+                // --- 名寄せの実行（リソース且つグループ番号がある場合のみ） ---
+                if (ServiceLineRec.Type = ServiceLineRec.Type::Resource) and (CurrentResGrp <> '') then begin
+
+                    TempServiceLine.Reset();
+                    TempServiceLine.SetRange(Type, TempServiceLine.Type::Resource);
+                    TempServiceLine.SetRange("Resource Group No.", CurrentResGrp);
+
+                    if TempServiceLine.FindFirst() then begin
+                        // 【発見】同じグループなら既存行の金額と数量を加算
+                        TempServiceLine.Quantity += ServiceLineRec.Quantity;
+                        TempServiceLine."Line Amount" += ServiceLineRec."Line Amount";
+                        TempServiceLine."Amount Including VAT" += ServiceLineRec."Amount Including VAT";
+                        TempServiceLine.Modify();
+                        continue; // 合算したので次のServiceLineRecへ進む
                     end;
-                    // リソースの場合は単価を 0 に固定（RDLCで非表示にするため）
-                    TargetUnitPrice := 0;
                 end;
 
-                // --- 既存行の検索 ---
-                // 「品名 + 単価 + 単位」の3要素がすべて一致する場合のみ合算する
+                // --- 新規挿入（アイテム、または新しいリソースグループ） ---
                 TempServiceLine.Reset();
-                TempServiceLine.SetRange(Description, GroupKey);
-                TempServiceLine.SetRange("Unit Price", TargetUnitPrice);
-                TempServiceLine.SetRange("Unit of Measure Code", ServiceLine."Unit of Measure Code"); // ★単位を検索条件に追加
+                TempServiceLine.Init();
+                TempServiceLine.TransferFields(ServiceLineRec);
 
-                if TempServiceLine.FindFirst() then begin
-                    // 一致する行があれば数量と金額を加算
-                    TempServiceLine.Quantity += ServiceLine.Quantity;
-                    TempServiceLine."Line Amount" += ServiceLine."Line Amount";
-                    TempServiceLine."Amount Including VAT" += ServiceLine."Amount Including VAT";
-                    TempServiceLine.Modify();
-                end else begin
-                    // 一致する行がなければ新しい集計行を作成
-                    TempServiceLine.Init();
-                    TempServiceLine."Line No." := TempServiceLine."Line No." + 10000;
-                    TempServiceLine.Description := GroupKey;
-                    TempServiceLine.Quantity := ServiceLine.Quantity;
-                    TempServiceLine."Unit of Measure Code" := ServiceLine."Unit of Measure Code"; // 単位を保持
-                    TempServiceLine."Unit Price" := TargetUnitPrice;
-                    TempServiceLine."Line Amount" := ServiceLine."Line Amount";
-                    TempServiceLine."Amount Including VAT" := ServiceLine."Amount Including VAT";
-                    TempServiceLine.Insert();
+                // 主キー(Line No.)を再採番して重複を回避
+                TempServiceLine."Line No." := NextLineNo;
+                NextLineNo += 10000;
+
+                // 検索用にグループ番号を一時テーブルのフィールドに保持
+                TempServiceLine."Resource Group No." := CurrentResGrp;
+
+                // リソースの場合は、名称をリソースグループ名（例：外注作業費）に書き換え
+                if (ServiceLineRec.Type = ServiceLineRec.Type::Resource) and (CurrentResGrp <> '') then begin
+                    if ResGrp.Get(CurrentResGrp) then
+                        TempServiceLine.Description := ResGrp.Name;
                 end;
-            until ServiceLine.Next() = 0;
+
+                TempServiceLine.Insert();
+            until ServiceLineRec.Next() = 0;
+
+        TempServiceLine.Reset();
     end;
 }
