@@ -24,385 +24,6 @@
       <rd:DataSourceID>74ffd5e4-9060-4fdc-9a3d-dbedc92fc8cb</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="No_ServHeader">
-          <DataField>No_ServHeader</DataField>
-        </Field>
-        <Field Name="DocumentType_ServHeader">
-          <DataField>DocumentType_ServHeader</DataField>
-        </Field>
-        <Field Name="OutputNo">
-          <DataField>OutputNo</DataField>
-        </Field>
-        <Field Name="QuoteNo">
-          <DataField>QuoteNo</DataField>
-        </Field>
-        <Field Name="QuoteDateTxt">
-          <DataField>QuoteDateTxt</DataField>
-        </Field>
-        <Field Name="TitleTxt">
-          <DataField>TitleTxt</DataField>
-        </Field>
-        <Field Name="ShowOrderInfo">
-          <DataField>ShowOrderInfo</DataField>
-        </Field>
-        <Field Name="SummarizeLines">
-          <DataField>SummarizeLines</DataField>
-        </Field>
-        <Field Name="TotalExclVAT">
-          <DataField>TotalExclVAT</DataField>
-        </Field>
-        <Field Name="TotalExclVATFormat">
-          <DataField>TotalExclVATFormat</DataField>
-        </Field>
-        <Field Name="TotalVAT">
-          <DataField>TotalVAT</DataField>
-        </Field>
-        <Field Name="TotalVATFormat">
-          <DataField>TotalVATFormat</DataField>
-        </Field>
-        <Field Name="TotalInclVAT">
-          <DataField>TotalInclVAT</DataField>
-        </Field>
-        <Field Name="TotalInclVATFormat">
-          <DataField>TotalInclVATFormat</DataField>
-        </Field>
-        <Field Name="OrderConfirmationCopyText">
-          <DataField>OrderConfirmationCopyText</DataField>
-        </Field>
-        <Field Name="CompanyName">
-          <DataField>CompanyName</DataField>
-        </Field>
-        <Field Name="HomePage">
-          <DataField>HomePage</DataField>
-        </Field>
-        <Field Name="CompanyPicture">
-          <DataField>CompanyPicture</DataField>
-        </Field>
-        <Field Name="CompanyEMail">
-          <DataField>CompanyEMail</DataField>
-        </Field>
-        <Field Name="Email">
-          <DataField>Email</DataField>
-        </Field>
-        <Field Name="PaymentTermTxt">
-          <DataField>PaymentTermTxt</DataField>
-        </Field>
-        <Field Name="PaymentMethodTxt">
-          <DataField>PaymentMethodTxt</DataField>
-        </Field>
-        <Field Name="EmailCaption">
-          <DataField>EmailCaption</DataField>
-        </Field>
-        <Field Name="HomePageCaption">
-          <DataField>HomePageCaption</DataField>
-        </Field>
-        <Field Name="PhoneNoCaption">
-          <DataField>PhoneNoCaption</DataField>
-        </Field>
-        <Field Name="FaxNoCaption">
-          <DataField>FaxNoCaption</DataField>
-        </Field>
-        <Field Name="VATRegNoCaption">
-          <DataField>VATRegNoCaption</DataField>
-        </Field>
-        <Field Name="GiroNoCaption">
-          <DataField>GiroNoCaption</DataField>
-        </Field>
-        <Field Name="BankNameCaption">
-          <DataField>BankNameCaption</DataField>
-        </Field>
-        <Field Name="BankAccountNoCaption">
-          <DataField>BankAccountNoCaption</DataField>
-        </Field>
-        <Field Name="SerHdrOrderDateCaption">
-          <DataField>SerHdrOrderDateCaption</DataField>
-        </Field>
-        <Field Name="No1_ServHeaderCaption">
-          <DataField>No1_ServHeaderCaption</DataField>
-        </Field>
-        <Field Name="OrderDate_ServHeaderCaption">
-          <DataField>OrderDate_ServHeaderCaption</DataField>
-        </Field>
-        <Field Name="OrderTime_ServHeaderCaption">
-          <DataField>OrderTime_ServHeaderCaption</DataField>
-        </Field>
-        <Field Name="Status_ServHeaderCaption">
-          <DataField>Status_ServHeaderCaption</DataField>
-        </Field>
-        <Field Name="PageNoCaption">
-          <DataField>PageNoCaption</DataField>
-        </Field>
-        <Field Name="PageCaption">
-          <DataField>PageCaption</DataField>
-        </Field>
-        <Field Name="DocumentDateCaption">
-          <DataField>DocumentDateCaption</DataField>
-        </Field>
-        <Field Name="CompanyInfoPhoneNoCaption">
-          <DataField>CompanyInfoPhoneNoCaption</DataField>
-        </Field>
-        <Field Name="CompanyInfoFaxNoCaption">
-          <DataField>CompanyInfoFaxNoCaption</DataField>
-        </Field>
-        <Field Name="CompanyInfoEmailCaption">
-          <DataField>CompanyInfoEmailCaption</DataField>
-        </Field>
-        <Field Name="CompanyInfoHomePageCaption">
-          <DataField>CompanyInfoHomePageCaption</DataField>
-        </Field>
-        <Field Name="CompanyInfoVATRegNoCaption">
-          <DataField>CompanyInfoVATRegNoCaption</DataField>
-        </Field>
-        <Field Name="CompanyInfoGiroNoCaption">
-          <DataField>CompanyInfoGiroNoCaption</DataField>
-        </Field>
-        <Field Name="CompanyInfoBankNameCaption">
-          <DataField>CompanyInfoBankNameCaption</DataField>
-        </Field>
-        <Field Name="CompanyInfoBankAccNoCaption">
-          <DataField>CompanyInfoBankAccNoCaption</DataField>
-        </Field>
-        <Field Name="No1_ServHeader">
-          <DataField>No1_ServHeader</DataField>
-        </Field>
-        <Field Name="Status_ServHeader">
-          <DataField>Status_ServHeader</DataField>
-        </Field>
-        <Field Name="OrderDate_ServHeader">
-          <DataField>OrderDate_ServHeader</DataField>
-        </Field>
-        <Field Name="OrderTime_ServHeader">
-          <DataField>OrderTime_ServHeader</DataField>
-        </Field>
-        <Field Name="CompanyInfoPhoneNo">
-          <DataField>CompanyInfoPhoneNo</DataField>
-        </Field>
-        <Field Name="VATRegistrationNo_ServHeader">
-          <DataField>VATRegistrationNo_ServHeader</DataField>
-        </Field>
-        <Field Name="PhoneNo_ServHeader">
-          <DataField>PhoneNo_ServHeader</DataField>
-        </Field>
-        <Field Name="FaxNo_ServHeader">
-          <DataField>FaxNo_ServHeader</DataField>
-        </Field>
-        <Field Name="EMail_ServHeader">
-          <DataField>EMail_ServHeader</DataField>
-        </Field>
-        <Field Name="CustNo_ServHeader">
-          <DataField>CustNo_ServHeader</DataField>
-        </Field>
-        <Field Name="CustName">
-          <DataField>CustName</DataField>
-        </Field>
-        <Field Name="InvoicetoCaption">
-          <DataField>InvoicetoCaption</DataField>
-        </Field>
-        <Field Name="AppliestoDocType_ServHeaderCaption">
-          <DataField>AppliestoDocType_ServHeaderCaption</DataField>
-        </Field>
-        <Field Name="AppliestoDocNo_ServHeaderCaption">
-          <DataField>AppliestoDocNo_ServHeaderCaption</DataField>
-        </Field>
-        <Field Name="ServiceOrderNo_ServHeaderCaption">
-          <DataField>ServiceOrderNo_ServHeaderCaption</DataField>
-        </Field>
-        <Field Name="BilltoCustNo_ServHeader">
-          <DataField>BilltoCustNo_ServHeader</DataField>
-        </Field>
-        <Field Name="BilltoName_ServHeader">
-          <DataField>BilltoName_ServHeader</DataField>
-        </Field>
-        <Field Name="BilltoName2_ServHeader">
-          <DataField>BilltoName2_ServHeader</DataField>
-        </Field>
-        <Field Name="BilltoAddr1_ServHeader">
-          <DataField>BilltoAddr1_ServHeader</DataField>
-        </Field>
-        <Field Name="BilltoAddr2_ServHeader">
-          <DataField>BilltoAddr2_ServHeader</DataField>
-        </Field>
-        <Field Name="BilltoCity_ServHeader">
-          <DataField>BilltoCity_ServHeader</DataField>
-        </Field>
-        <Field Name="BilltoPostCode_ServHeader">
-          <DataField>BilltoPostCode_ServHeader</DataField>
-        </Field>
-        <Field Name="BilltoCounty_ServHeader">
-          <DataField>BilltoCounty_ServHeader</DataField>
-        </Field>
-        <Field Name="BilltoCountryCode_ServHeader">
-          <DataField>BilltoCountryCode_ServHeader</DataField>
-        </Field>
-        <Field Name="BilltoContact_ServHeader">
-          <DataField>BilltoContact_ServHeader</DataField>
-        </Field>
-        <Field Name="CustAddr1">
-          <DataField>CustAddr1</DataField>
-        </Field>
-        <Field Name="CustAddr2">
-          <DataField>CustAddr2</DataField>
-        </Field>
-        <Field Name="CustAddr3">
-          <DataField>CustAddr3</DataField>
-        </Field>
-        <Field Name="CustAddr4">
-          <DataField>CustAddr4</DataField>
-        </Field>
-        <Field Name="CustAddr5">
-          <DataField>CustAddr5</DataField>
-        </Field>
-        <Field Name="CustAddr6">
-          <DataField>CustAddr6</DataField>
-        </Field>
-        <Field Name="CustAddr7">
-          <DataField>CustAddr7</DataField>
-        </Field>
-        <Field Name="CustAddr8">
-          <DataField>CustAddr8</DataField>
-        </Field>
-        <Field Name="CustPostCode">
-          <DataField>CustPostCode</DataField>
-        </Field>
-        <Field Name="CompanyAddr1">
-          <DataField>CompanyAddr1</DataField>
-        </Field>
-        <Field Name="CompanyAddr2">
-          <DataField>CompanyAddr2</DataField>
-        </Field>
-        <Field Name="CompanyAddr3">
-          <DataField>CompanyAddr3</DataField>
-        </Field>
-        <Field Name="CompanyAddr4">
-          <DataField>CompanyAddr4</DataField>
-        </Field>
-        <Field Name="CompanyAddr5">
-          <DataField>CompanyAddr5</DataField>
-        </Field>
-        <Field Name="CompanyAddr6">
-          <DataField>CompanyAddr6</DataField>
-        </Field>
-        <Field Name="CompanyAddr7">
-          <DataField>CompanyAddr7</DataField>
-        </Field>
-        <Field Name="CompanyAddr8">
-          <DataField>CompanyAddr8</DataField>
-        </Field>
-        <Field Name="CompanyPhoneNo">
-          <DataField>CompanyPhoneNo</DataField>
-        </Field>
-        <Field Name="CompanyFaxNo">
-          <DataField>CompanyFaxNo</DataField>
-        </Field>
-        <Field Name="CompanyPostCode">
-          <DataField>CompanyPostCode</DataField>
-        </Field>
-        <Field Name="LineNo_ServLineType">
-          <DataField>LineNo_ServLineType</DataField>
-        </Field>
-        <Field Name="Description_ServLineType">
-          <DataField>Description_ServLineType</DataField>
-        </Field>
-        <Field Name="ItemNo_ServLineType">
-          <DataField>ItemNo_ServLineType</DataField>
-        </Field>
-        <Field Name="ServiceItemDesc">
-          <DataField>ServiceItemDesc</DataField>
-        </Field>
-        <Field Name="SerItmGrCode_ServLineType">
-          <DataField>SerItmGrCode_ServLineType</DataField>
-        </Field>
-        <Field Name="SerialNo_ServLineType">
-          <DataField>SerialNo_ServLineType</DataField>
-        </Field>
-        <Field Name="Warranty1_ServLineType">
-          <DataField>Warranty1_ServLineType</DataField>
-        </Field>
-        <Field Name="LineNo_ServLine">
-          <DataField>LineNo_ServLine</DataField>
-        </Field>
-        <Field Name="Type_ServLine">
-          <DataField>Type_ServLine</DataField>
-        </Field>
-        <Field Name="Description_ServLine">
-          <DataField>Description_ServLine</DataField>
-        </Field>
-        <Field Name="Quantity_ServLine">
-          <DataField>Quantity_ServLine</DataField>
-        </Field>
-        <Field Name="Quantity_ServLineFormat">
-          <DataField>Quantity_ServLineFormat</DataField>
-        </Field>
-        <Field Name="UnitPrice_ServLine">
-          <DataField>UnitPrice_ServLine</DataField>
-        </Field>
-        <Field Name="UnitPrice_ServLineFormat">
-          <DataField>UnitPrice_ServLineFormat</DataField>
-        </Field>
-        <Field Name="Amt">
-          <DataField>Amt</DataField>
-        </Field>
-        <Field Name="AmtFormat">
-          <DataField>AmtFormat</DataField>
-        </Field>
-        <Field Name="GrossAmt">
-          <DataField>GrossAmt</DataField>
-        </Field>
-        <Field Name="GrossAmtFormat">
-          <DataField>GrossAmtFormat</DataField>
-        </Field>
-        <Field Name="LineUOM">
-          <DataField>LineUOM</DataField>
-        </Field>
-        <Field Name="SerItemSlNo_ServLineCaption">
-          <DataField>SerItemSlNo_ServLineCaption</DataField>
-        </Field>
-        <Field Name="Quantity_ServLineCaption">
-          <DataField>Quantity_ServLineCaption</DataField>
-        </Field>
-        <Field Name="UnitPrice_ServLineCaption">
-          <DataField>UnitPrice_ServLineCaption</DataField>
-        </Field>
-        <Field Name="Description_ServLineCaption">
-          <DataField>Description_ServLineCaption</DataField>
-        </Field>
-        <Field Name="FlatLineNo_ServLine">
-          <DataField>FlatLineNo_ServLine</DataField>
-        </Field>
-        <Field Name="FlatLineDescription">
-          <DataField>FlatLineDescription</DataField>
-        </Field>
-        <Field Name="FlatLineQuantity">
-          <DataField>FlatLineQuantity</DataField>
-        </Field>
-        <Field Name="FlatLineQuantityFormat">
-          <DataField>FlatLineQuantityFormat</DataField>
-        </Field>
-        <Field Name="FlatLineAmount">
-          <DataField>FlatLineAmount</DataField>
-        </Field>
-        <Field Name="FlatLineAmountFormat">
-          <DataField>FlatLineAmountFormat</DataField>
-        </Field>
-        <Field Name="FlatAmt">
-          <DataField>FlatAmt</DataField>
-        </Field>
-        <Field Name="FlatAmtFormat">
-          <DataField>FlatAmtFormat</DataField>
-        </Field>
-        <Field Name="CommentText">
-          <DataField>CommentText</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -4656,12 +4277,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -4779,4 +4394,401 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
   </EmbeddedImages>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="No_ServHeader">
+          <DataField>No_ServHeader</DataField>
+        </Field>
+        <Field Name="Description_ServHeader">
+          <DataField>Description_ServHeader</DataField>
+        </Field>
+        <Field Name="DocumentType_ServHeader">
+          <DataField>DocumentType_ServHeader</DataField>
+        </Field>
+        <Field Name="OutputNo">
+          <DataField>OutputNo</DataField>
+        </Field>
+        <Field Name="QuoteNo">
+          <DataField>QuoteNo</DataField>
+        </Field>
+        <Field Name="QuoteDateTxt">
+          <DataField>QuoteDateTxt</DataField>
+        </Field>
+        <Field Name="TitleTxt">
+          <DataField>TitleTxt</DataField>
+        </Field>
+        <Field Name="ShowOrderInfo">
+          <DataField>ShowOrderInfo</DataField>
+        </Field>
+        <Field Name="SummarizeLines">
+          <DataField>SummarizeLines</DataField>
+        </Field>
+        <Field Name="TotalExclVAT">
+          <DataField>TotalExclVAT</DataField>
+        </Field>
+        <Field Name="TotalExclVATFormat">
+          <DataField>TotalExclVATFormat</DataField>
+        </Field>
+        <Field Name="TotalVAT">
+          <DataField>TotalVAT</DataField>
+        </Field>
+        <Field Name="TotalVATFormat">
+          <DataField>TotalVATFormat</DataField>
+        </Field>
+        <Field Name="TotalInclVAT">
+          <DataField>TotalInclVAT</DataField>
+        </Field>
+        <Field Name="TotalInclVATFormat">
+          <DataField>TotalInclVATFormat</DataField>
+        </Field>
+        <Field Name="OrderConfirmationCopyText">
+          <DataField>OrderConfirmationCopyText</DataField>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+        <Field Name="HomePage">
+          <DataField>HomePage</DataField>
+        </Field>
+        <Field Name="CompanyPicture">
+          <DataField>CompanyPicture</DataField>
+        </Field>
+        <Field Name="CompanyEMail">
+          <DataField>CompanyEMail</DataField>
+        </Field>
+        <Field Name="Email">
+          <DataField>Email</DataField>
+        </Field>
+        <Field Name="PaymentTermTxt">
+          <DataField>PaymentTermTxt</DataField>
+        </Field>
+        <Field Name="PaymentMethodTxt">
+          <DataField>PaymentMethodTxt</DataField>
+        </Field>
+        <Field Name="DueDate">
+          <DataField>DueDate</DataField>
+        </Field>
+        <Field Name="EmailCaption">
+          <DataField>EmailCaption</DataField>
+        </Field>
+        <Field Name="HomePageCaption">
+          <DataField>HomePageCaption</DataField>
+        </Field>
+        <Field Name="PhoneNoCaption">
+          <DataField>PhoneNoCaption</DataField>
+        </Field>
+        <Field Name="FaxNoCaption">
+          <DataField>FaxNoCaption</DataField>
+        </Field>
+        <Field Name="VATRegNoCaption">
+          <DataField>VATRegNoCaption</DataField>
+        </Field>
+        <Field Name="GiroNoCaption">
+          <DataField>GiroNoCaption</DataField>
+        </Field>
+        <Field Name="BankNameCaption">
+          <DataField>BankNameCaption</DataField>
+        </Field>
+        <Field Name="BankAccountNoCaption">
+          <DataField>BankAccountNoCaption</DataField>
+        </Field>
+        <Field Name="SerHdrOrderDateCaption">
+          <DataField>SerHdrOrderDateCaption</DataField>
+        </Field>
+        <Field Name="ServiceItemLinesCaption">
+          <DataField>ServiceItemLinesCaption</DataField>
+        </Field>
+        <Field Name="No1_ServHeaderCaption">
+          <DataField>No1_ServHeaderCaption</DataField>
+        </Field>
+        <Field Name="OrderDate_ServHeaderCaption">
+          <DataField>OrderDate_ServHeaderCaption</DataField>
+        </Field>
+        <Field Name="OrderTime_ServHeaderCaption">
+          <DataField>OrderTime_ServHeaderCaption</DataField>
+        </Field>
+        <Field Name="Status_ServHeaderCaption">
+          <DataField>Status_ServHeaderCaption</DataField>
+        </Field>
+        <Field Name="PageNoCaption">
+          <DataField>PageNoCaption</DataField>
+        </Field>
+        <Field Name="PageCaption">
+          <DataField>PageCaption</DataField>
+        </Field>
+        <Field Name="DocumentDateCaption">
+          <DataField>DocumentDateCaption</DataField>
+        </Field>
+        <Field Name="CompanyInfoPhoneNoCaption">
+          <DataField>CompanyInfoPhoneNoCaption</DataField>
+        </Field>
+        <Field Name="CompanyInfoFaxNoCaption">
+          <DataField>CompanyInfoFaxNoCaption</DataField>
+        </Field>
+        <Field Name="CompanyInfoEmailCaption">
+          <DataField>CompanyInfoEmailCaption</DataField>
+        </Field>
+        <Field Name="CompanyInfoHomePageCaption">
+          <DataField>CompanyInfoHomePageCaption</DataField>
+        </Field>
+        <Field Name="CompanyInfoVATRegNoCaption">
+          <DataField>CompanyInfoVATRegNoCaption</DataField>
+        </Field>
+        <Field Name="CompanyInfoGiroNoCaption">
+          <DataField>CompanyInfoGiroNoCaption</DataField>
+        </Field>
+        <Field Name="CompanyInfoBankNameCaption">
+          <DataField>CompanyInfoBankNameCaption</DataField>
+        </Field>
+        <Field Name="CompanyInfoBankAccNoCaption">
+          <DataField>CompanyInfoBankAccNoCaption</DataField>
+        </Field>
+        <Field Name="No1_ServHeader">
+          <DataField>No1_ServHeader</DataField>
+        </Field>
+        <Field Name="Status_ServHeader">
+          <DataField>Status_ServHeader</DataField>
+        </Field>
+        <Field Name="OrderDate_ServHeader">
+          <DataField>OrderDate_ServHeader</DataField>
+        </Field>
+        <Field Name="OrderTime_ServHeader">
+          <DataField>OrderTime_ServHeader</DataField>
+        </Field>
+        <Field Name="CompanyInfoPhoneNo">
+          <DataField>CompanyInfoPhoneNo</DataField>
+        </Field>
+        <Field Name="VATRegistrationNo_ServHeader">
+          <DataField>VATRegistrationNo_ServHeader</DataField>
+        </Field>
+        <Field Name="PhoneNo_ServHeader">
+          <DataField>PhoneNo_ServHeader</DataField>
+        </Field>
+        <Field Name="FaxNo_ServHeader">
+          <DataField>FaxNo_ServHeader</DataField>
+        </Field>
+        <Field Name="EMail_ServHeader">
+          <DataField>EMail_ServHeader</DataField>
+        </Field>
+        <Field Name="CustNo_ServHeader">
+          <DataField>CustNo_ServHeader</DataField>
+        </Field>
+        <Field Name="CustName">
+          <DataField>CustName</DataField>
+        </Field>
+        <Field Name="InvoicetoCaption">
+          <DataField>InvoicetoCaption</DataField>
+        </Field>
+        <Field Name="AppliestoDocType_ServHeaderCaption">
+          <DataField>AppliestoDocType_ServHeaderCaption</DataField>
+        </Field>
+        <Field Name="AppliestoDocNo_ServHeaderCaption">
+          <DataField>AppliestoDocNo_ServHeaderCaption</DataField>
+        </Field>
+        <Field Name="ServiceOrderNo_ServHeaderCaption">
+          <DataField>ServiceOrderNo_ServHeaderCaption</DataField>
+        </Field>
+        <Field Name="BilltoCustNo_ServHeader">
+          <DataField>BilltoCustNo_ServHeader</DataField>
+        </Field>
+        <Field Name="BilltoName_ServHeader">
+          <DataField>BilltoName_ServHeader</DataField>
+        </Field>
+        <Field Name="BilltoName2_ServHeader">
+          <DataField>BilltoName2_ServHeader</DataField>
+        </Field>
+        <Field Name="BilltoAddr1_ServHeader">
+          <DataField>BilltoAddr1_ServHeader</DataField>
+        </Field>
+        <Field Name="BilltoAddr2_ServHeader">
+          <DataField>BilltoAddr2_ServHeader</DataField>
+        </Field>
+        <Field Name="BilltoCity_ServHeader">
+          <DataField>BilltoCity_ServHeader</DataField>
+        </Field>
+        <Field Name="BilltoPostCode_ServHeader">
+          <DataField>BilltoPostCode_ServHeader</DataField>
+        </Field>
+        <Field Name="BilltoCounty_ServHeader">
+          <DataField>BilltoCounty_ServHeader</DataField>
+        </Field>
+        <Field Name="BilltoCountryCode_ServHeader">
+          <DataField>BilltoCountryCode_ServHeader</DataField>
+        </Field>
+        <Field Name="BilltoContact_ServHeader">
+          <DataField>BilltoContact_ServHeader</DataField>
+        </Field>
+        <Field Name="CustAddr1">
+          <DataField>CustAddr1</DataField>
+        </Field>
+        <Field Name="CustAddr2">
+          <DataField>CustAddr2</DataField>
+        </Field>
+        <Field Name="CustAddr3">
+          <DataField>CustAddr3</DataField>
+        </Field>
+        <Field Name="CustAddr4">
+          <DataField>CustAddr4</DataField>
+        </Field>
+        <Field Name="CustAddr5">
+          <DataField>CustAddr5</DataField>
+        </Field>
+        <Field Name="CustAddr6">
+          <DataField>CustAddr6</DataField>
+        </Field>
+        <Field Name="CustAddr7">
+          <DataField>CustAddr7</DataField>
+        </Field>
+        <Field Name="CustAddr8">
+          <DataField>CustAddr8</DataField>
+        </Field>
+        <Field Name="CustPostCode">
+          <DataField>CustPostCode</DataField>
+        </Field>
+        <Field Name="CompanyAddr1">
+          <DataField>CompanyAddr1</DataField>
+        </Field>
+        <Field Name="CompanyAddr2">
+          <DataField>CompanyAddr2</DataField>
+        </Field>
+        <Field Name="CompanyAddr3">
+          <DataField>CompanyAddr3</DataField>
+        </Field>
+        <Field Name="CompanyAddr4">
+          <DataField>CompanyAddr4</DataField>
+        </Field>
+        <Field Name="CompanyAddr5">
+          <DataField>CompanyAddr5</DataField>
+        </Field>
+        <Field Name="CompanyAddr6">
+          <DataField>CompanyAddr6</DataField>
+        </Field>
+        <Field Name="CompanyAddr7">
+          <DataField>CompanyAddr7</DataField>
+        </Field>
+        <Field Name="CompanyAddr8">
+          <DataField>CompanyAddr8</DataField>
+        </Field>
+        <Field Name="CompanyPhoneNo">
+          <DataField>CompanyPhoneNo</DataField>
+        </Field>
+        <Field Name="CompanyFaxNo">
+          <DataField>CompanyFaxNo</DataField>
+        </Field>
+        <Field Name="CompanyPostCode">
+          <DataField>CompanyPostCode</DataField>
+        </Field>
+        <Field Name="CompanyNameJP">
+          <DataField>CompanyNameJP</DataField>
+        </Field>
+        <Field Name="LineNo_ServLineType">
+          <DataField>LineNo_ServLineType</DataField>
+        </Field>
+        <Field Name="Description_ServLineType">
+          <DataField>Description_ServLineType</DataField>
+        </Field>
+        <Field Name="ItemNo_ServLineType">
+          <DataField>ItemNo_ServLineType</DataField>
+        </Field>
+        <Field Name="ServItemNo_ServLineType">
+          <DataField>ServItemNo_ServLineType</DataField>
+        </Field>
+        <Field Name="ServiceItemDesc">
+          <DataField>ServiceItemDesc</DataField>
+        </Field>
+        <Field Name="SerItmGrCode_ServLineType">
+          <DataField>SerItmGrCode_ServLineType</DataField>
+        </Field>
+        <Field Name="SerialNo_ServLineType">
+          <DataField>SerialNo_ServLineType</DataField>
+        </Field>
+        <Field Name="Warranty1_ServLineType">
+          <DataField>Warranty1_ServLineType</DataField>
+        </Field>
+        <Field Name="LineNo_ServLine">
+          <DataField>LineNo_ServLine</DataField>
+        </Field>
+        <Field Name="Type_ServLine">
+          <DataField>Type_ServLine</DataField>
+        </Field>
+        <Field Name="Description_ServLine">
+          <DataField>Description_ServLine</DataField>
+        </Field>
+        <Field Name="Quantity_ServLine">
+          <DataField>Quantity_ServLine</DataField>
+        </Field>
+        <Field Name="Quantity_ServLineFormat">
+          <DataField>Quantity_ServLineFormat</DataField>
+        </Field>
+        <Field Name="UnitPrice_ServLine">
+          <DataField>UnitPrice_ServLine</DataField>
+        </Field>
+        <Field Name="UnitPrice_ServLineFormat">
+          <DataField>UnitPrice_ServLineFormat</DataField>
+        </Field>
+        <Field Name="Amt">
+          <DataField>Amt</DataField>
+        </Field>
+        <Field Name="AmtFormat">
+          <DataField>AmtFormat</DataField>
+        </Field>
+        <Field Name="GrossAmt">
+          <DataField>GrossAmt</DataField>
+        </Field>
+        <Field Name="GrossAmtFormat">
+          <DataField>GrossAmtFormat</DataField>
+        </Field>
+        <Field Name="LineUOM">
+          <DataField>LineUOM</DataField>
+        </Field>
+        <Field Name="SerItemSlNo_ServLineCaption">
+          <DataField>SerItemSlNo_ServLineCaption</DataField>
+        </Field>
+        <Field Name="Quantity_ServLineCaption">
+          <DataField>Quantity_ServLineCaption</DataField>
+        </Field>
+        <Field Name="UnitPrice_ServLineCaption">
+          <DataField>UnitPrice_ServLineCaption</DataField>
+        </Field>
+        <Field Name="Description_ServLineCaption">
+          <DataField>Description_ServLineCaption</DataField>
+        </Field>
+        <Field Name="FlatLineNo_ServLine">
+          <DataField>FlatLineNo_ServLine</DataField>
+        </Field>
+        <Field Name="FlatLineDescription">
+          <DataField>FlatLineDescription</DataField>
+        </Field>
+        <Field Name="FlatLineQuantity">
+          <DataField>FlatLineQuantity</DataField>
+        </Field>
+        <Field Name="FlatLineQuantityFormat">
+          <DataField>FlatLineQuantityFormat</DataField>
+        </Field>
+        <Field Name="FlatLineUOM">
+          <DataField>FlatLineUOM</DataField>
+        </Field>
+        <Field Name="FlatUnitPrice">
+          <DataField>FlatUnitPrice</DataField>
+        </Field>
+        <Field Name="FlatUnitPriceFormat">
+          <DataField>FlatUnitPriceFormat</DataField>
+        </Field>
+        <Field Name="FlatLineAmount">
+          <DataField>FlatLineAmount</DataField>
+        </Field>
+        <Field Name="FlatLineAmountFormat">
+          <DataField>FlatLineAmountFormat</DataField>
+        </Field>
+        <Field Name="CommentText">
+          <DataField>CommentText</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

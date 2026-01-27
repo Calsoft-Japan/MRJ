@@ -4,7 +4,6 @@ page 50141 "Service Inquiry Subform"
     Caption = 'Service Inquiry';
     PageType = ListPart;
     SourceTable = "Service Inquiry Line";
-    UsageCategory = Lists;
     InsertAllowed = false;
     ModifyAllowed = false;
     DeleteAllowed = false;
