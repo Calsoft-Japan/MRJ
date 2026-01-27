@@ -946,7 +946,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <Top>8.98772cm</Top>
-            <Left>0.3175cm</Left>
+            <Left>0.33531cm</Left>
             <Height>5.72079cm</Height>
             <Width>12.48069cm</Width>
             <Visibility>
@@ -962,19 +962,19 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>8.90605cm</Width>
+                  <Width>8.86191cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.81403cm</Width>
+                  <Width>1.76989cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.7606cm</Width>
+                  <Width>1.71646cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.1075cm</Width>
+                  <Width>3.06336cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.63252cm</Width>
+                  <Width>2.58838cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -1715,7 +1715,7 @@
             <Top>2.62257cm</Top>
             <Left>0.3175cm</Left>
             <Height>1.30839cm</Height>
-            <Width>18.22071cm</Width>
+            <Width>18cm</Width>
             <ZIndex>1</ZIndex>
             <Visibility>
               <Hidden>=Fields!SummarizeLines.Value</Hidden>
@@ -1793,22 +1793,22 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.66543cm</Width>
+                  <Width>2.62865cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.66543cm</Width>
+                  <Width>2.62865cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.24807cm</Width>
+                  <Width>3.21128cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>2.46321cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.54958cm</Width>
+                  <Width>5.51279cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.5922cm</Width>
+                  <Width>1.55542cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -2462,7 +2462,7 @@
             <Top>0.38806cm</Top>
             <Left>0.3175cm</Left>
             <Height>1.26843cm</Height>
-            <Width>18.22071cm</Width>
+            <Width>18cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -2474,19 +2474,19 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>8.90605cm</Width>
+                  <Width>8.86191cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.81403cm</Width>
+                  <Width>1.76989cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.7606cm</Width>
+                  <Width>1.71646cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.1075cm</Width>
+                  <Width>3.06336cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.63253cm</Width>
+                  <Width>2.58839cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -3226,7 +3226,7 @@
             <Top>4.05832cm</Top>
             <Left>0.3175cm</Left>
             <Height>1.26134cm</Height>
-            <Width>18.22071cm</Width>
+            <Width>18cm</Width>
             <ZIndex>5</ZIndex>
             <Visibility>
               <Hidden>=Not Fields!SummarizeLines.Value</Hidden>
@@ -3370,9 +3370,6 @@
                 <TablixColumn>
                   <Width>3.83686cm</Width>
                 </TablixColumn>
-                <TablixColumn>
-                  <Width>1.32627cm</Width>
-                </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
@@ -3448,40 +3445,6 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox373">
-                          <rd:DefaultName>Textbox373</rd:DefaultName>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>MS UI Gothic</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -3533,40 +3496,6 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=FormatNumber(Fields!TotalVAT.value, 0)</Value>
-                                  <Style>
-                                    <FontFamily>MS UI Gothic</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox374">
-                          <rd:DefaultName>Textbox374</rd:DefaultName>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3663,47 +3592,12 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox375">
-                          <rd:DefaultName>Textbox375</rd:DefaultName>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>MS UI Gothic</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
-                <TablixMember />
                 <TablixMember />
                 <TablixMember />
               </TablixMembers>
@@ -3715,10 +3609,10 @@
                 <TablixMember />
               </TablixMembers>
             </TablixRowHierarchy>
-            <Top>5.50025cm</Top>
-            <Left>11cm</Left>
+            <Top>5.49605cm</Top>
+            <Left>10.64377cm</Left>
             <Height>1.48551cm</Height>
-            <Width>9cm</Width>
+            <Width>7.67373cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -3737,219 +3631,6 @@
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Textbox Name="OrderConfirmationCopyText1">
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=First(Fields!TitleTxt.Value, "DataSet_Result")</Value>
-                      <Style>
-                        <FontFamily>MS UI Gothic</FontFamily>
-                        <FontSize>14pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>0.35041cm</Top>
-              <Left>0.08481in</Left>
-              <Height>19.99495pt</Height>
-              <Width>18.34318cm</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="HomePageCaption4">
-              <CanGrow>true</CanGrow>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>ページ</Value>
-                      <Style>
-                        <FontFamily>MS UI Gothic</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Left</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>0.51295in</Top>
-              <Left>5.05074in</Left>
-              <Height>11pt</Height>
-              <Width>0.8323in</Width>
-              <ZIndex>1</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="PageCaption4">
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Globals!PageNumber</Value>
-                      <Style>
-                        <FontFamily>MS UI Gothic</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>1.30291cm</Top>
-              <Left>14.95708cm</Left>
-              <Height>11pt</Height>
-              <Width>3.28823cm</Width>
-              <ZIndex>2</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="HomePageCaption2">
-              <CanGrow>true</CanGrow>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>御見積日 ー</Value>
-                      <Style>
-                        <FontFamily>MS UI Gothic</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Left</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>0.69694in</Top>
-              <Left>5.05074in</Left>
-              <Height>11pt</Height>
-              <Width>0.8323in</Width>
-              <ZIndex>3</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="PageCaption2">
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=First(Fields!QuoteDateTxt.Value, "DataSet_Result")</Value>
-                      <Style>
-                        <FontFamily>MS UI Gothic</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>1.77025cm</Top>
-              <Left>14.95707cm</Left>
-              <Height>11pt</Height>
-              <Width>3.28823cm</Width>
-              <ZIndex>4</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="HomePageCaption3">
-              <CanGrow>true</CanGrow>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>見積書番号 ー</Value>
-                      <Style>
-                        <FontFamily>MS UI Gothic</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Left</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>0.89139in</Top>
-              <Left>5.05074in</Left>
-              <Height>11pt</Height>
-              <Width>0.8323in</Width>
-              <ZIndex>5</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="PageCaption3">
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=First(Fields!No_ServHeader.Value, "DataSet_Result")</Value>
-                      <Style>
-                        <FontFamily>MS UI Gothic</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>2.26414cm</Top>
-              <Left>14.95707cm</Left>
-              <Height>11pt</Height>
-              <Width>3.28823cm</Width>
-              <ZIndex>6</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
             <Textbox Name="Textbox12">
               <rd:DefaultName>Textbox12</rd:DefaultName>
               <CanGrow>true</CanGrow>
@@ -3972,7 +3653,6 @@
               <Left>0.6774cm</Left>
               <Height>0.43772cm</Height>
               <Width>5.97133cm</Width>
-              <ZIndex>7</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4011,7 +3691,7 @@
               <Left>0.6774cm</Left>
               <Height>0.47486cm</Height>
               <Width>5.97133cm</Width>
-              <ZIndex>8</ZIndex>
+              <ZIndex>1</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4047,7 +3727,7 @@
               <Left>0.6774cm</Left>
               <Height>0.50952cm</Height>
               <Width>5.97133cm</Width>
-              <ZIndex>9</ZIndex>
+              <ZIndex>2</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4083,7 +3763,7 @@
               <Left>0.6774cm</Left>
               <Height>0.49972cm</Height>
               <Width>5.97133cm</Width>
-              <ZIndex>10</ZIndex>
+              <ZIndex>3</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4131,7 +3811,7 @@
               <Left>0.6774cm</Left>
               <Height>1.05458cm</Height>
               <Width>9.13663cm</Width>
-              <ZIndex>11</ZIndex>
+              <ZIndex>4</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4167,7 +3847,7 @@
               <Left>0.6774cm</Left>
               <Height>0.45911cm</Height>
               <Width>9.13663cm</Width>
-              <ZIndex>12</ZIndex>
+              <ZIndex>5</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4208,7 +3888,7 @@
               <Left>0.6774cm</Left>
               <Height>0.4686cm</Height>
               <Width>9.13663cm</Width>
-              <ZIndex>13</ZIndex>
+              <ZIndex>6</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4245,11 +3925,11 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>7.49265cm</Top>
-              <Left>15.22833cm</Left>
+              <Top>7.47295cm</Top>
+              <Left>15.03071cm</Left>
               <Height>1.03919cm</Height>
               <Width>1.43793cm</Width>
-              <ZIndex>14</ZIndex>
+              <ZIndex>7</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4300,11 +3980,11 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>7.49265cm</Top>
-              <Left>16.80737cm</Left>
+              <Top>7.47295cm</Top>
+              <Left>16.60975cm</Left>
               <Height>1.03919cm</Height>
               <Width>1.43793cm</Width>
-              <ZIndex>15</ZIndex>
+              <ZIndex>8</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4358,11 +4038,11 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>6.97852cm</Top>
-              <Left>16.80737cm</Left>
+              <Top>6.95882cm</Top>
+              <Left>16.60975cm</Left>
               <Height>0.51412cm</Height>
               <Width>1.43793cm</Width>
-              <ZIndex>16</ZIndex>
+              <ZIndex>9</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4417,11 +4097,11 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>6.97852cm</Top>
-              <Left>15.22833cm</Left>
+              <Top>6.95882cm</Top>
+              <Left>15.03071cm</Left>
               <Height>0.51412cm</Height>
               <Width>1.43793cm</Width>
-              <ZIndex>17</ZIndex>
+              <ZIndex>10</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4474,11 +4154,11 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>6.19108cm</Top>
-              <Left>12.04976cm</Left>
+              <Top>6.17138cm</Top>
+              <Left>11.85214cm</Left>
               <Height>11pt</Height>
               <Width>6.14125cm</Width>
-              <ZIndex>18</ZIndex>
+              <ZIndex>11</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4507,11 +4187,11 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>5.76136cm</Top>
-              <Left>12.04976cm</Left>
+              <Top>5.74166cm</Top>
+              <Left>11.85214cm</Left>
               <Height>11pt</Height>
               <Width>6.14125cm</Width>
-              <ZIndex>19</ZIndex>
+              <ZIndex>12</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4540,11 +4220,11 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>5.29624cm</Top>
-              <Left>12.04976cm</Left>
+              <Top>5.27654cm</Top>
+              <Left>11.85214cm</Left>
               <Height>11pt</Height>
               <Width>5.39454cm</Width>
-              <ZIndex>20</ZIndex>
+              <ZIndex>13</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4573,11 +4253,11 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>4.90818cm</Top>
-              <Left>12.04976cm</Left>
+              <Top>4.88848cm</Top>
+              <Left>11.85214cm</Left>
               <Height>11pt</Height>
               <Width>5.39454cm</Width>
-              <ZIndex>21</ZIndex>
+              <ZIndex>14</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4607,11 +4287,11 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>4.47493cm</Top>
-              <Left>12.04976cm</Left>
+              <Top>4.45523cm</Top>
+              <Left>11.85214cm</Left>
               <Height>11pt</Height>
               <Width>5.39454cm</Width>
-              <ZIndex>22</ZIndex>
+              <ZIndex>15</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4626,11 +4306,11 @@
               <Source>Embedded</Source>
               <Value>pic</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>2.98228cm</Top>
-              <Left>12.04976cm</Left>
+              <Top>2.96258cm</Top>
+              <Left>11.85214cm</Left>
               <Height>1.49265cm</Height>
               <Width>5.31cm</Width>
-              <ZIndex>23</ZIndex>
+              <ZIndex>16</ZIndex>
               <Visibility>
                 <Hidden>=Globals!PageNumber &gt; 1</Hidden>
               </Visibility>
@@ -4640,6 +4320,233 @@
                 </Border>
               </Style>
             </Image>
+            <Rectangle Name="Rectangle4">
+              <ReportItems>
+                <Textbox Name="OrderConfirmationCopyText1">
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!TitleTxt.Value, "DataSet_Result")</Value>
+                          <Style>
+                            <FontFamily>MS UI Gothic</FontFamily>
+                            <FontSize>14pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.0125cm</Top>
+                  <Height>19.99495pt</Height>
+                  <Width>18cm</Width>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                  </Style>
+                </Textbox>
+                <Textbox Name="HomePageCaption4">
+                  <CanGrow>true</CanGrow>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>ページ</Value>
+                          <Style>
+                            <FontFamily>MS UI Gothic</FontFamily>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Left</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.37991in</Top>
+                  <Left>4.84092in</Left>
+                  <Height>11pt</Height>
+                  <Width>0.8323in</Width>
+                  <ZIndex>1</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                  </Style>
+                </Textbox>
+                <Textbox Name="PageCaption4">
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=Globals!PageNumber</Value>
+                          <Style>
+                            <FontFamily>MS UI Gothic</FontFamily>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.965cm</Top>
+                  <Left>14.42415cm</Left>
+                  <Height>11pt</Height>
+                  <Width>3.28823cm</Width>
+                  <ZIndex>2</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                  </Style>
+                </Textbox>
+                <Textbox Name="HomePageCaption2">
+                  <CanGrow>true</CanGrow>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>御見積日 ー</Value>
+                          <Style>
+                            <FontFamily>MS UI Gothic</FontFamily>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Left</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.56391in</Top>
+                  <Left>4.84092in</Left>
+                  <Height>11pt</Height>
+                  <Width>0.8323in</Width>
+                  <ZIndex>3</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                  </Style>
+                </Textbox>
+                <Textbox Name="PageCaption2">
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!QuoteDateTxt.Value, "DataSet_Result")</Value>
+                          <Style>
+                            <FontFamily>MS UI Gothic</FontFamily>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>1.43234cm</Top>
+                  <Left>14.42414cm</Left>
+                  <Height>11pt</Height>
+                  <Width>3.28823cm</Width>
+                  <ZIndex>4</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                  </Style>
+                </Textbox>
+                <Textbox Name="HomePageCaption3">
+                  <CanGrow>true</CanGrow>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>見積書番号 ー</Value>
+                          <Style>
+                            <FontFamily>MS UI Gothic</FontFamily>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Left</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.75836in</Top>
+                  <Left>4.84092in</Left>
+                  <Height>11pt</Height>
+                  <Width>0.8323in</Width>
+                  <ZIndex>5</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                  </Style>
+                </Textbox>
+                <Textbox Name="PageCaption3">
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!No_ServHeader.Value, "DataSet_Result")</Value>
+                          <Style>
+                            <FontFamily>MS UI Gothic</FontFamily>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>1.92623cm</Top>
+                  <Left>14.42414cm</Left>
+                  <Height>11pt</Height>
+                  <Width>3.28823cm</Width>
+                  <ZIndex>6</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                  </Style>
+                </Textbox>
+              </ReportItems>
+              <KeepTogether>true</KeepTogether>
+              <Top>0.42464cm</Top>
+              <Left>0.33531cm</Left>
+              <Height>2.31429cm</Height>
+              <Width>18cm</Width>
+              <ZIndex>17</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Rectangle>
           </ReportItems>
           <Style />
         </PageHeader>
