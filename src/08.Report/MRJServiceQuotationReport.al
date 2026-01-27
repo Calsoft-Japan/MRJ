@@ -19,6 +19,7 @@ report 50021 "MRJ Service Quotation"
             column(OutputNo; 1) { }
             column(QuoteNo; "No.") { }
             column(QuoteDateTxt; QuoteDateTxt) { }
+            column(CurrencyCode_ServHeader; "Currency Code") { }
             column(TitleTxt; TitleTxt) { }
             column(ShowOrderInfo; ShowOrderInfo) { }
             column(SummarizeLines; SummarizeLines) { }
@@ -291,76 +292,7 @@ report 50021 "MRJ Service Quotation"
             until ServiceLineRec.Next() = 0;
         TotalVAT := TotalInclVAT - TotalExclVAT;
     end;
-    /*
-        local procedure SummarizeServiceLines()
-        var
-            ServiceLineRec: Record "Service Line";
-            Res: Record Resource;
-            ResGrp: Record "Resource Group";
-            NextLineNo: Integer;
-            CurrentResGrp: Code[20];
-        begin
-            // 一時テーブルを初期化
-            TempServiceLine.Reset();
-            TempServiceLine.DeleteAll();
-            NextLineNo := 10000;
 
-            // 実際の明細（5件）を取得
-            ServiceLineRec.SetRange("Document Type", ServiceHeader."Document Type");
-            ServiceLineRec.SetRange("Document No.", ServiceHeader."No.");
-
-            if ServiceLineRec.FindSet() then
-                repeat
-                    CurrentResGrp := '';
-
-                    // --- 判定：リソースの場合のみマスタからグループ番号を引く ---
-                    if ServiceLineRec.Type = ServiceLineRec.Type::Resource then begin
-                        if Res.Get(ServiceLineRec."No.") then
-                            CurrentResGrp := Res."Resource Group No.";
-                    end;
-
-                    // --- 名寄せの実行（リソース且つグループ番号がある場合のみ） ---
-                    if (ServiceLineRec.Type = ServiceLineRec.Type::Resource) and (CurrentResGrp <> '') then begin
-
-                        TempServiceLine.Reset();
-                        TempServiceLine.SetRange(Type, TempServiceLine.Type::Resource);
-                        TempServiceLine.SetRange("Resource Group No.", CurrentResGrp);
-
-                        if TempServiceLine.FindFirst() then begin
-                            // 【発見】同じグループなら既存行の金額と数量を加算
-                            TempServiceLine.Quantity += ServiceLineRec.Quantity;
-                            TempServiceLine."Line Amount" += ServiceLineRec."Line Amount";
-                            TempServiceLine."Amount Including VAT" += ServiceLineRec."Amount Including VAT";
-                            TempServiceLine.Modify();
-                            continue; // 合算したので次のServiceLineRecへ進む
-                        end;
-                    end;
-
-                    // --- 新規挿入（アイテム、または新しいリソースグループ） ---
-                    TempServiceLine.Reset();
-                    TempServiceLine.Init();
-                    TempServiceLine.TransferFields(ServiceLineRec);
-
-                    // 主キー(Line No.)を再採番して重複を回避
-                    TempServiceLine."Line No." := NextLineNo;
-                    NextLineNo += 10000;
-
-                    // 検索用にグループ番号を一時テーブルのフィールドに保持
-                    TempServiceLine."Resource Group No." := CurrentResGrp;
-
-                    // リソースの場合は、名称をリソースグループ名（例：外注作業費）に書き換え
-                    if (ServiceLineRec.Type = ServiceLineRec.Type::Resource) and (CurrentResGrp <> '') then begin
-                        if ResGrp.Get(CurrentResGrp) then
-                            TempServiceLine.Description := ResGrp.Name;
-                    end;
-
-                    TempServiceLine.Insert();
-                until ServiceLineRec.Next() = 0;
-
-            TempServiceLine.Reset();
-        end;
-
-*/
     local procedure SummarizeServiceLines()
     var
         ServiceLineRec: Record "Service Line";
