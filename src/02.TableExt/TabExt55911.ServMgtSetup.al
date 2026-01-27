@@ -1,4 +1,4 @@
-tableextension 55911 "Service Mgt. Setup Ext" extends "Service Mgt. Setup"
+tableextension 55911 "Serv. Mgt. Setup Ext" extends "Service Mgt. Setup"
 {
     fields
     {
@@ -12,6 +12,11 @@ tableextension 55911 "Service Mgt. Setup Ext" extends "Service Mgt. Setup"
             Caption = 'ソード優先リソースグループ';
             DataClassification = CustomerContent;
             TableRelation = "Resource Group";
+        }
+        field(90016; "G/L Account for Repair"; Code[20])
+        {
+            Caption = 'G/L Account for Repair';
+            TableRelation = "G/L Account";
         }
     }
 }
