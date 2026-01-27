@@ -3046,7 +3046,7 @@
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
                                     <FontSize>9pt</FontSize>
-                                    <Format>#,0;(#,0)</Format>
+                                    <Format>=IIF(Fields!CurrencyCode_ServHeader.Value = "" OR Fields!CurrencyCode_ServHeader.Value = "JPY", "#,0", "#,0.00")</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3117,10 +3117,11 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=FormatNumber(Fields!TotalVAT.value, 0)</Value>
+                                  <Value>=Fields!TotalVAT.value</Value>
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
                                     <FontSize>9pt</FontSize>
+                                    <Format>=IIF(Fields!CurrencyCode_ServHeader.Value = "" OR Fields!CurrencyCode_ServHeader.Value = "JPY", "#,0", "#,0.00")</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3182,6 +3183,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Textbox42">
                           <rd:DefaultName>Textbox22</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -3190,10 +3192,11 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=FormatNumber(Fields!TotalInclVAT.value, 0)</Value>
+                                  <Value>=Fields!TotalInclVAT.value</Value>
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
                                     <FontSize>9pt</FontSize>
+                                    <Format>=IIF(Fields!CurrencyCode_ServHeader.Value = "" OR Fields!CurrencyCode_ServHeader.Value = "JPY", "#,0", "#,0.00")</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -4208,6 +4211,9 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="QuoteDateTxt">
           <DataField>QuoteDateTxt</DataField>
+        </Field>
+        <Field Name="CurrencyCode_ServHeader">
+          <DataField>CurrencyCode_ServHeader</DataField>
         </Field>
         <Field Name="TitleTxt">
           <DataField>TitleTxt</DataField>
