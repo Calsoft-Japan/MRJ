@@ -417,7 +417,6 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
-                                    <Format>=Fields!UnitPrice_ServLineFormat.Value</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1917,7 +1916,6 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
-                                    <Format>=Fields!UnitPrice_ServLineFormat.Value</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2340,6 +2338,7 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
+                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="CommentText">
                           <rd:DefaultName>CommentText</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -2395,7 +2394,17 @@
                   <KeepWithGroup>After</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="Details3" />
+                  <Group Name="Details3">
+                    <Filters>
+                      <Filter>
+                        <FilterExpression>=Fields!Number_CopyLoop.Value</FilterExpression>
+                        <Operator>Equal</Operator>
+                        <FilterValues>
+                          <FilterValue>=CInt(1)</FilterValue>
+                        </FilterValues>
+                      </Filter>
+                    </Filters>
+                  </Group>
                   <Visibility>
                     <Hidden>=IsNothing(Fields!CommentText.Value)</Hidden>
                   </Visibility>
@@ -2720,7 +2729,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>="(" + Fields!Customer_No_.Value.value + ")"</Value>
+                        <Value>="(" &amp; Fields!Customer_No_.Value &amp; ")"</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -2753,7 +2762,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>="〒" + Fields!CustAddr4.value</Value>
+                        <Value>="〒" + Fields!CustPostCode.value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -2786,7 +2795,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!CustAddr2.Value</Value>
+                        <Value>=Fields!CustAddr4.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -2939,7 +2948,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>="〒" + Fields!CompanyAddr.value</Value>
+                        <Value>="〒" + Fields!CompanyPostCode.value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>8pt</FontSize>
@@ -2969,7 +2978,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!CompanyAddr.value</Value>
+                        <Value>=Fields!CompanyAddr2.value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>8pt</FontSize>
@@ -3560,23 +3569,35 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="SummarizeLines">
           <DataField>SummarizeLines</DataField>
         </Field>
-        <Field Name="TotalAmt">
-          <DataField>TotalAmt</DataField>
+        <Field Name="TotalExclVAT">
+          <DataField>TotalExclVAT</DataField>
         </Field>
-        <Field Name="TotalAmtFormat">
-          <DataField>TotalAmtFormat</DataField>
+        <Field Name="TotalExclVATFormat">
+          <DataField>TotalExclVATFormat</DataField>
         </Field>
-        <Field Name="TotalGrossAmt">
-          <DataField>TotalGrossAmt</DataField>
+        <Field Name="TotalVAT">
+          <DataField>TotalVAT</DataField>
         </Field>
-        <Field Name="TotalGrossAmtFormat">
-          <DataField>TotalGrossAmtFormat</DataField>
+        <Field Name="TotalVATFormat">
+          <DataField>TotalVATFormat</DataField>
+        </Field>
+        <Field Name="TotalInclVAT">
+          <DataField>TotalInclVAT</DataField>
+        </Field>
+        <Field Name="TotalInclVATFormat">
+          <DataField>TotalInclVATFormat</DataField>
         </Field>
         <Field Name="PaymentTermsDesc">
           <DataField>PaymentTermsDesc</DataField>
         </Field>
         <Field Name="PaymentMethodDesc">
           <DataField>PaymentMethodDesc</DataField>
+        </Field>
+        <Field Name="CurrencyCode_ServHeader">
+          <DataField>CurrencyCode_ServHeader</DataField>
+        </Field>
+        <Field Name="CustPostCode">
+          <DataField>CustPostCode</DataField>
         </Field>
         <Field Name="CustAddr1">
           <DataField>CustAddr1</DataField>
@@ -3599,6 +3620,9 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="CompanyInfo_Picture">
           <DataField>CompanyInfo_Picture</DataField>
         </Field>
+        <Field Name="CompanyPostCode">
+          <DataField>CompanyPostCode</DataField>
+        </Field>
         <Field Name="CompanyAddr1">
           <DataField>CompanyAddr1</DataField>
         </Field>
@@ -3614,29 +3638,20 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="CompanyPhoneNo">
           <DataField>CompanyPhoneNo</DataField>
         </Field>
-        <Field Name="CompanyEMail">
-          <DataField>CompanyEMail</DataField>
-        </Field>
-        <Field Name="CompanyHomePage">
-          <DataField>CompanyHomePage</DataField>
-        </Field>
         <Field Name="CompanyRegistrationNo">
           <DataField>CompanyRegistrationNo</DataField>
         </Field>
         <Field Name="CompanyNameJP">
           <DataField>CompanyNameJP</DataField>
         </Field>
-        <Field Name="CopyText">
-          <DataField>CopyText</DataField>
+        <Field Name="Number_CopyLoop">
+          <DataField>Number_CopyLoop</DataField>
         </Field>
-        <Field Name="Line_Description">
-          <DataField>Line_Description</DataField>
+        <Field Name="CommentText">
+          <DataField>CommentText</DataField>
         </Field>
         <Field Name="LineNo_ServLineType">
           <DataField>LineNo_ServLineType</DataField>
-        </Field>
-        <Field Name="Description_ServLineType">
-          <DataField>Description_ServLineType</DataField>
         </Field>
         <Field Name="ItemNo_ServLineType">
           <DataField>ItemNo_ServLineType</DataField>
@@ -3644,20 +3659,23 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="ServItemNo_ServLineType">
           <DataField>ServItemNo_ServLineType</DataField>
         </Field>
-        <Field Name="ServiceItemDesc">
-          <DataField>ServiceItemDesc</DataField>
-        </Field>
-        <Field Name="SerItmGrCode_ServLineType">
-          <DataField>SerItmGrCode_ServLineType</DataField>
+        <Field Name="Description_ServLineType">
+          <DataField>Description_ServLineType</DataField>
         </Field>
         <Field Name="SerialNo_ServLineType">
           <DataField>SerialNo_ServLineType</DataField>
+        </Field>
+        <Field Name="SerItmGrCode_ServLineType">
+          <DataField>SerItmGrCode_ServLineType</DataField>
         </Field>
         <Field Name="Warranty1_ServLineType">
           <DataField>Warranty1_ServLineType</DataField>
         </Field>
         <Field Name="LineNo_ServLine">
           <DataField>LineNo_ServLine</DataField>
+        </Field>
+        <Field Name="Type_ServLine">
+          <DataField>Type_ServLine</DataField>
         </Field>
         <Field Name="Description_ServLine">
           <DataField>Description_ServLine</DataField>
@@ -3668,6 +3686,12 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="Quantity_ServLineFormat">
           <DataField>Quantity_ServLineFormat</DataField>
         </Field>
+        <Field Name="Amt">
+          <DataField>Amt</DataField>
+        </Field>
+        <Field Name="AmtFormat">
+          <DataField>AmtFormat</DataField>
+        </Field>
         <Field Name="LineUOM">
           <DataField>LineUOM</DataField>
         </Field>
@@ -3676,12 +3700,6 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="UnitPrice_ServLineFormat">
           <DataField>UnitPrice_ServLineFormat</DataField>
-        </Field>
-        <Field Name="Amt">
-          <DataField>Amt</DataField>
-        </Field>
-        <Field Name="AmtFormat">
-          <DataField>AmtFormat</DataField>
         </Field>
         <Field Name="FlatLineDescription">
           <DataField>FlatLineDescription</DataField>
@@ -3697,6 +3715,9 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="FlatLineAmountFormat">
           <DataField>FlatLineAmountFormat</DataField>
+        </Field>
+        <Field Name="FlatServItemNo">
+          <DataField>FlatServItemNo</DataField>
         </Field>
         <Field Name="FlatLineUOM">
           <DataField>FlatLineUOM</DataField>
