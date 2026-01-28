@@ -13,6 +13,8 @@ report 50011 "MRJ Sales Quotation"
                                 where("Document Type" = const(Quote));
             RequestFilterFields = "No.", "Sell-to Customer No.";
 
+            column(CurrencySymbol; GetCurrencySymbol()) { }
+
             // ==== Header fields ====
             column(QuoteNo; "No.") { }                         // 見積書番号
             column(QuoteDateTxt; QuoteDateTxt) { }             // 見積日 (2018年03月30日)
@@ -92,12 +94,14 @@ report 50011 "MRJ Sales Quotation"
             dataitem(SalesCommentLine; "Sales Comment Line")
             {
                 DataItemLinkReference = SalesHeader;
-                DataItemTableView = sorting("Document Type", "No.", "Document Line No.", "Line No.")
+                DataItemLink = "Document Type" = field("Document Type"),
+                               "No." = field("No.");
+                DataItemTableView = sorting("Document Type", "No.", "Line No.")
                                     where("Document Type" = const(Quote));
-                DataItemLink = "No." = field("No.");
 
                 column(CommentText; Comment) { }
             }
+
             trigger OnAfterGetRecord()
             var
                 SalesLineTmp: Record "Sales Line";
@@ -153,6 +157,7 @@ report 50011 "MRJ Sales Quotation"
         }
     }
 
+
     requestpage
     {
         layout
@@ -194,6 +199,5 @@ report 50011 "MRJ Sales Quotation"
         TotalExclVAT: Decimal;
         TotalVAT: Decimal;
         TotalInclVAT: Decimal;
-
         ShowOrderInfo: Boolean; // from requestpage (used in later requirement)//
 }

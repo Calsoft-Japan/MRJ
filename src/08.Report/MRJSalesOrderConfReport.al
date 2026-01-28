@@ -29,11 +29,7 @@ report 50012 "MRJ Sales Order Confirmation"
             column(CustAddr1; CustAddr[1]) { }
             column(CustAddr2; CustAddr[2]) { }
             column(CustAddr3; CustAddr[3]) { }
-            column(CustAddr4; CustAddr[4]) { }
-            column(CustAddr5; CustAddr[5]) { }
-            column(CustAddr6; CustAddr[6]) { }
-            column(CustAddr7; CustAddr[7]) { }
-            column(CustAddr8; CustAddr[8]) { }
+            column(CustAddr4; "Sell-to Contact") { }
             column(CustPostCode; "Sell-to Post Code") { }    // 顧客郵便番号
             column(CustNo; "Sell-to Customer No.") { }    // 顧客コード    
 
@@ -78,8 +74,9 @@ report 50012 "MRJ Sales Order Confirmation"
             {
                 DataItemLinkReference = SalesHeader;
                 DataItemTableView = sorting("Document Type", "No.", "Document Line No.", "Line No.")
-                                    where("Document Type" = const(Order));
-                DataItemLink = "No." = field("No.");
+                                    where("Document Type" = const(Quote), "Document Line No." = const(0));
+                DataItemLink = "No." = field("No."),
+                               "Document Type" = field("Document Type");
 
                 column(CommentText; Comment) { }
             }
