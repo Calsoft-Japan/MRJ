@@ -13,13 +13,35 @@ report 50022 "MRJ Service Order Confirmation"
             DataItemTableView = sorting("Document Type", "No.") where("Document Type" = const(Order));
             RequestFilterFields = "No.", "Customer No.";
 
+            // --- Header Columns ---
             column(No_; "No.") { }
             column(Customer_No_; "Customer No.") { }
             column(txtDate; txtDate) { }
-            column(CompanyInfo_Picture; CompanyInfo.Picture) { }
             column(SummarizeLines; SummarizeLines) { }
             column(TotalAmt; TotalAmt) { }
             column(TotalGrossAmt; TotalGrossAmt) { }
+            column(PaymentTermsDesc; PaymentTermsDesc) { }
+            column(PaymentMethodDesc; PaymentMethodDesc) { }
+
+            // --- Customer Address (宛名) ---
+            column(CustAddr1; CustAddr[1]) { }
+            column(CustAddr2; CustAddr[2]) { }
+            column(CustAddr3; CustAddr[3]) { }
+            column(CustAddr4; CustAddr[4]) { }
+            column(CustAddr5; CustAddr[5]) { }
+            column(CustAddr6; CustAddr[6]) { }
+
+            // --- Company Information (自社情報) ---
+            column(CompanyInfo_Picture; CompanyInfo.Picture) { }
+            column(CompanyAddr1; CompanyAddr[1]) { } // 自社名
+            column(CompanyAddr2; CompanyAddr[2]) { } // 住所1
+            column(CompanyAddr3; CompanyAddr[3]) { } // 住所2
+            column(CompanyAddr4; CompanyAddr[4]) { } // 郵便番号等
+            column(CompanyPhoneNo; CompanyInfo."Phone No.") { }
+            column(CompanyEMail; CompanyInfo."E-Mail") { }
+            column(CompanyHomePage; CompanyInfo."Home Page") { }
+            column(CompanyRegistrationNo; CompanyInfo."Registration No.") { } // インボイス登録番号
+            column(CompanyNameJP; CompanyInfo."Ship-to Name") { }
 
             dataitem(CopyLoop; "Integer")
             {
@@ -35,8 +57,15 @@ report 50022 "MRJ Service Order Confirmation"
                         DataItemLink = "Document Type" = field("Document Type"), "Document No." = field("No.");
                         DataItemLinkReference = Header;
                         column(Line_Description; Description) { }
+                        column(LineNo_ServLineType; "Line No.") { }
+                        column(Description_ServLineType; Description) { }
+                        column(ItemNo_ServLineType; "Item No.") { }
+                        column(ServItemNo_ServLineType; "Service Item No.") { }
+                        column(ServiceItemDesc; Description) { }
+                        column(SerItmGrCode_ServLineType; "Service Item Group Code") { }
+                        column(SerialNo_ServLineType; "Serial No.") { }
+                        column(Warranty1_ServLineType; Warranty) { }
 
-                        // 1. 通常明細 (纏めOFFの時に使用)
                         dataitem(ServiceLine; "Service Line")
                         {
                             DataItemLink = "Document Type" = field("Document Type"), "Document No." = field("Document No."), "Service Item Line No." = field("Line No.");
@@ -45,9 +74,10 @@ report 50022 "MRJ Service Order Confirmation"
 
                             column(LineNo_ServLine; "Line No.") { }
                             column(Description_ServLine; Description) { }
-                            column(Quantity_ServLine; Qty) { } // 計算後のQtyを出力
+                            column(Quantity_ServLine; Qty) { }
+                            column(LineUOM; "Unit of Measure Code") { }
                             column(UnitPrice_ServLine; "Unit Price") { }
-                            column(Amt; Amt) { } // 計算後のAmtを出力
+                            column(Amt; Amt) { }
 
                             trigger OnPreDataItem()
                             begin
@@ -56,7 +86,6 @@ report 50022 "MRJ Service Order Confirmation"
 
                             trigger OnAfterGetRecord()
                             begin
-                                // 標準ロジックによる計算
                                 CalculateAmounts(ServiceLine);
                                 if (ShowQty = ShowQty::"Quantity Invoiced") and (Qty = 0) then
                                     CurrReport.Skip();
@@ -64,18 +93,17 @@ report 50022 "MRJ Service Order Confirmation"
                         }
                     }
 
-                    // 2. 集約明細 (纏めONの時に使用)
                     dataitem(SummarizedLine; "Integer")
                     {
                         DataItemTableView = sorting(Number);
                         column(FlatLineDescription; FlatDescription) { }
                         column(FlatLineQuantity; FlatQty) { }
                         column(FlatLineAmount; FlatAmount) { }
+                        column(FlatLineUOM; FlatUOM) { }
 
                         trigger OnPreDataItem()
                         begin
                             if not SummarizeLines then CurrReport.Break();
-
                             SummarizeServiceLines();
                             SetRange(Number, 1, TempServiceLine.Count());
                             if TempServiceLine.FindSet() then;
@@ -85,6 +113,7 @@ report 50022 "MRJ Service Order Confirmation"
                         begin
                             FlatDescription := TempServiceLine.Description;
                             FlatQty := TempServiceLine.Quantity;
+                            FlatUOM := TempServiceLine."Unit of Measure Code";
                             FlatAmount := TempServiceLine."Line Amount";
                             if TempServiceLine.Next() = 0 then;
                         end;
@@ -98,20 +127,43 @@ report 50022 "MRJ Service Order Confirmation"
             }
 
             trigger OnAfterGetRecord()
+            var
+                FormatAddr: Codeunit "Format Address";
+                PaymentTerms: Record "Payment Terms";
+                PaymentMethod: Record "Payment Method";
             begin
+                // 日付フォーマット
                 txtDate := Format("Document Date", 0, '<Year4>年<Month,2>月<Day,2>日');
-                CompanyInfo.Get();
-                CompanyInfo.CalcFields(Picture);
 
-                // 各注文（Header）ごとに合計金額をリセットして事前計算
+                // 会社情報の取得
+                if CompanyInfo.Get() then
+                    CompanyInfo.CalcFields(Picture);
+
+                // 得意先住所の取得（アクセス権エラー回避のためHeaderを直接渡す）
+                Clear(CustAddr);
+                FormatAddr.ServiceOrderSellto(CustAddr, Header);
+
+                // 会社住所の取得
+                Clear(CompanyAddr);
+                FormatAddr.Company(CompanyAddr, CompanyInfo);
+
+                // --- 支払条件の説明を取得 ---
+                Clear(PaymentTermsDesc);
+                if PaymentTerms.Get("Payment Terms Code") then
+                    PaymentTermsDesc := PaymentTerms.Description;
+
+                // --- 支払方法の説明を取得 ---
+                Clear(PaymentMethodDesc);
+                if PaymentMethod.Get("Payment Method Code") then
+                    PaymentMethodDesc := PaymentMethod.Description;
+
+                // 合計金額の計算
                 TotalAmt := 0;
                 TotalGrossAmt := 0;
                 if SummarizeLines then
-                    SummarizeServiceLines() // 纏め時はこの中でTotalを計算
-                else begin
-                    // 非纏め時は全行スキャンしてTotalを計算
+                    SummarizeServiceLines()
+                else
                     PreCalculateTotals();
-                end;
             end;
         }
     }
@@ -158,6 +210,11 @@ report 50022 "MRJ Service Order Confirmation"
         Qty, Amt, GrossAmt, TotalAmt, TotalGrossAmt : Decimal;
         FlatDescription: Text;
         FlatQty, FlatAmount : Decimal;
+        FlatUOM: Code[10];
+        CustAddr: array[8] of Text[100];
+        CompanyAddr: array[8] of Text[100];
+        PaymentTermsDesc: Text[100];
+        PaymentMethodDesc: Text[100];
 
     local procedure CalculateAmounts(var RecLine: Record "Service Line")
     begin
@@ -199,7 +256,7 @@ report 50022 "MRJ Service Order Confirmation"
         TempServiceLine.Reset();
         TempServiceLine.DeleteAll();
         ServiceMgtSetup.Get();
-        TotalAmt := 0; // 重複を避けるため初期化
+        TotalAmt := 0;
         TotalGrossAmt := 0;
 
         ServiceLineRec.SetRange("Document Type", Header."Document Type");
