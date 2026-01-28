@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-01-23T07:51:59.4564874Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-01-27T11:06:29.1080732Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -512,7 +512,9 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=FormatNumber(Fields!TotalInclVAT.value, 0) + "  " + "（消費税込）"</Value>
+                            <Value>=IIF(IsNothing(Fields!CurrencySymbol.Value), "", CStr(Fields!CurrencySymbol.Value))
+&amp; FormatNumber(CDec(Fields!TotalInclVAT.Value), 0)
+&amp; " （消費税込）"</Value>
                             <Style>
                               <FontFamily>MS UI Gothic</FontFamily>
                               <FontSize>9pt</FontSize>
@@ -1796,6 +1798,7 @@
                             <Style>
                               <FontFamily>MS UI Gothic</FontFamily>
                               <FontSize>9pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -1831,6 +1834,7 @@
                             <Style>
                               <FontFamily>MS UI Gothic</FontFamily>
                               <FontSize>9pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -1866,6 +1870,7 @@
                             <Style>
                               <FontFamily>MS UI Gothic</FontFamily>
                               <FontSize>9pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -1902,7 +1907,7 @@
                               <FontStyle>Normal</FontStyle>
                               <FontFamily>MS UI Gothic</FontFamily>
                               <FontSize>9pt</FontSize>
-                              <FontWeight>Normal</FontWeight>
+                              <FontWeight>Bold</FontWeight>
                               <TextDecoration>None</TextDecoration>
                             </Style>
                           </TextRun>
@@ -1938,7 +1943,7 @@
                               <FontStyle>Normal</FontStyle>
                               <FontFamily>MS UI Gothic</FontFamily>
                               <FontSize>9pt</FontSize>
-                              <FontWeight>Normal</FontWeight>
+                              <FontWeight>Bold</FontWeight>
                               <TextDecoration>None</TextDecoration>
                             </Style>
                           </TextRun>
@@ -1974,7 +1979,7 @@
                               <FontStyle>Normal</FontStyle>
                               <FontFamily>MS UI Gothic</FontFamily>
                               <FontSize>9pt</FontSize>
-                              <FontWeight>Normal</FontWeight>
+                              <FontWeight>Bold</FontWeight>
                               <TextDecoration>None</TextDecoration>
                             </Style>
                           </TextRun>
@@ -2031,11 +2036,52 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
+                  <Textbox Name="Textbox6">
+                    <rd:DefaultName>Textbox6</rd:DefaultName>
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value xml:space="preserve">　　　</Value>
+                            <Style>
+                              <FontFamily>MS UI Gothic</FontFamily>
+                              <FontSize>9pt</FontSize>
+                            </Style>
+                          </TextRun>
+                          <TextRun>
+                            <Value>=Fields!CommentText.value</Value>
+                            <Style>
+                              <FontFamily>MS UI Gothic</FontFamily>
+                              <FontSize>9pt</FontSize>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style />
+                      </Paragraph>
+                    </Paragraphs>
+                    <Top>7.97406cm</Top>
+                    <Left>0.33355cm</Left>
+                    <Height>0.56472cm</Height>
+                    <Width>5.56158cm</Width>
+                    <ZIndex>17</ZIndex>
+                    <Style>
+                      <Border>
+                        <Style>None</Style>
+                      </Border>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
                 </ReportItems>
                 <KeepTogether>true</KeepTogether>
                 <Top>5.00279cm</Top>
                 <Left>0cm</Left>
-                <Height>8.35215cm</Height>
+                <Height>9.12854cm</Height>
                 <Width>17.41344cm</Width>
                 <ZIndex>11</ZIndex>
                 <Style>
@@ -2191,7 +2237,9 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <Top>0.72813cm</Top>
@@ -2260,7 +2308,9 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <Top>1.2223cm</Top>
@@ -2400,6 +2450,9 @@ End Function
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Fields>
+        <Field Name="CurrencySymbol">
+          <DataField>CurrencySymbol</DataField>
+        </Field>
         <Field Name="QuoteNo">
           <DataField>QuoteNo</DataField>
         </Field>
