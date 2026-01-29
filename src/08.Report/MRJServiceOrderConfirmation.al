@@ -169,7 +169,7 @@ report 50022 "MRJ Service Order Confirmation"
                     field(ShowQtyField; ShowQty)
                     {
                         ApplicationArea = Service;
-                        Caption = '金額の基準';
+                        Caption = '金額基準';
                         OptionCaption = '数量,請求済数量';
                     }
                     field(SummarizeLinesField; SummarizeLines)
