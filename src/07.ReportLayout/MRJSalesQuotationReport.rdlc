@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-01-27T11:06:29.1080732Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-01-28T23:24:16.0258601Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -244,7 +244,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!CompanyAddr2.Value</Value>
+                        <Value>=Fields!CompanyAdd3.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -277,7 +277,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>="〒" + " "+ Fields!CompanyAddr3.Value</Value>
+                        <Value>="〒" + " "+ Fields!CompanyAddr2.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -512,8 +512,8 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=IIF(IsNothing(Fields!CurrencySymbol.Value), "", CStr(Fields!CurrencySymbol.Value))
-&amp; FormatNumber(CDec(Fields!TotalInclVAT.Value), 0)
+                            <Value>=FormatNumber(CDec(Fields!TotalInclVAT.Value), 0)
+&amp; IIF(IsNothing(Fields!CurrencySymbol.Value), "", CStr(Fields!CurrencySymbol.Value))
 &amp; " （消費税込）"</Value>
                             <Style>
                               <FontFamily>MS UI Gothic</FontFamily>

@@ -28,7 +28,7 @@ report 50012 "MRJ Sales Order Confirmation"
             // Customer address (left)
             column(CustAddr1; CustAddr[1]) { }
             column(CustAddr2; CustAddr[2]) { }
-            column(CustAddr3; CustAddr[3]) { }
+            column(CustAddr3; "Sell-to Address") { }
             column(CustAddr4; "Sell-to Contact") { }
             column(CustPostCode; "Sell-to Post Code") { }    // 顧客郵便番号
             column(CustNo; "Sell-to Customer No.") { }    // 顧客コード    
