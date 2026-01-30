@@ -116,7 +116,12 @@ report 50022 "MRJ Service Order Confirmation"
                     FlatServItemNo := TempServiceLine."Service Item No.";
                     FlatUOM := TempServiceLine."Unit of Measure Code";
                     FlatPrice := TempServiceLine."Unit Price";
-                    FlatLineType := Format(TempServiceLine.Type);
+
+                    if TempServiceLine.Type = TempServiceLine.Type::Item then
+                        FlatLineType := 'ITEM' // 常に大文字の 'ITEM' を入れる
+                    else
+                        FlatLineType := 'RESOURCE';
+
                 end;
             }
 

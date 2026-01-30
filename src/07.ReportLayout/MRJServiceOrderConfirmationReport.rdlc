@@ -1943,6 +1943,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="textbox102">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1950,7 +1951,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(Fields!FlatLineType.Value = "Item", Format(Fields!FlatUnitPrice.Value, "#,##0"), "")</Value>
+                                  <Value>=IIF(Fields!FlatLineType.Value = "ITEM", Format(Fields!FlatUnitPrice.Value, "#,##0"), "")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
