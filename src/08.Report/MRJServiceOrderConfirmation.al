@@ -96,7 +96,8 @@ report 50022 "MRJ Service Order Confirmation"
                 column(FlatLineAmount; FlatAmount) { }
                 column(FlatServItemNo; FlatServItemNo) { }
                 column(FlatLineUOM; FlatUOM) { }
-                column(FlatLineType; TempServiceLine.Type) { }
+                column(FlatUnitPrice; FlatPrice) { }
+                column(FlatLineType; FlatLineType) { }
 
                 trigger OnPreDataItem()
                 begin
@@ -128,7 +129,7 @@ report 50022 "MRJ Service Order Confirmation"
                 DataItemTableView = sorting("Table Name", "Table Subtype", "No.", "Type", "Table Line No.", "Line No.")
                         where("Table Name" = const("Service Header"), "Type" = const(General));
 
-                column(No_SCL; "No.") { } // ★ここを追加（RDLCでの紐付け用）
+                column(No_SCL; "No.") { }
                 column(CommentText; Comment) { }
             }
 
@@ -286,6 +287,7 @@ report 50022 "MRJ Service Order Confirmation"
                 TempServiceLine.TransferFields(ServiceLineRec);
                 TempServiceLine.Quantity := Qty;
                 TempServiceLine."Line Amount" := Amt;
+                TempServiceLine."Unit Price" := ServiceLineRec."Unit Price"; // 元の単価をそのまま保持
                 TempServiceLine."Resource Group No." := TargetResGrp; // ソート用
 
                 // リソースの場合は説明をリソースグループ名に書き換え
