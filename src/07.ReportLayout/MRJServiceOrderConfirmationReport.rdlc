@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-01-28T08:32:51.0239506Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-01-29T10:49:25.1213543Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -374,7 +374,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(IsNothing(Fields!Description_ServLine.Value) Or Fields!Description_ServLine.Value = "", "",Fields!Quantity_ServLine.Value)</Value>
+                                  <Value>=IIF(IsNothing(Fields!Description_ServLine.Value) Or Fields!Description_ServLine.Value = "" Or Fields!Quantity_ServLine.Value = 0, "", Fields!Quantity_ServLine.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -491,7 +491,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(IsNothing(Fields!Description_ServLine.Value) Or Fields!Description_ServLine.Value = "", "",Fields!Amt.Value)</Value>
+                                  <Value>=IIF(IsNothing(Fields!Description_ServLine.Value) Or Fields!Description_ServLine.Value = "" Or Fields!Amt.Value = 0, "", Format(Fields!Amt.Value, "#,##0"))</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1982,6 +1982,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="textbox103">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -1989,7 +1990,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(IsNothing(Fields!FlatLineDescription.Value) Or Fields!FlatLineDescription.Value = "", "",Fields!FlatLineAmount.Value)</Value>
+                                  <Value>=IIF(IsNothing(Fields!FlatLineDescription.Value) Or Fields!FlatLineDescription.Value = "" Or Fields!FlatLineAmount.Value = 0, "", Format(Fields!FlatLineAmount.Value, "#,##0"))</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -2660,7 +2661,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!CustAddr4.Value</Value>
+                        <Value>=Fields!CustAddr3.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -2867,66 +2868,6 @@
                   <VerticalAlign>Middle</VerticalAlign>
                 </Style>
               </Textbox>
-              <Textbox Name="CompanyAddr61">
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>Tel.  ｻｰﾋﾞｽ 050-2018-7306 ﾊﾟｰﾂ 050-2018-7307</Value>
-                        <Style>
-                          <FontFamily>MS UI Gothic</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Left</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <Top>2.90485cm</Top>
-                <Left>11.88797cm</Left>
-                <Height>11pt</Height>
-                <Width>6.14125cm</Width>
-                <ZIndex>10</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <VerticalAlign>Middle</VerticalAlign>
-                </Style>
-              </Textbox>
-              <Textbox Name="CompanyAddr62">
-                <KeepTogether>true</KeepTogether>
-                <Paragraphs>
-                  <Paragraph>
-                    <TextRuns>
-                      <TextRun>
-                        <Value>Fax.  ｻｰﾋﾞｽ 050-2018-7322 ﾊﾟｰﾂ 050-2018-7323</Value>
-                        <Style>
-                          <FontFamily>MS UI Gothic</FontFamily>
-                          <FontSize>8pt</FontSize>
-                        </Style>
-                      </TextRun>
-                    </TextRuns>
-                    <Style>
-                      <TextAlign>Left</TextAlign>
-                    </Style>
-                  </Paragraph>
-                </Paragraphs>
-                <Top>3.32818cm</Top>
-                <Left>11.88797cm</Left>
-                <Height>11pt</Height>
-                <Width>6.14125cm</Width>
-                <ZIndex>11</ZIndex>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                  <VerticalAlign>Middle</VerticalAlign>
-                </Style>
-              </Textbox>
               <Textbox Name="Textbox28">
                 <rd:DefaultName>Textbox28</rd:DefaultName>
                 <CanGrow>true</CanGrow>
@@ -2951,7 +2892,7 @@
                 <Left>15.06654cm</Left>
                 <Height>0.51412cm</Height>
                 <Width>1.43793cm</Width>
-                <ZIndex>12</ZIndex>
+                <ZIndex>10</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -2985,7 +2926,7 @@
                 <Left>15.06654cm</Left>
                 <Height>1.03919cm</Height>
                 <Width>1.43793cm</Width>
-                <ZIndex>13</ZIndex>
+                <ZIndex>11</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -3017,7 +2958,7 @@
                 <Left>16.64557cm</Left>
                 <Height>1.03919cm</Height>
                 <Width>1.43793cm</Width>
-                <ZIndex>14</ZIndex>
+                <ZIndex>12</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -3052,7 +2993,7 @@
                 <Left>16.64557cm</Left>
                 <Height>0.51412cm</Height>
                 <Width>1.43793cm</Width>
-                <ZIndex>15</ZIndex>
+                <ZIndex>13</ZIndex>
                 <Style>
                   <Border>
                     <Style>Solid</Style>
@@ -3062,6 +3003,66 @@
                   <PaddingRight>2pt</PaddingRight>
                   <PaddingTop>2pt</PaddingTop>
                   <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="PageCaption5">
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=Fields!CompanyPhoneNo.Value</Value>
+                        <Style>
+                          <FontFamily>MS UI Gothic</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Left</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <Top>2.90484cm</Top>
+                <Left>11.88797cm</Left>
+                <Height>11pt</Height>
+                <Width>5.68857cm</Width>
+                <ZIndex>14</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                </Style>
+              </Textbox>
+              <Textbox Name="PageCaption6">
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=Fields!CompanyFaxNo.Value</Value>
+                        <Style>
+                          <FontFamily>MS UI Gothic</FontFamily>
+                          <FontSize>8pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Left</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <Top>3.2929cm</Top>
+                <Left>11.88797cm</Left>
+                <Height>11pt</Height>
+                <Width>5.68857cm</Width>
+                <ZIndex>15</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
                 </Style>
               </Textbox>
             </ReportItems>
@@ -3626,6 +3627,9 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="CompanyPhoneNo">
           <DataField>CompanyPhoneNo</DataField>
+        </Field>
+        <Field Name="CompanyFaxNo">
+          <DataField>CompanyFaxNo</DataField>
         </Field>
         <Field Name="CompanyRegistrationNo">
           <DataField>CompanyRegistrationNo</DataField>

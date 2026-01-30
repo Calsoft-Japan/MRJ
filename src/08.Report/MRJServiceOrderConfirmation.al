@@ -40,8 +40,11 @@ report 50022 "MRJ Service Order Confirmation"
             column(CompanyAddr3; CompanyAddr[3]) { }
             column(CompanyAddr4; CompanyAddr[4]) { }
             column(CompanyPhoneNo; CompanyInfo."Phone No.") { }
+
+            column(CompanyFaxNo; CompanyInfo."Fax No.") { }
             column(CompanyRegistrationNo; CompanyInfo."Registration No.") { }
             column(CompanyNameJP; CompanyInfo."Ship-to Name") { }
+
 
             // --- 1. 通常の明細（Service Item Line 階層） ---
             dataitem(ServiceItemLine; "Service Item Line")
@@ -169,7 +172,7 @@ report 50022 "MRJ Service Order Confirmation"
                     field(ShowQtyField; ShowQty)
                     {
                         ApplicationArea = Service;
-                        Caption = '金額の基準';
+                        Caption = '金額基準';
                         OptionCaption = '数量,請求済数量';
                     }
                     field(SummarizeLinesField; SummarizeLines)
