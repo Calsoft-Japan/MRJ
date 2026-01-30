@@ -2125,7 +2125,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(Fields!FlatLineType.Value = "Item" And Not(IsNothing(Fields!FlatLineDescription.Value) Or Fields!FlatLineDescription.Value = ""), Format(Fields!FlatUnitPrice.Value, "#,##0"), "")</Value>
+                                  <Value>=IIF(Fields!Type_ServLine.Value = "Item", IIF(IsNothing(Fields!Description_ServLine.Value) Or Fields!Description_ServLine.Value = "", "", Fields!UnitPrice_ServLine.Value), "")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -2134,7 +2134,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Left</TextAlign>
+                                <TextAlign>Right</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
