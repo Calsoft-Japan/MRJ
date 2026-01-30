@@ -94,13 +94,19 @@ report 50011 "MRJ Sales Quotation"
             dataitem(SalesCommentLine; "Sales Comment Line")
             {
                 DataItemLinkReference = SalesHeader;
-                DataItemLink = "Document Type" = field("Document Type"),
-                               "No." = field("No.");
+                DataItemLink = "No." = field("No.");
                 DataItemTableView = sorting("Document Type", "No.", "Line No.")
-                                    where("Document Type" = const(Quote));
+                        where("Document Line No." = const(0));
 
                 column(CommentText; Comment) { }
+                column(CommentNo; "No.") { } // debug (optional)
+
+                trigger OnPreDataItem()
+                begin
+                    SetRange("Document Type", "Document Type"::Quote);
+                end;
             }
+
 
             trigger OnAfterGetRecord()
             var
@@ -108,9 +114,9 @@ report 50011 "MRJ Sales Quotation"
             begin
                 // ----- Title & dates -----
                 if ShowOrderInfo then
-                    TitleTxt := '御見積書 兼 注文書'     // for future requirement
+                    TitleTxt := '御 見 積 書 兼 注 文 書'
                 else
-                    TitleTxt := '御見積書';
+                    TitleTxt := '御 見 積 書';
 
                 QuoteDateTxt := Format("Document Date", 0, '<Year4>年<Month,2>月<Day,2>日');
 
@@ -200,4 +206,15 @@ report 50011 "MRJ Sales Quotation"
         TotalVAT: Decimal;
         TotalInclVAT: Decimal;
         ShowOrderInfo: Boolean; // from requestpage (used in later requirement)//
+
+    local procedure GetCurrencySymbol(CurrCode: Code[10]): Text[10]
+    begin
+        // LCY only
+        if (CurrCode = '') or (CurrCode = 'JPY') then
+            exit('¥');
+
+        // FCY → no symbol
+        exit('');
+    end;
 }
+
