@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-01-27T23:56:25.4943036Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-01-30T01:32:35.4465135Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -996,7 +996,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="textbox90">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -2498,6 +2497,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="textbox102">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -2505,7 +2505,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=IIF(Fields!FlatLineType.Value = "ITEM", Format(Fields!FlatUnitPrice.Value, "#,##0"), "")</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -2514,7 +2514,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Left</TextAlign>
+                                <TextAlign>Right</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -2820,7 +2820,7 @@
                     <TablixMember />
                   </TablixMembers>
                   <Visibility>
-                    <Hidden>=IsNothing(Fields!FlatLineDescription.Value)</Hidden>
+                    <Hidden>=IsNothing(Fields!FlatLineDescription.Value) Or Fields!FlatLineDescription.Value = "" Or Fields!FlatLineQuantity.Value = 0</Hidden>
                   </Visibility>
                 </TablixMember>
                 <TablixMember>
@@ -4563,6 +4563,9 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="FlatLineAmountFormat">
           <DataField>FlatLineAmountFormat</DataField>
+        </Field>
+        <Field Name="FlatLineType">
+          <DataField>FlatLineType</DataField>
         </Field>
         <Field Name="CommentText">
           <DataField>CommentText</DataField>

@@ -96,6 +96,8 @@ report 50022 "MRJ Service Order Confirmation"
                 column(FlatLineAmount; FlatAmount) { }
                 column(FlatServItemNo; FlatServItemNo) { }
                 column(FlatLineUOM; FlatUOM) { }
+                column(FlatUnitPrice; FlatPrice) { }
+                column(FlatLineType; FlatLineType) { }
 
                 trigger OnPreDataItem()
                 begin
@@ -114,6 +116,12 @@ report 50022 "MRJ Service Order Confirmation"
                     FlatServItemNo := TempServiceLine."Service Item No.";
                     FlatUOM := TempServiceLine."Unit of Measure Code";
                     FlatPrice := TempServiceLine."Unit Price";
+
+                    if TempServiceLine.Type = TempServiceLine.Type::Item then
+                        FlatLineType := 'ITEM' // 常に大文字の 'ITEM' を入れる
+                    else
+                        FlatLineType := 'RESOURCE';
+
                 end;
             }
 
@@ -126,7 +134,7 @@ report 50022 "MRJ Service Order Confirmation"
                 DataItemTableView = sorting("Table Name", "Table Subtype", "No.", "Type", "Table Line No.", "Line No.")
                         where("Table Name" = const("Service Header"), "Type" = const(General));
 
-                column(No_SCL; "No.") { } // ★ここを追加（RDLCでの紐付け用）
+                column(No_SCL; "No.") { }
                 column(CommentText; Comment) { }
             }
 
@@ -195,6 +203,7 @@ report 50022 "MRJ Service Order Confirmation"
         FlatDescription: Text;
         FlatServItemNo: Code[20];
         FlatUOM: Code[10];
+        FlatLineType: Text[20];
         CustAddr, CompanyAddr : array[8] of Text[100];
         PaymentTermsDesc, PaymentMethodDesc : Text[100];
 
@@ -214,34 +223,126 @@ report 50022 "MRJ Service Order Confirmation"
     local procedure SummarizeServiceLines()
     var
         ServiceLineRec: Record "Service Line";
+        Res: Record Resource;
+        ResGrp: Record "Resource Group";
+        ServiceMgtSetup: Record "Service Mgt. Setup";
+        TempSortBuffer: Record "Service Line" temporary;
+        NextLineNo: Integer;
+        CurrentResGrp: Code[20];
+        TargetResGrp: Code[20];
     begin
+        // 初期化
         TempServiceLine.Reset();
         TempServiceLine.DeleteAll();
         TotalAmt := 0;
         TotalGrossAmt := 0;
+        ServiceMgtSetup.Get();
 
+        // --- 手順1: 名寄せ（集約） ---
         ServiceLineRec.SetRange("Document Type", Header."Document Type");
         ServiceLineRec.SetRange("Document No.", Header."No.");
         if ServiceLineRec.FindSet() then
             repeat
-                CalculateAmounts(ServiceLineRec);
+                CalculateAmounts(ServiceLineRec); // 金額計算
                 TotalAmt += Amt;
                 TotalGrossAmt += GrossAmt;
 
-                TempServiceLine.Reset();
-                TempServiceLine.SetRange(Description, ServiceLineRec.Description);
-                if TempServiceLine.FindFirst() then begin
-                    TempServiceLine.Quantity += Qty;
-                    TempServiceLine."Line Amount" += Amt;
-                    TempServiceLine.Modify();
-                end else begin
-                    TempServiceLine.Init();
-                    TempServiceLine.TransferFields(ServiceLineRec);
-                    TempServiceLine.Quantity := Qty;
-                    TempServiceLine."Line Amount" := Amt;
-                    TempServiceLine.Insert();
+                CurrentResGrp := '';
+                TargetResGrp := '';
+
+                // リソースの場合、集約先のリソースグループを特定
+                if ServiceLineRec.Type = ServiceLineRec.Type::Resource then begin
+                    if Res.Get(ServiceLineRec."No.") then begin
+                        CurrentResGrp := Res."Resource Group No.";
+                        TargetResGrp := CurrentResGrp;
+
+                        // セットアップのフィルタに基づきグループを振り替え（ソート用）
+                        if (ServiceMgtSetup."Resource Group Filter" <> '') and
+                           (StrPos(ServiceMgtSetup."Resource Group Filter", CurrentResGrp) > 0) then
+                            TargetResGrp := ServiceMgtSetup."Resource Group for Sort";
+                    end;
                 end;
+
+
+                // 名寄せ判定（リソースの場合、サービス品目に関係なく合算）
+                if (ServiceLineRec.Type = ServiceLineRec.Type::Resource) and (TargetResGrp <> '') then begin
+                    TempServiceLine.Reset();
+                    TempServiceLine.SetRange(Type, TempServiceLine.Type::Resource);
+                    TempServiceLine.SetRange("Resource Group No.", TargetResGrp);
+
+                    // Service Item No. の SetRange を行わない
+                    // これにより、異なるサービス品目の行も同じリソースグループとして見つかる
+
+                    if TempServiceLine.FindFirst() then begin
+                        // すでに同じグループの行があれば、数量と金額を足し算する
+                        TempServiceLine.Quantity += Qty;
+                        TempServiceLine."Line Amount" += Amt;
+
+                        // サービス品目が混在するため、レポート上の表示を空にする（任意）
+                        TempServiceLine."Service Item No." := '';
+
+                        TempServiceLine.Modify();
+                        continue; // 次の行の処理へスキップ
+                    end;
+                end;
+
+                // 新規行として一時テーブルに追加
+                TempServiceLine.Reset();
+                TempServiceLine.Init();
+                TempServiceLine.TransferFields(ServiceLineRec);
+                TempServiceLine.Quantity := Qty;
+                TempServiceLine."Line Amount" := Amt;
+                TempServiceLine."Unit Price" := ServiceLineRec."Unit Price"; // 元の単価をそのまま保持
+                TempServiceLine."Resource Group No." := TargetResGrp; // ソート用
+
+                // リソースの場合は説明をリソースグループ名に書き換え
+                if (ServiceLineRec.Type = ServiceLineRec.Type::Resource) and (TargetResGrp <> '') then begin
+                    if ResGrp.Get(TargetResGrp) then
+                        TempServiceLine.Description := ResGrp.Name;
+                end;
+                TempServiceLine.Insert();
             until ServiceLineRec.Next() = 0;
+
+        // --- 手順2: 並び替え ---
+        TempSortBuffer.Reset();
+        TempSortBuffer.DeleteAll();
+        NextLineNo := 10000;
+
+        // A. リソースをグループ順にバッファへ
+        TempServiceLine.Reset();
+        TempServiceLine.SetRange(Type, TempServiceLine.Type::Resource);
+        TempServiceLine.SetCurrentKey("Resource Group No."); // 一時テーブルなので動的ソート可
+        if TempServiceLine.FindSet() then
+            repeat
+                InsertIntoBuffer(TempServiceLine, TempSortBuffer, NextLineNo);
+            until TempServiceLine.Next() = 0;
+
+        // B. リソース以外をバッファへ
+        TempServiceLine.Reset();
+        TempServiceLine.SetFilter(Type, '<>%1', TempServiceLine.Type::Resource);
+        if TempServiceLine.FindSet() then
+            repeat
+                InsertIntoBuffer(TempServiceLine, TempSortBuffer, NextLineNo);
+            until TempServiceLine.Next() = 0;
+
+        // --- 手順3: 最終的な TempServiceLine に書き戻す ---
+        TempServiceLine.Reset();
+        TempServiceLine.DeleteAll();
+        if TempSortBuffer.FindSet() then
+            repeat
+                TempServiceLine.TransferFields(TempSortBuffer);
+                TempServiceLine.Insert();
+            until TempSortBuffer.Next() = 0;
+    end;
+
+    // 並び替え用の補助関数
+    local procedure InsertIntoBuffer(var SourceRec: Record "Service Line" temporary; var DestBuffer: Record "Service Line" temporary; var NextLineNo: Integer)
+    begin
+        DestBuffer.Init();
+        DestBuffer.TransferFields(SourceRec);
+        DestBuffer."Line No." := NextLineNo;
+        DestBuffer.Insert();
+        NextLineNo += 10000;
     end;
 
     local procedure PreCalculateTotals()

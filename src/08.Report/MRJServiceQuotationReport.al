@@ -161,6 +161,7 @@ report 50021 "MRJ Service Quotation"
                 column(FlatLineUOM; FlatUOM) { }
                 column(FlatUnitPrice; FlatPrice) { }
                 column(FlatLineAmount; FlatAmount) { }
+                column(FlatLineType; FlatLineType) { }
 
                 trigger OnPreDataItem()
                 begin
@@ -181,6 +182,12 @@ report 50021 "MRJ Service Quotation"
                     FlatUOM := TempServiceLine."Unit of Measure Code";
                     FlatPrice := TempServiceLine."Unit Price";
                     FlatAmount := TempServiceLine."Line Amount";
+
+                    if TempServiceLine.Type = TempServiceLine.Type::Item then
+                        FlatLineType := 'ITEM' // 常に大文字の 'ITEM' を入れる
+                    else
+                        FlatLineType := 'RESOURCE';
+
 
                     //デバッグ用確認メッセージ
                     //Message('Loop: %1, Exporting: %2', Number, Description);
@@ -253,6 +260,7 @@ report 50021 "MRJ Service Quotation"
         FlatUOM: Code[10];
         FlatPrice: Decimal;
         FlatAmount: Decimal;
+        FlatLineType: Text[20];
 
     local procedure UpdateHeaderInfo()
     var
