@@ -1,8 +1,8 @@
 table 50134 "Service Inquiry Line"
 {
     Caption = 'Service Line';
-    LookupPageId = 5904;
-    DrillDownPageId = 5904;
+    //LookupPageId = 5904;
+    //DrillDownPageId = 5904;
     PasteIsValid = false;
 
     fields
@@ -21,13 +21,8 @@ table 50134 "Service Inquiry Line"
         {
             Caption = 'Document No.';
             TableRelation =
-                if ("Document Type" = filter(Quote | Order | Invoice | "Credit Memo")) "Service Header"."No." where("Document Type" = field("Document Type"))
-            else
-            if ("Document Type" = const("Posted Shipment")) "Service Shipment Header"."No." where("No." = field("Document No."))
-            else
             if ("Document Type" = const("Posted Invoice")) "Service Invoice Header"."No." where("No." = field("Document No."))
-            else
-            if ("Document Type" = const("Posted Credit Memo")) "Service Cr.Memo Header"."No." where("No." = field("Document No."));
+            else if ("Document Type" = const("Posted Credit Memo")) "Service Cr.Memo Header"."No." where("No." = field("Document No."));
         }
 
         field(4; "Line No."; Integer)
@@ -42,15 +37,11 @@ table 50134 "Service Inquiry Line"
         {
             Caption = 'No.';
             TableRelation =
-                if (Type = const(" ")) "Standard Text"
-            else
-            if (Type = const("G/L Account")) "G/L Account"
-            else
-            if (Type = const(Item)) Item
-            else
-            if (Type = const(Resource)) Resource
-            else
-            if (Type = const(Cost)) "Service Cost";
+            if (Type = const(" ")) "Standard Text"
+            else if (Type = const("G/L Account")) "G/L Account"
+            else if (Type = const(Item)) Item
+            else if (Type = const(Resource)) Resource
+            else if (Type = const(Cost)) "Service Cost";
         }
 
         field(11; Description; Text[50])
@@ -106,7 +97,7 @@ table 50134 "Service Inquiry Line"
             Caption = 'Inv. Discount Amount';
             Editable = false;
             AutoFormatType = 1;
-            //AutoFormatExpression = "Currency Code";
+            AutoFormatExpression = "Currency Code";
         }
 
         field(74; "Gen. Bus. Posting Group"; Code[10])
@@ -149,13 +140,11 @@ table 50134 "Service Inquiry Line"
         field(5407; "Unit of Measure Code"; Code[10])
         {
             Caption = 'Unit of Measure Code';
-            TableRelation =
-                if (Type = const(Item)) "Item Unit of Measure".Code where("Item No." = field("No."))
-            else
-            if (Type = const(Resource)) "Resource Unit of Measure".Code where("Resource No." = field("No."))
-            else
-            "Unit of Measure";
         }
+        /* field(5415; "Quantity (Base)"; Decimal)
+        {
+            Caption = 'Quantity (Base)';
+        } */
         field(5709; "Item Category Code"; Code[10])
         {
             Caption = 'Item Category Code';

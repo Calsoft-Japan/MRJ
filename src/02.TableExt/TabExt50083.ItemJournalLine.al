@@ -27,7 +27,6 @@ tableextension 50083 "Item Jnl. Line Ext" extends "Item Journal Line"
             DecimalPlaces = 0 : 5;
             Description = 'UPG';
             Editable = false;
-
         }
         field(70080; "Diff. Qty."; Decimal)
         {

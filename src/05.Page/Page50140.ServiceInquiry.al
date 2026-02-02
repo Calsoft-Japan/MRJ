@@ -35,10 +35,48 @@ page 50140 "Sales Inquiry Card"
             part(ServInquiryLines; "Service Inquiry Subform") { }
         }
     }
+    actions
+    {
+        area(Processing)
+        {
+            Action(ShowData)
+            {
+                Caption = 'Show Data';
+                Image = ViewPage;
+                Promoted = true;
+                PromotedIsBig = true;
+                trigger OnAction();
+                begin
+                    Window.Open(WinUpdTxt);
+                    CurrPage.ServInquiryLines.Page.SetIncludeFilter(ServicePostedInvoice, ServicePostedCrMemo);
+                    CurrPage.ServInquiryLines.Page.RefreshData(PostingDateFilter);
+                    Window.Close();
+                    CurrPage.Update(false);
+                end;
+            }
+            Action(ClearData)
+            {
+                Caption = 'Clear Data';
+                Image = ClearLog;
+                Promoted = true;
+                PromotedIsBig = true;
+                trigger OnAction();
+                begin
+                    Window.Open(WinDelTxt);
+                    CurrPage.ServInquiryLines.Page.DeleteRecords();
+                    Window.Close();
+                    CurrPage.Update(false);
+                end;
+            }
+        }
+    }
     var
         ServInqLine: Record "Service Inquiry Line";
         ApplMgt: Codeunit "Filter Tokens";
         PostingDateFilter: Text;
+        Window: Dialog;
         ServicePostedInvoice: Boolean;
         ServicePostedCrMemo: Boolean;
+        WinUpdTxt: Label 'Now updating.\Please wait ...';
+        WinDelTxt: Label 'Now deleting.\Please wait ...';
 }

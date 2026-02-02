@@ -16,185 +16,191 @@ page 50141 "Service Inquiry Subform"
         {
             repeater(General)
             {
+                field("Document Type"; Rec."Document Type") { ApplicationArea = All; }
+                field("Customer No."; Rec."Customer No.") { ApplicationArea = All; }
                 field("Document No."; Rec."Document No.")
                 {
                     ApplicationArea = All;
-
                     trigger OnLookup(var Text: Text): Boolean
                     var
-                        ServHeader: Record "Service Header";
-                        ServShipHeader: Record "Service Shipment Header";
-                        ServInvHeader: Record "Service Invoice Header";
-                        ServCrMemoHeader: Record "Service Cr.Memo Header";
+                        ServInvoice: Record "Service Invoice Header";
+                        ServCrMemo: Record "Service Cr.Memo Header";
                     begin
                         case Rec."Document Type" of
-                            Rec."Document Type"::Quote,
-                            Rec."Document Type"::Order,
-                            Rec."Document Type"::Invoice,
-                            Rec."Document Type"::"Credit Memo":
-                                begin
-                                    ServHeader.SetRange("Document Type", Rec."Document Type");
-                                    ServHeader.SetRange("No.", Rec."Document No.");
-                                    if ServHeader.FindFirst() then
-                                        Page.RunModal(Page::"Service Order", ServHeader);
-                                end;
-                            Rec."Document Type"::"Posted Shipment":
-                                begin
-                                    if ServShipHeader.Get(Rec."Document No.") then
-                                        Page.RunModal(Page::"Posted Service Shipment", ServShipHeader);
-                                end;
                             Rec."Document Type"::"Posted Invoice":
                                 begin
-                                    if ServInvHeader.Get(Rec."Document No.") then
-                                        Page.RunModal(Page::"Posted Service Invoice", ServInvHeader);
+                                    if ServInvoice.Get(Rec."Document No.") then
+                                        Page.RunModal(Page::"Posted Service Invoice", ServInvoice);
                                 end;
                             Rec."Document Type"::"Posted Credit Memo":
                                 begin
-                                    if ServCrMemoHeader.Get(Rec."Document No.") then
-                                        Page.RunModal(Page::"Posted Service Credit Memo", ServCrMemoHeader);
+                                    if ServCrMemo.Get(Rec."Document No.") then
+                                        Page.RunModal(Page::"Posted Service Credit Memo", ServCrMemo);
                                 end;
                         end;
                         exit(true);
                     end;
                 }
-
-                field("Document Type"; Rec."Document Type") { ApplicationArea = All; }
-                field("Original Order No."; Rec."Original Order No.") { ApplicationArea = All; }
-                field("Customer No."; Rec."Customer No.") { ApplicationArea = All; }
-                field("Customer Name"; Rec."Customer Name") { ApplicationArea = All; }
-                field("Posting Date"; Rec."Posting Date") { ApplicationArea = All; }
-                field("Order Date"; Rec."Order Date") { ApplicationArea = All; }
-                field("Service Item No."; Rec."Service Item No.") { ApplicationArea = All; }
-                field("Service Item Serial No."; Rec."Service Item Serial No.") { ApplicationArea = All; }
                 field(Type; Rec.Type) { ApplicationArea = All; }
                 field("No."; Rec."No.") { ApplicationArea = All; }
                 field(Description; Rec.Description) { ApplicationArea = All; }
                 field(Quantity; Rec.Quantity) { ApplicationArea = All; }
                 field("Unit Price"; Rec."Unit Price") { ApplicationArea = All; }
+                field("Unit Cost (LCY)"; Rec."Unit Cost (LCY)") { ApplicationArea = All; }
+                field(Amount; Rec.Amount) { ApplicationArea = All; }
                 field("Amount Including VAT"; Rec."Amount Including VAT") { ApplicationArea = All; }
-            }
-        }
-    }
-
-    actions
-    {
-        area(processing)
-        {
-            action(ShowData)
-            {
-                Caption = 'Show Data';
-                Image = Refresh;
-
-                trigger OnAction()
-                begin
-                    RefreshData();
-                end;
-            }
-
-            action(ClearData)
-            {
-                Caption = 'Clear Data';
-                Image = ClearFilter;
-
-                trigger OnAction()
-                begin
-                    Rec.Reset();
-                    Rec.DeleteAll();
-
-                    ClearFiltersAndTotals();
-                end;
-            }
-
-            action(CreateServiceCreditMemo)
-            {
-                Caption = 'Create Service Credit Memo';
-                Image = CreditMemo;
-
-                /* trigger OnAction()
-                begin
-                    CreateServiceCreditMemo();
-                end; */
+                field("Work Type Code"; Rec."Work Type Code") { ApplicationArea = All; }
+                field("Bill-to Customer No."; Rec."Bill-to Customer No.") { ApplicationArea = All; }
+                field("Customer Name"; Rec."Customer Name") { ApplicationArea = All; }
+                field("Inv. Discount Amount"; Rec."Inv. Discount Amount") { ApplicationArea = All; }
+                field("Gen. Bus. Posting Group"; Rec."Gen. Bus. Posting Group") { ApplicationArea = All; }
+                field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group") { ApplicationArea = All; }
+                field("Currency Code"; Rec."Currency Code") { ApplicationArea = All; }
+                field("VAT Difference"; Rec."VAT Difference") { ApplicationArea = All; }
+                field("Unit of Measure Code"; Rec."Unit of Measure Code") { ApplicationArea = All; }
+                field("Item Category Code"; Rec."Item Category Code") { ApplicationArea = All; }
+                field("Service Item No."; Rec."Service Item No.") { ApplicationArea = All; }
+                field("Service Item Serial No."; Rec."Service Item Serial No.") { ApplicationArea = All; }
+                field("Original Order No."; Rec."Original Order No.") { ApplicationArea = All; }
+                field("Posting Date"; Rec."Posting Date") { ApplicationArea = All; }
+                field("Order Date"; Rec."Order Date") { ApplicationArea = All; }
+                field(Warranty; Rec.Warranty) { ApplicationArea = All; }
+                field("Contract No."; Rec."Contract No.") { ApplicationArea = All; }
+                field("Warranty Disc. %"; Rec."Warranty Disc. %") { ApplicationArea = All; }
+                field("Fault Reason Code"; Rec."Fault Reason Code") { ApplicationArea = All; }
             }
         }
     }
 
     trigger OnInit()
     begin
-        BlnQuote := true;
-        BlnOrder := true;
-        BlnInvoice := true;
-        BlnCrMemo := true;
-        BlnPostedShipment := true;
-        BlnPostedInvoice := true;
-        BlnPostedCrMemo := true;
-
-        BlnItem := true;
-        BlnResource := true;
-        BlnCost := true;
-        BlnGLAccount := true;
-    end;
-
-    trigger OnOpenPage()
-    begin
-        ServItemFilter := Rec.GetFilter("Service Item No.");
-        if ServItemFilter = TEXT001 then
-            ServItemFilter := '';
+        PostedInvoice := true;
+        PostedCrMemo := true;
     end;
 
     var
-        CustomerFilter: Text[250];
+        GLSetup: Record "General Ledger Setup";
+        ServInvHdr: Record "Service Invoice Header";
+        ServInvLine: Record "Service Inquiry Line";
+        ServCrMemoHdr: Record "Service Cr.Memo Header";
+        ServCrMemoLine: Record "Service Cr.Memo Line";
+        CurrExchRate: Record "Currency Exchange Rate";
         ServItemFilter: Text[250];
         SerialFilter: Text[250];
         PostingDateFilter: Text[250];
-        OrderDateFilter: Text[250];
-
-        BlnQuote: Boolean;
-        BlnOrder: Boolean;
-        BlnInvoice: Boolean;
-        BlnCrMemo: Boolean;
-        BlnPostedShipment: Boolean;
-        BlnPostedInvoice: Boolean;
-        BlnPostedCrMemo: Boolean;
-
-        BlnItem: Boolean;
-        BlnResource: Boolean;
-        BlnCost: Boolean;
-        BlnGLAccount: Boolean;
-
-        DecTotalItemQty: Decimal;
-        DecTotalResourceQty: Decimal;
-        DecTotalCostQty: Decimal;
-        DecTotalGLAccountQty: Decimal;
+        RecFilter: Text[250];
+        TypeFilter: Text[250];
+        PostedInvoice: Boolean;
+        PostedCrMemo: Boolean;
+        TotalAmt: Decimal;
+        TotalAmtVAT: Decimal;
         DecTotalAmt: Decimal;
         DecTotalAmtVAT: Decimal;
 
-        TEXT001: Label '';
-
-    local procedure RefreshData()
+    procedure SetIncludeFilter(pPSInv: Boolean; pPCrMemo: Boolean);
     begin
-        // Converted from FORM Refresh()
-        // Filtering + Totals logic should be moved here
+        PostedInvoice := pPSInv;
+        PostedCrMemo := pPCrMemo;
     end;
 
-    local procedure ClearFiltersAndTotals()
+    procedure RefreshData(pPostDateFilter: Text)
     begin
-        CustomerFilter := '';
-        ServItemFilter := '';
-        SerialFilter := '';
+        GLSetup.Get();
+        RecFilter := Rec.GetView();
+        Rec.Reset();
+        Rec.DeleteAll();
+        Rec.SetView(RecFilter);
+
+        if PostedInvoice then begin
+            Clear(ServInvHdr);
+            ServInvHdr.SetCurrentKey("No.");
+            if pPostDateFilter <> '' then
+                ServInvHdr.SetFilter("Posting Date", pPostDateFilter);
+            if ServInvHdr.FindSet() then
+                repeat
+                    Clear(ServInvLine);
+                    ServInvLine.SetRange("Document No.", ServInvHdr."No.");
+                    ServInvLine.SetFilter(Type, '<>%1', ServInvLine.Type::" ");
+                    if ServInvLine.FindSet() then
+                        repeat
+                            Rec.Init();
+                            Rec.TransferFields(ServInvLine);
+                            Rec."Customer No." := ServInvHdr."Customer No.";
+                            Rec."Document Type" := Rec."Document Type"::"Posted Invoice";
+                            Rec."Original Order No." := ServInvHdr."Order No.";
+                            TotalAmt := Rec.Amount;
+                            TotalAmtVAT := Rec."Amount Including VAT";
+                            if Rec."Currency Code" <> '' then begin
+                                TotalAmt := Round(CurrExchRate.ExchangeAmtFCYToLCY(GetDate(Rec."Posting Date"),
+                                                  Rec."Currency Code", TotalAmt, ServInvHdr."Currency Factor"),
+                                                  GLSetup."Amount Rounding Precision");
+                                TotalAmtVAT := Round(CurrExchRate.ExchangeAmtFCYToLCY(GetDate(Rec."Posting Date"),
+                                               Rec."Currency Code", TotalAmtVAT, ServInvHdr."Currency Factor"),
+                                               GLSetup."Amount Rounding Precision");
+                            end;
+                            DecTotalAmt += TotalAmt;
+                            DecTotalAmtVAT += TotalAmtVAT;
+                            Rec."Service Order Type" := ServInvHdr."Service Order Type";
+                            Rec."Customer Name" := ServInvHdr.Name;
+                            Rec."Posting Date" := ServInvHdr."Posting Date";
+                            Rec.Insert();
+                        until (ServInvLine.Next() = 0);
+                until (ServInvHdr.Next() = 0);
+        end;
+
+        if PostedCrMemo then begin
+            Clear(ServCrMemoHdr);
+            ServCrMemoHdr.SetCurrentKey("No.");
+            if pPostDateFilter <> '' then
+                ServCrMemoHdr.SetFilter("Posting Date", pPostDateFilter);
+            if ServCrMemoHdr.FindSet() then
+                repeat
+                    Clear(ServCrMemoLine);
+                    ServCrMemoLine.SetRange("Document No.", ServCrMemoHdr."No.");
+                    ServCrMemoLine.SetFilter(Type, '<>%1', ServCrMemoLine.Type::" ");
+                    if ServCrMemoLine.FindSet() then
+                        repeat
+                            Rec.Init();
+                            Rec.TransferFields(ServCrMemoLine);
+                            Rec."Customer No." := ServCrMemoHdr."Customer No.";
+                            Rec."Document Type" := Rec."Document Type"::"Posted Credit Memo";
+                            Rec."Original Order No." := ServCrMemoHdr."Pre-Assigned No.";
+                            TotalAmt := Rec.Amount;
+                            TotalAmtVAT := Rec."Amount Including VAT";
+                            if Rec."Currency Code" <> '' then begin
+                                TotalAmt := Round(CurrExchRate.ExchangeAmtFCYToLCY(GetDate(Rec."Posting Date"),
+                                                  Rec."Currency Code", TotalAmt, ServCrMemoHdr."Currency Factor"),
+                                                  GLSetup."Amount Rounding Precision");
+                                TotalAmtVAT := Round(CurrExchRate.ExchangeAmtFCYToLCY(GetDate(Rec."Posting Date"),
+                                               Rec."Currency Code", TotalAmtVAT, ServCrMemoHdr."Currency Factor"),
+                                               GLSetup."Amount Rounding Precision");
+                            end;
+                            DecTotalAmt += TotalAmt;
+                            DecTotalAmtVAT += TotalAmtVAT;
+                            Rec."Service Order Type" := ServCrMemoHdr."Service Order Type";
+                            Rec."Customer Name" := ServCrMemoHdr.Name;
+                            Rec."Posting Date" := ServCrMemoHdr."Posting Date";
+                            Rec.Insert();
+                        until (ServCrMemoLine.Next() = 0);
+                until (ServCrMemoHdr.Next() = 0);
+        end;
+
+        if Rec.FindFirst() then;
+        CurrPage.Update(false);
+    end;
+
+    local procedure GetDate(RecDate: Date): Date
+    begin
+        if RecDate <> 0D then
+            exit(RecDate)
+        ELSE
+            exit(WorkDate());
+    end;
+
+    procedure DeleteRecords()
+    begin
+        Rec.Reset();
+        Rec.DeleteAll();
         PostingDateFilter := '';
-        OrderDateFilter := '';
-
-        DecTotalItemQty := 0;
-        DecTotalResourceQty := 0;
-        DecTotalCostQty := 0;
-        DecTotalGLAccountQty := 0;
-        DecTotalAmt := 0;
-        DecTotalAmtVAT := 0;
     end;
-
-    /* local procedure CreateServiceCreditMemo()
-    begin
-        // Large original logic retained conceptually
-        // Should ideally be refactored into a Codeunit in BC
-    end; */
 }
