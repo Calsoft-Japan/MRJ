@@ -52,12 +52,13 @@ report 50027 "MRJ Delivery Note"
                 DataItemLink = "Document No." = field("No.");
                 DataItemTableView = sorting("Document No.", "Line No.");
 
+                column(LineNo; "Line No.") { }
                 column(LineDescription; Description) { }
                 column(LineQuantity; Quantity) { }
                 column(LineUOM; "Unit of Measure Code") { }
                 column(LineUnitPrice; "Unit Price") { }
 
-                // ✅ calculated (tax excl., incl. discount) from Sales Order line
+                // calculated (tax excl., incl. discount) from Sales Order line
                 column(LineAmountExclVAT; LineAmtExclVAT) { }
 
                 column(LineDiscountPct; "Line Discount %") { } // optional

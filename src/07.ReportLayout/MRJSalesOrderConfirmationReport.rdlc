@@ -28,7 +28,11 @@
     <ReportSection>
       <Body>
         <ReportItems>
+<<<<<<< HEAD
           <Rectangle Name="Rectangle2">
+=======
+          <Rectangle Name="Rectangle3">
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
             <ReportItems>
               <Textbox Name="Textbox12">
                 <rd:DefaultName>Textbox12</rd:DefaultName>
@@ -49,10 +53,17 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
+<<<<<<< HEAD
                 <Top>0.54147cm</Top>
                 <Left>0.93892cm</Left>
                 <Height>0.45183cm</Height>
                 <Width>5.97133cm</Width>
+=======
+                <Top>0.26549cm</Top>
+                <Left>0.61961cm</Left>
+                <Height>0.45183cm</Height>
+                <Width>6.04482cm</Width>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -85,10 +96,17 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
+<<<<<<< HEAD
                 <Top>2.08351cm</Top>
                 <Left>0.93892cm</Left>
                 <Height>0.47486cm</Height>
                 <Width>5.97133cm</Width>
+=======
+                <Top>1.80753cm</Top>
+                <Left>0.61961cm</Left>
+                <Height>0.47486cm</Height>
+                <Width>6.04482cm</Width>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
                 <ZIndex>1</ZIndex>
                 <Style>
                   <Border>
@@ -118,10 +136,17 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
+<<<<<<< HEAD
                 <Top>1.57399cm</Top>
                 <Left>0.93892cm</Left>
                 <Height>0.50952cm</Height>
                 <Width>5.97133cm</Width>
+=======
+                <Top>1.29801cm</Top>
+                <Left>0.61961cm</Left>
+                <Height>0.50952cm</Height>
+                <Width>6.04482cm</Width>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
                 <ZIndex>2</ZIndex>
                 <Style>
                   <Border>
@@ -151,10 +176,17 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
+<<<<<<< HEAD
                 <Top>2.59364cm</Top>
                 <Left>0.93892cm</Left>
                 <Height>0.4715cm</Height>
                 <Width>5.97133cm</Width>
+=======
+                <Top>2.31766cm</Top>
+                <Left>0.61961cm</Left>
+                <Height>0.4715cm</Height>
+                <Width>6.04482cm</Width>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
                 <ZIndex>3</ZIndex>
                 <Style>
                   <Border>
@@ -174,7 +206,11 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
+<<<<<<< HEAD
                         <Value>="Fax." + "      " +Fields!CompanyFaxNo.Value</Value>
+=======
+                        <Value>="Tel." + "      " +Fields!CompanyPhoneNo.Value</Value>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -184,8 +220,13 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
+<<<<<<< HEAD
                 <Top>3.35669cm</Top>
                 <Left>10.16599cm</Left>
+=======
+                <Top>3.08071cm</Top>
+                <Left>9.92017cm</Left>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
                 <Height>0.49683cm</Height>
                 <Width>6.64093cm</Width>
                 <ZIndex>4</ZIndex>
@@ -218,8 +259,13 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
+<<<<<<< HEAD
                 <Top>2.79823cm</Top>
                 <Left>10.16599cm</Left>
+=======
+                <Top>2.52225cm</Top>
+                <Left>9.92017cm</Left>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
                 <Height>0.52318cm</Height>
                 <Width>6.64093cm</Width>
                 <ZIndex>5</ZIndex>
@@ -251,8 +297,13 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
+<<<<<<< HEAD
                 <Top>2.27877cm</Top>
                 <Left>10.16599cm</Left>
+=======
+                <Top>2.00279cm</Top>
+                <Left>9.92017cm</Left>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
                 <Height>0.48418cm</Height>
                 <Width>6.64093cm</Width>
                 <ZIndex>6</ZIndex>
@@ -285,8 +336,13 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
+<<<<<<< HEAD
                 <Top>1.76863cm</Top>
                 <Left>10.16599cm</Left>
+=======
+                <Top>1.49265cm</Top>
+                <Left>9.92017cm</Left>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
                 <Height>0.51014cm</Height>
                 <Width>6.64093cm</Width>
                 <ZIndex>7</ZIndex>
@@ -308,7 +364,11 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
+<<<<<<< HEAD
                         <Value>="Tel." + "      " +Fields!CompanyPhoneNo.Value</Value>
+=======
+                        <Value>="Fax." + "      " +Fields!CompanyFaxNo.Value</Value>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -318,8 +378,13 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
+<<<<<<< HEAD
                 <Top>3.85352cm</Top>
                 <Left>10.16599cm</Left>
+=======
+                <Top>3.57754cm</Top>
+                <Left>9.92017cm</Left>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
                 <Height>0.4505cm</Height>
                 <Width>6.64093cm</Width>
                 <ZIndex>8</ZIndex>
@@ -351,10 +416,17 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
+<<<<<<< HEAD
                 <Top>1.06385cm</Top>
                 <Left>0.93892cm</Left>
                 <Height>0.47486cm</Height>
                 <Width>5.97133cm</Width>
+=======
+                <Top>0.78787cm</Top>
+                <Left>0.61961cm</Left>
+                <Height>0.47486cm</Height>
+                <Width>6.04482cm</Width>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
                 <ZIndex>9</ZIndex>
                 <Style>
                   <Border>
@@ -366,6 +438,7 @@
                   <PaddingBottom>2pt</PaddingBottom>
                 </Style>
               </Textbox>
+<<<<<<< HEAD
               <Rectangle Name="Rectangle8">
                 <ReportItems>
                   <Textbox Name="Textbox27">
@@ -1674,12 +1747,23 @@
                 <Left>0cm</Left>
                 <Height>8.5162cm</Height>
                 <Width>17.99961cm</Width>
+=======
+              <Image Name="Image1">
+                <Source>Embedded</Source>
+                <Value>pic</Value>
+                <Sizing>FitProportional</Sizing>
+                <Top>0cm</Top>
+                <Left>9.92017cm</Left>
+                <Height>1.49265cm</Height>
+                <Width>5.83347cm</Width>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
                 <ZIndex>10</ZIndex>
                 <Style>
                   <Border>
                     <Style>None</Style>
                   </Border>
                 </Style>
+<<<<<<< HEAD
               </Rectangle>
               <Image Name="Image1">
                 <Source>Embedded</Source>
@@ -1716,6 +1800,1346 @@
       <Page>
         <PageHeader>
           <Height>1.865cm</Height>
+=======
+              </Image>
+              <Textbox Name="Textbox27">
+                <rd:DefaultName>Textbox12</rd:DefaultName>
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value />
+                        <Style>
+                          <Color>Gray</Color>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <Top>5.26947cm</Top>
+                <Left>13.08693cm</Left>
+                <Height>1.07446cm</Height>
+                <Width>1.60726cm</Width>
+                <ZIndex>11</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                  </Border>
+                  <TopBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </TopBorder>
+                  <BottomBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </BottomBorder>
+                  <LeftBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </LeftBorder>
+                  <RightBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </RightBorder>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox29">
+                <rd:DefaultName>Textbox12</rd:DefaultName>
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value />
+                        <Style />
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <Top>5.30475cm</Top>
+                <Left>14.87058cm</Left>
+                <Height>1.03919cm</Height>
+                <Width>1.69052cm</Width>
+                <ZIndex>12</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                  </Border>
+                  <TopBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </TopBorder>
+                  <BottomBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </BottomBorder>
+                  <LeftBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </LeftBorder>
+                  <RightBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </RightBorder>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox28">
+                <rd:DefaultName>Textbox28</rd:DefaultName>
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>検印</Value>
+                        <Style>
+                          <FontFamily>MS UI Gothic</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <Top>4.75534cm</Top>
+                <Left>13.08693cm</Left>
+                <Height>0.54939cm</Height>
+                <Width>1.60726cm</Width>
+                <ZIndex>13</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                  </Border>
+                  <TopBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </TopBorder>
+                  <BottomBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </BottomBorder>
+                  <LeftBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </LeftBorder>
+                  <RightBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </RightBorder>
+                  <VerticalAlign>Bottom</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox30">
+                <rd:DefaultName>Textbox28</rd:DefaultName>
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>作成</Value>
+                        <Style>
+                          <FontFamily>MS UI Gothic</FontFamily>
+                          <FontSize>9pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <Top>4.75534cm</Top>
+                <Left>14.87058cm</Left>
+                <Height>0.54939cm</Height>
+                <Width>1.69052cm</Width>
+                <ZIndex>14</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>Solid</Style>
+                  </Border>
+                  <TopBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </TopBorder>
+                  <BottomBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </BottomBorder>
+                  <LeftBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </LeftBorder>
+                  <RightBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </RightBorder>
+                  <VerticalAlign>Bottom</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox34">
+                <rd:DefaultName>Textbox12</rd:DefaultName>
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>="支払方法　:" &amp; "  " &amp; Fields!PaymentMethodTxt.value</Value>
+                        <Style>
+                          <FontFamily>MS UI Gothic</FontFamily>
+                          <FontSize>9pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <Top>5.79914cm</Top>
+                <Left>0.33866cm</Left>
+                <Height>0.4686cm</Height>
+                <Width>6.68253cm</Width>
+                <ZIndex>15</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <BottomBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </BottomBorder>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox35">
+                <rd:DefaultName>Textbox12</rd:DefaultName>
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>="支払条件 :" &amp; "  " &amp; Fields!PaymentTermTxt.value</Value>
+                        <Style>
+                          <FontFamily>MS UI Gothic</FontFamily>
+                          <FontSize>9pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <Top>5.26947cm</Top>
+                <Left>0.33866cm</Left>
+                <Height>0.45911cm</Height>
+                <Width>6.68253cm</Width>
+                <ZIndex>16</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <BottomBorder>
+                    <Color>Black</Color>
+                    <Style>Solid</Style>
+                    <Width>1pt</Width>
+                  </BottomBorder>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox33">
+                <rd:DefaultName>Textbox12</rd:DefaultName>
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>="御注文番号：" + "  " + Fields!CustomerOrderNo.value</Value>
+                        <Style>
+                          <FontFamily>MS UI Gothic</FontFamily>
+                          <FontSize>9pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <Top>4.2723cm</Top>
+                <Left>0.33866cm</Left>
+                <Height>0.82078cm</Height>
+                <Width>6.68253cm</Width>
+                <ZIndex>17</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+            </ReportItems>
+            <Top>0.08192cm</Top>
+            <Left>0.26372cm</Left>
+            <Height>6.34394cm</Height>
+            <Width>17.02831cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+          <Textbox Name="Textbox127">
+            <rd:DefaultName>Textbox127</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=FormatNumber(Fields!TotalExclVAT.value, 0)</Value>
+                    <Style>
+                      <FontFamily>MS UI Gothic</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>8.84477cm</Top>
+            <Left>14.3711cm</Left>
+            <Height>0.49417cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox128">
+            <rd:DefaultName>Textbox127</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=FormatNumber(Fields!TotalVAT.value, 0)</Value>
+                    <Style>
+                      <FontFamily>MS UI Gothic</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>9.37422cm</Top>
+            <Left>14.37112cm</Left>
+            <Height>0.45183cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox129">
+            <rd:DefaultName>Textbox127</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=FormatNumber(Fields!TotalInclVAT.value, 0)</Value>
+                    <Style>
+                      <FontFamily>MS UI Gothic</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>9.89661cm</Top>
+            <Left>14.37112cm</Left>
+            <Height>0.49417cm</Height>
+            <Width>2.5cm</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox130">
+            <rd:DefaultName>Textbox127</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>消費税抜合計</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>MS UI Gothic</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>8.80951cm</Top>
+            <Left>11.2329cm</Left>
+            <Height>0.49417cm</Height>
+            <Width>2.99711cm</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox131">
+            <rd:DefaultName>Textbox127</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>消費税</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>MS UI Gothic</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>9.37422cm</Top>
+            <Left>11.2329cm</Left>
+            <Height>0.45183cm</Height>
+            <Width>2.99711cm</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox132">
+            <rd:DefaultName>Textbox127</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>消費税込合計</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>MS UI Gothic</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>9.89661cm</Top>
+            <Left>11.2329cm</Left>
+            <Height>0.49417cm</Height>
+            <Width>2.99711cm</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Tablix Name="LinesTable2">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>8.99925cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.3434cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.82421cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.65615cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.44571cm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.6cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Description_Line_Lbl2">
+                          <rd:DefaultName>Description_Line_Lbl</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Constant">品名</Value>
+                                  <Style>
+                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Quantity_Line_Lbl2">
+                          <rd:DefaultName>Quantity_Line_Lbl</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Constant">数量</Value>
+                                  <Style>
+                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="UnitOfMeasure_Lbl2">
+                          <rd:DefaultName>UnitOfMeasure_Lbl</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Constant">単位</Value>
+                                  <Style>
+                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="UnitPrice_Lbl2">
+                          <rd:DefaultName>UnitPrice_Lbl</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Constant">単価</Value>
+                                  <Style>
+                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="LineAmount_Line_Lbl2">
+                          <rd:DefaultName>LineAmount_Line_Lbl</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value EvaluationMode="Constant">金額</Value>
+                                  <Style>
+                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.54328cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <rd:Selected>true</rd:Selected>
+                        <Textbox Name="Description_Line_3">
+                          <rd:DefaultName>Description_Line_2</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!LineDescription.Value</Value>
+                                  <Style>
+                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Quantity_Line2">
+                          <rd:DefaultName>Quantity_Line</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIF(
+  IsNothing(Fields!LineQuantity.Value) OR Fields!LineQuantity.Value = 0,
+  "",
+  FormatNumber(Fields!LineQuantity.Value, 0)
+)</Value>
+                                  <Style>
+                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="UnitOfMeasure2">
+                          <rd:DefaultName>UnitOfMeasure</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!LineUOM.Value</Value>
+                                  <Style>
+                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Silver</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="UnitPrice2">
+                          <rd:DefaultName>UnitPrice</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIF(
+  IsNothing(Fields!LineUnitPrice.Value) OR Fields!LineUnitPrice.Value = 0,
+  "",
+  FormatNumber(Fields!LineUnitPrice.Value, 0)
+)</Value>
+                                  <Style>
+                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="LineAmount_Line2">
+                          <rd:DefaultName>LineAmount_Line</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIF(
+  IsNothing(Fields!LineAmount.Value) OR Fields!LineAmount.Value = 0,
+  "",
+  FormatNumber(Fields!LineAmount.Value, 0)
+)</Value>
+                                  <Style>
+                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.10893cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <rd:Selected>true</rd:Selected>
+                        <Textbox Name="Textbox6">
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox7">
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox22">
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Silver</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox23">
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox25">
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>5pt</PaddingLeft>
+                            <PaddingRight>5pt</PaddingRight>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <FixedData>true</FixedData>
+                  <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="LineNo" />
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!LineNo_.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Visibility>
+                        <Hidden>=IsNothing(Fields!LineDescription.Value) OR Trim(Fields!LineDescription.Value) = ""</Hidden>
+                      </Visibility>
+                    </TablixMember>
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <RepeatRowHeaders>true</RepeatRowHeaders>
+            <DataSetName>DataSet_Result</DataSetName>
+            <Top>6.87128cm</Top>
+            <Left>0.60238cm</Left>
+            <Height>1.25221cm</Height>
+            <Width>16.26872cm</Width>
+            <ZIndex>7</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <TopBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </RightBorder>
+            </Style>
+          </Tablix>
+        </ReportItems>
+        <Height>10.55099cm</Height>
+        <Style />
+      </Body>
+      <Width>17.61763cm</Width>
+      <Page>
+        <PageHeader>
+          <Height>2.13594cm</Height>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1739,8 +3163,13 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
+<<<<<<< HEAD
               <Top>0.27657cm</Top>
               <Left>15.949cm</Left>
+=======
+              <Top>0.3824cm</Top>
+              <Left>15.97491cm</Left>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
               <Height>9.8pt</Height>
               <Width>0.90422cm</Width>
               <Style>
@@ -1774,10 +3203,17 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
+<<<<<<< HEAD
               <Top>0.27657cm</Top>
               <Left>5.81232cm</Left>
               <Height>1.05156cm</Height>
               <Width>5.72487cm</Width>
+=======
+              <Top>0.24129cm</Top>
+              <Left>6.81567cm</Left>
+              <Height>1.05156cm</Height>
+              <Width>4.13737cm</Width>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -1811,8 +3247,13 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
+<<<<<<< HEAD
               <Top>0.72813cm</Top>
               <Left>13.8789cm</Left>
+=======
+              <Top>0.83396cm</Top>
+              <Left>13.90481cm</Left>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
               <Height>0.45889cm</Height>
               <Width>2.97432cm</Width>
               <ZIndex>2</ZIndex>
@@ -1850,8 +3291,13 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
+<<<<<<< HEAD
               <Top>1.2223cm</Top>
               <Left>11.95322cm</Left>
+=======
+              <Top>1.32813cm</Top>
+              <Left>11.97913cm</Left>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
               <Height>0.53687cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>3</ZIndex>
@@ -1886,8 +3332,13 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
+<<<<<<< HEAD
               <Top>1.2223cm</Top>
               <Left>14.45322cm</Left>
+=======
+              <Top>1.32813cm</Top>
+              <Left>14.47913cm</Left>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
               <Height>0.53687cm</Height>
               <Width>2.4cm</Width>
               <ZIndex>4</ZIndex>
@@ -1920,8 +3371,13 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
+<<<<<<< HEAD
               <Top>0.27657cm</Top>
               <Left>14.45322cm</Left>
+=======
+              <Top>0.3824cm</Top>
+              <Left>14.47913cm</Left>
+>>>>>>> 07b5d8d4a306dcd44480f31cdd3a20c622f69c53
               <Height>9.80013pt</Height>
               <Width>1.42522cm</Width>
               <ZIndex>5</ZIndex>

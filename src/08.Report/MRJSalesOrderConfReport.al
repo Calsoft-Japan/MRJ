@@ -59,7 +59,7 @@ report 50012 "MRJ Sales Order Confirmation"
                                "Document No." = field("No.");
                 DataItemTableView = sorting("Document Type", "Document No.", "Line No.");
 
-                column(LineNo_; "No.") { }
+                column(LineNo_; "Line No.") { }
                 column(LineDescription; Description) { }        // 品名
                 column(LineDescription2; "Description 2") { }   // (optional second line)
                 column(LineQuantity; Quantity) { }              // 数量
