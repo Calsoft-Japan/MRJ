@@ -14,5 +14,9 @@ tableextension 55907 "Serv. Led. Entry Ext" extends "Service Ledger Entry"
             Description = 'UPG';
         }
     }
+    keys
+    {
+        key(MRJKey; "Charge Out Posted to G/L") { }
+    }
 }
 
