@@ -245,10 +245,12 @@ report 50022 "MRJ Service Order Confirmation"
         boolFound: Boolean; // ★追加
         LineBaseAmount: Decimal; // 値引前の行金額用
         Text50020: Label '%1（値引）', Comment = '%1 = Fault Reason Description';
+        TempLineNo: Integer; // ★追加：一時的な行番号用
     begin
         // 初期化
         TempServiceLine.Reset();
         TempServiceLine.DeleteAll();
+        TempLineNo := -1; // ★マイナスから始める（既存のLine No.と被らないように）
         TotalAmt := 0;
         TotalGrossAmt := 0;
         ServiceMgtSetup.Get();
@@ -305,29 +307,33 @@ report 50022 "MRJ Service Order Confirmation"
                     TempServiceLine.Insert();
                 end;
 
-                // --- 2. 値引行の処理（Fault Reason Codeでの名寄せ） ---
-                if ServiceLineRec."Line Discount Amount" <> 0 then begin
+                // ★ ここで「同じループ内」でもう一度、値引用の処理を行います。
+                if ServiceLineRec."Line Discount %" > 0 then begin
                     FaultReasonName := '';
                     if FaultReasonCodeMst.Get(ServiceLineRec."Fault Reason Code") then
                         FaultReasonName := FaultReasonCodeMst.Description;
 
+                    // 一時テーブル内で「今回の原因コード」の値引専用行(Cost)が既にあるか探す
                     TempServiceLine.Reset();
-                    TempServiceLine.SetRange(Type, TempServiceLine.Type::Cost); // Costを値引行の目印にする
+                    TempServiceLine.SetRange(Type, TempServiceLine.Type::Cost);
                     TempServiceLine.SetRange("Fault Reason Code", ServiceLineRec."Fault Reason Code");
 
                     if TempServiceLine.FindFirst() then begin
-                        // 既存の同じ原因コードがあれば合算
+                        // 既にあれば金額を加算（マイナスを引く）
                         TempServiceLine."Line Amount" -= ServiceLineRec."Line Discount Amount";
                         TempServiceLine.Modify();
                     end else begin
-                        // なければ新しい値引行を作成
+                        // なければ「値引用レコード」として新規作成
                         TempServiceLine.Reset();
                         TempServiceLine.Init();
                         TempServiceLine."Document Type" := ServiceLineRec."Document Type";
                         TempServiceLine."Document No." := ServiceLineRec."Document No.";
-                        TempServiceLine."Line No." := 0; // 後で採番
-                        TempServiceLine.Type := TempServiceLine.Type::Cost;
+                        TempServiceLine."Line No." := TempLineNo; // -1, -2...
+                        TempLineNo -= 1;
+
+                        TempServiceLine.Type := TempServiceLine.Type::Cost; // ★ここでCostを付与
                         TempServiceLine."Fault Reason Code" := ServiceLineRec."Fault Reason Code";
+
                         if FaultReasonName <> '' then
                             TempServiceLine.Description := StrSubstNo(Text50020, FaultReasonName)
                         else
@@ -357,8 +363,11 @@ report 50022 "MRJ Service Order Confirmation"
 
         // C. その他（値引行など）
         TempServiceLine.Reset();
-        TempServiceLine.SetFilter(Type, '%1|%2', TempServiceLine.Type::Cost, TempServiceLine.Type::"G/L Account");
-        if TempServiceLine.FindSet() then repeat InsertIntoBuffer(TempServiceLine, TempSortBuffer, NextLineNo); until TempServiceLine.Next() = 0;
+        TempServiceLine.SetRange(Type, TempServiceLine.Type::Cost); // フィルタをCostだけに固定
+        if TempServiceLine.FindSet() then
+            repeat
+                InsertIntoBuffer(TempServiceLine, TempSortBuffer, NextLineNo);
+            until TempServiceLine.Next() = 0;
 
         // --- 手順3: 最終書き戻し ---
         TempServiceLine.Reset();
