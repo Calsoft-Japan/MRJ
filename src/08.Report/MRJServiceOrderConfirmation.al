@@ -16,6 +16,7 @@ report 50022 "MRJ Service Order Confirmation"
             // --- Header Columns ---
             column(No_; "No.") { }
             column(Customer_No_; "Customer No.") { }
+            column(ContactName; ContactName) { }
             column(txtDate; txtDate) { }
             column(SummarizeLines; SummarizeLines) { }
             column(TotalExclVAT; TotalExclVAT) { }
@@ -150,7 +151,15 @@ report 50022 "MRJ Service Order Confirmation"
                 txtDate := Format("Document Date", 0, '<Year4>年<Month,2>月<Day,2>日');
                 if CompanyInfo.Get() then CompanyInfo.CalcFields(Picture);
 
+                // 1. 住所配列を生成（この時、内部で Contact Name が配列に混ざる）
                 FormatAddr.ServiceOrderSellto(CustAddr, Header);
+
+                // 2. 担当者名を抜き出し、配列整理
+                ContactName := '';
+                if Header."Contact Name" <> '' then begin
+                    ContactName := Header."Contact Name";
+                    CleanUpContactInAddress(CustAddr, Header."Contact Name");
+                end;
                 FormatAddr.Company(CompanyAddr, CompanyInfo);
 
                 if PaymentTerms.Get("Payment Terms Code") then PaymentTermsDesc := PaymentTerms.Description;
@@ -206,18 +215,14 @@ report 50022 "MRJ Service Order Confirmation"
         FlatLineType: Text[20];
         CustAddr, CompanyAddr : array[8] of Text[100];
         PaymentTermsDesc, PaymentMethodDesc : Text[100];
+        ContactName: Text[150];
 
     local procedure CalculateAmounts(var RecLine: Record "Service Line")
     begin
-        if ShowQty = ShowQty::Quantity then begin
-            Qty := RecLine.Quantity;
-            Amt := RecLine."Line Amount";
-            GrossAmt := RecLine."Amount Including VAT";
-        end else begin
-            Qty := RecLine."Quantity Invoiced";
-            Amt := Round((Qty * RecLine."Unit Price") * (1 - RecLine."Line Discount %" / 100));
-            GrossAmt := Round((1 + RecLine."VAT %" / 100) * Amt);
-        end;
+        // オプションの値に関わらず、常に明細の数量・金額を使用する
+        Qty := RecLine.Quantity;
+        Amt := RecLine."Line Amount";
+        GrossAmt := RecLine."Amount Including VAT";
     end;
 
     local procedure SummarizeServiceLines()
@@ -359,5 +364,29 @@ report 50022 "MRJ Service Order Confirmation"
                     TotalGrossAmt += GrossAmt;
                 end;
             until ServiceLineRec.Next() = 0;
+    end;
+
+    local procedure CleanUpContactInAddress(var AddrArray: array[8] of Text[100]; ContactName: Text)
+    var
+        i: Integer;
+        j: Integer;
+        TempArray: array[8] of Text[100];
+    begin
+        // 1. 一時配列をクリア
+        Clear(TempArray);
+        j := 1;
+
+        // 2. 該当しない行だけを抽出して TempArray に詰める
+        for i := 1 to 8 do begin
+            if (AddrArray[i] <> '') and (AddrArray[i] <> ContactName) then begin
+                TempArray[j] := AddrArray[i];
+                j += 1;
+            end;
+        end;
+
+        // 3. 【修正ポイント】1要素ずつ元の配列に書き戻す
+        for i := 1 to 8 do begin
+            AddrArray[i] := TempArray[i];
+        end;
     end;
 }

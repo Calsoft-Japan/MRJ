@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-01-29T10:49:25.1213543Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-02-04T06:11:49.6883983Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -483,7 +483,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Textbox1">
                           <rd:DefaultName>Textbox1</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -3067,6 +3066,42 @@
                   <VerticalAlign>Middle</VerticalAlign>
                 </Style>
               </Textbox>
+              <Textbox Name="Textbox17">
+                <rd:DefaultName>Textbox12</rd:DefaultName>
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=IIf(Fields!ContactName.Value &lt;&gt; "", Fields!ContactName.Value &amp; "   様", "")</Value>
+                        <Style>
+                          <FontFamily>MS UI Gothic</FontFamily>
+                          <FontSize>9pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <Top>2.16524cm</Top>
+                <Left>0.07671cm</Left>
+                <Height>0.4715cm</Height>
+                <Width>6.04482cm</Width>
+                <ZIndex>16</ZIndex>
+                <Visibility>
+                  <Hidden>=IsNothing(Fields!ContactName.Value)</Hidden>
+                </Visibility>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.28222cm</Top>
@@ -3554,6 +3589,9 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="Customer_No_">
           <DataField>Customer_No_</DataField>
+        </Field>
+        <Field Name="ContactName">
+          <DataField>ContactName</DataField>
         </Field>
         <Field Name="txtDate">
           <DataField>txtDate</DataField>
