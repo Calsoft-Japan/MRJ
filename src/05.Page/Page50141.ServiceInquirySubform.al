@@ -55,10 +55,13 @@ page 50141 "Service Inquiry Subform"
                 field("Inv. Discount Amount"; Rec."Inv. Discount Amount") { ApplicationArea = All; }
                 field("Gen. Bus. Posting Group"; Rec."Gen. Bus. Posting Group") { ApplicationArea = All; }
                 field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group") { ApplicationArea = All; }
+                field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group") { ApplicationArea = All; }
+                field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group") { ApplicationArea = All; }
                 field("Currency Code"; Rec."Currency Code") { ApplicationArea = All; }
                 field("VAT Difference"; Rec."VAT Difference") { ApplicationArea = All; }
                 field("Unit of Measure Code"; Rec."Unit of Measure Code") { ApplicationArea = All; }
                 field("Item Category Code"; Rec."Item Category Code") { ApplicationArea = All; }
+                field("Service Order Type"; Rec."Service Order Type") { ApplicationArea = All; }
                 field("Service Item No."; Rec."Service Item No.") { ApplicationArea = All; }
                 field("Service Item Serial No."; Rec."Service Item Serial No.") { ApplicationArea = All; }
                 field("Original Order No."; Rec."Original Order No.") { ApplicationArea = All; }
