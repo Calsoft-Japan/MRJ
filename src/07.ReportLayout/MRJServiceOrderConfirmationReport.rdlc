@@ -444,6 +444,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="textbox90">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -451,7 +452,11 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(IsNothing(Fields!Description_ServLine.Value) Or Fields!Description_ServLine.Value = "", "",Fields!UnitPrice_ServLine.Value)</Value>
+                                  <Value>=IIf(IsNothing(Fields!Description_ServLine.Value) 
+     Or Fields!Description_ServLine.Value = "" 
+     Or Fields!UnitPrice_ServLine.Value = 0, 
+     "", 
+     Fields!UnitPrice_ServLine.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -2036,7 +2041,7 @@
                                 <TextRun>
                                   <Value>=Fields!FlatFaultReasonCode.Value &amp; " (値引き)"</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>MS UI Gothic</FontFamily>
                                     <FontSize>8pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -2462,7 +2467,8 @@
                       <Visibility>
                         <Hidden>=Fields!FlatLineType.Value = "DISCOUNT" 
  Or IsNothing(Fields!FlatLineDescription.Value) 
- Or Fields!FlatLineDescription.Value = ""</Hidden>
+ Or Fields!FlatLineDescription.Value = "" 
+ Or Fields!FlatLineQuantity.Value = 0</Hidden>
                       </Visibility>
                     </TablixMember>
                     <TablixMember>
