@@ -92,13 +92,15 @@ report 50022 "MRJ Service Order Confirmation"
             dataitem(SummarizedLine; "Integer")
             {
                 DataItemTableView = sorting(Number);
-                column(FlatLineDescription; FlatDescription) { }
+                column(FlatLineDescription; FlatLineDescription) { }
                 column(FlatLineQuantity; FlatQty) { }
                 column(FlatLineAmount; FlatAmount) { }
                 column(FlatServItemNo; FlatServItemNo) { }
                 column(FlatLineUOM; FlatUOM) { }
                 column(FlatUnitPrice; FlatPrice) { }
                 column(FlatLineType; FlatLineType) { }
+                column(FlatFaultReasonCode; FlatFaultReasonCode) { }
+                column(FlatLineDiscountAmt; FlatLineDiscountAmt) { }
 
                 trigger OnPreDataItem()
                 begin
@@ -108,25 +110,47 @@ report 50022 "MRJ Service Order Confirmation"
                 end;
 
                 trigger OnAfterGetRecord()
+                var
+                    FaultReason: Record "Fault Reason Code"; // 名称取得用のレコード変数
                 begin
                     if Number = 1 then TempServiceLine.FindSet() else TempServiceLine.Next();
 
-                    FlatDescription := TempServiceLine.Description;
+                    // 変数の初期化（前の行のデータが残らないように）
+                    FlatFaultReasonCode := '';
+                    FlatLineDiscountAmt := 0;
+
+                    // 基本データの代入
+                    FlatLineDescription := TempServiceLine.Description;
                     FlatQty := TempServiceLine.Quantity;
                     FlatAmount := TempServiceLine."Line Amount";
-                    FlatServItemNo := TempServiceLine."Service Item No.";
-                    FlatUOM := TempServiceLine."Unit of Measure Code";
                     FlatPrice := TempServiceLine."Unit Price";
+                    FlatUOM := TempServiceLine."Unit of Measure Code";
 
-                    case TempServiceLine.Type of
-                        TempServiceLine.Type::Item:
-                            FlatLineType := 'ITEM';
-                        TempServiceLine.Type::Resource:
-                            FlatLineType := 'RESOURCE';
-                        TempServiceLine.Type::Cost:
-                            FlatLineType := 'DISCOUNT'; // 値引行として識別
+                    // --- Type別の特殊処理 ---
+                    if TempServiceLine.Type = TempServiceLine.Type::Cost then begin
+                        // 【値引き行の場合】
+                        FlatLineType := 'DISCOUNT';
+
+                        // 【修正ポイント】コードから名称（Description）を引いて代入する
+                        if FaultReason.Get(TempServiceLine."Fault Reason Code") then
+                            FlatFaultReasonCode := FaultReason.Description
                         else
-                            FlatLineType := 'OTHER';
+                            FlatFaultReasonCode := TempServiceLine."Fault Reason Code"; // 取れなければコード
+
+                        FlatLineDiscountAmt := TempServiceLine."Line Amount";
+
+                    end else begin
+                        // 【通常の名寄せ明細行の場合】
+                        case TempServiceLine.Type of
+                            TempServiceLine.Type::Item:
+                                FlatLineType := 'ITEM';
+                            TempServiceLine.Type::Resource:
+                                FlatLineType := 'RESOURCE';
+                            else
+                                FlatLineType := 'OTHER';
+                        end;
+                        // 通常行なので理由コードはクリア（RDLCで混ざるのを防ぐ）
+                        FlatFaultReasonCode := '';
                     end;
                 end;
             }
@@ -218,6 +242,9 @@ report 50022 "MRJ Service Order Confirmation"
         FlatServItemNo: Code[20];
         FlatUOM: Code[10];
         FlatLineType: Text[20];
+        FlatLineDescription: Text[100];
+        FlatFaultReasonCode: Code[20];
+        FlatLineDiscountAmt: Decimal;
         CustAddr, CompanyAddr : array[8] of Text[100];
         PaymentTermsDesc, PaymentMethodDesc : Text[100];
         ContactName: Text[150];
@@ -299,6 +326,11 @@ report 50022 "MRJ Service Order Confirmation"
                     TempServiceLine.Reset();
                     TempServiceLine.Init();
                     TempServiceLine.TransferFields(ServiceLineRec);
+
+                    // ★重要：通常行として扱うため、理由コードを一旦クリアする
+                    // これにより OnAfterGetRecord で FlatFaultReasonCode が空になり、RDLCで混ざらなくなります
+                    TempServiceLine."Fault Reason Code" := '';
+
                     TempServiceLine.Quantity := ServiceLineRec.Quantity;
                     TempServiceLine."Line Amount" := LineBaseAmount; // 値引前の金額を入れる
                     TempServiceLine."Resource Group No." := TargetResGrp;
