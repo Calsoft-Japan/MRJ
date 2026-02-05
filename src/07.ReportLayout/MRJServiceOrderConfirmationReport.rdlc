@@ -451,7 +451,11 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(IsNothing(Fields!Description_ServLine.Value) Or Fields!Description_ServLine.Value = "", "",Fields!UnitPrice_ServLine.Value)</Value>
+                                  <Value>=IIf(IsNothing(Fields!Description_ServLine.Value) 
+     Or Fields!Description_ServLine.Value = "" 
+     Or Fields!UnitPrice_ServLine.Value = 0, 
+     "", 
+     Fields!UnitPrice_ServLine.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -2026,17 +2030,17 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox5">
-                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                        <Textbox Name="ServItemNo_ServLineType">
+                          <rd:DefaultName>ServItemNo_ServLineType</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!FlatLineDescription.Value</Value>
+                                  <Value>=Fields!FlatFaultReasonCode.Value &amp; " (値引)"</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>MS UI Gothic</FontFamily>
                                     <FontSize>8pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -2186,7 +2190,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!FlatLineAmount.Value</Value>
+                                  <Value>=Fields!FlatLineDiscountAmt.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -2458,19 +2462,20 @@
                 <TablixMember>
                   <Group Name="Details2" />
                   <TablixMembers>
-                    <TablixMember />
+                    <TablixMember>
+                      <Visibility>
+                        <Hidden>=Fields!FlatLineType.Value = "DISCOUNT" 
+ Or IsNothing(Fields!FlatLineDescription.Value) 
+ Or Fields!FlatLineDescription.Value = "" 
+ Or Fields!FlatLineQuantity.Value = 0</Hidden>
+                      </Visibility>
+                    </TablixMember>
                     <TablixMember>
                       <Visibility>
                         <Hidden>=Fields!FlatLineType.Value &lt;&gt; "DISCOUNT"</Hidden>
                       </Visibility>
                     </TablixMember>
                   </TablixMembers>
-                  <Visibility>
-                    <Hidden>=IsNothing(Fields!FlatLineDescription.Value) 
- Or Fields!FlatLineDescription.Value = "" 
- Or Fields!FlatLineQuantity.Value = 0 
- Or Fields!FlatLineType.Value = "DISCOUNT"</Hidden>
-                  </Visibility>
                 </TablixMember>
                 <TablixMember>
                   <KeepWithGroup>Before</KeepWithGroup>
@@ -2478,6 +2483,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <DataSetName>DataSet_Result</DataSetName>
             <Top>10.16591cm</Top>
             <Left>0.3cm</Left>
             <Height>1.86134cm</Height>
@@ -3961,6 +3967,15 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="FlatLineType">
           <DataField>FlatLineType</DataField>
+        </Field>
+        <Field Name="FlatFaultReasonCode">
+          <DataField>FlatFaultReasonCode</DataField>
+        </Field>
+        <Field Name="FlatLineDiscountAmt">
+          <DataField>FlatLineDiscountAmt</DataField>
+        </Field>
+        <Field Name="FlatLineDiscountAmtFormat">
+          <DataField>FlatLineDiscountAmtFormat</DataField>
         </Field>
         <Field Name="No_SCL">
           <DataField>No_SCL</DataField>
