@@ -180,20 +180,29 @@ report 50021 "MRJ Service Quotation"
                 var
                     FaultReason: Record "Fault Reason Code";
                 begin
-                    if Number = 1 then TempServiceLine.FindSet() else TempServiceLine.Next();
+                    // データの取得
+                    if Number = 1 then
+                        TempServiceLine.FindSet()
+                    else
+                        TempServiceLine.Next();
 
-                    FlatLineDescription := TempServiceLine.Description;
-                    FlatQty := TempServiceLine.Quantity;
-                    FlatUOM := TempServiceLine."Unit of Measure Code";
-                    FlatPrice := TempServiceLine."Unit Price";
-                    FlatAmount := TempServiceLine."Line Amount";
+                    // 1. 変数の初期化（前の行のデータが残らないように確実にリセット）
                     FlatFaultReasonCode := '';
                     FlatLineDiscountAmt := 0;
 
-                    // --- Type別の表示制御ロジック ---
+                    // 2. 基本データの代入
+                    FlatLineDescription := TempServiceLine.Description;
+                    FlatQty := TempServiceLine.Quantity;
+                    FlatAmount := TempServiceLine."Line Amount";
+                    FlatPrice := TempServiceLine."Unit Price";
+                    FlatUOM := TempServiceLine."Unit of Measure Code";
+
+                    // 3. --- Type別の表示制御ロジック ---
                     if TempServiceLine.Type = TempServiceLine.Type::Cost then begin
+                        // 【値引き行の場合】
                         FlatLineType := 'DISCOUNT';
-                        // 理由コードから名称取得
+
+                        // 理由コードから名称（Description）を取得。マスタに無ければコードをそのまま表示
                         if FaultReason.Get(TempServiceLine."Fault Reason Code") then
                             FlatFaultReasonCode := FaultReason.Description
                         else
@@ -201,6 +210,7 @@ report 50021 "MRJ Service Quotation"
 
                         FlatLineDiscountAmt := TempServiceLine."Line Amount";
                     end else begin
+                        // 【通常の名寄せ明細行の場合】
                         case TempServiceLine.Type of
                             TempServiceLine.Type::Item:
                                 FlatLineType := 'ITEM';
@@ -209,6 +219,9 @@ report 50021 "MRJ Service Quotation"
                             else
                                 FlatLineType := 'OTHER';
                         end;
+                        // 通常行なので理由コードと値引き額は必ずクリア
+                        FlatFaultReasonCode := '';
+                        FlatLineDiscountAmt := 0;
                     end;
                 end;
             }
@@ -279,6 +292,7 @@ report 50021 "MRJ Service Quotation"
         FlatLineType: Text[20];
         FlatFaultReasonCode: Code[20];
         FlatLineDiscountAmt: Decimal;
+        Qty, Amt, GrossAmt, TotalAmt, TotalGrossAmt : Decimal;
 
     local procedure UpdateHeaderInfo()
     var
@@ -335,29 +349,33 @@ report 50021 "MRJ Service Quotation"
         FaultReasonName: Text[50];
         TempLineNo: Integer;
         boolFound: Boolean;
+        Text50020: Label '%1（値引）', Comment = '%1 = Fault Reason Description';
+        Qty, Amt, GrossAmt, TotalAmt, TotalGrossAmt, TotalExclVAT, TotalInclVAT, TotalVAT, FlatQty, FlatAmount, FlatPrice : Decimal;
+
 
     begin
-        // --- 初期化 ---
+        // 初期化
         TempServiceLine.Reset();
         TempServiceLine.DeleteAll();
-        TempLineNo := -1; // 値引き行（Cost型）用のマイナス採番
+        TempLineNo := -1; // ★マイナスから始める（既存のLine No.と被らないように）
+        TotalAmt := 0;
+        TotalGrossAmt := 0;
         ServiceMgtSetup.Get();
 
-        // --- 手順1: データの抽出と「名寄せ（集約）」 ---
         ServiceLineRec.SetRange("Document Type", ServiceHeader."Document Type");
         ServiceLineRec.SetRange("Document No.", ServiceHeader."No.");
         if ServiceLineRec.FindSet() then
             repeat
-                // 合計計算（見積書全体の合計金額用）
-                TotalExclVAT += ServiceLineRec."Line Amount";
-                TotalInclVAT += ServiceLineRec."Amount Including VAT";
+                // 金額計算（合計計算用）
+                CalculateAmounts(ServiceLineRec);
+                TotalAmt += Amt;
+                TotalGrossAmt += GrossAmt;
 
                 // --- 1. 通常行の処理（名寄せ） ---
-                // 名寄せ後の明細には「値引き前」の金額を表示するため、単価×数量を計算
                 LineBaseAmount := ServiceLineRec.Quantity * ServiceLineRec."Unit Price";
                 boolFound := false;
 
-                // リソースの場合の集約先（リソースグループ）特定
+                // リソースの場合の集約先特定
                 CurrentResGrp := '';
                 TargetResGrp := '';
                 if ServiceLineRec.Type = ServiceLineRec.Type::Resource then begin
@@ -370,7 +388,7 @@ report 50021 "MRJ Service Quotation"
                     end;
                 end;
 
-                // リソースの名寄せ判定と集計
+                // リソースの名寄せ判定
                 if (ServiceLineRec.Type = ServiceLineRec.Type::Resource) and (TargetResGrp <> '') then begin
                     TempServiceLine.Reset();
                     TempServiceLine.SetRange(Type, TempServiceLine.Type::Resource);
@@ -384,53 +402,55 @@ report 50021 "MRJ Service Quotation"
                 end;
 
                 if not boolFound then begin
-                    // 新規通常行の挿入（値引き前金額をセット）
+                    // 新規通常行の挿入
                     TempServiceLine.Reset();
                     TempServiceLine.Init();
                     TempServiceLine.TransferFields(ServiceLineRec);
 
-                    // 通常行として扱うため、理由コードを一旦クリア（RDLC側での「値引き表示」との混同防止）
+                    // ★重要：通常行として扱うため、理由コードを一旦クリアする
+                    // これにより OnAfterGetRecord で FlatFaultReasonCode が空になり、RDLCで混ざらなくなります
                     TempServiceLine."Fault Reason Code" := '';
+
                     TempServiceLine.Quantity := ServiceLineRec.Quantity;
-                    TempServiceLine."Line Amount" := LineBaseAmount;
+                    TempServiceLine."Line Amount" := LineBaseAmount; // 値引前の金額を入れる
                     TempServiceLine."Resource Group No." := TargetResGrp;
-
-                    if (ServiceLineRec.Type = ServiceLineRec.Type::Resource) and (TargetResGrp <> '') then begin
-                        if ResGrp.Get(TargetResGrp) then
-                            TempServiceLine.Description := ResGrp.Name;
-                    end;
-
+                    if (ServiceLineRec.Type = ServiceLineRec.Type::Resource) and (TargetResGrp <> '') then
+                        if ResGrp.Get(TargetResGrp) then TempServiceLine.Description := ResGrp.Name;
                     TempServiceLine.Insert();
                 end;
 
-                // --- 2. 値引き行の処理（同じループ内で独立した Cost 行として生成） ---
-                if ServiceLineRec."Line Discount Amount" <> 0 then begin
+                // ★ ここで「同じループ内」でもう一度、値引用の処理を行います。
+                if ServiceLineRec."Line Discount %" > 0 then begin
                     FaultReasonName := '';
                     if FaultReasonCodeMst.Get(ServiceLineRec."Fault Reason Code") then
                         FaultReasonName := FaultReasonCodeMst.Description;
 
-                    // 既に同一の故障理由コードを持つ値引き行があるか確認
+                    // 一時テーブル内で「今回の原因コード」の値引専用行(Cost)が既にあるか探す
                     TempServiceLine.Reset();
                     TempServiceLine.SetRange(Type, TempServiceLine.Type::Cost);
                     TempServiceLine.SetRange("Fault Reason Code", ServiceLineRec."Fault Reason Code");
 
                     if TempServiceLine.FindFirst() then begin
-                        // 既にあれば金額を加算（マイナス値を累計）
+                        // 既にあれば金額を加算（マイナスを引く）
                         TempServiceLine."Line Amount" -= ServiceLineRec."Line Discount Amount";
                         TempServiceLine.Modify();
                     end else begin
-                        // なければ「値引き専用行」として新規作成
+                        // なければ「値引用レコード」として新規作成
                         TempServiceLine.Reset();
                         TempServiceLine.Init();
                         TempServiceLine."Document Type" := ServiceLineRec."Document Type";
                         TempServiceLine."Document No." := ServiceLineRec."Document No.";
-                        TempServiceLine."Line No." := TempLineNo;
+                        TempServiceLine."Line No." := TempLineNo; // -1, -2...
                         TempLineNo -= 1;
 
-                        TempServiceLine.Type := TempServiceLine.Type::Cost;
+                        TempServiceLine.Type := TempServiceLine.Type::Cost; // ★ここでCostを付与
                         TempServiceLine."Fault Reason Code" := ServiceLineRec."Fault Reason Code";
 
-                        // 値引き額をマイナスとして保持
+                        if FaultReasonName <> '' then
+                            TempServiceLine.Description := StrSubstNo(Text50020, FaultReasonName)
+                        else
+                            TempServiceLine.Description := '値引';
+
                         TempServiceLine."Line Amount" := -ServiceLineRec."Line Discount Amount";
                         TempServiceLine.Quantity := 1;
                         TempServiceLine.Insert();
@@ -453,17 +473,158 @@ report 50021 "MRJ Service Quotation"
         TempServiceLine.SetRange(Type, TempServiceLine.Type::Item);
         if TempServiceLine.FindSet() then repeat InsertIntoBuffer(TempServiceLine, TempSortBuffer, NextLineNo); until TempServiceLine.Next() = 0;
 
-        // C. 値引き行（Type = Cost）
+        // C. その他（値引行など）
         TempServiceLine.Reset();
         TempServiceLine.SetRange(Type, TempServiceLine.Type::Cost);
+        TempServiceLine.SetCurrentKey("Fault Reason Code");
         if TempServiceLine.FindSet() then
-            repeat InsertIntoBuffer(TempServiceLine, TempSortBuffer, NextLineNo); until TempServiceLine.Next() = 0;
+            repeat
+                InsertIntoBuffer(TempServiceLine, TempSortBuffer, NextLineNo);
+            until TempServiceLine.Next() = 0;
 
         // --- 手順3: 最終書き戻し ---
         TempServiceLine.Reset();
         TempServiceLine.DeleteAll();
         if TempSortBuffer.FindSet() then repeat TempServiceLine.TransferFields(TempSortBuffer); TempServiceLine.Insert(); until TempSortBuffer.Next() = 0;
 
+        /*
+        begin
+            // --- 初期化 ---
+            TempServiceLine.Reset();
+            TempServiceLine.DeleteAll();
+            TempLineNo := -1; // 値引き行（Cost型）用のマイナス採番
+            ServiceMgtSetup.Get();
+
+            // --- 手順1: データの抽出と「名寄せ（集約）」 ---
+            ServiceLineRec.SetRange("Document Type", ServiceHeader."Document Type");
+            ServiceLineRec.SetRange("Document No.", ServiceHeader."No.");
+            if ServiceLineRec.FindSet() then
+                repeat
+                    // 合計計算（見積書全体の合計金額用）
+                    TotalExclVAT += ServiceLineRec."Line Amount";
+                    TotalInclVAT += ServiceLineRec."Amount Including VAT";
+
+                    // --- 1. 通常行の処理（名寄せ） ---
+                    // 名寄せ後の明細には「値引き前」の金額を表示するため、単価×数量を計算
+                    LineBaseAmount := ServiceLineRec.Quantity * ServiceLineRec."Unit Price";
+                    boolFound := false;
+
+                    // リソースの場合の集約先（リソースグループ）特定
+                    CurrentResGrp := '';
+                    TargetResGrp := '';
+                    if ServiceLineRec.Type = ServiceLineRec.Type::Resource then begin
+                        if Res.Get(ServiceLineRec."No.") then begin
+                            CurrentResGrp := Res."Resource Group No.";
+                            TargetResGrp := CurrentResGrp;
+                            if (ServiceMgtSetup."Resource Group Filter" <> '') and
+                               (StrPos(ServiceMgtSetup."Resource Group Filter", CurrentResGrp) > 0) then
+                                TargetResGrp := ServiceMgtSetup."Resource Group for Sort";
+                        end;
+                    end;
+
+                    // リソースの名寄せ判定と集計
+                    if (ServiceLineRec.Type = ServiceLineRec.Type::Resource) and (TargetResGrp <> '') then begin
+                        TempServiceLine.Reset();
+                        TempServiceLine.SetRange(Type, TempServiceLine.Type::Resource);
+                        TempServiceLine.SetRange("Resource Group No.", TargetResGrp);
+                        if TempServiceLine.FindFirst() then begin
+                            TempServiceLine.Quantity += ServiceLineRec.Quantity;
+                            TempServiceLine."Line Amount" += LineBaseAmount;
+                            TempServiceLine.Modify();
+                            boolFound := true;
+                        end;
+                    end;
+
+                    if not boolFound then begin
+                        // 新規通常行の挿入（値引き前金額をセット）
+                        TempServiceLine.Reset();
+                        TempServiceLine.Init();
+                        TempServiceLine.TransferFields(ServiceLineRec);
+
+                        // 通常行として扱うため、理由コードを一旦クリア（RDLC側での「値引き表示」との混同防止）
+                        TempServiceLine."Fault Reason Code" := '';
+                        TempServiceLine.Quantity := ServiceLineRec.Quantity;
+                        TempServiceLine."Line Amount" := LineBaseAmount;
+                        TempServiceLine."Resource Group No." := TargetResGrp;
+
+                        if (ServiceLineRec.Type = ServiceLineRec.Type::Resource) and (TargetResGrp <> '') then begin
+                            if ResGrp.Get(TargetResGrp) then
+                                TempServiceLine.Description := ResGrp.Name;
+                        end;
+
+                        TempServiceLine.Insert();
+                    end;
+
+                    // --- 2. 値引き行の処理（同じループ内で独立した Cost 行として生成） ---
+                    if ServiceLineRec."Line Discount Amount" <> 0 then begin
+                        FaultReasonName := '';
+                        if FaultReasonCodeMst.Get(ServiceLineRec."Fault Reason Code") then
+                            FaultReasonName := FaultReasonCodeMst.Description;
+
+                        // 既に同一の故障理由コードを持つ値引き行があるか確認
+                        TempServiceLine.Reset();
+                        TempServiceLine.SetRange(Type, TempServiceLine.Type::Cost);
+                        TempServiceLine.SetRange("Fault Reason Code", ServiceLineRec."Fault Reason Code");
+
+                        if TempServiceLine.FindFirst() then begin
+                            // 既にあれば金額を加算（マイナス値を累計）
+                            TempServiceLine."Line Amount" -= ServiceLineRec."Line Discount Amount";
+                            TempServiceLine.Modify();
+                        end else begin
+                            // なければ「値引き専用行」として新規作成
+                            TempServiceLine.Reset();
+                            TempServiceLine.Init();
+                            TempServiceLine."Document Type" := ServiceLineRec."Document Type";
+                            TempServiceLine."Document No." := ServiceLineRec."Document No.";
+                            TempServiceLine."Line No." := TempLineNo;
+                            TempLineNo -= 1;
+
+                            TempServiceLine.Type := TempServiceLine.Type::Cost;
+                            TempServiceLine."Fault Reason Code" := ServiceLineRec."Fault Reason Code";
+
+                            // 値引き額をマイナスとして保持
+                            TempServiceLine."Line Amount" := -ServiceLineRec."Line Discount Amount";
+                            TempServiceLine.Quantity := 1;
+                            TempServiceLine.Insert();
+                        end;
+                    end;
+                until ServiceLineRec.Next() = 0;
+
+            // --- 手順2: 並び替え（リソース -> アイテム -> 値引） ---
+            TempSortBuffer.Reset();
+            TempSortBuffer.DeleteAll();
+            NextLineNo := 10000;
+
+            // A. リソース
+            TempServiceLine.Reset();
+            TempServiceLine.SetRange(Type, TempServiceLine.Type::Resource);
+            if TempServiceLine.FindSet() then repeat InsertIntoBuffer(TempServiceLine, TempSortBuffer, NextLineNo); until TempServiceLine.Next() = 0;
+
+            // B. アイテム（通常明細）
+            TempServiceLine.Reset();
+            TempServiceLine.SetRange(Type, TempServiceLine.Type::Item);
+            if TempServiceLine.FindSet() then repeat InsertIntoBuffer(TempServiceLine, TempSortBuffer, NextLineNo); until TempServiceLine.Next() = 0;
+
+            // C. 値引き行（Type = Cost）
+            TempServiceLine.Reset();
+            TempServiceLine.SetRange(Type, TempServiceLine.Type::Cost);
+            if TempServiceLine.FindSet() then
+                repeat InsertIntoBuffer(TempServiceLine, TempSortBuffer, NextLineNo); until TempServiceLine.Next() = 0;
+
+            // --- 手順3: 最終書き戻し ---
+            TempServiceLine.Reset();
+            TempServiceLine.DeleteAll();
+            if TempSortBuffer.FindSet() then repeat TempServiceLine.TransferFields(TempSortBuffer); TempServiceLine.Insert(); until TempSortBuffer.Next() = 0;
+            */
+
+    end;
+
+    local procedure CalculateAmounts(var RecLine: Record "Service Line")
+    begin
+        // オプションの値に関わらず、常に明細の数量・金額を使用する
+        Qty := RecLine.Quantity;
+        Amt := RecLine."Line Amount";
+        GrossAmt := RecLine."Amount Including VAT";
     end;
 
     // 並び替え用の補助関数

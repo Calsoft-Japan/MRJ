@@ -2419,7 +2419,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="textbox100">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -3026,9 +3025,6 @@
                       </Visibility>
                     </TablixMember>
                   </TablixMembers>
-                  <Visibility>
-                    <Hidden>=IsNothing(Fields!FlatLineDescription.Value) Or Fields!FlatLineDescription.Value = "" Or Fields!FlatLineQuantity.Value = 0</Hidden>
-                  </Visibility>
                 </TablixMember>
                 <TablixMember>
                   <KeepWithGroup>Before</KeepWithGroup>
