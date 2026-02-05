@@ -395,7 +395,8 @@ report 50022 "MRJ Service Order Confirmation"
 
         // C. その他（値引行など）
         TempServiceLine.Reset();
-        TempServiceLine.SetRange(Type, TempServiceLine.Type::Cost); // フィルタをCostだけに固定
+        TempServiceLine.SetRange(Type, TempServiceLine.Type::Cost);
+        TempServiceLine.SetCurrentKey("Fault Reason Code");
         if TempServiceLine.FindSet() then
             repeat
                 InsertIntoBuffer(TempServiceLine, TempSortBuffer, NextLineNo);
