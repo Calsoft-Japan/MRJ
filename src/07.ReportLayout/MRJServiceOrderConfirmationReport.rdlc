@@ -444,7 +444,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="textbox90">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -2039,7 +2038,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!FlatFaultReasonCode.Value &amp; " (値引き)"</Value>
+                                  <Value>=Fields!FlatFaultReasonCode.Value &amp; " (値引)"</Value>
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
                                     <FontSize>8pt</FontSize>
