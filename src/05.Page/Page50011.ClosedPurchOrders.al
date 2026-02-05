@@ -6,7 +6,6 @@ page 50011 "Closed Purchase Orders"
     DataCaptionFields = "Buy-from Vendor No.";
     Editable = false;
     PageType = List;
-    AboutTitle = 'About Purchase Orders';
     RefreshOnActivate = true;
     SourceTable = "Purchase Header";
     SourceTableView = where("Document Type" = const("Closed Order"));
