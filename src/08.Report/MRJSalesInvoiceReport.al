@@ -24,11 +24,9 @@ report 50014 "MRJ Sales Invoice"
 
             // ---- Customer (Left header block) ----
             column(CustName; CustAddr[1]) { }
-            column(CustAddr2; CustAddr[2]) { }
-            column(CustAddr3; CustAddr[3]) { }
-            column(CustAddr4; CustAddr[4]) { }
-            column(CustAddr5; CustAddr[5]) { }
-            column(Ship_to_Post_Code; "Ship-to Post Code") { }
+            column(CustAddr2; "Ship-to Post Code") { }
+            column(CustAddr3; "Ship-to Address") { }
+            column(CustAddr4; "Ship-to Address 2") { }
 
             // ---- Company (Right header block) ----
             column(CompanyName; CompanyAddr[1]) { }
@@ -36,15 +34,15 @@ report 50014 "MRJ Sales Invoice"
             column(CompanyAddr3; CompanyAddr[3]) { }
             column(CompanyAddr4; CompanyAddr[4]) { }
             column(CompanyAddr5; CompanyAddr[5]) { }
-            column(Sell_to_Post_Code; "Sell-to Post Code") { }
+            column(CompanyAddr0; CompanyInfo."Post Code") { }
 
             // ---- Registration No. ----
             column(CompanyRegistrationLine; CompanyRegistrationLine) { } // "登録番号：{Registration No.}"
 
             // ---- Payment Bank block (銀行口座) ----
-            column(PaymentBankName; PaymentBank[1]) { }      // 例：みずほ銀行
-            column(PaymentBankBranch; PaymentBank[2]) { }    // 例：大手町営業部
-            column(PaymentBankAccount; PaymentBank[3]) { }   // 例：当座預金 0099673
+            column(PaymentBankName; CompanyInfo."Bank Name") { }      // 例：みずほ銀行
+            column(PaymentBankBranch; CompanyInfo."Bank Branch No.") { }    // 例：大手町営業部
+            column(PaymentBankAccount; CompanyInfo."Bank Account No.") { }   // 例：当座預金 0099673
 
             // ---- Totals (optional: if you want header totals) ----
             column(TotalExclVAT; TotalExclVAT) { }           // 税抜合計（VAT Base Amount合計）
@@ -135,7 +133,8 @@ report 50014 "MRJ Sales Invoice"
                 //SetReportLanguageFromDoc();
 
                 // 2) 発行日（Issue Date）text
-                OutputDateTxt := FormatIssueDate(IssueDate, CurrReport.Language);
+                OutputDateTxt := Format("IssueDate", 0, '<Year4>年<Month,2>月<Day,2>日');
+                //OutputDateTxt := FormatIssueDate(IssueDate, CurrReport.Language);
 
                 // 3) Company address (Responsibility Center first; fallback to Company Info)
                 Clear(CompanyAddr);

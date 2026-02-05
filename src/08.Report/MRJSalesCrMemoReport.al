@@ -14,10 +14,10 @@ report 50082 "MRJ Sales Credit Memo"
             RequestFilterFields = "No.", "Sell-to Customer No.";
 
             // ==== Header fields (align with sample) ====
-            column(OrderNo; "No.") { }                                      // 受注番号
-            column(IssueDate; IssueDate) { }                                // 2018年06月25日 (formatted)
-            column(ExternalDocumentNo; "External Document No.") { }         // 御注文番号
-            column(DocumentNo; "No.") { }                                   // 内部管理用受注番号
+            column(OrderNo; "No.") { }
+            column(IssueDate; IssueDate) { }
+            column(ExternalDocumentNo; "External Document No.") { }
+            column(DocumentNo; "No.") { }
 
             // 支払条件 / 支払方法
             column(PaymentTermTxt; PaymentTermTxt) { }
@@ -32,28 +32,33 @@ report 50082 "MRJ Sales Credit Memo"
             column(CustAddr6; CustAddr[6]) { }
             column(CustAddr7; CustAddr[7]) { }
             column(CustAddr8; CustAddr[8]) { }
-            column(CustPostCode; "Sell-to Post Code") { }                   // 顧客郵便番号
-            column(CustNo; "Sell-to Customer No.") { }                      // 顧客コード
+            column(CustPostCode; "Sell-to Post Code") { }
+            column(CustNo; "Sell-to Customer No.") { }
+            column(Sell_to_Contact; "Sell-to Contact") { }
 
-            // Company address (right)
-            column(CompanyAddr1; CompanyAddr[1]) { }
+            // ==================================================
+            // Company address (right) - KEEP YOUR PREVIOUS FIELDS
+            // (JP block from FormatAddr.Company / RespCenter)
+            // ==================================================
+            column(CompanyName; CompanyAddr[1]) { }          // JP (from FormatAddr)
             column(CompanyAddr2; CompanyAddr[2]) { }
             column(CompanyAddr3; CompanyAddr[3]) { }
             column(CompanyAddr4; CompanyAddr[4]) { }
             column(CompanyAddr5; CompanyAddr[5]) { }
-            column(CompanyAddr6; CompanyAddr[6]) { }
-            column(CompanyAddr7; CompanyAddr[7]) { }
             column(CompanyAddr8; CompanyAddr[8]) { }
-            column(CompanyFaxNo; CompanyInfo."Fax No.") { }
-            column(CompanyPhoneNo; CompanyInfo."Phone No.") { }
-            column(Sell_to_Contact; "Sell-to Contact") { }
+            column(CompanyAddr0; CompanyInfo."Post Code") { }   // JP Post Code
+            column(CompanyAddr6; CompanyInfo."Phone No.") { }
+            column(CompanyAddr7; CompanyInfo."Fax No.") { }
+
+            // ---- Registration No. ----
+            column(CompanyRegistrationLine; CompanyRegistrationLine) { }
 
             // Totals for bottom-right
-            column(TotalExclVAT; TotalExclVAT) { }                          // 消費税抜合計
-            column(TotalVAT; TotalVAT) { }                                  // 消費税
-            column(TotalInclVAT; TotalInclVAT) { }                          // 消費税込合計
+            column(TotalExclVAT; TotalExclVAT) { }
+            column(TotalVAT; TotalVAT) { }
+            column(TotalInclVAT; TotalInclVAT) { }
 
-            // ==== Detail lines (品名 / 数量 / 単位 / 単価 / 金額) ====
+            // ==== Detail lines ====
             dataitem("Sales Cr.Memo Line"; "Sales Cr.Memo Line")
             {
                 DataItemLinkReference = "Sales Cr.Memo Header";
@@ -61,27 +66,23 @@ report 50082 "MRJ Sales Credit Memo"
                 DataItemTableView = sorting("Document No.", "Line No.");
 
                 column(LineNo_; "No.") { }
-                column(LineDescription; Description) { }                    // 品名
-                column(LineDescription2; "Description 2") { }               // (optional)
-                column(LineQuantity; Quantity) { }                          // 数量
-                column(LineUOM; "Unit of Measure Code") { }                 // 単位
-                column(LineUnitPrice; "Unit Price") { }                     // 単価
-                column(LineAmount; "Line Amount") { }                       // 金額
-                column(Type_Line; Type) { }                                 // RDLC conditions if needed
+                column(LineDescription; Description) { }
+                column(LineDescription2; "Description 2") { }
+                column(LineQuantity; Quantity) { }
+                column(LineUOM; "Unit of Measure Code") { }
+                column(LineUnitPrice; "Unit Price") { }
+                column(LineAmount; "Line Amount") { }
+                column(Type_Line; Type) { }
             }
 
-            // ==== VAT Summary (dynamic via Integer) ====
+            // ==== VAT Summary ====
             dataitem(VATSummary; Integer)
             {
                 DataItemTableView = sorting(Number);
 
-                // ① 非課税 / xx%対象
                 column(VATDisplayTxt; VATDisplayTxt) { }
-                // ② 課税対象額（税抜）
                 column(VATBaseAmount; VATBaseAmount) { }
-                // ③ 消費税（ラベル）
                 column(VATLabelTxt; '消費税') { }
-                // ④ 消費税額
                 column(VATAmount; VATAmount) { }
 
                 trigger OnPreDataItem()
@@ -106,13 +107,11 @@ report 50082 "MRJ Sales Credit Memo"
                         VATDisplayTxt := Format(VatPct) + '%対象';
 
                     VATBaseAmount := BaseDec;
-
-                    // VAT amount per rate (round to 1 decimal place as requested)
                     VATAmount := Round(VATBaseAmount * VatPct / 100, 0.1);
                 end;
             }
 
-            // ==== 摘要 / コメント ====
+            // ==== コメント ====
             dataitem("Sales Comment Line"; "Sales Comment Line")
             {
                 DataItemLinkReference = "Sales Cr.Memo Header";
@@ -124,6 +123,7 @@ report 50082 "MRJ Sales Credit Memo"
 
             trigger OnAfterGetRecord()
             var
+                RespCenter: Record "Responsibility Center";
                 CrMemoLineTmp: Record "Sales Cr.Memo Line";
                 VatPct: Decimal;
                 BaseAmt: Decimal;
@@ -138,9 +138,35 @@ report 50082 "MRJ Sales Credit Memo"
                 else
                     Clear(CustAddr);
 
-                // ----- Company address -----
-                CompanyInfo.Get();
-                FormatAddr.Company(CompanyAddr, CompanyInfo);
+                // ==================================================
+                // Company JP block (KEEP EXISTING BEHAVIOR):
+                // RC first, fallback to Company Info, via Format Address
+                // ==================================================
+                if not CompanyInfo.Get() then
+                    CompanyInfo.Get();
+
+                Clear(CompanyAddr);
+
+                if ("Responsibility Center" <> '') and RespCenter.Get("Responsibility Center") then
+                    FormatAddr.RespCenter(CompanyAddr, RespCenter)
+                else
+                    FormatAddr.Company(CompanyAddr, CompanyInfo);
+
+                // ==================================================
+                // Company EN (NEW RULE YOU GAVE):
+                // RC."Name 2" = EN Name, RC."Address 2" = EN Address
+                // fallback to CompanyInfo."Name 2"/"Address 2"
+                // ==================================================
+                Clear(CompanyNameEN);
+                Clear(CompanyAddrEN);
+
+                if ("Responsibility Center" <> '') and RespCenter.Get("Responsibility Center") then begin
+                    CompanyNameEN := RespCenter."Name 2";
+                    CompanyAddrEN := RespCenter."Address 2";
+                end else begin
+                    CompanyNameEN := CompanyInfo."Name 2";
+                    CompanyAddrEN := CompanyInfo."Address 2";
+                end;
 
                 // ----- Payment terms -----
                 if "Payment Terms Code" <> '' then begin
@@ -160,7 +186,10 @@ report 50082 "MRJ Sales Credit Memo"
                 end else
                     PaymentMethodTxt := '';
 
-                // ----- Totals + VAT Summary from posted credit memo lines -----
+                // Registration line
+                CompanyRegistrationLine := BuildRegistrationLine();
+
+                // ----- Totals + VAT Summary -----
                 TotalExclVAT := 0;
                 TotalInclVAT := 0;
                 TotalVAT := 0;
@@ -168,18 +197,15 @@ report 50082 "MRJ Sales Credit Memo"
                 Clear(VatPctList);
                 Clear(VatSummaryDict);
 
-
                 CrMemoLineTmp.Reset();
                 CrMemoLineTmp.SetRange("Document No.", "No.");
                 CrMemoLineTmp.SetFilter(Type, '<>%1', CrMemoLineTmp.Type::" ");
 
                 if CrMemoLineTmp.FindSet() then
                     repeat
-                        // Totals
                         TotalExclVAT += CrMemoLineTmp."Line Amount";
                         TotalInclVAT += CrMemoLineTmp."Amount Including VAT";
 
-                        // VAT Summary base by VAT %
                         VatPct := CrMemoLineTmp."VAT %";
                         BaseAmt := CrMemoLineTmp."VAT Base Amount";
 
@@ -204,7 +230,13 @@ report 50082 "MRJ Sales Credit Memo"
         Customer: Record Customer;
 
         CustAddr: array[8] of Text[100];
+
+        // KEEP: JP formatted block
         CompanyAddr: array[8] of Text[100];
+
+        // NEW: EN single-line outputs (from RC Name2/Address2)
+        CompanyNameEN: Text[100];
+        CompanyAddrEN: Text[100];
 
         IssueDate: Text[50];
         PaymentTermTxt: Text[100];
@@ -214,11 +246,26 @@ report 50082 "MRJ Sales Credit Memo"
         TotalVAT: Decimal;
         TotalInclVAT: Decimal;
 
-        // VAT Summary
         VatPctList: List of [Decimal];
         VatSummaryDict: Dictionary of [Decimal, Decimal];
 
         VATDisplayTxt: Text[30];
         VATBaseAmount: Decimal;
         VATAmount: Decimal;
+
+        CompanyRegistrationLine: Text[100];
+
+    local procedure BuildRegistrationLine(): Text[100]
+    var
+        RegNo: Text[50];
+    begin
+        RegNo := CompanyInfo."Registration No.";
+        if RegNo = '' then
+            RegNo := CompanyInfo."VAT Registration No.";
+
+        if RegNo = '' then
+            exit('');
+
+        exit('登録番号：' + RegNo);
+    end;
 }
