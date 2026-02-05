@@ -24,17 +24,14 @@ report 50082 "MRJ Sales Credit Memo"
             column(PaymentMethodTxt; PaymentMethodTxt) { }
 
             // Customer address (left)
-            column(CustAddr1; CustAddr[1]) { }
-            column(CustAddr2; CustAddr[2]) { }
-            column(CustAddr3; CustAddr[3]) { }
-            column(CustAddr4; CustAddr[4]) { }
-            column(CustAddr5; CustAddr[5]) { }
-            column(CustAddr6; CustAddr[6]) { }
-            column(CustAddr7; CustAddr[7]) { }
-            column(CustAddr8; CustAddr[8]) { }
-            column(CustPostCode; "Sell-to Post Code") { }
-            column(CustNo; "Sell-to Customer No.") { }
-            column(Sell_to_Contact; "Sell-to Contact") { }
+            column(CustAddr1; CustAddr[1]) { }                      // Name
+            column(CustAddr2; "Bill-to Customer No.") { }           // Customer No.
+            column(CustAddr3; "Bill-to Address") { }                // Address 1
+            column(CustAddr4; "Bill-to Address 2") { }              // Address 2
+            column(CustAddr5; "Bill-to Post Code") { }              // Post Code
+            column(CustAddr6; "Bill-to Contact") { }                // Contact
+            //column(CustAddr7; CustAddr[7]) { }
+            //column(CustAddr8; CustAddr[8]) { }
 
             // ==================================================
             // Company address (right) - KEEP YOUR PREVIOUS FIELDS
@@ -128,12 +125,10 @@ report 50082 "MRJ Sales Credit Memo"
                 VatPct: Decimal;
                 BaseAmt: Decimal;
             begin
-                // ----- Date (JP format) -----
-                IssueDate := Format("Posting Date", 0, '<Year4>年<Month,2>月<Day,2>日');
 
                 // ----- Customer address -----
                 Clear(CustAddr);
-                if Customer.Get("Sell-to Customer No.") then
+                if Customer.Get("Bill-to Customer No.") then
                     FormatAddr.Customer(CustAddr, Customer)
                 else
                     Clear(CustAddr);
@@ -222,6 +217,29 @@ report 50082 "MRJ Sales Credit Memo"
         }
     }
 
+    requestpage
+    {
+        layout
+        {
+            area(content)
+            {
+                group(Options)
+                {
+                    field(IssueDate; IssueDate)
+                    {
+                        ApplicationArea = All;
+                        Caption = '発行日';
+                    }
+                }
+            }
+        }
+
+        trigger OnOpenPage()
+        begin
+            IssueDate := WorkDate(); // default 発行日 = WORKDATE
+        end;
+    }
+
     var
         CompanyInfo: Record "Company Information";
         PaymentTerms: Record "Payment Terms";
@@ -238,7 +256,7 @@ report 50082 "MRJ Sales Credit Memo"
         CompanyNameEN: Text[100];
         CompanyAddrEN: Text[100];
 
-        IssueDate: Text[50];
+        IssueDate: Date;
         PaymentTermTxt: Text[100];
         PaymentMethodTxt: Text[100];
 
