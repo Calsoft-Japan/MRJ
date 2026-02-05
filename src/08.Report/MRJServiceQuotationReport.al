@@ -156,7 +156,7 @@ report 50021 "MRJ Service Quotation"
 
                 // レコードフィールドではなく、グローバル変数を参照させる
                 column(FlatLineNo_ServLine; Number) { }
-                column(FlatLineDescription; Description) { } // Text型のDescription変数
+                column(FlatLineDescription; FlatLineDescription) { }
                 column(FlatLineQuantity; FlatQty) { }
                 column(FlatLineUOM; FlatUOM) { }
                 column(FlatUnitPrice; FlatPrice) { }
@@ -182,7 +182,7 @@ report 50021 "MRJ Service Quotation"
                 begin
                     if Number = 1 then TempServiceLine.FindSet() else TempServiceLine.Next();
 
-                    Description := TempServiceLine.Description;
+                    FlatLineDescription := TempServiceLine.Description;
                     FlatQty := TempServiceLine.Quantity;
                     FlatUOM := TempServiceLine."Unit of Measure Code";
                     FlatPrice := TempServiceLine."Unit Price";
@@ -271,7 +271,7 @@ report 50021 "MRJ Service Quotation"
         TotalInclVAT: Decimal;
         ShowOrderInfo: Boolean;
         SummarizeLines: Boolean;
-        Description: Text;
+        FlatLineDescription: Text[100];
         FlatQty: Decimal;
         FlatUOM: Code[10];
         FlatPrice: Decimal;
@@ -395,9 +395,10 @@ report 50021 "MRJ Service Quotation"
                     TempServiceLine."Line Amount" := LineBaseAmount;
                     TempServiceLine."Resource Group No." := TargetResGrp;
 
-                    if (ServiceLineRec.Type = ServiceLineRec.Type::Resource) and (TargetResGrp <> '') then
+                    if (ServiceLineRec.Type = ServiceLineRec.Type::Resource) and (TargetResGrp <> '') then begin
                         if ResGrp.Get(TargetResGrp) then
                             TempServiceLine.Description := ResGrp.Name;
+                    end;
 
                     TempServiceLine.Insert();
                 end;
