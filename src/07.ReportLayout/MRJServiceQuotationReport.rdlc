@@ -1281,7 +1281,6 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="textbox84">
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -4388,6 +4387,42 @@
                     <Style>Solid</Style>
                   </Border>
                   <VerticalAlign>Bottom</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
+              <Textbox Name="Textbox17">
+                <rd:DefaultName>Textbox12</rd:DefaultName>
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=IIf(Fields!ContactName.Value &lt;&gt; "", Fields!ContactName.Value &amp; "   様", "")</Value>
+                        <Style>
+                          <FontFamily>MS UI Gothic</FontFamily>
+                          <FontSize>9pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <Top>2.09468cm</Top>
+                <Left>0.07671cm</Left>
+                <Height>0.4715cm</Height>
+                <Width>6.04482cm</Width>
+                <ZIndex>17</ZIndex>
+                <Visibility>
+                  <Hidden>=IsNothing(Fields!ContactName.Value)</Hidden>
+                </Visibility>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
                   <PaddingLeft>2pt</PaddingLeft>
                   <PaddingRight>2pt</PaddingRight>
                   <PaddingTop>2pt</PaddingTop>

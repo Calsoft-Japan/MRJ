@@ -93,6 +93,7 @@ report 50021 "MRJ Service Quotation"
             column(CustAddr6; CustAddr[6]) { }
             column(CustAddr7; CustAddr[7]) { }
             column(CustAddr8; CustAddr[8]) { }
+            column(ContactName; ContactName) { }
             column(CustPostCode; "Post Code") { }
             column(CompanyAddr1; CompanyAddr[1]) { }
             column(CompanyAddr2; CompanyAddr[2]) { }
@@ -293,6 +294,7 @@ report 50021 "MRJ Service Quotation"
         FlatFaultReasonCode: Code[20];
         FlatLineDiscountAmt: Decimal;
         Qty, Amt, GrossAmt, TotalAmt, TotalGrossAmt : Decimal;
+        ContactName: Text[150];
 
     local procedure UpdateHeaderInfo()
     var
@@ -318,8 +320,18 @@ report 50021 "MRJ Service Quotation"
             PaymentMethodDesc := PaymentMethod.Description;
 
         CompanyInfo.Get();
+        if CompanyInfo.Picture.HasValue then CompanyInfo.CalcFields(Picture); // 画像が必要なら追加
+
+        // 住所取得
         ServiceFormatAddr.ServiceHeaderSellTo(CustAddr, ServiceHeader);
         FormatAddr.Company(CompanyAddr, CompanyInfo);
+
+        // ★追加：担当者名を抜き出し、配列を掃除する
+        ContactName := '';
+        if ServiceHeader."Contact Name" <> '' then begin
+            ContactName := ServiceHeader."Contact Name";
+            CleanUpContactInAddress(CustAddr, ServiceHeader."Contact Name");
+        end;
 
         TotalExclVAT := 0;
         TotalInclVAT := 0;
@@ -350,8 +362,6 @@ report 50021 "MRJ Service Quotation"
         TempLineNo: Integer;
         boolFound: Boolean;
         Text50020: Label '%1（値引）', Comment = '%1 = Fault Reason Description';
-        Qty, Amt, GrossAmt, TotalAmt, TotalGrossAmt, TotalExclVAT, TotalInclVAT, TotalVAT, FlatQty, FlatAmount, FlatPrice : Decimal;
-
 
     begin
         TempServiceLine.Reset();
@@ -512,5 +522,29 @@ report 50021 "MRJ Service Quotation"
         DestBuffer."Line No." := NextLineNo;
         DestBuffer.Insert();
         NextLineNo += 10000;
+    end;
+
+    local procedure CleanUpContactInAddress(var AddrArray: array[8] of Text[100]; ContactName: Text)
+    var
+        i: Integer;
+        j: Integer;
+        TempArray: array[8] of Text[100];
+    begin
+        // 1. 一時配列をクリア
+        Clear(TempArray);
+        j := 1;
+
+        // 2. 該当しない行だけを抽出して TempArray に詰める
+        for i := 1 to 8 do begin
+            if (AddrArray[i] <> '') and (AddrArray[i] <> ContactName) then begin
+                TempArray[j] := AddrArray[i];
+                j += 1;
+            end;
+        end;
+
+        // 3. 【修正ポイント】1要素ずつ元の配列に書き戻す
+        for i := 1 to 8 do begin
+            AddrArray[i] := TempArray[i];
+        end;
     end;
 }
