@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-02-05T11:02:09.4806199Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-02-06T00:56:16.1888508Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -1002,7 +1002,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Quantity_Line3">
                           <rd:DefaultName>Quantity_Line</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -1593,7 +1592,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="Fax." + Fields!CompanyAddr7.value</Value>
+                    <Value>=Fields!FaxLine.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1812,7 +1811,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="Tel." + Fields!CompanyAddr6.value</Value>
+                    <Value>=Fields!TelLine.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -2300,6 +2299,13 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="CompanyAddr8">
           <DataField>CompanyAddr8</DataField>
         </Field>
+<<<<<<< HEAD
+        <Field Name="TelLine">
+          <DataField>TelLine</DataField>
+        </Field>
+        <Field Name="FaxLine">
+          <DataField>FaxLine</DataField>
+=======
         <Field Name="CompanyAddr0">
           <DataField>CompanyAddr0</DataField>
         </Field>
@@ -2308,6 +2314,7 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="CompanyAddr7">
           <DataField>CompanyAddr7</DataField>
+>>>>>>> d54db2901152fcfd1a225463197c78623a3661bc
         </Field>
         <Field Name="CompanyRegistrationLine">
           <DataField>CompanyRegistrationLine</DataField>
@@ -2381,9 +2388,12 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="VATAmountFormat">
           <DataField>VATAmountFormat</DataField>
         </Field>
+<<<<<<< HEAD
+=======
         <Field Name="CommentText">
           <DataField>CommentText</DataField>
         </Field>
+>>>>>>> d54db2901152fcfd1a225463197c78623a3661bc
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>
