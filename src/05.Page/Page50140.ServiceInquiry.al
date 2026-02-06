@@ -1,4 +1,4 @@
-page 50140 "Sales Inquiry Card"
+page 50140 "Service Inquiry Card"
 {
     ApplicationArea = All;
     Caption = 'Service Inquiry';
@@ -39,34 +39,42 @@ page 50140 "Sales Inquiry Card"
     {
         area(Processing)
         {
-            Action(ShowData)
+            group(HomeTab)
             {
-                Caption = 'Show Data';
-                Image = ViewPage;
-                Promoted = true;
-                PromotedIsBig = true;
-                trigger OnAction();
-                begin
-                    Window.Open(WinUpdTxt);
-                    CurrPage.ServInquiryLines.Page.SetIncludeFilter(ServicePostedInvoice, ServicePostedCrMemo);
-                    CurrPage.ServInquiryLines.Page.RefreshData(PostingDateFilter);
-                    Window.Close();
-                    CurrPage.Update(false);
-                end;
-            }
-            Action(ClearData)
-            {
-                Caption = 'Clear Data';
-                Image = ClearLog;
-                Promoted = true;
-                PromotedIsBig = true;
-                trigger OnAction();
-                begin
-                    Window.Open(WinDelTxt);
-                    CurrPage.ServInquiryLines.Page.DeleteRecords();
-                    Window.Close();
-                    CurrPage.Update(false);
-                end;
+                Caption = 'Home';
+                Action(ShowData)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Show Data';
+                    Image = ViewPage;
+                    Promoted = true;
+                    PromotedIsBig = true;
+                    PromotedCategory = Process;
+                    trigger OnAction();
+                    begin
+                        Window.Open(WinUpdTxt);
+                        CurrPage.ServInquiryLines.Page.SetIncludeFilter(ServicePostedInvoice, ServicePostedCrMemo);
+                        CurrPage.ServInquiryLines.Page.RefreshData(PostingDateFilter);
+                        Window.Close();
+                        CurrPage.Update(false);
+                    end;
+                }
+                Action(ClearData)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Clear Data';
+                    Image = ClearLog;
+                    Promoted = true;
+                    PromotedIsBig = true;
+                    PromotedCategory = Process;
+                    trigger OnAction();
+                    begin
+                        Window.Open(WinDelTxt);
+                        CurrPage.ServInquiryLines.Page.DeleteRecords();
+                        Window.Close();
+                        CurrPage.Update(false);
+                    end;
+                }
             }
         }
     }
