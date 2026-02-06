@@ -84,7 +84,7 @@ page 50141 "Service Inquiry Subform"
     var
         GLSetup: Record "General Ledger Setup";
         ServInvHdr: Record "Service Invoice Header";
-        ServInvLine: Record "Service Inquiry Line";
+        ServInvLine: Record "Service Invoice Line";
         ServCrMemoHdr: Record "Service Cr.Memo Header";
         ServCrMemoLine: Record "Service Cr.Memo Line";
         CurrExchRate: Record "Currency Exchange Rate";
