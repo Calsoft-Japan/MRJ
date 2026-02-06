@@ -2299,11 +2299,22 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="CompanyAddr8">
           <DataField>CompanyAddr8</DataField>
         </Field>
+<<<<<<< HEAD
         <Field Name="TelLine">
           <DataField>TelLine</DataField>
         </Field>
         <Field Name="FaxLine">
           <DataField>FaxLine</DataField>
+=======
+        <Field Name="CompanyAddr0">
+          <DataField>CompanyAddr0</DataField>
+        </Field>
+        <Field Name="CompanyAddr6">
+          <DataField>CompanyAddr6</DataField>
+        </Field>
+        <Field Name="CompanyAddr7">
+          <DataField>CompanyAddr7</DataField>
+>>>>>>> d54db2901152fcfd1a225463197c78623a3661bc
         </Field>
         <Field Name="CompanyRegistrationLine">
           <DataField>CompanyRegistrationLine</DataField>
@@ -2377,6 +2388,12 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="VATAmountFormat">
           <DataField>VATAmountFormat</DataField>
         </Field>
+<<<<<<< HEAD
+=======
+        <Field Name="CommentText">
+          <DataField>CommentText</DataField>
+        </Field>
+>>>>>>> d54db2901152fcfd1a225463197c78623a3661bc
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>
