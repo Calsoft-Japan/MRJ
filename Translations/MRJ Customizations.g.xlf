@@ -1128,6 +1128,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Delivery Note - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2055647557 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MRJ Purchase Order (JP)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Purchase Order (JP) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2055647557 - Control 183988831 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>注文年月日</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Purchase Order (JP) - Control OrderDateParam - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 994406390 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>MRJ Sales Credit Memo (JP)</source>
           <note from="Developer" annotates="general" priority="2"></note>
