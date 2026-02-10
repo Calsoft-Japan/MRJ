@@ -1,249 +1,360 @@
-// report 50018 "MRJ Purchase Order Report"
-// {
-//     UsageCategory = ReportsAndAnalysis;
-//     ApplicationArea = All;
-//     Caption = 'MRJ Purchase Order (JP)';
-//     DefaultLayout = RDLC;
-//     RDLCLayout = 'src\07.ReportLayout\MRJPurchaseOrderReport.rdlc';
+report 50018 "MRJ Purchase Order (JP)"
+{
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All;
+    Caption = 'MRJ Purchase Order (JP)';
+    DefaultLayout = RDLC;
+    RDLCLayout = 'src\07.ReportLayout\MRJPurchaseOrderReport(N).rdlc';
 
-//     dataset
-//     {
-//         dataitem(PurchHeader; "Purchase Header")
-//         {
-//             DataItemTableView = sorting("Document Type", "No.") where("Document Type" = const(Order));
-//             RequestFilterFields = "No.", "Buy-from Vendor No.";
+    dataset
+    {
+        dataitem("Purchase Header"; "Purchase Header")
+        {
+            DataItemTableView = sorting("No.") where("Document Type" = const(Order));
+            RequestFilterFields = "No.", "Buy-from Vendor No.";
 
-//             // ===== Header fields =====
-//             column(DocumentNo; "No.") { }
-//             column(PostingDate; "Posting Date") { }
-//             column(DocumentDate; "Document Date") { }
-//             column(BuyFromVendorNo; "Buy-from Vendor No.") { }
-//             column(BuyFromVendorName; "Buy-from Vendor Name") { }
-//             column(YourReference; "Your Reference") { }
-//             column(PaymentTermsCode; "Payment Terms Code") { }
-//             column(CurrencyCode; "Currency Code") { }
+            // ===== Header =====
+            column(OrderDate; "Order Date") { }                 // 注文年月日
+            column(PurchaseOrderNo; "No.") { }                  // 発注書番号
 
-//             // ===== Company (JP default from Company Info address formatting if you want in layout) =====
-//             column(CompanyNameJP; CompanyInfo.Name) { }
-//             column(CompanyAddrJP1; CompanyAddr[1]) { }
-//             column(CompanyAddrJP2; CompanyAddr[2]) { }
-//             column(CompanyAddrJP3; CompanyAddr[3]) { }
-//             column(CompanyAddrJP4; CompanyAddr[4]) { }
-//             column(CompanyAddrJP5; CompanyAddr[5]) { }
-//             column(CompanyAddrJP6; CompanyAddr[6]) { }
-//             column(CompanyAddrJP7; CompanyAddr[7]) { }
-//             column(CompanyAddrJP8; CompanyAddr[8]) { }
+            //column(ExternalDocumentNo; "Vendor Order No.") { }  // optional 
 
-//             // ===== Company EN (as per screenshot requirement) =====
-//             column(CompanyNameEN; CompanyNameEN) { }       // RespCenter."Name 2"
-//             column(CompanyAddressEN; CompanyAddressEN) { } // RespCenter."Address 2"
+            // 希望納期 / 支払方法
+            column(RequestedReceiptDate; "Requested Receipt Date") { } // 希望納期
+            column(PaymentTermTxt; PaymentTermTxt) { }                 // 支払条件(説明)
+            column(PaymentMethodTxt; PaymentMethodTxt) { }             // 支払方法(説明 or 空)
 
-//             // ===== Registration No. (登録番号) =====
-//             column(CompanyRegNoCaption; CompanyRegNoCaption) { } // '登録番号:' / 'Registration No.:'
-//             column(CompanyRegNoValue; CompanyRegNoValue) { }     // CompanyInfo."VAT Registration No."
+            // ===== Vendor address (left block) =====
+            column(VendorAddr1; VendAddr[1]) { }   // Name
+            column(VendorAddr2; VendAddr[2]) { }   // Name 2 (if any)
+            column(VendorAddr3; VendAddr[3]) { }   // Address 1
+            column(VendorAddr4; VendAddr[4]) { }   // Address 2
+            column(VendorAddr5; VendAddr[5]) { }   // City/County etc (depends on FormatAddr)
+            column(VendorAddr6; VendAddr[6]) { }   // Post code etc (depends on FormatAddr)
+            column(VendorPostCode; "Buy-from Post Code") { } // if you prefer direct
+            column(VendorTel; VendorTelTxt) { }
+            column(VendorFax; VendorFaxTxt) { }
 
-//             // ===== VAT summary line like screenshot =====
-//             column(VATRateCaption; VATRateCaption) { } // '10%対象' / '10% taxable'
-//             column(VATBaseByRate; VATBaseByRate) { AutoFormatType = 1; AutoFormatExpression = "Currency Code"; }
-//             column(VATAmtByRate; VATAmtByRate) { AutoFormatType = 1; AutoFormatExpression = "Currency Code"; }
+            // ===== Company address (right block) =====
+            column(CompanyName; CompanyAddr[1]) { }
+            column(CompanyAddr2; CompanyAddr[2]) { }
+            column(CompanyAddr3; CompanyAddr[3]) { }
+            column(CompanyAddr4; CompanyAddr[4]) { }
+            column(CompanyAddr5; CompanyAddr[5]) { }
+            column(CompanyPostCode; CompanyInfo."Post Code") { }
 
-//             // ===== Totals box (税抜/税/税込) =====
-//             column(TotalExclVAT; TotalExclVAT) { AutoFormatType = 1; AutoFormatExpression = "Currency Code"; }
-//             column(TotalVAT; TotalVAT) { AutoFormatType = 1; AutoFormatExpression = "Currency Code"; }
-//             column(TotalInclVAT; TotalInclVAT) { AutoFormatType = 1; AutoFormatExpression = "Currency Code"; }
+            // TEL/FAX (RC first; fallback CompanyInfo) -> "No. / No. 2"
+            column(CompanyTelLine; CompanyTelTxt) { }
+            column(CompanyFaxLine; CompanyFaxTxt) { }
 
-//             dataitem(PurchLine; "Purchase Line")
-//             {
-//                 DataItemLink = "Document Type" = field("Document Type"),
-//                                "Document No." = field("No.");
-//                 DataItemTableView = sorting("Document Type", "Document No.", "Line No.")
-//                                     where(Type = filter(<> " ")); // ignore blank lines
+            // 担当者 
+            column(Purchaser; AssignedUserName) { }
 
-//                 column(LineNo; "Line No.") { }
-//                 column(Type; Type) { }
-//                 column(No; "No.") { }
-//                 column(Description; Description) { }
-//                 column(Description2; "Description 2") { }
-//                 column(Quantity; Quantity) { }
-//                 column(UnitOfMeasure; "Unit of Measure") { }
-//                 column(DirectUnitCost; "Direct Unit Cost") { AutoFormatType = 1; AutoFormatExpression = PurchHeader."Currency Code"; }
-//                 column(LineAmount; "Line Amount") { AutoFormatType = 1; AutoFormatExpression = PurchHeader."Currency Code"; }
-//                 column(VATPercent; "VAT %") { }
+            // Registration No. (optional)
+            column(CompanyRegistrationLine; CompanyRegistrationLine) { }
 
-//                 // Optional: if you need negative display like screenshot, handle in layout or create calc columns.
-//             }
+            // ===== Ship-to block (bottom-left in sample) =====
+            column(ShipToAddr1; ShipToAddr[1]) { }  // 出荷先住所: name
+            column(ShipToAddr2; ShipToAddr[2]) { }
+            column(ShipToAddr3; ShipToAddr[3]) { }
+            column(ShipToAddr4; ShipToAddr[4]) { }
+            column(ShipToAddr5; ShipToAddr[5]) { }
+            column(ShipToAddr6; ShipToAddr[6]) { }
+            column(ShipToTelLine; ShipToTelTxt) { }
+            column(ShipToFaxLine; ShipToFaxTxt) { }
 
-//             trigger OnPreDataItem()
-//             begin
-//                 CompanyInfo.Get();
-//                 CompanyInfo.CalcFields(Picture);
+            // ===== Totals =====
+            column(TotalExclVAT; TotalExclVAT) { }     // 消費税抜合計
+            column(TotalVAT; TotalVAT) { }             // 消費税
+            column(TotalInclVAT; TotalInclVAT) { }     // 消費税込合計
 
-//                 // Simple address fill (JP). If you already have your own formatting, keep it in RDLC.
-//                 Clear(CompanyAddr);
-//                 CompanyAddr[1] := CompanyInfo.Name;
-//                 CompanyAddr[2] := CompanyInfo.Address;
-//                 CompanyAddr[3] := CompanyInfo."Address 2";
-//                 CompanyAddr[4] := CompanyInfo.City;
-//                 CompanyAddr[5] := CompanyInfo."Post Code";
-//                 CompanyAddr[6] := CompanyInfo.County;
-//                 CompanyAddr[7] := CompanyInfo."Country/Region Code";
-//                 CompanyAddr[8] := CompanyInfo."Phone No.";
-//             end;
+            // ===== Lines =====
+            dataitem("Purchase Line"; "Purchase Line")
+            {
+                DataItemLinkReference = "Purchase Header";
+                DataItemLink = "Document Type" = field("Document Type"),
+                               "Document No." = field("No.");
+                DataItemTableView = sorting("Document Type", "Document No.", "Line No.");
 
-//             trigger OnAfterGetRecord()
-//             begin
-//                 BuildCompanyENAndRegNo();
-//                 CalcTotalsAndVATSummary();
-//             end;
-//         }
-//     }
+                column(ItemNo; "No.") { }                    // 品番
+                column(LineDescription; Description) { }      // 品名
+                column(LineDescription2; "Description 2") { }
+                column(LineQuantity; Quantity) { }            // 数量
+                column(LineUOM; "Unit of Measure Code") { }   // 単位
+                column(LineUnitCost; "Direct Unit Cost") { }  // 単価 (PO is usually unit cost)
+                column(LineAmount; "Line Amount") { }         // 金額
+                column(Type_Line; Type) { }
+            }
 
-//     requestpage
-//     {
-//         layout
-//         {
-//             area(content)
-//             {
-//                 group(Options)
-//                 {
-//                     Caption = 'Options';
-//                     field(ShowENCompanyBlock; ShowENCompanyBlock)
-//                     {
-//                         ApplicationArea = All;
-//                         Caption = 'Show EN company block';
-//                     }
-//                 }
-//             }
-//         }
-//     }
+            // ===== VAT Summary (optional; if you have a VAT breakdown section) =====
+            dataitem(VATSummary; Integer)
+            {
+                DataItemTableView = sorting(Number);
 
-//     var
-//         CompanyInfo: Record "Company Information";
-//         RespCenter: Record "Responsibility Center";
+                column(VATDisplayTxt; VATDisplayTxt) { }
+                column(VATBaseAmount; VATBaseAmount) { }
+                column(VATLabelTxt; '消費税') { }
+                column(VATAmount; VATAmount) { }
 
-//         CompanyAddr: array[8] of Text[100];
+                trigger OnPreDataItem()
+                begin
+                    if VatPctList.Count() = 0 then
+                        CurrReport.Break();
 
-//         CompanyNameEN: Text[100];
-//         CompanyAddressEN: Text[100];
+                    SetRange(Number, 1, VatPctList.Count());
+                end;
 
-//         CompanyRegNoCaption: Text[30];
-//         CompanyRegNoValue: Text[30];
+                trigger OnAfterGetRecord()
+                var
+                    VatPct: Decimal;
+                    BaseDec: Decimal;
+                begin
+                    VatPctList.Get(Number, VatPct);
+                    BaseDec := VatSummaryDict.Get(VatPct);
 
-//         VATRateCaption: Text[30];
-//         VATBaseByRate: Decimal;
-//         VATAmtByRate: Decimal;
+                    if VatPct = 0 then
+                        VATDisplayTxt := '非課税'
+                    else
+                        VATDisplayTxt := Format(VatPct) + '%対象';
 
-//         TotalExclVAT: Decimal;
-//         TotalVAT: Decimal;
-//         TotalInclVAT: Decimal;
+                    VATBaseAmount := BaseDec;
+                    VATAmount := Round(VATBaseAmount * VatPct / 100, 0.1);
+                end;
+            }
 
-//         ShowENCompanyBlock: Boolean;
+            trigger OnAfterGetRecord()
+            var
+                RespCenter: Record "Responsibility Center";
+                PurchLineTmp: Record "Purchase Line";
+                VendorRec: Record Vendor;
+                UserRec: Record User;
+                VatPct: Decimal;
+                BaseAmt: Decimal;
+            begin
+                // ----- Company Info -----
+                if not CompanyInfo.Get() then
+                    CompanyInfo.Get();
 
-//     local procedure BuildCompanyENAndRegNo()
-//     begin
-//         Clear(CompanyNameEN);
-//         Clear(CompanyAddressEN);
+                // ----- Company JP block (RC first; fallback Company Info) -----
+                Clear(CompanyAddr);
+                if ("Responsibility Center" <> '') and RespCenter.Get("Responsibility Center") then
+                    FormatAddr.RespCenter(CompanyAddr, RespCenter)
+                else
+                    FormatAddr.Company(CompanyAddr, CompanyInfo);
 
-//         if ShowENCompanyBlock then begin
-//             if (PurchHeader."Responsibility Center" <> '') and RespCenter.Get(PurchHeader."Responsibility Center") then begin
-//                 // As you requested:
-//                 // Name 2 = Company Name in EN
-//                 // Address 2 = Company Address in EN
-//                 CompanyNameEN := RespCenter."Name 2";
-//                 CompanyAddressEN := RespCenter."Address 2";
-//             end else begin
-//                 // fallback to Company Information
-//                 CompanyNameEN := CompanyInfo."Name 2";
-//                 CompanyAddressEN := CompanyInfo."Address 2";
-//             end;
-//         end;
+                // ----- Company TEL/FAX -----
+                CompanyTelTxt := '';
+                CompanyFaxTxt := '';
+                if ("Responsibility Center" <> '') and RespCenter.Get("Responsibility Center") then begin
+                    CompanyTelTxt := BuildContactTxt('TEL', RespCenter."Phone No.", RespCenter."Phone No. 2");
+                    CompanyFaxTxt := BuildContactTxt('FAX', RespCenter."Fax No.", RespCenter."Fax No. 2");
+                end else begin
+                    CompanyTelTxt := BuildContactTxt('TEL', CompanyInfo."Phone No.", CompanyInfo."Phone No. 2");
+                    //CompanyFaxTxt := BuildContactTxt('FAX', CompanyInfo."Fax No.", CompanyInfo."Fax No. 2");
+                end;
 
-//         // Registration No. -> display as 登録番号
-//         CompanyRegNoCaption := '登録番号:';
-//         CompanyRegNoValue := CompanyInfo."VAT Registration No.";
-//     end;
+                // ----- Vendor address block (left) -----
+                Clear(VendAddr);
+                VendorTelTxt := '';
+                VendorFaxTxt := '';
 
-//     local procedure CalcTotalsAndVATSummary()
-//     var
-//         VATAmountLine: Record "VAT Amount Line";
-//         VATMainRate: Decimal;
-//     begin
-//         // reset
-//         TotalExclVAT := 0;
-//         TotalVAT := 0;
-//         TotalInclVAT := 0;
-//         VATBaseByRate := 0;
-//         VATAmtByRate := 0;
-//         VATRateCaption := '';
+                if VendorRec.Get("Buy-from Vendor No.") then begin
+                    FormatAddr.Vendor(VendAddr, VendorRec);
+                    VendorTelTxt := BuildContactTxt('Tel.', VendorRec."Phone No.", '');
+                    VendorFaxTxt := BuildContactTxt('Fax.', VendorRec."Fax No.", '');
+                end;
 
-//         // Build VAT lines from Purchase Header (standard helper table)
-//         VATAmountLine.DeleteAll(); // temp-like use is common, but in AL this is a real table.
-//                                    // If you prefer a safer approach, use VATAmountLine as temporary via Temp table in extension.
-//                                    // For "simple version", we recalc from posted amounts below instead.
+                // ----- 担当者（Assigned User ID -> User Name） -----
+                AssignedUserName := '';
+                if ("Assigned User ID" <> '') and UserRec.Get("Assigned User ID") then
+                    AssignedUserName := UserRec."Full Name";
 
-//         // === Simple totals from lines (works for most cases) ===
-//         CalcLineTotalsFromPurchLines(TotalExclVAT, TotalInclVAT, TotalVAT);
+                // ----- Payment terms/method -----
+                PaymentTermTxt := '';
+                if "Payment Terms Code" <> '' then
+                    if PaymentTerms.Get("Payment Terms Code") then
+                        PaymentTermTxt := PaymentTerms.Description;
 
-//         // === VAT by main rate (typically 10%) ===
-//         // We approximate by using the most common VAT% on lines (prefer 10%).
-//         VATMainRate := 10;
-//         CalcVATByRateFromLines(VATMainRate, VATBaseByRate, VATAmtByRate);
+                PaymentMethodTxt := '';
+                if "Payment Method Code" <> '' then
+                    if PaymentMethod.Get("Payment Method Code") then
+                        PaymentMethodTxt := PaymentMethod.Description;
 
-//         VATRateCaption := Format(VATMainRate, 0, '<Integer>') + '%対象';
-//     end;
+                // Registration line
+                CompanyRegistrationLine := BuildRegistrationLine();
 
-//     local procedure CalcLineTotalsFromPurchLines(var ExclVAT: Decimal; var InclVAT: Decimal; var VAT: Decimal)
-//     var
-//         Line: Record "Purchase Line";
-//         LineAmountExcl: Decimal;
-//         LineVAT: Decimal;
-//     begin
-//         ExclVAT := 0;
-//         VAT := 0;
+                // ----- Ship-to (出荷先住所) -----
+                BuildShipToBlock("Purchase Header");
 
-//         Line.SetRange("Document Type", PurchHeader."Document Type");
-//         Line.SetRange("Document No.", PurchHeader."No.");
-//         Line.SetFilter(Type, '<>%1', Line.Type::" ");
+                // ----- Totals + VAT Summary -----
+                TotalExclVAT := 0;
+                TotalInclVAT := 0;
+                TotalVAT := 0;
 
-//         if Line.FindSet() then
-//             repeat
-//                 // Excl VAT
-//                 LineAmountExcl := Line."Line Amount";
-//                 ExclVAT += LineAmountExcl;
+                Clear(VatPctList);
+                Clear(VatSummaryDict);
 
-//                 // VAT approximation from line VAT %
-//                 if Line."VAT %" <> 0 then
-//                     LineVAT := Round(LineAmountExcl * Line."VAT %" / 100, 1, '=')
-//                 else
-//                     LineVAT := 0;
+                PurchLineTmp.Reset();
+                PurchLineTmp.SetRange("Document Type", "Document Type");
+                PurchLineTmp.SetRange("Document No.", "No.");
+                PurchLineTmp.SetFilter(Type, '<>%1', PurchLineTmp.Type::" ");
 
-//                 VAT += LineVAT;
-//             until Line.Next() = 0;
+                if PurchLineTmp.FindSet() then
+                    repeat
+                        TotalExclVAT += PurchLineTmp."Line Amount";
+                        TotalInclVAT += PurchLineTmp."Amount Including VAT";
 
-//         InclVAT := ExclVAT + VAT;
-//     end;
+                        VatPct := PurchLineTmp."VAT %";
+                        BaseAmt := PurchLineTmp."VAT Base Amount";
 
-//     local procedure CalcVATByRateFromLines(VATRate: Decimal; var Base: Decimal; var Amt: Decimal)
-//     var
-//         Line: Record "Purchase Line";
-//         LineAmountExcl: Decimal;
-//         LineVAT: Decimal;
-//     begin
-//         Base := 0;
-//         Amt := 0;
+                        if not VatSummaryDict.ContainsKey(VatPct) then begin
+                            VatSummaryDict.Add(VatPct, BaseAmt);
+                            VatPctList.Add(VatPct);
+                        end else
+                            VatSummaryDict.Set(VatPct, VatSummaryDict.Get(VatPct) + BaseAmt);
 
-//         Line.SetRange("Document Type", PurchHeader."Document Type");
-//         Line.SetRange("Document No.", PurchHeader."No.");
-//         Line.SetRange("VAT %", VATRate);
-//         Line.SetFilter(Type, '<>%1', Line.Type::" ");
+                    until PurchLineTmp.Next() = 0;
 
-//         if Line.FindSet() then
-//             repeat
-//                 LineAmountExcl := Line."Line Amount";
-//                 Base += LineAmountExcl;
+                TotalVAT := TotalInclVAT - TotalExclVAT;
+            end;
+        }
+    }
 
-//                 LineVAT := Round(LineAmountExcl * VATRate / 100, 1, '=');
-//                 Amt += LineVAT;
-//             until Line.Next() = 0;
-//     end;
-// }
+    requestpage
+    {
+        layout
+        {
+            area(content)
+            {
+                group(Options)
+                {
+                    field(OrderDateParam; OrderDateParam)
+                    {
+                        ApplicationArea = All;
+                        Caption = '注文年月日';
+                    }
+                }
+            }
+        }
+
+        trigger OnOpenPage()
+        begin
+            OrderDateParam := WorkDate();
+        end;
+    }
+
+    var
+        CompanyInfo: Record "Company Information";
+        PaymentTerms: Record "Payment Terms";
+        PaymentMethod: Record "Payment Method";
+        FormatAddr: Codeunit "Format Address";
+
+        VendAddr: array[8] of Text[100];
+        CompanyAddr: array[8] of Text[100];
+
+        ShipToAddr: array[8] of Text[100];
+        ShipToTelTxt: Text[100];
+        ShipToFaxTxt: Text[100];
+
+        VendorTelTxt: Text[100];
+        VendorFaxTxt: Text[100];
+
+        CompanyTelTxt: Text[100];
+        CompanyFaxTxt: Text[100];
+
+        AssignedUserName: Text[100];
+
+        OrderDateParam: Date;
+
+        PaymentTermTxt: Text[100];
+        PaymentMethodTxt: Text[100];
+
+        TotalExclVAT: Decimal;
+        TotalVAT: Decimal;
+        TotalInclVAT: Decimal;
+
+        VatPctList: List of [Decimal];
+        VatSummaryDict: Dictionary of [Decimal, Decimal];
+
+        VATDisplayTxt: Text[30];
+        VATBaseAmount: Decimal;
+        VATAmount: Decimal;
+
+        CompanyRegistrationLine: Text[100];
+
+    local procedure BuildContactTxt(LabelTxt: Text; No1: Text; No2: Text): Text[100]
+    var
+        ResultTxt: Text[100];
+    begin
+        ResultTxt := '';
+
+        if No1 <> '' then
+            ResultTxt := No1;
+
+        if No2 <> '' then begin
+            if ResultTxt <> '' then
+                ResultTxt += ' / ' + No2
+            else
+                ResultTxt := No2;
+        end;
+
+        if ResultTxt = '' then
+            exit('');
+
+        exit(LabelTxt + ' ' + ResultTxt);
+    end;
+
+    local procedure BuildRegistrationLine(): Text[100]
+    var
+        RegNo: Text[50];
+    begin
+        RegNo := CompanyInfo."Registration No.";
+        if RegNo = '' then
+            RegNo := CompanyInfo."VAT Registration No.";
+
+        if RegNo = '' then
+            exit('');
+
+        exit('登録番号：' + RegNo);
+    end;
+
+    local procedure BuildShipToBlock(PurchHeader: Record "Purchase Header")
+    var
+        // uses fields on Purchase Header
+        ShipName: Text[100];
+        ShipName2: Text[100];
+        ShipAddr: Text[100];
+        ShipAddr2: Text[100];
+        ShipPostCode: Code[20];
+        ShipCity: Text[30];
+        ShipCounty: Text[30];
+    begin
+        Clear(ShipToAddr);
+        ShipToTelTxt := '';
+        ShipToFaxTxt := '';
+
+        // If Ship-to Code is used, these fields are usually populated on header.
+        ShipName := PurchHeader."Ship-to Name";
+        ShipName2 := PurchHeader."Ship-to Name 2";
+        ShipAddr := PurchHeader."Ship-to Address";
+        ShipAddr2 := PurchHeader."Ship-to Address 2";
+        ShipPostCode := PurchHeader."Ship-to Post Code";
+        ShipCity := PurchHeader."Ship-to City";
+        ShipCounty := PurchHeader."Ship-to County";
+
+        // Minimal JP-style lines (adjust to your RDLC needs)
+        ShipToAddr[1] := ShipName;
+        ShipToAddr[2] := ShipName2;
+        ShipToAddr[3] := ShipAddr;
+        ShipToAddr[4] := ShipAddr2;
+
+        if ShipPostCode <> '' then
+            ShipToAddr[5] := '〒' + ShipPostCode;
+
+        if (ShipCity <> '') or (ShipCounty <> '') then
+            ShipToAddr[6] := ShipCounty + ShipCity;
+
+        // If you store ship-to phone/fax in custom fields, set them here.
+        // (Standard Purchase Header does not always have Ship-to Phone/Fax fields.)
+    end;
+}
