@@ -4,7 +4,7 @@ report 50018 "MRJ Purchase Order (JP)"
     ApplicationArea = All;
     Caption = 'MRJ Purchase Order (JP)';
     DefaultLayout = RDLC;
-    RDLCLayout = 'src\07.ReportLayout\MRJPurchaseOrderReport(N).rdlc';
+    RDLCLayout = 'src\07.ReportLayout\MRJPurchaseOrderReport_N.rdlc';
 
     dataset
     {
@@ -14,10 +14,10 @@ report 50018 "MRJ Purchase Order (JP)"
             RequestFilterFields = "No.", "Buy-from Vendor No.";
 
             // ===== Header =====
-            column(OrderDate; "Order Date") { }                 // 注文年月日
-            column(PurchaseOrderNo; "No.") { }                  // 発注書番号
+            column(PurchaseOrderNo; "No.") { }                      // 発注書番号
+            column(OrderDate; OrderDateParam) { }                   // 注文年月日
 
-            //column(ExternalDocumentNo; "Vendor Order No.") { }  // optional 
+            //column(ExternalDocumentNo; "Vendor Order No.") { }    // optional 
 
             // 希望納期 / 支払方法
             column(RequestedReceiptDate; "Requested Receipt Date") { } // 希望納期
