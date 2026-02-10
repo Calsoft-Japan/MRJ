@@ -165,9 +165,11 @@ report 50018 "MRJ Purchase Order (JP)"
                 end;
 
                 // ----- 担当者（Assigned User ID -> User Name） -----
-                AssignedUserName := '';
-                if ("Assigned User ID" <> '') and UserRec.Get("Assigned User ID") then
-                    AssignedUserName := UserRec."Full Name";
+                if ("Assigned User ID" <> '') then begin
+                    AssignedUserName := '';
+                    if UserRec.Get("Assigned User ID") then
+                        AssignedUserName := UserRec."Full Name";
+                end;
 
                 // ----- Payment terms/method -----
                 PaymentTermTxt := '';
