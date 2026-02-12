@@ -1223,6 +1223,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Quotation - Control SummarizeLinesField - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2656121039 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MRJ Transfer Shipment (JP)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Transfer Shipment (JP) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 836936761 - Control 54496332 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1180040559">
           <source>MRJ Customization</source>
           <note from="Developer" annotates="general" priority="2"></note>
