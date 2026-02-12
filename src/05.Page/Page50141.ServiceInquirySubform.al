@@ -148,9 +148,14 @@ page 50141 "Service Inquiry Subform"
                             Rec."Service Order Type" := ServInvHdr."Service Order Type";
                             Rec."Customer Name" := ServInvHdr.Name;
                             Rec."Posting Date" := ServInvHdr."Posting Date";
+                            Rec."Order Date" := ServInvHdr."Order Date";
                             Rec."Currency Code" := ServInvHdr."Currency Code";
-                            if ItemCategory.Get(Rec."Item Category Code") then;
-                            Rec."Item Category Code" := ItemCategory."Parent Category";
+                            if Rec.Type <> Rec.Type::Resource then begin
+                                if ItemCategory.Get(Rec."Item Category Code") then;
+                                Rec."Item Category Code" := ItemCategory."Parent Category";
+                            end;
+                            if Rec.Type = Rec.Type::Resource then
+                                Rec."Item Category Code" := '';
                             Rec.Insert();
                         until (ServInvLine.Next() = 0);
                 until (ServInvHdr.Next() = 0);
@@ -189,8 +194,12 @@ page 50141 "Service Inquiry Subform"
                             Rec."Customer Name" := ServCrMemoHdr.Name;
                             Rec."Posting Date" := ServCrMemoHdr."Posting Date";
                             Rec."Currency Code" := ServCrMemoHdr."Currency Code";
-                            if ItemCategory.Get(Rec."Item Category Code") then;
-                            Rec."Item Category Code" := ItemCategory."Parent Category";
+                            if Rec.Type <> Rec.Type::Resource then begin
+                                if ItemCategory.Get(Rec."Item Category Code") then;
+                                Rec."Item Category Code" := ItemCategory."Parent Category";
+                            end;
+                            if Rec.Type = Rec.Type::Resource then
+                                Rec."Item Category Code" := '';
                             Rec.Insert();
                         until (ServCrMemoLine.Next() = 0);
                 until (ServCrMemoHdr.Next() = 0);
