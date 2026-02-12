@@ -191,13 +191,13 @@
         </trans-unit>
         <trans-unit id="Table 1566533854 - Field 633819257 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Gen. Bus. Posting Group</source>
-          <target>一般ﾋﾞｼﾞﾈｽ転]記グループ</target>
+          <target>一般ﾋﾞｼﾞﾈｽ転記グループ</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Service Inquiry Line - Field Gen. Bus. Posting Group - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1566533854 - Field 2139693550 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Gen. Prod. Posting Group</source>
-          <target>一般品目転]記グループ</target>
+          <target>一般品目転記グループ</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Service Inquiry Line - Field Gen. Prod. Posting Group - Property Caption</note>
         </trans-unit>
@@ -239,7 +239,7 @@
         </trans-unit>
         <trans-unit id="Table 1566533854 - Field 3710982960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Date</source>
-          <target>転]記日</target>
+          <target>転記日</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Service Inquiry Line - Field Posting Date - Property Caption</note>
         </trans-unit>
@@ -293,7 +293,7 @@
         </trans-unit>
         <trans-unit id="Table 1566533854 - Field 1844012642 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Bus. Posting Group</source>
-          <target>消費税ﾋﾞｼﾞﾈｽ転]記グループ</target>
+          <target>消費税ﾋﾞｼﾞﾈｽ転記グループ</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Service Inquiry Line - Field VAT Bus. Posting Group - Property Caption</note>
         </trans-unit>
@@ -305,7 +305,7 @@
         </trans-unit>
         <trans-unit id="Table 1566533854 - Field 236064653 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Prod. Posting Group</source>
-          <target>消費税品目転]記グループ</target>
+          <target>消費税品目転記グループ</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Service Inquiry Line - Field VAT Prod. Posting Group - Property Caption</note>
         </trans-unit>
@@ -1301,13 +1301,13 @@
         </trans-unit>
         <trans-unit id="Report 2499531685 - Control 30259774 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>From Date</source>
-          <target>リソース元帳転]記日(開始)</target>
+          <target>リソース元帳転記日(開始)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Calculate Charge Outs - Control DateFrom - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2499531685 - Control 1537575777 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>To Date</source>
-          <target>リソース元帳転]記日(終了)</target>
+          <target>リソース元帳転記日(終了)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Calculate Charge Outs - Control DateTo - Property Caption</note>
         </trans-unit>
@@ -1337,7 +1337,7 @@
         </trans-unit>
         <trans-unit id="Report 2499531685 - Control 3037438984 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Date</source>
-          <target>転]記日</target>
+          <target>転記日</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Calculate Charge Outs - Control PostingDate - Property Caption</note>
         </trans-unit>
@@ -1551,13 +1551,13 @@
         </trans-unit>
         <trans-unit id="TableExtension 2750055256 - Field 2397991020 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2189160554">
           <source>Charge Out Credit Account</source>
-          <target>転]記リソース原価相手勘定</target>
+          <target>転記リソース原価相手勘定</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Resource Setup Ext - Field Charge Out Credit Account - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2750055256 - Field 508611711 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2189160554">
           <source>Charge Out Res. Grp. Filter</source>
-          <target>GL転]記リソースグループ</target>
+          <target>GL転記リソースグループ</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Resource Setup Ext - Field Charge Out Res. Grp. Filter - Property Caption</note>
         </trans-unit>
@@ -1659,7 +1659,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 1754505274 - Field 2814799924 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4081358646">
           <source>Bin Code</source>
-          <target>ビンコード]</target>
+          <target>ビンコード</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv Ship Header Ext - Field Bin Code - Property Caption</note>
         </trans-unit>

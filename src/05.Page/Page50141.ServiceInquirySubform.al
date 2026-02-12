@@ -146,6 +146,7 @@ page 50141 "Service Inquiry Subform"
                             Rec."Service Order Type" := ServInvHdr."Service Order Type";
                             Rec."Customer Name" := ServInvHdr.Name;
                             Rec."Posting Date" := ServInvHdr."Posting Date";
+                            Rec."Currency Code" := ServInvHdr."Currency Code";
                             Rec.Insert();
                         until (ServInvLine.Next() = 0);
                 until (ServInvHdr.Next() = 0);
@@ -183,6 +184,7 @@ page 50141 "Service Inquiry Subform"
                             Rec."Service Order Type" := ServCrMemoHdr."Service Order Type";
                             Rec."Customer Name" := ServCrMemoHdr.Name;
                             Rec."Posting Date" := ServCrMemoHdr."Posting Date";
+                            Rec."Currency Code" := ServCrMemoHdr."Currency Code";
                             Rec.Insert();
                         until (ServCrMemoLine.Next() = 0);
                 until (ServCrMemoHdr.Next() = 0);
