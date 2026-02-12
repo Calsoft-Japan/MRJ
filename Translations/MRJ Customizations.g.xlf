@@ -1588,10 +1588,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Aging Year - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1222098016 - Field 299022368 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
+          <source>Description2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Description2 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1222098016 - Field 2034335627 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
           <source>Diff. Qty.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Diff. Qty. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1222098016 - Field 901474620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
+          <source>Item No.2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Item No.2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1222098016 - Field 2905855265 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
+          <source>New Shelf No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field New Shelf No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1222098016 - Field 135825779 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
           <source>Old NAV No.</source>
@@ -1607,6 +1622,31 @@
           <source>Positive Qty.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Positive Qty. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1222098016 - Field 3088846704 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
+          <source>Sendai</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Sendai - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1222098016 - Field 2757549774 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
+          <source>Shelf No. (Fukuoka)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Shelf No. (Fukuoka) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1222098016 - Field 2647033295 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
+          <source>Shelf No. (Nagoya)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Shelf No. (Nagoya) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1222098016 - Field 2857199697 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
+          <source>Shelf No. (Niigata)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Shelf No. (Niigata) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1222098016 - Field 2706142887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
+          <source>Shelf No. (Osaka)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Shelf No. (Osaka) - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1127936976 - Field 444523925 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3891454143">
           <source>Auto Post</source>
