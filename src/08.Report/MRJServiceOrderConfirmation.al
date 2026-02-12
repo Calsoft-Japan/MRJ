@@ -170,9 +170,10 @@ report 50022 "MRJ Service Order Confirmation"
 
             trigger OnAfterGetRecord()
             var
-                FormatAddr: Codeunit "Format Address";
                 PaymentTerms: Record "Payment Terms";
                 PaymentMethod: Record "Payment Method";
+                FormatAddr: Codeunit "Format Address";
+                SrvFormatAddr: Codeunit "Service Format Address";
             begin
                 TotalAmt := 0;
                 TotalGrossAmt := 0;
@@ -181,7 +182,8 @@ report 50022 "MRJ Service Order Confirmation"
                 if CompanyInfo.Get() then CompanyInfo.CalcFields(Picture);
 
                 // 1. 住所配列を生成（この時、内部で Contact Name が配列に混ざる）
-                FormatAddr.ServiceOrderSellto(CustAddr, Header);
+                //FormatAddr.ServiceOrderSellto(CustAddr, Header); //Absolute Procedure
+                SrvFormatAddr.ServiceOrderSellto(CustAddr, Header);
 
                 // 2. 担当者名を抜き出し、配列整理
                 ContactName := '';

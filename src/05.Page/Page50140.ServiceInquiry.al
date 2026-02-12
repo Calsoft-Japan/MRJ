@@ -41,7 +41,7 @@ page 50140 "Service Inquiry Card"
         {
             group(HomeTab)
             {
-                Caption = 'Home';
+                Caption = 'Home', Locked = true;
                 Action(ShowData)
                 {
                     ApplicationArea = All;
