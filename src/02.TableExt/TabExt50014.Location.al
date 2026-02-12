@@ -15,7 +15,7 @@ tableextension 50014 "Location Ext" extends Location
         }
         field(90001; "Auto Post Receipt"; Boolean)
         {
-            Caption = 'Auto Post ';
+            Caption = 'Auto Post';
             DataClassification = ToBeClassified;
             Description = 'UPG';
         }

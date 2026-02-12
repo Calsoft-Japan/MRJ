@@ -978,11 +978,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Card - Control ServicePostedInvoice - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3646928396 - Action 2938724748 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Home</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Card - Action HomeTab - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 3646928396 - Action 1758329763 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Clear Data</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1609,7 +1604,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Positive Qty. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1127936976 - Field 444523925 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3891454143">
-          <source>Auto Post </source>
+          <source>Auto Post</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Location Ext - Field Auto Post Receipt - Property Caption</note>
         </trans-unit>
