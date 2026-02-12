@@ -48,13 +48,13 @@ report 50018 "MRJ Purchase Order (JP)"
             column(CompanyFaxLine; CompanyFaxTxt) { }
 
             // 担当者 
-            column(Purchaser; AssignedUserName) { }
+            column(Purchaser; PurchaserName) { }        // Purchaser name 
 
             // Registration No. (optional)
-            column(CompanyRegistrationLine; CompanyRegistrationLine) { }
+            //column(CompanyRegistrationLine; CompanyRegistrationLine) { }
 
             // ===== Ship-to block (bottom-left in sample) =====
-            column(ShipToAddr1; ShipToAddr[1]) { }  // 出荷先住所: name
+            column(ShipToAddr1; ShipToAddr[1]) { }      // 出荷先住所: name
             column(ShipToAddr2; ShipToAddr[2]) { }
             column(ShipToAddr3; ShipToAddr[3]) { }
             column(ShipToAddr4; ShipToAddr[4]) { }
@@ -118,7 +118,7 @@ report 50018 "MRJ Purchase Order (JP)"
                         VATDisplayTxt := Format(VatPct) + '%対象';
 
                     VATBaseAmount := BaseDec;
-                    VATAmount := Round(VATBaseAmount * VatPct / 100, 0.1);
+                    VATAmount := Round(VATBaseAmount * VatPct / 100, 0.01);
                 end;
             }
 
@@ -165,10 +165,18 @@ report 50018 "MRJ Purchase Order (JP)"
                 end;
 
                 // ----- 担当者（Assigned User ID -> User Name） -----
-                if ("Assigned User ID" <> '') then begin
-                    AssignedUserName := '';
-                    if UserRec.Get("Assigned User ID") then
-                        AssignedUserName := UserRec."Full Name";
+                // if ("Assigned User ID" <> '') then begin
+                //     AssignedUserName := '';
+                //     if UserRec.Get("Assigned User ID") then
+                //         AssignedUserName := UserRec."Full Name";
+                // end;
+
+                // ----- 担当者（Purchaser Code -> Salesperson/Purchaser Name） -----                
+
+                if ("Purchaser Code" <> '') then begin
+                    PurchaserName := '';
+                    if SalespersonPurchaser.Get("Purchaser Code") then
+                        PurchaserName := SalespersonPurchaser.Name;
                 end;
 
                 // ----- Payment terms/method -----
@@ -183,15 +191,15 @@ report 50018 "MRJ Purchase Order (JP)"
                         PaymentMethodTxt := PaymentMethod.Description;
 
                 // Registration line
-                CompanyRegistrationLine := BuildRegistrationLine();
+                //CompanyRegistrationLine := BuildRegistrationLine();
 
                 // ----- Ship-to (出荷先住所) -----
                 BuildShipToBlock("Purchase Header");
 
                 // ----- Totals + VAT Summary -----
                 TotalExclVAT := 0;
-                TotalInclVAT := 0;
                 TotalVAT := 0;
+                TotalInclVAT := 0;
 
                 Clear(VatPctList);
                 Clear(VatSummaryDict);
@@ -204,20 +212,24 @@ report 50018 "MRJ Purchase Order (JP)"
                 if PurchLineTmp.FindSet() then
                     repeat
                         TotalExclVAT += PurchLineTmp."Line Amount";
-                        TotalInclVAT += PurchLineTmp."Amount Including VAT";
 
                         VatPct := PurchLineTmp."VAT %";
                         BaseAmt := PurchLineTmp."VAT Base Amount";
 
+                        // VAT Summary base per %
                         if not VatSummaryDict.ContainsKey(VatPct) then begin
                             VatSummaryDict.Add(VatPct, BaseAmt);
                             VatPctList.Add(VatPct);
                         end else
                             VatSummaryDict.Set(VatPct, VatSummaryDict.Get(VatPct) + BaseAmt);
 
+                        // TotalVAT calculated from base * %
+                        if VatPct <> 0 then
+                            TotalVAT += Round(BaseAmt * VatPct / 100, 0.01);
                     until PurchLineTmp.Next() = 0;
 
-                TotalVAT := TotalInclVAT - TotalExclVAT;
+                TotalInclVAT := TotalExclVAT + TotalVAT;
+
             end;
         }
     }
@@ -249,6 +261,7 @@ report 50018 "MRJ Purchase Order (JP)"
         CompanyInfo: Record "Company Information";
         PaymentTerms: Record "Payment Terms";
         PaymentMethod: Record "Payment Method";
+        SalespersonPurchaser: Record "Salesperson/Purchaser";
         FormatAddr: Codeunit "Format Address";
 
         VendAddr: array[8] of Text[100];
@@ -265,6 +278,7 @@ report 50018 "MRJ Purchase Order (JP)"
         CompanyFaxTxt: Text[100];
 
         AssignedUserName: Text[100];
+        PurchaserName: Text[100];
 
         OrderDateParam: Date;
 
@@ -295,7 +309,7 @@ report 50018 "MRJ Purchase Order (JP)"
 
         if No2 <> '' then begin
             if ResultTxt <> '' then
-                ResultTxt += ' / ' + No2
+                ResultTxt += ', ' + No2
             else
                 ResultTxt := No2;
         end;
@@ -306,19 +320,19 @@ report 50018 "MRJ Purchase Order (JP)"
         exit(LabelTxt + ' ' + ResultTxt);
     end;
 
-    local procedure BuildRegistrationLine(): Text[100]
-    var
-        RegNo: Text[50];
-    begin
-        RegNo := CompanyInfo."Registration No.";
-        if RegNo = '' then
-            RegNo := CompanyInfo."VAT Registration No.";
+    // local procedure BuildRegistrationLine(): Text[100]
+    // var
+    //     RegNo: Text[50];
+    // begin
+    //     RegNo := CompanyInfo."Registration No.";
+    //     if RegNo = '' then
+    //         RegNo := CompanyInfo."VAT Registration No.";
 
-        if RegNo = '' then
-            exit('');
+    //     if RegNo = '' then
+    //         exit('');
 
-        exit('登録番号：' + RegNo);
-    end;
+    //     exit('登録番号：' + RegNo);
+    // end;
 
     local procedure BuildShipToBlock(PurchHeader: Record "Purchase Header")
     var
@@ -355,8 +369,5 @@ report 50018 "MRJ Purchase Order (JP)"
 
         if (ShipCity <> '') or (ShipCounty <> '') then
             ShipToAddr[6] := ShipCounty + ShipCity;
-
-        // If you store ship-to phone/fax in custom fields, set them here.
-        // (Standard Purchase Header does not always have Ship-to Phone/Fax fields.)
     end;
 }
