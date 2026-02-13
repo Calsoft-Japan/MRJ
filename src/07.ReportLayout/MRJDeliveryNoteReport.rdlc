@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-02-03T02:38:59.6006327Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-02-12T08:49:46.8863182Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -563,7 +563,7 @@
             </TablixRowHierarchy>
             <Top>9.86795cm</Top>
             <Left>12.67484cm</Left>
-            <Height>1.50668cm</Height>
+            <Height>1.50669cm</Height>
             <Width>4.77cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
@@ -1824,7 +1824,10 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!CustAddr4.value + " " + "様"</Value>
+                    <Value>=IIF(IsNothing(Fields!CustAddr4.Value) OR Trim(Fields!CustAddr4.Value) = "",
+    "",
+    Fields!CustAddr4.Value &amp; " 様"
+)</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>

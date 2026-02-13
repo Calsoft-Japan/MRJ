@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-02-01T17:46:28.1617807Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-02-12T08:25:52.7540253Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -141,7 +141,10 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!CustAddr4.Value + " " + "様"</Value>
+                        <Value>=IIF(IsNothing(Fields!CustAddr4.Value) OR Trim(Fields!CustAddr4.Value) = "",
+    "",
+    Fields!CustAddr4.Value &amp; " 様"
+)</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -1231,7 +1234,6 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Description_Line_3">
                           <rd:DefaultName>Description_Line_2</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -1364,9 +1366,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=IIF(
-  IsNothing(Fields!LineUnitPrice.Value) OR Fields!LineUnitPrice.Value = 0,
-  "",
-  FormatNumber(Fields!LineUnitPrice.Value, 0)
+    IsNothing(Fields!LineUnitPrice.Value) OR Fields!LineUnitPrice.Value = 0,
+    Nothing,
+    Format(Fields!LineUnitPrice.Value, "#,##0")
 )</Value>
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
@@ -1402,6 +1404,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="LineAmount_Line2">
                           <rd:DefaultName>LineAmount_Line</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -1411,9 +1414,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=IIF(
-  IsNothing(Fields!LineAmount.Value) OR Fields!LineAmount.Value = 0,
-  "",
-  FormatNumber(Fields!LineAmount.Value, 0)
+    IsNothing(Fields!LineAmount.Value) OR Fields!LineAmount.Value = 0,
+    Nothing,
+    Fields!LineAmount.Value
 )</Value>
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
@@ -1444,7 +1447,6 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Textbox6">
                           <rd:DefaultName>Textbox1</rd:DefaultName>
                           <CanGrow>true</CanGrow>

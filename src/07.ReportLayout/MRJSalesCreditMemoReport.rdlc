@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-02-06T06:41:04.3211492Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-02-12T08:12:24.8148978Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -1085,11 +1085,15 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=FormatNumber(Fields!LineUnitPrice.Value, 0)</Value>
+                                  <Value>=IIF(
+    IsNothing(Fields!LineUnitPrice.Value) OR Fields!LineUnitPrice.Value = 0,
+    Nothing,
+    Fields!LineUnitPrice.Value
+)</Value>
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
                                     <FontSize>8pt</FontSize>
-                                    <Format>0;-0;""</Format>
+                                    <Format>#,##0;-#,##0;</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1123,11 +1127,15 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=FormatNumber(-1*(Fields!LineAmount.Value), 0)</Value>
+                                  <Value>=IIF(
+    IsNothing(Fields!LineAmount.Value) OR Fields!LineAmount.Value = 0,
+    Nothing,
+    -1 * Fields!LineAmount.Value
+)</Value>
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
                                     <FontSize>8pt</FontSize>
-                                    <Format>0;-0;""</Format>
+                                    <Format>#,##0;-#,##0;</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
