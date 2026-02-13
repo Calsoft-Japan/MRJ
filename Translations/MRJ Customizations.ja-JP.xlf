@@ -1423,25 +1423,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv Item WorkSheet Ext - NamedType Text020</note>
         </trans-unit>
-        <trans-unit id="PageExtension 4054556956 - Action 139402974 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3793727432">
+        <trans-unit id="PageExtension 4054556956 - Action 139402974 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 449515330">
           <source>Purchase Order</source>
           <target>仕入発注</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv Item WorkSheet Ext - Action PurchOrder - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 4054556956 - Action 2151729249 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3793727432">
+        <trans-unit id="PageExtension 4054556956 - Action 2151729249 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 449515330">
           <source>Create (Outsource)</source>
           <target>作成（外注）</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv Item WorkSheet Ext - Action CreateOutsource - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 4054556956 - Action 3841873524 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3793727432">
+        <trans-unit id="PageExtension 4054556956 - Action 3841873524 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 449515330">
           <source>Create (Parts)</source>
           <target>作成（パーツ）</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv Item WorkSheet Ext - Action CreateParts - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 4054556956 - Action 366713437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3793727432">
+        <trans-unit id="PageExtension 4054556956 - Action 366713437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 449515330">
           <source>Show</source>
           <target>表示</target>
           <note from="Developer" annotates="general" priority="2"></note>

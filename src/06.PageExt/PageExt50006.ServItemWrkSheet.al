@@ -1,8 +1,8 @@
-pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet Subform"
+pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet"
 {
     actions
     {
-        addafter("&Catalog Items")
+        addafter("&Troubleshooting")
         {
             group(PurchOrder)
             {
@@ -11,6 +11,10 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet Su
                 {
                     ApplicationArea = All;
                     Caption = 'Show';
+                    Promoted = true;
+                    PromotedOnly = true;
+                    PromotedIsBig = true;
+                    //PromotedCategory = Category4;
                     Image = ShowList;
                     RunObject = page "Purchase List";
                     RunPageView = where("Document Type" = const(Order));
@@ -20,6 +24,10 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet Su
                 {
                     ApplicationArea = All;
                     Caption = 'Create (Parts)';
+                    Promoted = true;
+                    PromotedOnly = true;
+                    PromotedIsBig = true;
+                    //PromotedCategory = Category4;
                     Image = CreateDocument;
                     trigger OnAction()
                     begin
@@ -34,6 +42,10 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet Su
                 {
                     ApplicationArea = All;
                     Caption = 'Create (Outsource)';
+                    Promoted = true;
+                    PromotedOnly = true;
+                    PromotedIsBig = true;
+                    //PromotedCategory = Category4;
                     Image = CreateDocument;
                     trigger OnAction()
                     var
