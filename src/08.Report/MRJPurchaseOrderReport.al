@@ -14,8 +14,8 @@ report 50018 "MRJ Purchase Order (JP)"
             RequestFilterFields = "No.", "Buy-from Vendor No.";
 
             // ===== Header =====
-            column(PurchaseOrderNo; "No.") { }                      // 発注書番号
-            column(OrderDate; OrderDateParam) { }                   // 注文年月日
+            column(PurchaseOrderNo; "No.") { }                           // 発注書番号
+            column(Document_Date; "Document Date") { }                   // 注文年月日
 
             //column(ExternalDocumentNo; "Vendor Order No.") { }    // optional 
 
@@ -24,23 +24,25 @@ report 50018 "MRJ Purchase Order (JP)"
             column(PaymentTermTxt; PaymentTermTxt) { }                 // 支払条件(説明)
             column(PaymentMethodTxt; PaymentMethodTxt) { }             // 支払方法(説明 or 空)
 
-            // ===== Vendor address (left block) =====
-            column(VendorAddr1; VendAddr[1]) { }   // Name
-            column(VendorAddr2; VendAddr[2]) { }   // Name 2 (if any)
-            column(VendorAddr3; VendAddr[3]) { }   // Address 1
-            column(VendorAddr4; VendAddr[4]) { }   // Address 2
-            column(VendorAddr5; VendAddr[5]) { }   // City/County etc (depends on FormatAddr)
-            column(VendorAddr6; VendAddr[6]) { }   // Post code etc (depends on FormatAddr)
-            column(VendorPostCode; "Buy-from Post Code") { } // if you prefer direct
+            // ===== Vendor address (left block) - from Vendor Card =====
+            column(VendorAddr1; VendAddr[1]) { }
+            column(VendorAddr2; VendAddr[2]) { }
+            column(VendorAddr3; VendAddr[3]) { }
+            column(VendorAddr4; VendAddr[4]) { }
+            column(VendorAddr5; VendAddr[5]) { }
+            column(VendorAddr6; VendAddr[6]) { }
+            column(VendorAddr7; VendAddr[7]) { }
+            column(VendorAddr8; VendAddr[8]) { }
+
             column(VendorTel; VendorTelTxt) { }
             column(VendorFax; VendorFaxTxt) { }
+
 
             // ===== Company address (right block) =====
             column(CompanyName; CompanyAddr[1]) { }
             column(CompanyAddr2; CompanyAddr[2]) { }
             column(CompanyAddr3; CompanyAddr[3]) { }
             column(CompanyAddr4; CompanyAddr[4]) { }
-            column(CompanyAddr5; CompanyAddr[5]) { }
             column(CompanyPostCode; CompanyInfo."Post Code") { }
 
             // TEL/FAX (RC first; fallback CompanyInfo) -> "No. / No. 2"
@@ -48,20 +50,17 @@ report 50018 "MRJ Purchase Order (JP)"
             column(CompanyFaxLine; CompanyFaxTxt) { }
 
             // 担当者 
-            column(Purchaser; PurchaserName) { }        // Purchaser name 
+            column(Purchaser; PurchaserName) { }        // Purchaser name
 
             // Registration No. (optional)
             //column(CompanyRegistrationLine; CompanyRegistrationLine) { }
 
             // ===== Ship-to block (bottom-left in sample) =====
-            column(ShipToAddr1; ShipToAddr[1]) { }      // 出荷先住所: name
-            column(ShipToAddr2; ShipToAddr[2]) { }
-            column(ShipToAddr3; ShipToAddr[3]) { }
-            column(ShipToAddr4; ShipToAddr[4]) { }
-            column(ShipToAddr5; ShipToAddr[5]) { }
-            column(ShipToAddr6; ShipToAddr[6]) { }
-            column(ShipToTelLine; ShipToTelTxt) { }
-            column(ShipToFaxLine; ShipToFaxTxt) { }
+            column(ShipToAddr1; "Ship-to Name") { }      // 出荷先住所: name
+            column(ShipToAddr2; "Ship-to Post Code") { }
+            column(ShipToAddr3; "Ship-to Address") { }
+            column(ShipToAddr4; CompanyInfo."Phone No.") { }
+            column(ShipToAddr5; CompanyInfo."Fax No.") { }
 
             // ===== Totals =====
             column(TotalExclVAT; TotalExclVAT) { }     // 消費税抜合計
@@ -181,8 +180,8 @@ report 50018 "MRJ Purchase Order (JP)"
 
                 // ----- Payment terms/method -----
                 PaymentTermTxt := '';
-                if "Payment Terms Code" <> '' then
-                    if PaymentTerms.Get("Payment Terms Code") then
+                if "Prepmt. Payment Terms Code" <> '' then
+                    if PaymentTerms.Get("Prepmt. Payment Terms Code") then
                         PaymentTermTxt := PaymentTerms.Description;
 
                 PaymentMethodTxt := '';
