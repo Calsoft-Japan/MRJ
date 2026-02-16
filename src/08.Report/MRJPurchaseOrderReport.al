@@ -14,10 +14,9 @@ report 50018 "MRJ Purchase Order (JP)"
             RequestFilterFields = "No.", "Buy-from Vendor No.";
 
             // ===== Header =====
-            column(PurchaseOrderNo; "No.") { }                           // 発注書番号
-            column(Document_Date; "Document Date") { }                   // 注文年月日
-
-            //column(ExternalDocumentNo; "Vendor Order No.") { }    // optional 
+            column(Currency_Code; "Currency Code") { }                       // 通貨コード
+            column(PurchaseOrderNo; "No.") { }                              // 発注書番号
+            column(Document_Date; "Document Date") { }                      // 注文年月日 
 
             // 希望納期 / 支払方法
             column(RequestedReceiptDate; "Requested Receipt Date") { } // 希望納期
@@ -29,10 +28,12 @@ report 50018 "MRJ Purchase Order (JP)"
             column(VendorAddr2; VendAddr[2]) { }
             column(VendorAddr3; VendAddr[3]) { }
             column(VendorAddr4; VendAddr[4]) { }
-            column(VendorAddr5; VendAddr[5]) { }
+            column(VendorAddr5; VendorPostCodeLine) { }
             column(VendorAddr6; VendAddr[6]) { }
             column(VendorAddr7; VendAddr[7]) { }
             column(VendorAddr8; VendAddr[8]) { }
+            column(VendorContact; VendorContactTxt) { }
+
 
             column(VendorTel; VendorTelTxt) { }
             column(VendorFax; VendorFaxTxt) { }
@@ -75,17 +76,17 @@ report 50018 "MRJ Purchase Order (JP)"
                                "Document No." = field("No.");
                 DataItemTableView = sorting("Document Type", "Document No.", "Line No.");
 
-                column(ItemNo; "No.") { }                    // 品番
-                column(LineDescription; Description) { }      // 品名
+                column(ItemNo; "No.") { }                       // 品番
+                column(LineDescription; Description) { }        // 品名
                 column(LineDescription2; "Description 2") { }
-                column(LineQuantity; Quantity) { }            // 数量
-                column(LineUOM; "Unit of Measure Code") { }   // 単位
-                column(LineUnitCost; "Direct Unit Cost") { }  // 単価 (PO is usually unit cost)
-                column(LineAmount; "Line Amount") { }         // 金額
+                column(LineQuantity; Quantity) { }              // 数量
+                column(LineUOM; "Unit of Measure") { }          // 単位
+                column(LineUnitCost; "Direct Unit Cost") { }    // 単価 (PO is usually unit cost)
+                column(LineAmount; "Line Amount") { }           // 金額
                 column(Type_Line; Type) { }
             }
 
-            // ===== VAT Summary (optional; if you have a VAT breakdown section) =====
+            // ===== VAT Summary =====
             dataitem(VATSummary; Integer)
             {
                 DataItemTableView = sorting(Number);
@@ -152,23 +153,34 @@ report 50018 "MRJ Purchase Order (JP)"
                     //CompanyFaxTxt := BuildContactTxt('FAX', CompanyInfo."Fax No.", CompanyInfo."Fax No. 2");
                 end;
 
-                // ----- Vendor address block (left) -----
-                Clear(VendAddr);
-                VendorTelTxt := '';
-                VendorFaxTxt := '';
-
                 if VendorRec.Get("Buy-from Vendor No.") then begin
                     FormatAddr.Vendor(VendAddr, VendorRec);
+
+                    // Post Code: Vendor first, else header
+                    if VendorRec."Post Code" <> '' then
+                        VendorPostCodeLine := '〒' + VendorRec."Post Code"
+                    else
+                        if "Buy-from Post Code" <> '' then
+                            VendorPostCodeLine := '〒' + "Buy-from Post Code";
+
+                    // Contact: Header first, else Vendor's primary contact
+                    if "Buy-from Contact" <> '' then
+                        VendorContactTxt := "Buy-from Contact"
+                    else begin
+                        if (VendorRec."Primary Contact No." <> '') and ContactRec.Get(VendorRec."Primary Contact No.") then
+                            VendorContactTxt := ContactRec.Name
+                        else
+                            VendorContactTxt := '';
+                    end;
+
                     VendorTelTxt := BuildContactTxt('Tel.', VendorRec."Phone No.", '');
                     VendorFaxTxt := BuildContactTxt('Fax.', VendorRec."Fax No.", '');
-                end;
 
-                // ----- 担当者（Assigned User ID -> User Name） -----
-                // if ("Assigned User ID" <> '') then begin
-                //     AssignedUserName := '';
-                //     if UserRec.Get("Assigned User ID") then
-                //         AssignedUserName := UserRec."Full Name";
-                // end;
+                    VendAddr[1] := "Buy-from Vendor Name";
+                    //VendAddr[2] := "Buy-from Vendor Name 2";
+                    VendAddr[2] := "Buy-from Address";
+                    VendAddr[3] := "Buy-from Address 2";
+                end;
 
                 // ----- 担当者（Purchaser Code -> Salesperson/Purchaser Name） -----                
 
@@ -188,9 +200,6 @@ report 50018 "MRJ Purchase Order (JP)"
                 if "Payment Method Code" <> '' then
                     if PaymentMethod.Get("Payment Method Code") then
                         PaymentMethodTxt := PaymentMethod.Description;
-
-                // Registration line
-                //CompanyRegistrationLine := BuildRegistrationLine();
 
                 // ----- Ship-to (出荷先住所) -----
                 BuildShipToBlock("Purchase Header");
@@ -296,6 +305,9 @@ report 50018 "MRJ Purchase Order (JP)"
         VATAmount: Decimal;
 
         CompanyRegistrationLine: Text[100];
+        VendorPostCodeLine: Text[50];
+        VendorContactTxt: Text[100];
+        ContactRec: Record Contact;
 
     local procedure BuildContactTxt(LabelTxt: Text; No1: Text; No2: Text): Text[100]
     var
