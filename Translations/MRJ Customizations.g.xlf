@@ -98,6 +98,591 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Parts Transfer Buffer - Field Unit of Measure Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3898327129 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Inquiry Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1540685050 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AGP Volume (Liter)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field AGP Volume - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3532935625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Area</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Area - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 4250940279 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>B/L Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field B/L Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1545841074 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>B/L No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field B/L No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2965034906 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bill-to Customer No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Bill-to Customer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 240204966 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bill-to Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Bill-to Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1188370733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Compress Prepayment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Compress Prepayment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3635085792 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credit Memo Remark 1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Credit Memo Remark 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 4272782409 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credit Memo Remark 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Credit Memo Remark 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 615511730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credit Memo Remark 3</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Credit Memo Remark 3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1253208347 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credit Memo Remark 4</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Credit Memo Remark 4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 4198939294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Currency Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1171137197 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Customer Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Customer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 4070659696 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer PO No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Customer PO No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 410940989 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Posting Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Customer Posting Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 580412389 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Document Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2363328873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Document Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2363328873 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quote,Order,Invoice,Credit Memo,Return Order,Posted Invoice,Posted Credit Memo,Closed Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Document Type - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 4085727052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Due Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2923940816 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exit Point</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Exit Point - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2979538874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expected Delivery Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Expected Delivery Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2576925881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Filter Effective Surface Area (m)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Filter Effective Surface Area - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 633819257 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gen. Bus. Posting Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Gen. Bus. Posting Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2139693550 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gen. Prod. Posting Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Gen. Prod. Posting Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1303377601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Global Dimension 1 Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Global Dimension 1 Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1337243520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Global Dimension 2 Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Global Dimension 2 Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 4239513174 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gross Weight</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Gross Weight - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3469060471 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Header Remark</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Header Remark - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1357825110 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice Memo 1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Invoice Memo 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3739702555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice Memo 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Invoice Memo 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2842094365 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Item Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3582421358 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Line Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2702998682 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Discount %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Line Discount % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1206454073 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Discount Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Line Discount Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Line No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 4291245128 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Remark</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Line Remark - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2161572060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Location Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Location Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2381385129 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name of Vessels</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Name of Vessels - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3088522385 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Net Weight</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Net Weight - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1569392870 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Confirmation Memo 1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Order Confirmation Memo 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3951270315 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Confirmation Memo 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Order Confirmation Memo 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2632124822 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Order Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 4145127342 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Order Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 4145127342 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open,Released,Pending Approval,Pending Prepayment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Order Status - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 198531564 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Original Order No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Original Order No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 235293238 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Discount %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Payment Discount % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3855271124 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Method Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Payment Method Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 966740350 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Terms Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Payment Terms Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3260337296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Planned Delivery Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Planned Delivery Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 433370900 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Planned Shipment Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Planned Shipment Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1636953138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pmt. Discount Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Pmt. Discount Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3710982960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Posting Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3982099953 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pre-paid/Collect</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Pre-paid/Collect - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3982099953 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>" ,Prepaid,Collect"</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Pre-paid/Collect - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3146932276 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepayment %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Prepayment % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1082343711 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepayment Due Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Prepayment Due Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2461369302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepmt. Payment Discount %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Prepmt. Payment Discount % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2039872094 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepmt. Payment Terms Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Prepmt. Payment Terms Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1066815506 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepmt. Pmt. Discount Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Prepmt. Pmt. Discount Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 4089748812 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Proforma Invoice Memo 1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Proforma Invoice Memo 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 432478133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Proforma Invoice Memo 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Proforma Invoice Memo 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 436997413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Promised Delivery Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Promised Delivery Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2330918820 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Qty. to Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Qty. to Invoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1128541325 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Qty. to Ship</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Qty. to Ship - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2704404533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 61616130 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity Invoiced</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Quantity Invoiced - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2529837284 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity Shipped</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Quantity Shipped - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1908046867 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reason Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Reason Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 135600996 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Requested Delivery Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Requested Delivery Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2562415929 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reserved Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Reserved Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2247850105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Responsibility Center</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Responsibility Center - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2366559983 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales to Countries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Sales to Countries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 553464652 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Salesperson Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Salesperson Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1277098240 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship From</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Ship From - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1187003046 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship-to Address</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Ship-to Address - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1981213637 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship-to City</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Ship-to City - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 993414011 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship-to Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Ship-to Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3354576322 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship-to Country/Region Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Ship-to Country/Region Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2743501653 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship-to Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Ship-to Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3172878019 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship-to Post Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Ship-to Post Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 4112852368 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipment Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shipment Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2205104606 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipment Method Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shipment Method Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 4045368290 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Agent Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shipping Agent Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2500592867 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Instruction Memo 1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shipping Instruction Memo 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1575158515 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Instruction Memo 10</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shipping Instruction Memo 10 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 118715422 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Instruction Memo 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shipping Instruction Memo 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3775986101 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Instruction Memo 3</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shipping Instruction Memo 3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 587503016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Instruction Memo 4</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shipping Instruction Memo 4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 4244773695 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Instruction Memo 5</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shipping Instruction Memo 5 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1862896250 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Instruction Memo 6</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shipping Instruction Memo 6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1225199633 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Instruction Memo 7</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shipping Instruction Memo 7 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3944895124 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Instruction Memo 8</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shipping Instruction Memo 8 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3307198507 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping Instruction Memo 9</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shipping Instruction Memo 9 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 781257514 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shortcut Dimension 3 Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shortcut Dimension 3 Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2711388939 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shortcut Dimension 4 Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shortcut Dimension 4 Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 405681708 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shortcut Dimension 5 Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shortcut Dimension 5 Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 4126842061 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shortcut Dimension 6 Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shortcut Dimension 6 Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2765633070 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shortcut Dimension 7 Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shortcut Dimension 7 Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 785667711 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shortcut Dimension 8 Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shortcut Dimension 8 Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3996842083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Unit Cost</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Total Cost - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 588318770 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TotalAmount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field TotalAmount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 725055695 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TotalAmountInclVAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field TotalAmountInclVAT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1065973674 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TotalQty</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field TotalQty - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1267997203 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transaction Specification</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Transaction Specification - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3773776616 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transaction Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Transaction Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 3193866272 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transport Method</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Transport Method - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1878130204 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>" ,G/L Account,Item,Resource,Fixed Asset,Charge (Item)"</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Type - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 381961415 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Cost</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Unit Cost - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1920046521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit of Measure</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Unit of Measure - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 2385270358 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit of Measure Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Unit of Measure Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 1844012642 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Bus. Posting Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field VAT Bus. Posting Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3898327129 - Field 236064653 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Prod. Posting Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field VAT Prod. Posting Group - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1566533854 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Line</source>
           <note from="Developer" annotates="general" priority="2"></note>
