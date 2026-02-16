@@ -35,14 +35,12 @@ tableextension 55744 "Trans Ship Hdr. Ext" extends "Transfer Shipment Header"
         field(90005; "Service Order No."; Code[20])
         {
             Caption = 'Service Order No.';
-            DataClassification = ToBeClassified;
-            Description = 'UPG';
+            Editable = false;
         }
         field(90006; "Parts Trans. Archived Ver. No."; Integer)
         {
             Caption = 'Parts Trans. Archived Ver. No.';
-            DataClassification = ToBeClassified;
-            Description = 'UPG';
+            Editable = false;
         }
     }
 }
