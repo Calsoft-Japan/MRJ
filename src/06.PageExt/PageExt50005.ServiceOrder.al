@@ -2,6 +2,10 @@ pageextension 50005 "Service Order Ext" extends "Service Order"
 {
     layout
     {
+        modify("Location Code") //JPN Caption modify
+        {
+            Caption = 'Location Code';
+        }
         addafter("Location Code")
         {
             field("Bin Code"; Rec."Bin Code")

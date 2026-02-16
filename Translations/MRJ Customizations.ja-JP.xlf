@@ -1453,6 +1453,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Order Ext - Action CreatePartTransfer - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3390929214 - Change 2161572060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2145436509">
+          <source>Location Code</source>
+          <target>パーツ出荷先場所コード</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Order Ext - Change Location Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1672645640 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 400793991">
           <source>Customer No.</source>
           <target>得意先番号</target>
@@ -2280,8 +2286,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Ship. Line Ext - Field Shipment Line Discount Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3726983789 - Field 2814799924 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3610197182">
-          <source>Def. Bin Code</source>
-          <target>デフォールトビンコード</target>
+          <source>Bin Code</source>
+          <target>パーツ出荷元ビンコード</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Service Header Ext - Field Bin Code - Property Caption</note>
         </trans-unit>
@@ -2293,13 +2299,13 @@
         </trans-unit>
         <trans-unit id="TableExtension 3726983789 - Field 3767942606 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3610197182">
           <source>Parts From Bin Code</source>
-          <target>Parts From Bin Code</target>
+          <target>パーツ出荷元ビンコード</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Service Header Ext - Field Parts From Bin Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3726983789 - Field 2589395190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3610197182">
           <source>Parts From Location Code</source>
-          <target>Parts From Location Code</target>
+          <target>パーツ出荷元場所コード</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Service Header Ext - Field Parts From Location Code - Property Caption</note>
         </trans-unit>
