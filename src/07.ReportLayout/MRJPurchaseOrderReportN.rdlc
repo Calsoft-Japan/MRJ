@@ -2600,8 +2600,8 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="PurchaseOrderNo">
           <DataField>PurchaseOrderNo</DataField>
         </Field>
-        <Field Name="Document_Date">
-          <DataField>Document_Date</DataField>
+        <Field Name="Order_Date">
+          <DataField>Order_Date</DataField>
         </Field>
         <Field Name="RequestedReceiptDate">
           <DataField>RequestedReceiptDate</DataField>
