@@ -2338,11 +2338,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Positive Qty. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 1222098016 - Field 3088846704 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
-          <source>Sendai</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Sendai - Property Caption</note>
-        </trans-unit>
         <trans-unit id="TableExtension 1222098016 - Field 2757549774 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
           <source>Shelf No. (Fukuoka)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2362,6 +2357,11 @@
           <source>Shelf No. (Osaka)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Shelf No. (Osaka) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1222098016 - Field 1462658874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
+          <source>Shelf No. (Sendai)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Shelf No. (Sendai) - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1127936976 - Field 444523925 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3891454143">
           <source>Auto Post</source>

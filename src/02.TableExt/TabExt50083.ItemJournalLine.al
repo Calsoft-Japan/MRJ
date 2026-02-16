@@ -33,7 +33,7 @@ tableextension 50083 "Item Jnl. Line Ext" extends "Item Journal Line"
             FieldClass = FlowField;
             CalcFormula = Lookup("Item"."Shelf No. (Niigata)" where("No." = field("Item No.")));
         }
-        field(50005; "Sendai"; Code[10])
+        field(50005; "Shelf No. (Sendai)"; Code[10])
         {
             Description = 'UPG';
             FieldClass = FlowField;
