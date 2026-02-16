@@ -4,7 +4,7 @@ report 50018 "MRJ Purchase Order (JP)"
     ApplicationArea = All;
     Caption = 'MRJ Purchase Order (JP)';
     DefaultLayout = RDLC;
-    RDLCLayout = 'src\07.ReportLayout\MRJPurchaseOrderReport_N.rdlc';
+    RDLCLayout = 'src\07.ReportLayout\MRJPurchaseOrderReportN.rdlc';
 
     dataset
     {
