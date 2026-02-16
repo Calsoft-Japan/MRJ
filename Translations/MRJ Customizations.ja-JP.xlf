@@ -1454,7 +1454,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Order Ext - Action CreatePartTransfer - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3390929214 - Change 2161572060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2145436509">
-          <source>Location Code</source>
+          <source>Parts to Location Code</source>
           <target>パーツ出荷先場所コード</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Order Ext - Change Location Code - Property Caption</note>

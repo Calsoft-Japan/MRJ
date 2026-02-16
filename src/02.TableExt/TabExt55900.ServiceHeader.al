@@ -10,6 +10,7 @@ tableextension 55900 "Service Header Ext" extends "Service Header"
         field(70010; "Parts From Bin Code"; Code[20])
         {
             Caption = 'Parts From Bin Code';
+            TableRelation = Bin.Code where("Location Code" = field("Parts From Location Code"));
         }
         field(90000; "Bin Code"; Code[20])
         {

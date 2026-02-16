@@ -1,220 +1,264 @@
-page 50000 "Sales Inquiry"
+page 50018 "Sales Inquiry Card"
 {
-    PageType = List;
     ApplicationArea = All;
-    Caption = 'Sales Inquiry';
-    SourceTable = 50000;
-    SourceTableTemporary = true;
-    UsageCategory = Lists;
+    Caption = 'NEBJ Sales Inquiry';
+    PageType = Document;
+    UsageCategory = Tasks;
+    DataCaptionExpression = '';
 
     layout
     {
         area(content)
         {
-            group(Filters)
+            group(Include)
             {
-                Caption = 'Filters';
-                field(CustomerFilter; CustomerFilter)
+                Caption = 'Include';
+                field(SalesQuote; SalesQuote)
                 {
-                    ApplicationArea = All;
-                    Caption = 'Customer Filter';
+                    Caption = 'Sales Quote';
                 }
-                field(ItemFilter; ItemFilter)
+                field(SalesOrder; SalesOrder)
                 {
-                    ApplicationArea = All;
-                    Caption = 'Item Filter';
+                    Caption = 'Sales Order';
+                }
+                field(SalesInvoice; SalesInvoice)
+                {
+                    Caption = 'Sales Invoice';
+                }
+                field(SalesCreditMemo; SalesCreditMemo)
+                {
+                    Caption = 'Sales Credit Memo';
+                }
+                field(SalesReturnOrder; SalesReturnOrder)
+                {
+                    Caption = 'Sales Return Order';
+                }
+                field(PostedSalesInvoice; PostedSalesInvoice)
+                {
+                    Caption = 'Posted Sales Invoice';
+                }
+                field(PostedSalesCrMemo; PostedSalesCrMemo)
+                {
+                    Caption = 'Posted Sales Credit Memo';
+                }
+                field(ShowMode; ShowMode)
+                {
+                    Caption = 'Show Mode';
+                    Importance = Promoted;
+                    OptionCaption = 'Header + Line,Header Only,Line Only';
+
+                    trigger OnValidate();
+                    begin
+                        CurrPage.SalesInquirySubform.Page.ControlShowMode(ShowMode);
+                        CurrPage.Update(false);
+                    end;
+                }
+            }
+            group(Group)
+            {
+                Caption = 'Header Field Filter';
+                field(SelltoCustomerFilter; SelltoCustomerFilter)
+                {
+                    Caption = 'Sell-to Customer Filter';
+                    trigger OnLookup(var Text: Text): Boolean;
+                    var
+                        CustomerList: Page "Customer List";
+                    begin
+                        Clear(CustomerList);
+                        CustomerList.LookupMode(true);
+                        if CustomerList.RunModal() = Action::LookupOK then begin
+                            Text += CustomerList.GetSelectionFilter;
+                            exit(true);
+                        end else
+                            exit(false);
+                        CurrPage.Update;
+                    end;
+                }
+                field(BilltoCustomerFilter; BilltoCustomerFilter)
+                {
+                    Caption = 'Bill-to Customer Filter';
+
+                    trigger OnLookup(var Text: Text): Boolean;
+
+                    var
+                        CustomerList: Page "Customer List";
+                    begin
+                        Clear(CustomerList);
+                        CustomerList.LookupMode(true);
+                        if CustomerList.RunModal() = Action::LookupOK then begin
+                            Text += CustomerList.GetSelectionFilter;
+                            exit(true);
+                        end else
+                            exit(false);
+                    end;
                 }
                 field(PostingDateFilter; PostingDateFilter)
                 {
-                    ApplicationArea = All;
                     Caption = 'Posting Date Filter';
-                    trigger OnValidate()
-                    var
-                        SalesInq: Record 50000;
+                    trigger OnValidate();
                     begin
-                        SalesInq.SetFilter("Posting Date", PostingDateFilter);
-                        PostingDateFilter := SalesInq.GetFilter("Posting Date");
+                        ApplMgt.MakeDateFilter(PostingDateFilter);
+                        SalesInqLine.SetFilter("Posting Date", PostingDateFilter);
+                        PostingDateFilter := SalesInqLine.GetFilter("Posting Date");
                     end;
                 }
                 field(OrderDateFilter; OrderDateFilter)
                 {
-                    ApplicationArea = All;
                     Caption = 'Order Date Filter';
-                    trigger OnValidate()
-                    var
-                        SalesInq: Record 50000;
+                    trigger OnValidate();
                     begin
-                        SalesInq.SetFilter("Order Date", OrderDateFilter);
-                        OrderDateFilter := SalesInq.GetFilter("Order Date");
+                        ApplMgt.MakeDateFilter(OrderDateFilter);
+                        SalesInqLine.SetFilter("Order Date", OrderDateFilter);
+                        OrderDateFilter := SalesInqLine.GetFilter("Order Date");
                     end;
                 }
-                field(GeneralFilter; GetFiltersText())
-                {
-                    ApplicationArea = All;
-                    Caption = 'General Filter';
-                    Editable = false;
-                }
             }
-            group(Include)
+            group("Line Field Filter")
             {
-                Caption = 'Include';
-                field(blnSalesQuote; blnSalesQuote)
+                Caption = 'Line Field Filter';
+                field(ItemFilter; ItemFilter)
                 {
-                    ApplicationArea = All;
-                    Caption = 'Sales Quote';
+                    Caption = 'Item Filter';
+
+                    trigger OnLookup(var Text: Text): Boolean;
+                    var
+                        ItemList: Page "Item List";
+                    begin
+                        Clear(ItemList);
+                        ItemList.LookupMode(true);
+                        if ItemList.RunModal() = Action::LookupOK then begin
+                            Text += ItemList.GetSelectionFilter;
+                            exit(true);
+                        end else
+                            exit(false);
+                    end;
                 }
-                field(blnSalesOrder; blnSalesOrder)
+                field(ShowDummyLine; ShowDummyLine)
                 {
                     ApplicationArea = All;
-                    Caption = 'Sales Order';
-                }
-                field(blnSalesInvoice; blnSalesInvoice)
-                {
-                    ApplicationArea = All;
-                    Caption = 'Sales Invoice';
-                }
-                field(blnSalesCreditMemo; blnSalesCreditMemo)
-                {
-                    ApplicationArea = All;
-                    Caption = 'Sales Credit Memo';
-                }
-                field(blnSalesReturnOrder; blnSalesReturnOrder)
-                {
-                    ApplicationArea = All;
-                    Caption = 'Sales Return Order';
-                }
-                field(blnPostedSalesInvoice; blnPostedSalesInvoice)
-                {
-                    ApplicationArea = All;
-                    Caption = 'Posted Sales Invoice';
-                }
-                field(blnPostedSalesCrMemo; blnPostedSalesCrMemo)
-                {
-                    ApplicationArea = All;
-                    Caption = 'Posted Sales Credit Memo';
-                }
-                field(blnCloesdOrder; blnCloesdOrder)
-                {
-                    ApplicationArea = All;
-                    Caption = 'Closed Sales Order';
+                    Caption = 'Show Zero Amount Line';
                 }
             }
             part(SalesInquirySubform; "Sales Inquiry Subform") { }
-            group(Totals)
+            group(Total)
             {
                 Caption = 'Total';
-                field(decTotalQty; decTotalQty)
+                field(TotalQty; TotalQty)
                 {
-                    ApplicationArea = All;
-                    Caption = 'Total Quantity';
+                    BlankZero = true;
+                    Caption = 'Total Quantity (Base)';
+                    DecimalPlaces = 0 : 2;
                     Editable = false;
+                    Importance = Promoted;
                 }
-                field(decTotalAmount; decTotalAmount)
+                field(TotalAmount; TotalAmount)
                 {
-                    ApplicationArea = All;
+                    AutoFormatType = 1;
+                    BlankZero = true;
                     Caption = 'Total Amount (LCY)';
                     Editable = false;
+                    Importance = Promoted;
                 }
-                field(decTotalAmountInclVAT; decTotalAmountInclVAT)
+                field(TotalAmountInclVAT; TotalAmountInclVAT)
                 {
-                    ApplicationArea = All;
+                    AutoFormatType = 1;
+                    BlankZero = true;
                     Caption = 'Total Amount Incl. VAT (LCY)';
                     Editable = false;
+                    Importance = Promoted;
                 }
             }
         }
     }
 
-    actions
+    Actions
     {
         area(processing)
         {
-            action(ShowData)
+            group(Functions)
             {
-                Caption = 'Show Data';
-                ApplicationArea = All;
-                Image = View;
-                trigger OnAction()
-                begin
-                    //FindRecords();
-                end;
-            }
-            action(ClearData)
-            {
-                Caption = 'Clear Data';
-                ApplicationArea = All;
-                Image = Delete;
-                trigger OnAction()
-                begin
-                    Rec.Reset();
-                    Rec.DeleteAll();
-                    CustomerFilter := '';
-                    ItemFilter := '';
-                    PostingDateFilter := '';
-                    OrderDateFilter := '';
-                    decTotalQty := 0;
-                    decTotalAmount := 0;
-                    decTotalAmountInclVAT := 0;
-                end;
-            }
-            action(ExportNoTracking)
-            {
-                Caption = 'Export Data without LN/SN';
-                ApplicationArea = All;
-                Image = Export;
-                trigger OnAction()
-                begin
-                    //ExportDataToExcel(false);
-                end;
-            }
-            action(ExportWithTracking)
-            {
-                Caption = 'Export Data with LN/SN/Expiration Date';
-                ApplicationArea = All;
-                Image = Export;
-                trigger OnAction()
-                begin
-                    //ExportDataToExcel(true);
-                end;
+                Caption = 'Functions';
+                Action(ShowData)
+                {
+                    Caption = 'Show Data';
+                    Image = ViewPage;
+                    Promoted = true;
+                    PromotedIsBig = true;
+                    trigger OnAction();
+                    begin
+                        Window.Open(Text000);
+                        CurrPage.SalesInquirySubform.Page.SetIncludeTable(
+                          SalesQuote, SalesOrder, SalesInvoice, SalesCreditMemo, SalesReturnOrder, PostedSalesInvoice, PostedSalesCrMemo);
+                        CurrPage.SalesInquirySubform.Page.SetHeaderFilter(SelltoCustomerFilter, BilltoCustomerFilter, PostingDateFilter, OrderDateFilter);
+                        CurrPage.SalesInquirySubform.Page.SetLineFilter(ItemFilter, ShowDummyLine);
+                        CurrPage.SalesInquirySubform.Page.FindRecords(CurrGUID);
+                        CurrPage.SalesInquirySubform.Page.GetTotalValue(TotalQty, TotalAmount, TotalAmountInclVAT);
+                        Window.Close();
+                        CurrPage.Update(false);
+                    end;
+                }
+                Action(ExportDatawithLot)
+                {
+                    Caption = 'Export Data with LN/SN/Expiration Date';
+                    Image = ExportToExcel;
+                    Promoted = true;
+                    PromotedIsBig = true;
+                    trigger OnAction();
+                    begin
+                        CurrPage.SalesInquirySubform.Page.ExportDataToExcel(true);
+                    end;
+                }
             }
         }
     }
 
-    trigger OnOpenPage()
+    trigger OnClosePage();
     begin
-        Rec.Reset();
-        blnSalesQuote := true;
-        blnSalesOrder := true;
-        blnSalesInvoice := true;
-        blnSalesCreditMemo := true;
-        blnSalesReturnOrder := true;
-        blnPostedSalesInvoice := true;
-        blnPostedSalesCrMemo := true;
-        blnCloesdOrder := true;
+        SalesInqLine.Reset();
+        SalesInqLine.SetRange(Guid, CurrGUID);
+        SalesInqLine.DeleteAll();
+    end;
+
+    trigger OnInit();
+    begin
+        PostedSalesInvoice := true;
+        PostedSalesCrMemo := true;
+        ShowDummyLine := true;
+        CurrPage.SalesInquirySubform.Page.ControlShowMode(ShowMode);
+    end;
+
+    trigger OnOpenPage();
+    begin
+        CurrGUID := CreateGuid();
+        SalesInqLine.Reset();
+        SalesInqLine.SetCurrentKey("Creation Date");
+        SalesInqLine.SetRange("Creation Date", Today() - 3);
+        if not SalesInqLine.IsEmpty then
+            SalesInqLine.DeleteAll();
+        SalesInqLine.Reset();
     end;
 
     var
-        CustomerFilter: Text[250];
-        ItemFilter: Text[250];
-        PostingDateFilter: Text[250];
-        OrderDateFilter: Text[250];
-        decTotalQty: Decimal;
-        decTotalAmount: Decimal;
-        decTotalAmountInclVAT: Decimal;
-        blnSalesQuote: Boolean;
-        blnSalesOrder: Boolean;
-        blnSalesInvoice: Boolean;
-        blnSalesCreditMemo: Boolean;
-        blnSalesReturnOrder: Boolean;
-        blnPostedSalesInvoice: Boolean;
-        blnPostedSalesCrMemo: Boolean;
-        blnCloesdOrder: Boolean;
-        TempExcelBuffer: Record 370 temporary;
-        DimMgt: Codeunit 408;
-        ShortcutDimCode: ARRAY[8] OF Code[20];
-
-    local procedure GetFiltersText(): Text[250]
-    begin
-        exit(Rec.GetFilters);
-    end;
+        SalesInqLine: Record "Sales Inquiry Line" temporary;
+        ApplMgt: Codeunit "Filter Tokens";
+        ShowMode: Option "Header + Line","Header Only","Line Only";
+        SelltoCustomerFilter: Text;
+        BilltoCustomerFilter: Text;
+        PostingDateFilter: Text;
+        OrderDateFilter: Text;
+        ItemFilter: Text;
+        CurrGUID: Guid;
+        TotalQty: Decimal;
+        TotalAmount: Decimal;
+        TotalAmountInclVAT: Decimal;
+        ShowDummyLine: Boolean;
+        SalesQuote: Boolean;
+        SalesOrder: Boolean;
+        SalesInvoice: Boolean;
+        SalesCreditMemo: Boolean;
+        SalesReturnOrder: Boolean;
+        PostedSalesInvoice: Boolean;
+        PostedSalesCrMemo: Boolean;
+        Window: Dialog;
+        Text000: Label 'Now searching.\Please wait ...';
 }

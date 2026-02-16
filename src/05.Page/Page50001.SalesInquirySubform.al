@@ -15,649 +15,872 @@ page 50001 "Sales Inquiry Subform"
             repeater(General)
             {
                 Editable = false;
-                field("Document Type"; Rec."Document Type") { ApplicationArea = All; }
-                field("Document No."; Rec."Document No.") { ApplicationArea = All; }
-                field("Original Order No."; Rec."Original Order No.") { ApplicationArea = All; }
-                field("Order Status"; Rec."Order Status") { ApplicationArea = All; }
-                field("Line No."; Rec."Line No.") { ApplicationArea = All; }
-                field("Customer PO No."; Rec."Customer PO No.") { ApplicationArea = All; }
-                field("Requested Delivery Date"; Rec."Requested Delivery Date") { ApplicationArea = All; }
-                field("Planned Delivery Date"; Rec."Planned Delivery Date") { ApplicationArea = All; }
-                field("Planned Shipment Date"; Rec."Planned Shipment Date") { ApplicationArea = All; }
-                field("Shipment Date"; Rec."Shipment Date") { ApplicationArea = All; }
-                field("Customer No."; Rec."Customer No.") { ApplicationArea = All; }
-                field("Customer Name"; Rec."Customer Name") { ApplicationArea = All; }
-                field("Sales to Countries"; Rec."Sales to Countries") { ApplicationArea = All; }
-                field("Bill-to Customer No."; Rec."Bill-to Customer No.") { ApplicationArea = All; }
-                field("Bill-to Name"; Rec."Bill-to Name") { ApplicationArea = All; }
-                field("Ship-to Code"; Rec."Ship-to Code") { ApplicationArea = All; }
-                field("Ship-to Name"; Rec."Ship-to Name") { ApplicationArea = All; }
-                field("Ship-to Address"; Rec."Ship-to Address") { ApplicationArea = All; }
-                field("Ship-to City"; Rec."Ship-to City") { ApplicationArea = All; }
-                field("Ship-to Post Code"; Rec."Ship-to Post Code") { ApplicationArea = All; }
-                field("Ship-to Country/Region Code"; Rec."Ship-to Country/Region Code") { ApplicationArea = All; }
-                field("Posting Date"; Rec."Posting Date") { ApplicationArea = All; }
-                field("Order Date"; Rec."Order Date") { ApplicationArea = All; }
-                field("Document Date"; Rec."Document Date") { ApplicationArea = All; }
-                field("Transaction Type"; Rec."Transaction Type") { ApplicationArea = All; }
-                field("Transaction Specification"; Rec."Transaction Specification") { ApplicationArea = All; }
-                field("Transport Method"; Rec."Transport Method") { ApplicationArea = All; }
-                field("Exit Point"; Rec."Exit Point") { ApplicationArea = All; }
-                field(RecArea; Rec.Area) { ApplicationArea = All; }
-                field(Type; Rec.Type) { ApplicationArea = All; }
-                field("Item No."; Rec."Item No.") { ApplicationArea = All; }
-                field("Item Description"; Rec."Item Description") { ApplicationArea = All; }
-                field(Quantity; Rec.Quantity) { ApplicationArea = All; }
-                field("Unit of Measure Code"; Rec."Unit of Measure Code") { ApplicationArea = All; }
-                field("Unit of Measure"; Rec."Unit of Measure") { ApplicationArea = All; }
-                field("Reserved Quantity"; Rec."Reserved Quantity") { ApplicationArea = All; }
-                field("Qty. to Ship"; Rec."Qty. to Ship") { ApplicationArea = All; }
-                field("Qty. to Invoice"; Rec."Qty. to Invoice") { ApplicationArea = All; }
-                field("Quantity Shipped"; Rec."Quantity Shipped") { ApplicationArea = All; }
-                field("Quantity Invoiced"; Rec."Quantity Invoiced") { ApplicationArea = All; }
-                field("Currency Code"; Rec."Currency Code") { ApplicationArea = All; }
-                field("Location Code"; Rec."Location Code") { ApplicationArea = All; }
-                field("Unit Cost"; Rec."Unit Cost") { ApplicationArea = All; }
-                field("Total Cost"; Rec."Total Cost") { ApplicationArea = All; }
-                field("Line Amount"; Rec."Line Amount") { ApplicationArea = All; }
-                field("Line Discount Amount"; Rec."Line Discount Amount") { ApplicationArea = All; }
-                field("Line Discount %"; Rec."Line Discount %") { ApplicationArea = All; }
-                field("Shipment Method Code"; Rec."Shipment Method Code") { ApplicationArea = All; }
-                field("Shipping Agent Code"; Rec."Shipping Agent Code") { ApplicationArea = All; }
-                field("Payment Terms Code"; Rec."Payment Terms Code") { ApplicationArea = All; }
-                field("Payment Method Code"; Rec."Payment Method Code") { ApplicationArea = All; }
-                field("Due Date"; Rec."Due Date") { ApplicationArea = All; }
-                field("Payment Discount %"; Rec."Payment Discount %") { ApplicationArea = All; }
-                field("Pmt. Discount Date"; Rec."Pmt. Discount Date") { ApplicationArea = All; }
-                field("Gen. Bus. Posting Group"; Rec."Gen. Bus. Posting Group") { ApplicationArea = All; }
-                field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group") { ApplicationArea = All; }
-                field("Customer Posting Group"; Rec."Customer Posting Group") { ApplicationArea = All; }
-                field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group") { ApplicationArea = All; }
-                field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group") { ApplicationArea = All; }
-                field("Salesperson Code"; Rec."Salesperson Code") { ApplicationArea = All; }
-                field("Responsibility Center"; Rec."Responsibility Center") { ApplicationArea = All; }
-                field("Prepayment %"; Rec."Prepayment %") { ApplicationArea = All; }
-                field("Prepmt. Payment Terms Code"; Rec."Prepmt. Payment Terms Code") { ApplicationArea = All; }
-                field("Prepayment Due Date"; Rec."Prepayment Due Date") { ApplicationArea = All; }
-                field("Prepmt. Payment Discount %"; Rec."Prepmt. Payment Discount %") { ApplicationArea = All; }
-                field("Prepmt. Pmt. Discount Date"; Rec."Prepmt. Pmt. Discount Date") { ApplicationArea = All; }
-                field("Net Weight"; Rec."Net Weight") { ApplicationArea = All; }
-                field("Gross Weight"; Rec."Gross Weight") { ApplicationArea = All; }
-                field("Reason Code"; Rec."Reason Code") { ApplicationArea = All; }
-                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code") { ApplicationArea = All; }
-                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code") { ApplicationArea = All; }
-                field("Promised Delivery Date"; Rec."Promised Delivery Date") { ApplicationArea = All; }
+                field("Document Type"; Rec."Document Type")
+                {
+                    Style = StandardAccent;
+                    StyleExpr = true;
+                    Visible = ShowHeader;
+                }
+                field("Document No."; Rec."Document No.")
+                {
+                    Style = StandardAccent;
+                    StyleExpr = true;
+                    Visible = ShowHeader;
+                }
+                field("Original Order No."; Rec."Original Order No.")
+                {
+                    Style = StandardAccent;
+                    StyleExpr = true;
+                    Visible = ShowHeader;
+                }
+                field("Order Status"; Rec."Order Status")
+                {
+                    Style = StandardAccent;
+                    StyleExpr = true;
+                    Visible = ShowHeader;
+                }
+                field("Line No."; Rec."Line No.")
+                {
+                    Visible = ShowLine;
+                }
+                field("Customer PO No."; Rec."Customer PO No.")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Requested Delivery Date"; Rec."Requested Delivery Date")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Planned Delivery Date"; Rec."Planned Delivery Date")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Planned Shipment Date"; Rec."Planned Shipment Date")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Shipment Date"; Rec."Shipment Date")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Customer No."; Rec."Customer No.")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Customer Name"; Rec."Customer Name")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Sales to Countries"; Rec."Sales to Countries")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Bill-to Customer No."; Rec."Bill-to Customer No.")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Bill-to Name"; Rec."Bill-to Name")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Ship-to Code"; Rec."Ship-to Code")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Ship-to Name"; Rec."Ship-to Name")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Ship-to Address"; Rec."Ship-to Address")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Ship-to City"; Rec."Ship-to City")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Ship-to Post Code"; Rec."Ship-to Post Code")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Ship-to Country/Region Code"; Rec."Ship-to Country/Region Code")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Posting Date"; Rec."Posting Date")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Order Date"; Rec."Order Date")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Document Date"; Rec."Document Date")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Transaction Type"; Rec."Transaction Type")
+                {
+                    Visible = ShowLine;
+                }
+                field("Transaction Specification"; Rec."Transaction Specification")
+                {
+                    Visible = ShowLine;
+                }
+                field("Transport Method"; Rec."Transport Method")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Exit Point"; Rec."Exit Point")
+                {
+
+                }
+                field(RecArea; Rec.Area)
+                {
+
+                }
+                field(Type; Rec.Type)
+                {
+
+                }
+                field("Item No."; Rec."Item No.")
+                {
+
+                }
+                field("Item Description"; Rec."Item Description")
+                {
+
+                }
+                field(Quantity; Rec.Quantity)
+                {
+
+                }
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
+                {
+
+                }
+                field("Unit of Measure"; Rec."Unit of Measure")
+                {
+
+                }
+                field("Reserved Quantity"; Rec."Reserved Quantity")
+                {
+
+                }
+                field("Qty. to Ship"; Rec."Qty. to Ship")
+                {
+
+                }
+                field("Qty. to Invoice"; Rec."Qty. to Invoice")
+                {
+
+                }
+                field("Quantity Shipped"; Rec."Quantity Shipped")
+                {
+
+                }
+                field("Quantity Invoiced"; Rec."Quantity Invoiced")
+                {
+
+                }
+                field("Currency Code"; Rec."Currency Code")
+                {
+
+                }
+                field("Location Code"; Rec."Location Code")
+                {
+
+                }
+                field("Unit Cost"; Rec."Unit Cost")
+                {
+
+                }
+                field("Total Cost"; Rec."Total Cost")
+                {
+
+                }
+                field("Line Amount"; Rec."Line Amount")
+                {
+
+                }
+                field("Line Discount Amount"; Rec."Line Discount Amount")
+                {
+
+                }
+                field("Line Discount %"; Rec."Line Discount %")
+                {
+
+                }
+                field("Shipment Method Code"; Rec."Shipment Method Code")
+                {
+
+                }
+                field("Shipping Agent Code"; Rec."Shipping Agent Code")
+                {
+
+                }
+                field("Payment Terms Code"; Rec."Payment Terms Code")
+                {
+
+                }
+                field("Payment Method Code"; Rec."Payment Method Code")
+                {
+
+                }
+                field("Due Date"; Rec."Due Date")
+                {
+
+                }
+                field("Payment Discount %"; Rec."Payment Discount %")
+                {
+
+                }
+                field("Pmt. Discount Date"; Rec."Pmt. Discount Date")
+                {
+
+                }
+                field("Gen. Bus. Posting Group"; Rec."Gen. Bus. Posting Group")
+                {
+
+                }
+                field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
+                {
+
+                }
+                field("Customer Posting Group"; Rec."Customer Posting Group")
+                {
+
+                }
+                field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
+                {
+
+                }
+                field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group")
+                {
+
+                }
+                field("Salesperson Code"; Rec."Salesperson Code")
+                {
+
+                }
+                field("Responsibility Center"; Rec."Responsibility Center")
+                {
+
+                }
+                field("Prepayment %"; Rec."Prepayment %")
+                {
+
+                }
+                field("Prepmt. Payment Terms Code"; Rec."Prepmt. Payment Terms Code")
+                {
+
+                }
+                field("Prepayment Due Date"; Rec."Prepayment Due Date")
+                {
+
+                }
+                field("Prepmt. Payment Discount %"; Rec."Prepmt. Payment Discount %")
+                {
+
+                }
+                field("Prepmt. Pmt. Discount Date"; Rec."Prepmt. Pmt. Discount Date")
+                {
+
+                }
+                field("Net Weight"; Rec."Net Weight")
+                {
+
+                }
+                field("Gross Weight"; Rec."Gross Weight")
+                {
+
+                }
+                field("Reason Code"; Rec."Reason Code")
+                {
+
+                }
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
+                {
+
+                }
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
+                {
+
+                }
+                field("Promised Delivery Date"; Rec."Promised Delivery Date")
+                {
+
+                }
             }
         }
     }
-    var
-        TempExcelBuffer: Record "Excel Buffer" temporary;
-        blnSalesQuote: Boolean;
-        blnSalesOrder: Boolean;
-        blnSalesInvoice: Boolean;
-        blnSalesCreditMemo: Boolean;
-        blnSalesReturnOrder: Boolean;
-        blnCloesdOrder: Boolean;
-        blnPostedSalesInvoice: Boolean;
-        blnPostedSalesCrMemo: Boolean;
-
-    procedure SetIncludeTable(pSQ: Boolean; pSO: Boolean; pSInv: Boolean; pSCrMemo: Boolean; pSRO: Boolean; pSCO: Boolean; pPSInv: Boolean; pPCrMemo: Boolean);
+    trigger OnInit();
     begin
-        blnSalesQuote := pSQ;
-        blnSalesOrder := pSO;
-        blnSalesInvoice := pSInv;
-        blnSalesCreditMemo := pSCrMemo;
-        blnSalesReturnOrder := pSRO;
-        blnCloesdOrder := pSCO;
-        blnPostedSalesInvoice := pPSInv;
-        blnPostedSalesCrMemo := pPCrMemo;
+        ShowHeader := true;
+        ShowLine := true;
     end;
 
-    /* procedure FindRecords();
-    var
-        SalesInq: Record 50000;
-        lrecSalesHeader: Record 36;
-        lrecSalesLine: Record 37;
-        DocFilter: Text[250];
-        lrecSalesInvHeader: Record 112;
-        lrecSalesInvLine: Record 113;
-        lrecSalesCrMemoHeader: Record 114;
-        lrecSalesCrMemoline: Record 115;
-        lrecInvSetup: Record 313;
-        lrecGLSetup: Record 98;
-        lrecItemUOM: Record 5404;
-        lrecDocDim: Record 357;
-        lrecPostedDocDim: Record 359;
-        lrecItem: Record 27;
-        CurrExchRate: Record 330;
-        RecFilter: Text[250];
-    BEGIN
-        lrecInvSetup.GET();
-        lrecGLSetup.GET();
+    trigger OnOpenPage();
+    begin
+        GLSetup.Get;
+    end;
 
-        RecFilter := GETVIEW;
-        RESET;
-        DELETEALL;
-        SETVIEW(RecFilter);
+    var
+        GLSetup: Record 98;
+        SalesHdr: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        SalesInvHdr: Record "Sales Invoice Header";
+        SalesInvLine: Record "Sales Invoice Line";
+        SalesCrMemoHdr: Record "Sales Cr.Memo Header";
+        SalesCrMemoLine: Record "Sales Cr.Memo Line";
+        TempExcelBuffer: Record "Excel Buffer" temporary;
+        CurrExchRate: Record "Currency Exchange Rate";
+        DimMgt: Codeunit "DimensionManagement";
+        SelltoCustomerFilter: Text;
+        BilltoCustomerFilter: Text;
+        PostingDateFilter: Text;
+        OrderDateFilter: Text;
+        ItemFilter: Text;
+        decTotalQty: Decimal;
+        decTotalAmount: Decimal;
+        decTotalAmountInclVAT: Decimal;
+        ShowHeader: Boolean;
+        ShowLine: Boolean;
+        ShowZeroAmtLine: Boolean;
+        SalesQuote: Boolean;
+        SalesOrder: Boolean;
+        SalesInvoice: Boolean;
+        SalesCreditMemo: Boolean;
+        SalesReturnOrder: Boolean;
+        CloesdOrder: Boolean;
+        PostedSalesInvoice: Boolean;
+        PostedSalesCrMemo: Boolean;
+        ShortcutDimCode: array[8] of Code[20];
+
+    procedure SetIncludeTable(pSQ: Boolean; pSO: Boolean; pSInv: Boolean; pSCrMemo: Boolean; pSRO: Boolean; pPSInv: Boolean; pPCrMemo: Boolean);
+    begin
+        SalesQuote := pSQ;
+        SalesOrder := pSO;
+        SalesInvoice := pSInv;
+        SalesCreditMemo := pSCrMemo;
+        SalesReturnOrder := pSRO;
+        //CloesdOrder := pSCO;
+        PostedSalesInvoice := pPSInv;
+        PostedSalesCrMemo := pPCrMemo;
+    end;
+
+    procedure SetHeaderFilter(pSellToCust: Text; pBillToCust: Text; pPostDate: Text; pOrdDate: Text);
+    begin
+        SelltoCustomerFilter := pSellToCust;
+        BilltoCustomerFilter := pBillToCust;
+        PostingDateFilter := pPostDate;
+        OrderDateFilter := pOrdDate;
+    end;
+
+    procedure SetLineFilter(pItemTxt: Text; pShowZeroAmtLine: Boolean);
+    begin
+        ItemFilter := pItemTxt;
+        ShowZeroAmtLine := pShowZeroAmtLine;
+    end;
+
+    procedure ControlShowMode(ShowMode: Option "Header + Line","Header Only","Line Only");
+    begin
+        case ShowMode of
+            ShowMode::"Header + Line":
+                begin
+                    ShowHeader := true;
+                    ShowLine := true;
+                end;
+            ShowMode::"Header Only":
+                begin
+                    ShowHeader := true;
+                    ShowLine := false;
+                end;
+            ShowMode::"Line Only":
+                begin
+                    ShowHeader := false;
+                    ShowLine := true;
+                end;
+        end;
+        CurrPage.Update(false);
+    end;
+
+    procedure ClearInquiryData(CurrGUID: Guid);
+    begin
+        Rec.Reset();
+        Rec.SetRange(GUID, CurrGUID);
+        if not Rec.IsEmpty then begin
+            if Rec.Count = 1 then begin
+                Rec."Line No." += 10000;
+                Rec.Insert();
+            end;
+            Rec.DeleteAll();
+        end;
+        CurrPage.Update(false);
+    end;
+
+    procedure GetTotalValue(var SetTotalQty: Decimal; var SetTotalAmount: Decimal; var SetTotAmtInclVAT: Decimal);
+    begin
+        SetTotalQty := decTotalQty;
+        SetTotalAmount := decTotalAmount;
+        SetTotAmtInclVAT := decTotalAmountInclVAT;
+    end;
+
+    procedure SetFixedFields(CurrGUID: Guid);
+    begin
+        Rec.GUID := CurrGUID;
+        Rec."Creation Date" := Today();
+    end;
+
+    procedure FindRecords(CurrGUID: Guid);
+    begin
+        Rec.Reset();
+        Rec.SetRange(GUID, CurrGUID);
+        Rec.DeleteAll();
 
         decTotalQty := 0;
         decTotalAmount := 0;
         decTotalAmountInclVAT := 0;
 
-        //
-        // Sales Quote, Sales Order, Sales Invoice, Sales Credit Memo, Sales Return Order
-        //
+        FindSalesRecord(CurrGUID);
+        FindPostedSalesInvoice(CurrGUID);
+        FindPostedSalesCrMemo(CurrGUID);
 
+        if Rec.FindFirst() then;
+        CurrPage.Update(false);
+    end;
+
+    procedure FindSalesRecord(CurrGUID: Guid);
+    var
+        DocFilter: Text;
+    begin
         DocFilter := '';
-        IF blnSalesQuote
+        IF SalesQuote
           THEN
             DocFilter := '0';
 
-        IF blnSalesOrder AND (DocFilter <> '') THEN
+        IF SalesOrder AND (DocFilter <> '') THEN
             DocFilter := DocFilter + '|1';
-        IF blnSalesOrder AND (DocFilter = '') THEN
+        IF SalesOrder AND (DocFilter = '') THEN
             DocFilter := '1';
 
-        IF blnSalesInvoice AND (DocFilter <> '') THEN
+        IF SalesInvoice AND (DocFilter <> '') THEN
             DocFilter := DocFilter + '|2';
-        IF blnSalesInvoice AND (DocFilter = '') THEN
+        IF SalesInvoice AND (DocFilter = '') THEN
             DocFilter := '2';
 
-        IF blnSalesCreditMemo AND (DocFilter <> '') THEN
+        IF SalesCreditMemo AND (DocFilter <> '') THEN
             DocFilter := DocFilter + '|3';
-        IF blnSalesCreditMemo AND (DocFilter = '') THEN
+        IF SalesCreditMemo AND (DocFilter = '') THEN
             DocFilter := '3';
 
-        IF blnSalesReturnOrder AND (DocFilter <> '') THEN
+        IF SalesReturnOrder AND (DocFilter <> '') THEN
             DocFilter := DocFilter + '|5';
-        IF blnSalesReturnOrder AND (DocFilter = '') THEN
+        IF SalesReturnOrder AND (DocFilter = '') THEN
             DocFilter := '5';
 
-        //PBCJP-TRD-002-003: BEGIN
-        IF blnCloesdOrder AND (DocFilter <> '') THEN
+        IF CloesdOrder AND (DocFilter <> '') THEN
             DocFilter := DocFilter + '|10';
-        IF blnCloesdOrder AND (DocFilter = '') THEN
+        IF CloesdOrder AND (DocFilter = '') THEN
             DocFilter := '10';
-        //PBCJP-TRD-002-003: END
 
         IF DocFilter <> '' THEN BEGIN
-            lrecSalesHeader.SETFILTER("Document Type", DocFilter);
-            IF CustomerFilter <> '' THEN
-                lrecSalesHeader.SETFILTER("Sell-to Customer No.", CustomerFilter);
-            IF PostingDateFilter <> '' THEN
-                lrecSalesHeader.SETFILTER("Posting Date", PostingDateFilter);
-            IF OrderDateFilter <> '' THEN
-                lrecSalesHeader.SETFILTER("Order Date", OrderDateFilter);
-
-            IF lrecSalesHeader.FINDSET THEN
+            SalesHdr.Reset();
+            SalesLine.Reset();
+            if DocFilter <> '' then
+                SalesHdr.SetFilter("Document Type", DocFilter);
+            if SelltoCustomerFilter <> '' then
+                SalesHdr.SetFilter("Sell-to Customer No.", SelltoCustomerFilter);
+            if BilltoCustomerFilter <> '' then
+                SalesHdr.SetFilter("Bill-to Customer No.", BilltoCustomerFilter);
+            if PostingDateFilter <> '' then
+                SalesHdr.SetFilter("Posting Date", PostingDateFilter);
+            if OrderDateFilter <> '' then
+                SalesHdr.SetFilter("Order Date", OrderDateFilter);
+            IF SalesHdr.FINDSET THEN
                 REPEAT
-                    lrecSalesLine.SETRANGE("Document Type", lrecSalesHeader."Document Type");
-                    lrecSalesLine.SETRANGE("Document No.", lrecSalesHeader."No.");
-                    //lrecSalesLine.SETRANGE(Type,lrecSalesLine.Type::Item);       //PBCS10.01
-                    lrecSalesLine.SETFILTER(Type, '<>%1', lrecSalesLine.Type::" ");  //PBCS10.01
-
-                    IF ItemFilter <> ''
-                      THEN
-                        lrecSalesLine.SETFILTER("No.", ItemFilter);
-                    IF lrecSalesLine.FINDSET THEN
-                        REPEAT
-                            INIT;
-                            CASE lrecSalesLine."Document Type" OF
-                                lrecSalesLine."Document Type"::Quote:
-                                    "Document Type" := "Document Type"::Quote;
-                                lrecSalesLine."Document Type"::Order:
-                                    "Document Type" := "Document Type"::Order;
-                                lrecSalesLine."Document Type"::Invoice:
-                                    "Document Type" := "Document Type"::Invoice;
-                                lrecSalesLine."Document Type"::"Credit Memo":
-                                    "Document Type" := "Document Type"::"Credit Memo";
-                                lrecSalesLine."Document Type"::"Return Order":
-                                    "Document Type" := "Document Type"::"Return Order";
-
-                                //PBCJP-TRD-002-003: BEGIN
-                                lrecSalesLine."Document Type"::"Closed Order":
-                                    "Document Type" := "Document Type"::"Closed Order";
-                            //PBCJP-TRD-002-003: END
-
-                            END;
-                            "Document No." := lrecSalesLine."Document No.";
-                            "Order Status" := lrecSalesHeader.Status;
-                            "Line No." := lrecSalesLine."Line No.";
-                            "Customer PO No." := lrecSalesHeader."External Document No.";
-                            "Requested Delivery Date" := lrecSalesLine."Requested Delivery Date";
-                            "Planned Delivery Date" := lrecSalesLine."Planned Delivery Date";
-                            "Planned Shipment Date" := lrecSalesLine."Planned Shipment Date";
-                            "Shipment Date" := lrecSalesLine."Shipment Date";
-                            "Customer No." := lrecSalesLine."Sell-to Customer No.";
-                            "Customer Name" := lrecSalesHeader."Sell-to Customer Name";
-                            "Sales to Countries" := lrecSalesHeader."Sell-to Country/Region Code";
-                            "Bill-to Customer No." := lrecSalesHeader."Bill-to Customer No.";
-                            "Bill-to Name" := lrecSalesHeader."Bill-to Name";
-                            "Ship-to Code" := lrecSalesHeader."Ship-to Code";
-                            "Ship-to Name" := lrecSalesHeader."Ship-to Name";
-                            "Ship-to Address" := lrecSalesHeader."Ship-to Address";
-                            "Ship-to City" := lrecSalesHeader."Ship-to City";
-                            "Ship-to Post Code" := lrecSalesHeader."Ship-to Post Code";
-                            "Ship-to Country/Region Code" := lrecSalesHeader."Ship-to Country/Region Code";
-                            "Posting Date" := lrecSalesHeader."Posting Date";
-                            "Order Date" := lrecSalesHeader."Order Date";
-                            "Document Date" := lrecSalesHeader."Document Date";
-                            //PBCJP-TRD-002-002: BEGIN
-                            "Transaction Type" := lrecSalesLine."Transaction Type";
-                            "Transaction Specification" := lrecSalesLine."Transaction Specification";
-                            "Transport Method" := lrecSalesLine."Transport Method";
-                            "Exit Point" := lrecSalesLine."Exit Point";
-                            Area := lrecSalesLine.Area;
-
-                            //  "Transaction Type" := lrecSalesHeader."Transaction Type";
-                            //  "Transaction Specification" := lrecSalesHeader."Transaction Specification";
-                            //  "Transport Method" := lrecSalesHeader."Transport Method";
-                            //  "Exit Point" := lrecSalesHeader."Exit Point";
-                            //  Area := lrecSalesHeader.Area;
-                            //PBCJP-TRD-002-002: END
-                            Type := lrecSalesLine.Type;   //PBCS10.01
-                            "Item No." := lrecSalesLine."No.";
-                            "Item Description" := lrecSalesLine.Description;
-                            Quantity := lrecSalesLine.Quantity;
-                            "Unit of Measure Code" := lrecSalesLine."Unit of Measure Code";
-                            "Unit of Measure" := lrecSalesLine."Unit of Measure";
-                            "Qty. to Ship" := lrecSalesLine."Qty. to Ship";
-                            "Qty. to Invoice" := lrecSalesLine."Qty. to Invoice";
-                            "Quantity Shipped" := lrecSalesLine."Quantity Shipped";
-                            "Quantity Invoiced" := lrecSalesLine."Quantity Invoiced";
-                            "Currency Code" := lrecSalesLine."Currency Code";
-                            "Location Code" := lrecSalesLine."Location Code";
-                            "Unit Cost" := lrecSalesLine."Unit Cost";
-                            "Total Cost" := Quantity * "Unit Cost";          //PBCS10.01
-                            "Line Amount" := lrecSalesLine."Line Amount";
-                            "Line Discount Amount" := lrecSalesLine."Line Discount Amount";
-                            "Line Discount %" := lrecSalesLine."Line Discount %";
-                            "Shipment Method Code" := lrecSalesHeader."Shipment Method Code";
-                            //PBCJP-TRD-002-002: BEGIN
-                            "Shipping Agent Code" := lrecSalesLine."Shipping Agent Code";
-                            //  "Shipping Agent Code" := lrecSalesHeader."Shipping Agent Code";
-                            //PBCJP-TRD-002-002: END
-                            "Payment Terms Code" := lrecSalesHeader."Payment Terms Code";
-                            "Payment Method Code" := lrecSalesHeader."Payment Method Code";
-                            "Due Date" := lrecSalesHeader."Due Date";
-                            "Payment Discount %" := lrecSalesHeader."Payment Discount %";
-                            "Pmt. Discount Date" := lrecSalesHeader."Pmt. Discount Date";
-                            "Gen. Bus. Posting Group" := lrecSalesLine."Gen. Bus. Posting Group";
-                            "Gen. Prod. Posting Group" := lrecSalesLine."Gen. Prod. Posting Group";
-                            "Customer Posting Group" := lrecSalesHeader."Customer Posting Group";
-                            "VAT Bus. Posting Group" := lrecSalesLine."VAT Bus. Posting Group";
-                            "VAT Prod. Posting Group" := lrecSalesLine."VAT Prod. Posting Group";
-                            "Salesperson Code" := lrecSalesHeader."Salesperson Code";
-                            //PBCJP-TRD-002-002: BEGIN
-                            "Responsibility Center" := lrecSalesLine."Responsibility Center";
-                            //  "Responsibility Center" := lrecSalesHeader."Responsibility Center";
-                            //PBCJP-TRD-002-002: END
-                            "Prepayment %" := lrecSalesLine."Prepayment %";
-                            "Compress Prepayment" := lrecSalesHeader."Compress Prepayment";
-                            "Prepmt. Payment Terms Code" := lrecSalesHeader."Prepmt. Payment Terms Code";
-                            "Prepayment Due Date" := lrecSalesHeader."Prepayment Due Date";
-                            "Prepmt. Payment Discount %" := lrecSalesHeader."Prepmt. Payment Discount %";
-                            "Prepmt. Pmt. Discount Date" := lrecSalesHeader."Prepmt. Pmt. Discount Date";
-                            "Net Weight" := lrecSalesLine."Net Weight";
-                            "Gross Weight" := lrecSalesLine."Gross Weight";
-                            "Reason Code" := lrecSalesHeader."Reason Code";
-                            "Global Dimension 1 Code" := lrecSalesLine."Shortcut Dimension 1 Code";
-                            "Global Dimension 2 Code" := lrecSalesLine."Shortcut Dimension 2 Code";
-                            lrecDocDim.RESET;
-                            lrecDocDim.SETRANGE("Table ID", DATABASE::"Sales Line");
-                            lrecDocDim.SETRANGE("Document Type", lrecSalesLine."Document Type");
-                            lrecDocDim.SETRANGE("Document No.", lrecSalesLine."Document No.");
-                            lrecDocDim.SETRANGE("Line No.", lrecSalesLine."Line No.");
-                            lrecDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 3 Code");
-                            IF lrecDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 3 Code" := lrecDocDim."Dimension Value Code";
-                            lrecDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 4 Code");
-                            IF lrecDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 4 Code" := lrecDocDim."Dimension Value Code";
-                            lrecDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 5 Code");
-                            IF lrecDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 5 Code" := lrecDocDim."Dimension Value Code";
-                            lrecDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 6 Code");
-                            IF lrecDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 6 Code" := lrecDocDim."Dimension Value Code";
-                            lrecDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 7 Code");
-                            IF lrecDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 7 Code" := lrecDocDim."Dimension Value Code";
-                            lrecDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 8 Code");
-                            IF lrecDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 8 Code" := lrecDocDim."Dimension Value Code";
-                            lrecSalesLine.CALCFIELDS("Reserved Quantity");
-                            "Reserved Quantity" := lrecSalesLine."Reserved Quantity";
-                            //PBCJP-TRD-002-002: BEGIN
-                            "Promised Delivery Date" := lrecSalesLine."Promised Delivery Date";
-                            //  "Promised Delivery Date" := lrecSalesHeader."Promised Delivery Date";
-                            //PBCJP-TRD-002-002: END
-                            "Original Order No." := lrecSalesHeader."No.";
-
-                            TotalQty := Quantity;
-                            TotalAmount := "Line Amount";
-                            TotalAmountInclVAT := "Line Amount" * (1 + lrecSalesLine."VAT %" / 100);
-                            IF "Currency Code" <> '' THEN BEGIN
-                                TotalAmount :=
-                                  ROUND(
-                                    CurrExchRate.ExchangeAmtFCYToLCY(
-                                      GetDate("Posting Date"), "Currency Code", TotalAmount,
-                                      lrecSalesHeader."Currency Factor"),
-                                    lrecGLSetup."Amount Rounding Precision");
-                                TotalAmountInclVAT :=
-                                  ROUND(
-                                    CurrExchRate.ExchangeAmtFCYToLCY(
-                                      GetDate("Posting Date"), "Currency Code", TotalAmountInclVAT,
-                                      lrecSalesHeader."Currency Factor"),
-                                    lrecGLSetup."Amount Rounding Precision");
-                            END;
-                            decTotalQty += TotalQty;
-                            decTotalAmount += TotalAmount;
-                            decTotalAmountInclVAT += TotalAmountInclVAT;
-
-                            INSERT;
-                        UNTIL lrecSalesLine.NEXT = 0;
-                UNTIL lrecSalesHeader.NEXT = 0;
-        END;
-
-        //
-        // Posted Sales Invoice
-        //
-
-        IF blnPostedSalesInvoice THEN BEGIN
-            IF CustomerFilter <> '' THEN
-                lrecSalesInvHeader.SETFILTER("Sell-to Customer No.", CustomerFilter);
-            IF PostingDateFilter <> '' THEN
-                lrecSalesInvHeader.SETFILTER("Posting Date", PostingDateFilter);
-            IF OrderDateFilter <> '' THEN
-                lrecSalesInvHeader.SETFILTER("Order Date", OrderDateFilter);
-            IF lrecSalesInvHeader.FINDSET THEN
-                REPEAT
-                    lrecSalesInvLine.SETRANGE("Document No.", lrecSalesInvHeader."No.");
-                    //lrecSalesInvLine.SETRANGE(Type,lrecSalesInvLine.Type::Item);       //PBCS10.01
-                    lrecSalesInvLine.SETFILTER(Type, '<>%1', lrecSalesInvLine.Type::" ");  //PBCS10.01
+                    SalesLine.SETRANGE("Document Type", SalesHdr."Document Type");
+                    SalesLine.SETRANGE("Document No.", SalesHdr."No.");
+                    SalesLine.SETFILTER(Type, '<>%1', SalesLine.Type::" ");
+                    if not ShowZeroAmtLine then
+                        SalesLine.SetFilter(Amount, '<>0');
                     IF ItemFilter <> '' THEN
-                        lrecSalesInvLine.SETFILTER("No.", ItemFilter);
-                    IF lrecSalesInvLine.FINDSET THEN
+                        SalesLine.SETFILTER("No.", ItemFilter);
+                    IF SalesLine.FINDSET THEN
                         REPEAT
-                            INIT;
-                            "Document Type" := "Document Type"::"Posted Invoice";
-                            "Document No." := lrecSalesInvLine."Document No.";
-                            "Order Status" := "Order Status"::Released;
-                            "Line No." := lrecSalesInvLine."Line No.";
-                            "Customer PO No." := lrecSalesInvHeader."External Document No.";
-                            "Posted Sales Invoice No." := lrecSalesInvLine."Document No.";
-                            "Shipment Date" := lrecSalesInvLine."Shipment Date";
-                            "Customer No." := lrecSalesInvLine."Sell-to Customer No.";
-                            "Customer Name" := lrecSalesInvHeader."Sell-to Customer Name";
-                            "Sales to Countries" := lrecSalesInvHeader."Sell-to Country/Region Code";
-                            "Bill-to Customer No." := lrecSalesInvHeader."Bill-to Customer No.";
-                            "Bill-to Name" := lrecSalesInvHeader."Bill-to Name";
-                            "Ship-to Code" := lrecSalesInvHeader."Ship-to Code";
-                            "Ship-to Name" := lrecSalesInvHeader."Ship-to Name";
-                            "Ship-to Address" := lrecSalesInvHeader."Ship-to Address";
-                            "Ship-to City" := lrecSalesInvHeader."Ship-to City";
-                            "Ship-to Post Code" := lrecSalesInvHeader."Ship-to Post Code";
-                            "Ship-to Country/Region Code" := lrecSalesInvHeader."Ship-to Country/Region Code";
-                            "Posting Date" := lrecSalesInvHeader."Posting Date";
-                            "Order Date" := lrecSalesInvHeader."Order Date";
-                            "Document Date" := lrecSalesInvHeader."Document Date";
-                            //PBCJP-TRD-002-002: BEGIN
-                            "Transaction Type" := lrecSalesInvLine."Transaction Type";
-                            "Transaction Specification" := lrecSalesInvLine."Transaction Specification";
-                            "Transport Method" := lrecSalesInvLine."Transport Method";
-                            "Exit Point" := lrecSalesInvLine."Exit Point";
-                            Area := lrecSalesInvLine.Area;
-
-                            //  "Transaction Type" := lrecSalesInvHeader."Transaction Type";
-                            //  "Transaction Specification" := lrecSalesInvHeader."Transaction Specification";
-                            //  "Transport Method" := lrecSalesInvHeader."Transport Method";
-                            //  "Exit Point" := lrecSalesInvHeader."Exit Point";
-                            //  Area := lrecSalesInvHeader.Area;
-                            //PBCJP-TRD-002-002: END
-                            Type := lrecSalesInvLine.Type;    //PBCS10.01
-                            "Item No." := lrecSalesInvLine."No.";
-                            "Item Description" := lrecSalesInvLine.Description;
-                            Quantity := lrecSalesInvLine.Quantity;
-                            "Unit of Measure Code" := lrecSalesInvLine."Unit of Measure Code";
-                            "Unit of Measure" := lrecSalesInvLine."Unit of Measure";
-                            "Quantity Shipped" := lrecSalesInvLine.Quantity;
-                            "Quantity Invoiced" := lrecSalesInvLine.Quantity;
-                            "Currency Code" := lrecSalesInvHeader."Currency Code";
-                            "Location Code" := lrecSalesInvLine."Location Code";
-                            "Unit Cost" := lrecSalesInvLine."Unit Cost";
-                            "Total Cost" := Quantity * "Unit Cost";          //PBCS10.01
-                            "Line Amount" := lrecSalesInvLine."Line Amount";
-                            "Line Discount Amount" := lrecSalesInvLine."Line Discount Amount";
-                            "Line Discount %" := lrecSalesInvLine."Line Discount %";
-                            "Shipment Method Code" := lrecSalesInvHeader."Shipment Method Code";
-                            "Shipping Agent Code" := lrecSalesInvHeader."Shipping Agent Code";
-                            "Payment Terms Code" := lrecSalesInvHeader."Payment Terms Code";
-                            "Payment Method Code" := lrecSalesInvHeader."Payment Method Code";
-                            "Pre-paid/Collect" := "Pre-paid/Collect"::" ";
-                            "Due Date" := lrecSalesInvHeader."Due Date";
-                            "Payment Discount %" := lrecSalesInvHeader."Payment Discount %";
-                            "Pmt. Discount Date" := lrecSalesInvHeader."Pmt. Discount Date";
-                            "Gen. Bus. Posting Group" := lrecSalesInvLine."Gen. Bus. Posting Group";
-                            "Gen. Prod. Posting Group" := lrecSalesInvLine."Gen. Prod. Posting Group";
-                            "Customer Posting Group" := lrecSalesInvHeader."Customer Posting Group";
-                            "VAT Bus. Posting Group" := lrecSalesInvLine."VAT Bus. Posting Group";
-                            "VAT Prod. Posting Group" := lrecSalesInvLine."VAT Prod. Posting Group";
-                            "Salesperson Code" := lrecSalesInvHeader."Salesperson Code";
-                            //PBCJP-TRD-002-002: BEGIN
-                            "Responsibility Center" := lrecSalesInvLine."Responsibility Center";
-                            //  "Responsibility Center" := lrecSalesInvHeader."Responsibility Center";
-                            //PBCJP-TRD-002-002: END
-                            "Net Weight" := lrecSalesInvLine."Net Weight";
-                            "Gross Weight" := lrecSalesInvLine."Gross Weight";
-                            "Reason Code" := lrecSalesInvHeader."Reason Code";
-                            "Global Dimension 1 Code" := lrecSalesInvLine."Shortcut Dimension 1 Code";
-                            "Global Dimension 2 Code" := lrecSalesInvLine."Shortcut Dimension 2 Code";
-
-                            lrecPostedDocDim.RESET;
-                            lrecPostedDocDim.SETRANGE("Table ID", DATABASE::"Sales Invoice Line");
-                            lrecPostedDocDim.SETRANGE("Document No.", lrecSalesInvLine."Document No.");
-                            lrecPostedDocDim.SETRANGE("Line No.", lrecSalesInvLine."Line No.");
-                            lrecPostedDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 3 Code");
-                            IF lrecPostedDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 3 Code" := lrecPostedDocDim."Dimension Value Code";
-                            lrecPostedDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 4 Code");
-                            IF lrecPostedDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 4 Code" := lrecPostedDocDim."Dimension Value Code";
-                            lrecPostedDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 5 Code");
-                            IF lrecPostedDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 5 Code" := lrecPostedDocDim."Dimension Value Code";
-                            lrecPostedDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 6 Code");
-                            IF lrecPostedDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 6 Code" := lrecPostedDocDim."Dimension Value Code";
-                            lrecPostedDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 7 Code");
-                            IF lrecPostedDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 7 Code" := lrecPostedDocDim."Dimension Value Code";
-                            lrecPostedDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 8 Code");
-                            IF lrecPostedDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 8 Code" := lrecPostedDocDim."Dimension Value Code";
-                            "Original Order No." := lrecSalesInvHeader."Order No.";
-
-                            TotalQty := Quantity;
-                            TotalAmount := "Line Amount";
-                            TotalAmountInclVAT := "Line Amount" * (1 + lrecSalesInvLine."VAT %" / 100);
-                            IF "Currency Code" <> '' THEN BEGIN
-                                TotalAmount :=
-                                  ROUND(
-                                    CurrExchRate.ExchangeAmtFCYToLCY(
-                                      GetDate("Posting Date"), "Currency Code", TotalAmount,
-                                      lrecSalesInvHeader."Currency Factor"),
-                                    lrecGLSetup."Amount Rounding Precision");
-                                TotalAmountInclVAT :=
-                                  ROUND(
-                                    CurrExchRate.ExchangeAmtFCYToLCY(
-                                      GetDate("Posting Date"), "Currency Code", TotalAmountInclVAT,
-                                      lrecSalesInvHeader."Currency Factor"),
-                                    lrecGLSetup."Amount Rounding Precision");
+                            Rec.INIT;
+                            CASE SalesLine."Document Type" OF
+                                SalesLine."Document Type"::Quote:
+                                    Rec."Document Type" := Rec."Document Type"::Quote;
+                                SalesLine."Document Type"::Order:
+                                    Rec."Document Type" := Rec."Document Type"::Order;
+                                SalesLine."Document Type"::Invoice:
+                                    Rec."Document Type" := Rec."Document Type"::Invoice;
+                                SalesLine."Document Type"::"Credit Memo":
+                                    Rec."Document Type" := Rec."Document Type"::"Credit Memo";
+                                SalesLine."Document Type"::"Return Order":
+                                    Rec."Document Type" := Rec."Document Type"::"Return Order";
+                            //SalesLine."Document Type"::"Closed Order":
+                            //Rec."Document Type" := Rec."Document Type"::"Closed Order";
                             END;
-                            decTotalQty += TotalQty;
-                            decTotalAmount += TotalAmount;
-                            decTotalAmountInclVAT += TotalAmountInclVAT;
+                            SetFixedFields(CurrGUID);
+                            Rec."Document No." := SalesLine."Document No.";
+                            Rec."Order Status" := SalesHdr.Status;
+                            Rec."Line No." := SalesLine."Line No.";
+                            Rec."Customer PO No." := SalesHdr."External Document No.";
+                            Rec."Requested Delivery Date" := SalesLine."Requested Delivery Date";
+                            Rec."Planned Delivery Date" := SalesLine."Planned Delivery Date";
+                            Rec."Planned Shipment Date" := SalesLine."Planned Shipment Date";
+                            Rec."Shipment Date" := SalesLine."Shipment Date";
+                            Rec."Customer No." := SalesLine."Sell-to Customer No.";
+                            Rec."Customer Name" := SalesHdr."Sell-to Customer Name";
+                            Rec."Sales to Countries" := SalesHdr."Sell-to Country/Region Code";
+                            Rec."Bill-to Customer No." := SalesHdr."Bill-to Customer No.";
+                            Rec."Bill-to Name" := SalesHdr."Bill-to Name";
+                            Rec."Ship-to Code" := SalesHdr."Ship-to Code";
+                            Rec."Ship-to Name" := SalesHdr."Ship-to Name";
+                            Rec."Ship-to Address" := SalesHdr."Ship-to Address";
+                            Rec."Ship-to City" := SalesHdr."Ship-to City";
+                            Rec."Ship-to Post Code" := SalesHdr."Ship-to Post Code";
+                            Rec."Ship-to Country/Region Code" := SalesHdr."Ship-to Country/Region Code";
+                            Rec."Posting Date" := SalesHdr."Posting Date";
+                            Rec."Order Date" := SalesHdr."Order Date";
+                            Rec."Document Date" := SalesHdr."Document Date";
+                            Rec."Transaction Type" := SalesLine."Transaction Type";
+                            Rec."Transaction Specification" := SalesLine."Transaction Specification";
+                            Rec."Transport Method" := SalesLine."Transport Method";
+                            Rec."Exit Point" := SalesLine."Exit Point";
+                            Rec.Area := SalesLine.Area;
 
-                            INSERT;
-                        UNTIL lrecSalesInvLine.NEXT = 0;
-                UNTIL lrecSalesInvHeader.NEXT = 0;
+                            //  "Transaction Type" := SalesHdr."Transaction Type";
+                            //  "Transaction Specification" := SalesHdr."Transaction Specification";
+                            //  "Transport Method" := SalesHdr."Transport Method";
+                            //  "Exit Point" := SalesHdr."Exit Point";
+                            //  Area := SalesHdr.Area;
+
+                            Rec.Type := SalesLine.Type;
+                            Rec."Item No." := SalesLine."No.";
+                            Rec."Item Description" := SalesLine.Description;
+                            Rec.Quantity := SalesLine.Quantity;
+                            Rec."Unit of Measure Code" := SalesLine."Unit of Measure Code";
+                            Rec."Unit of Measure" := SalesLine."Unit of Measure";
+                            Rec."Qty. to Ship" := SalesLine."Qty. to Ship";
+                            Rec."Qty. to Invoice" := SalesLine."Qty. to Invoice";
+                            Rec."Quantity Shipped" := SalesLine."Quantity Shipped";
+                            Rec."Quantity Invoiced" := SalesLine."Quantity Invoiced";
+                            Rec."Currency Code" := SalesLine."Currency Code";
+                            Rec."Location Code" := SalesLine."Location Code";
+                            Rec."Unit Cost" := SalesLine."Unit Cost";
+                            Rec."Total Cost" := Rec.Quantity * Rec."Unit Cost";
+                            Rec."Line Amount" := SalesLine."Line Amount";
+                            Rec."Line Discount Amount" := SalesLine."Line Discount Amount";
+                            Rec."Line Discount %" := SalesLine."Line Discount %";
+                            Rec."Shipment Method Code" := SalesHdr."Shipment Method Code";
+                            Rec."Shipping Agent Code" := SalesLine."Shipping Agent Code";
+                            Rec."Payment Terms Code" := SalesHdr."Payment Terms Code";
+                            Rec."Payment Method Code" := SalesHdr."Payment Method Code";
+                            Rec."Due Date" := SalesHdr."Due Date";
+                            Rec."Payment Discount %" := SalesHdr."Payment Discount %";
+                            Rec."Pmt. Discount Date" := SalesHdr."Pmt. Discount Date";
+                            Rec."Gen. Bus. Posting Group" := SalesLine."Gen. Bus. Posting Group";
+                            Rec."Gen. Prod. Posting Group" := SalesLine."Gen. Prod. Posting Group";
+                            Rec."Customer Posting Group" := SalesHdr."Customer Posting Group";
+                            Rec."VAT Bus. Posting Group" := SalesLine."VAT Bus. Posting Group";
+                            Rec."VAT Prod. Posting Group" := SalesLine."VAT Prod. Posting Group";
+                            Rec."Salesperson Code" := SalesHdr."Salesperson Code";
+                            Rec."Responsibility Center" := SalesLine."Responsibility Center";
+                            Rec."Prepayment %" := SalesLine."Prepayment %";
+                            Rec."Compress Prepayment" := SalesHdr."Compress Prepayment";
+                            Rec."Prepmt. Payment Terms Code" := SalesHdr."Prepmt. Payment Terms Code";
+                            Rec."Prepayment Due Date" := SalesHdr."Prepayment Due Date";
+                            Rec."Prepmt. Payment Discount %" := SalesHdr."Prepmt. Payment Discount %";
+                            Rec."Prepmt. Pmt. Discount Date" := SalesHdr."Prepmt. Pmt. Discount Date";
+                            Rec."Net Weight" := SalesLine."Net Weight";
+                            Rec."Gross Weight" := SalesLine."Gross Weight";
+                            Rec."Reason Code" := SalesHdr."Reason Code";
+                            Rec."Global Dimension 1 Code" := SalesLine."Shortcut Dimension 1 Code";
+                            Rec."Global Dimension 2 Code" := SalesLine."Shortcut Dimension 2 Code";
+                            Rec."Dimension Set ID" := SalesLine."Dimension Set ID";
+                            DimMgt.GetShortcutDimensions(SalesLine."Dimension Set ID", ShortcutDimCode);
+                            Rec."Shortcut Dimension 3 Code" := ShortcutDimCode[3];
+                            Rec."Shortcut Dimension 4 Code" := ShortcutDimCode[4];
+                            Rec."Shortcut Dimension 5 Code" := ShortcutDimCode[5];
+                            Rec."Shortcut Dimension 6 Code" := ShortcutDimCode[6];
+                            Rec."Shortcut Dimension 7 Code" := ShortcutDimCode[7];
+                            Rec."Shortcut Dimension 8 Code" := ShortcutDimCode[8];
+                            SalesLine.CALCFIELDS("Reserved Quantity");
+                            Rec."Reserved Quantity" := SalesLine."Reserved Quantity";
+                            Rec."Promised Delivery Date" := SalesLine."Promised Delivery Date";
+                            Rec."Original Order No." := SalesHdr."No.";
+
+                            decTotalQty := Rec.Quantity;
+                            decTotalAmount := Rec."Line Amount";
+                            decTotalAmountInclVAT := Rec."Line Amount" * (1 + SalesLine."VAT %" / 100);
+                            IF Rec."Currency Code" <> '' THEN BEGIN
+                                decTotalAmount :=
+                                  ROUND(
+                                    CurrExchRate.ExchangeAmtFCYToLCY(
+                                      GetDate(Rec."Posting Date"), Rec."Currency Code", decTotalAmount,
+                                      SalesHdr."Currency Factor"),
+                                    GLSetup."Amount Rounding Precision");
+                                decTotalAmountInclVAT :=
+                                  ROUND(
+                                    CurrExchRate.ExchangeAmtFCYToLCY(
+                                      GetDate(Rec."Posting Date"), Rec."Currency Code", decTotalAmountInclVAT,
+                                      SalesHdr."Currency Factor"),
+                                    GLSetup."Amount Rounding Precision");
+                            END;
+                            decTotalQty += decTotalQty;
+                            decTotalAmount += decTotalAmount;
+                            decTotalAmountInclVAT += decTotalAmountInclVAT;
+                            Rec.INSERT;
+                        UNTIL SalesLine.NEXT = 0;
+                UNTIL SalesHdr.NEXT = 0;
         END;
+    end;
 
-        //
-        // Posted Sales Credit Memo
-        //
-
-        IF blnPostedSalesCrMemo THEN BEGIN
-            IF CustomerFilter <> '' THEN
-                lrecSalesCrMemoHeader.SETFILTER("Sell-to Customer No.", CustomerFilter);
-            IF PostingDateFilter <> '' THEN
-                lrecSalesCrMemoHeader.SETFILTER("Posting Date", PostingDateFilter);
-            IF OrderDateFilter <> '' THEN
-                lrecSalesCrMemoHeader.SETFILTER("Document Date", OrderDateFilter);
-            IF lrecSalesCrMemoHeader.FINDSET THEN
+    procedure FindPostedSalesInvoice(CurrGUID: Guid);
+    var
+    begin
+        IF PostedSalesInvoice THEN BEGIN
+            SalesInvHdr.Reset();
+            SalesInvLine.Reset();
+            if SelltoCustomerFilter <> '' then
+                SalesInvHdr.SetFilter("Sell-to Customer No.", SelltoCustomerFilter);
+            if BilltoCustomerFilter <> '' then
+                SalesInvHdr.SetFilter("Bill-to Customer No.", BilltoCustomerFilter);
+            if PostingDateFilter <> '' then
+                SalesInvHdr.SetFilter("Posting Date", PostingDateFilter);
+            if OrderDateFilter <> '' then
+                SalesInvHdr.SetFilter("Order Date", OrderDateFilter);
+            if SalesInvHdr.FindSet() then
                 REPEAT
-                    lrecSalesCrMemoline.SETRANGE("Document No.", lrecSalesCrMemoHeader."No.");
-                    //lrecSalesCrMemoline.SETRANGE(Type,lrecSalesCrMemoline.Type::Item);       //PBCS10.01
-                    lrecSalesCrMemoline.SETFILTER(Type, '<>%1', lrecSalesCrMemoline.Type::" ");  //PBCS10.01
+                    SalesInvHdr.CalcFields(Comment, Amount, "Amount Including VAT");
+                    SalesInvLine.SETRANGE("Document No.", SalesInvHdr."No.");
+                    SalesInvLine.SETFILTER(Type, '<>%1', SalesInvLine.Type::" ");
+                    if not ShowZeroAmtLine then
+                        SalesInvLine.SetFilter(Amount, '<>0');
                     IF ItemFilter <> '' THEN
-                        lrecSalesCrMemoline.SETFILTER("No.", ItemFilter);
-                    IF lrecSalesCrMemoline.FINDSET THEN
+                        SalesInvLine.SETFILTER("No.", ItemFilter);
+                    IF SalesInvLine.FINDSET THEN
                         REPEAT
-                            INIT;
-                            "Document Type" := "Document Type"::"Posted Credit Memo";
-                            "Document No." := lrecSalesCrMemoline."Document No.";
-                            "Order Status" := "Order Status"::Released;
-                            "Line No." := lrecSalesCrMemoline."Line No.";
-                            "Customer PO No." := lrecSalesCrMemoHeader."External Document No.";
-                            "Shipment Date" := lrecSalesCrMemoline."Shipment Date";
-                            "Customer No." := lrecSalesCrMemoline."Sell-to Customer No.";
-                            "Customer Name" := lrecSalesCrMemoHeader."Sell-to Customer Name";
-                            "Sales to Countries" := lrecSalesCrMemoHeader."Sell-to Country/Region Code";
-                            "Bill-to Customer No." := lrecSalesCrMemoHeader."Bill-to Customer No.";
-                            "Bill-to Name" := lrecSalesCrMemoHeader."Bill-to Name";
-                            "Ship-to Code" := lrecSalesCrMemoHeader."Ship-to Code";
-                            "Ship-to Name" := lrecSalesCrMemoHeader."Ship-to Name";
-                            "Ship-to Address" := lrecSalesCrMemoHeader."Ship-to Address";
-                            "Ship-to City" := lrecSalesCrMemoHeader."Ship-to City";
-                            "Ship-to Post Code" := lrecSalesCrMemoHeader."Ship-to Post Code";
-                            "Ship-to Country/Region Code" := lrecSalesCrMemoHeader."Ship-to Country/Region Code";
-                            "Posting Date" := lrecSalesCrMemoHeader."Posting Date";
-                            "Document Date" := lrecSalesCrMemoHeader."Document Date";
-                            //PBCJP-TRD-002-002: BEGIN
-                            "Transaction Type" := lrecSalesCrMemoline."Transaction Type";
-                            "Transaction Specification" := lrecSalesCrMemoline."Transaction Specification";
-                            "Transport Method" := lrecSalesCrMemoline."Transport Method";
-                            "Exit Point" := lrecSalesCrMemoline."Exit Point";
-                            Area := lrecSalesCrMemoline.Area;
-
-                            //  "Transaction Type" := lrecSalesCrMemoHeader."Transaction Type";
-                            //  "Transaction Specification" := lrecSalesCrMemoHeader."Transaction Specification";
-                            //  "Transport Method" := lrecSalesCrMemoHeader."Transport Method";
-                            //  "Exit Point" := lrecSalesCrMemoHeader."Exit Point";
-                            //  Area := lrecSalesCrMemoHeader.Area;
-                            //PBCJP-TRD-002-002: END
-                            Type := lrecSalesCrMemoline.Type;  //PBCS10.01
-                            "Item No." := lrecSalesCrMemoline."No.";
-                            "Item Description" := lrecSalesCrMemoline.Description;
-                            Quantity := lrecSalesCrMemoline.Quantity;
-                            "Unit of Measure Code" := lrecSalesCrMemoline."Unit of Measure Code";
-                            "Unit of Measure" := lrecSalesCrMemoline."Unit of Measure";
-                            "Quantity Shipped" := lrecSalesCrMemoline.Quantity;
-                            "Quantity Invoiced" := lrecSalesCrMemoline.Quantity;
-                            "Currency Code" := lrecSalesCrMemoHeader."Currency Code";
-                            "Location Code" := lrecSalesCrMemoline."Location Code";
-                            "Unit Cost" := lrecSalesCrMemoline."Unit Cost";
-                            "Total Cost" := Quantity * "Unit Cost";          //PBCS10.01
-                            "Line Amount" := lrecSalesCrMemoline."Line Amount";
-                            "Line Discount Amount" := lrecSalesCrMemoline."Line Discount Amount";
-                            "Line Discount %" := lrecSalesCrMemoline."Line Discount %";
-                            "Shipment Method Code" := lrecSalesCrMemoHeader."Shipment Method Code";
-                            "Payment Terms Code" := lrecSalesCrMemoHeader."Payment Terms Code";
-                            "Payment Method Code" := lrecSalesCrMemoHeader."Payment Method Code";
-                            "Pre-paid/Collect" := "Pre-paid/Collect"::" ";
-                            "Due Date" := lrecSalesCrMemoHeader."Due Date";
-                            "Payment Discount %" := lrecSalesCrMemoHeader."Payment Discount %";
-                            "Pmt. Discount Date" := lrecSalesCrMemoHeader."Pmt. Discount Date";
-                            "Gen. Bus. Posting Group" := lrecSalesCrMemoline."Gen. Bus. Posting Group";
-                            "Gen. Prod. Posting Group" := lrecSalesCrMemoline."Gen. Prod. Posting Group";
-                            "Customer Posting Group" := lrecSalesCrMemoHeader."Customer Posting Group";
-                            "VAT Bus. Posting Group" := lrecSalesCrMemoline."VAT Bus. Posting Group";
-                            "VAT Prod. Posting Group" := lrecSalesCrMemoline."VAT Prod. Posting Group";
-                            "Salesperson Code" := lrecSalesCrMemoHeader."Salesperson Code";
-                            //PBCJP-TRD-002-002: BEGIN
-                            "Responsibility Center" := lrecSalesCrMemoline."Responsibility Center";
-                            //  "Responsibility Center" := lrecSalesCrMemoHeader."Responsibility Center";
-                            //PBCJP-TRD-002-002: BEGIN
-                            "Net Weight" := lrecSalesCrMemoline."Net Weight";
-                            "Gross Weight" := lrecSalesCrMemoline."Gross Weight";
-                            "Reason Code" := lrecSalesCrMemoHeader."Reason Code";
-                            "Global Dimension 1 Code" := lrecSalesCrMemoline."Shortcut Dimension 1 Code";
-                            "Global Dimension 2 Code" := lrecSalesCrMemoline."Shortcut Dimension 2 Code";
-
-                            lrecPostedDocDim.RESET;
-                            lrecPostedDocDim.SETRANGE("Table ID", DATABASE::"Sales Cr.Memo Line");
-                            lrecPostedDocDim.SETRANGE("Document No.", lrecSalesCrMemoline."Document No.");
-                            lrecPostedDocDim.SETRANGE("Line No.", lrecSalesCrMemoline."Line No.");
-                            lrecPostedDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 3 Code");
-                            IF lrecPostedDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 3 Code" := lrecPostedDocDim."Dimension Value Code";
-                            lrecPostedDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 4 Code");
-                            IF lrecPostedDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 4 Code" := lrecPostedDocDim."Dimension Value Code";
-                            lrecPostedDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 5 Code");
-                            IF lrecPostedDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 5 Code" := lrecPostedDocDim."Dimension Value Code";
-                            lrecPostedDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 6 Code");
-                            IF lrecPostedDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 6 Code" := lrecPostedDocDim."Dimension Value Code";
-                            lrecPostedDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 7 Code");
-                            IF lrecPostedDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 7 Code" := lrecPostedDocDim."Dimension Value Code";
-                            lrecPostedDocDim.SETRANGE("Dimension Code", lrecGLSetup."Shortcut Dimension 8 Code");
-                            IF lrecPostedDocDim.FINDFIRST THEN
-                                "Shortcut Dimension 8 Code" := lrecPostedDocDim."Dimension Value Code";
-                            "Original Order No." := '';
-
-                            TotalQty := Quantity;
-                            TotalAmount := "Line Amount";
-                            TotalAmountInclVAT := "Line Amount" * (1 + lrecSalesCrMemoline."VAT %" / 100);
-                            IF "Currency Code" <> '' THEN BEGIN
-                                TotalAmount :=
-                                  ROUND(
-                                    CurrExchRate.ExchangeAmtFCYToLCY(
-                                      GetDate("Posting Date"), "Currency Code", TotalAmount,
-                                      lrecSalesCrMemoHeader."Currency Factor"),
-                                    lrecGLSetup."Amount Rounding Precision");
-                                TotalAmountInclVAT :=
-                                  ROUND(
-                                    CurrExchRate.ExchangeAmtFCYToLCY(
-                                      GetDate("Posting Date"), "Currency Code", TotalAmountInclVAT,
-                                      lrecSalesCrMemoHeader."Currency Factor"),
-                                    lrecGLSetup."Amount Rounding Precision");
+                            Rec.INIT;
+                            SetFixedFields(CurrGUID);
+                            Rec."Document Type" := Rec."Document Type"::"Posted Invoice";
+                            Rec."Document No." := SalesInvLine."Document No.";
+                            Rec."Order Status" := Rec."Order Status"::Released;
+                            Rec."Line No." := SalesInvLine."Line No.";
+                            Rec."Customer PO No." := SalesInvHdr."External Document No.";
+                            Rec."Shipment Date" := SalesInvLine."Shipment Date";
+                            Rec."Customer No." := SalesInvLine."Sell-to Customer No.";
+                            Rec."Customer Name" := SalesInvHdr."Sell-to Customer Name";
+                            Rec."Sales to Countries" := SalesInvHdr."Sell-to Country/Region Code";
+                            Rec."Bill-to Customer No." := SalesInvHdr."Bill-to Customer No.";
+                            Rec."Bill-to Name" := SalesInvHdr."Bill-to Name";
+                            Rec."Ship-to Code" := SalesInvHdr."Ship-to Code";
+                            Rec."Ship-to Name" := SalesInvHdr."Ship-to Name";
+                            Rec."Ship-to Address" := SalesInvHdr."Ship-to Address";
+                            Rec."Ship-to City" := SalesInvHdr."Ship-to City";
+                            Rec."Ship-to Post Code" := SalesInvHdr."Ship-to Post Code";
+                            Rec."Ship-to Country/Region Code" := SalesInvHdr."Ship-to Country/Region Code";
+                            Rec."Posting Date" := SalesInvHdr."Posting Date";
+                            Rec."Order Date" := SalesInvHdr."Order Date";
+                            Rec."Document Date" := SalesInvHdr."Document Date";
+                            Rec."Transaction Type" := SalesInvLine."Transaction Type";
+                            Rec."Transaction Specification" := SalesInvLine."Transaction Specification";
+                            Rec."Transport Method" := SalesInvLine."Transport Method";
+                            Rec."Exit Point" := SalesInvLine."Exit Point";
+                            Rec.Area := SalesInvLine.Area;
+                            //  "Transaction Type" := SalesInvHdr."Transaction Type";
+                            //  "Transaction Specification" := SalesInvHdr."Transaction Specification";
+                            //  "Transport Method" := SalesInvHdr."Transport Method";
+                            //  "Exit Point" := SalesInvHdr."Exit Point";
+                            //  Area := SalesInvHdr.Area;
+                            Rec.Type := SalesInvLine.Type;
+                            Rec."Item No." := SalesInvLine."No.";
+                            Rec."Item Description" := SalesInvLine.Description;
+                            Rec.Quantity := SalesInvLine.Quantity;
+                            Rec."Unit of Measure Code" := SalesInvLine."Unit of Measure Code";
+                            Rec."Unit of Measure" := SalesInvLine."Unit of Measure";
+                            Rec."Quantity Shipped" := SalesInvLine.Quantity;
+                            Rec."Quantity Invoiced" := SalesInvLine.Quantity;
+                            Rec."Currency Code" := SalesInvHdr."Currency Code";
+                            Rec."Location Code" := SalesInvLine."Location Code";
+                            Rec."Unit Cost" := SalesInvLine."Unit Cost";
+                            Rec."Total Cost" := Rec.Quantity * Rec."Unit Cost";
+                            Rec."Line Amount" := SalesInvLine."Line Amount";
+                            Rec."Line Discount Amount" := SalesInvLine."Line Discount Amount";
+                            Rec."Line Discount %" := SalesInvLine."Line Discount %";
+                            Rec."Shipment Method Code" := SalesInvHdr."Shipment Method Code";
+                            Rec."Shipping Agent Code" := SalesInvHdr."Shipping Agent Code";
+                            Rec."Payment Terms Code" := SalesInvHdr."Payment Terms Code";
+                            Rec."Payment Method Code" := SalesInvHdr."Payment Method Code";
+                            //Rec."Pre-paid/Collect" := Rec."Pre-paid/Collect"::" ";
+                            Rec."Due Date" := SalesInvHdr."Due Date";
+                            Rec."Payment Discount %" := SalesInvHdr."Payment Discount %";
+                            Rec."Pmt. Discount Date" := SalesInvHdr."Pmt. Discount Date";
+                            Rec."Gen. Bus. Posting Group" := SalesInvLine."Gen. Bus. Posting Group";
+                            Rec."Gen. Prod. Posting Group" := SalesInvLine."Gen. Prod. Posting Group";
+                            Rec."Customer Posting Group" := SalesInvHdr."Customer Posting Group";
+                            Rec."VAT Bus. Posting Group" := SalesInvLine."VAT Bus. Posting Group";
+                            Rec."VAT Prod. Posting Group" := SalesInvLine."VAT Prod. Posting Group";
+                            Rec."Salesperson Code" := SalesInvHdr."Salesperson Code";
+                            Rec."Responsibility Center" := SalesInvLine."Responsibility Center";
+                            Rec."Net Weight" := SalesInvLine."Net Weight";
+                            Rec."Gross Weight" := SalesInvLine."Gross Weight";
+                            Rec."Reason Code" := SalesInvHdr."Reason Code";
+                            Rec."Global Dimension 1 Code" := SalesInvLine."Shortcut Dimension 1 Code";
+                            Rec."Global Dimension 2 Code" := SalesInvLine."Shortcut Dimension 2 Code";
+                            Rec."Dimension Set ID" := SalesLine."Dimension Set ID";
+                            DimMgt.GetShortcutDimensions(SalesInvLine."Dimension Set ID", ShortcutDimCode);
+                            Rec."Shortcut Dimension 3 Code" := ShortcutDimCode[3];
+                            Rec."Shortcut Dimension 4 Code" := ShortcutDimCode[4];
+                            Rec."Shortcut Dimension 5 Code" := ShortcutDimCode[5];
+                            Rec."Shortcut Dimension 6 Code" := ShortcutDimCode[6];
+                            Rec."Shortcut Dimension 7 Code" := ShortcutDimCode[7];
+                            Rec."Shortcut Dimension 8 Code" := ShortcutDimCode[8];
+                            Rec."Original Order No." := SalesInvHdr."Order No.";
+                            Rec.TotalQty := Rec.Quantity;
+                            Rec.TotalAmount := Rec."Line Amount";
+                            Rec.TotalAmountInclVAT := Rec."Line Amount" * (1 + SalesInvLine."VAT %" / 100);
+                            IF Rec."Currency Code" <> '' THEN BEGIN
+                                Rec.TotalAmount :=
+                                    ROUND(CurrExchRate.ExchangeAmtFCYToLCY(GetDate(Rec."Posting Date"),
+                                          Rec."Currency Code", Rec.TotalAmount, SalesInvHdr."Currency Factor"),
+                                          GLSetup."Amount Rounding Precision");
+                                Rec.TotalAmountInclVAT :=
+                                    ROUND(CurrExchRate.ExchangeAmtFCYToLCY(GetDate(Rec."Posting Date"),
+                                          Rec."Currency Code", Rec.TotalAmountInclVAT, SalesInvHdr."Currency Factor"),
+                                          GLSetup."Amount Rounding Precision");
                             END;
-                            decTotalQty += TotalQty;
-                            decTotalAmount += TotalAmount;
-                            decTotalAmountInclVAT += TotalAmountInclVAT;
-
-                            INSERT;
-                        UNTIL lrecSalesCrMemoline.NEXT = 0;
-                UNTIL lrecSalesCrMemoHeader.NEXT = 0;
+                            decTotalQty += Rec.TotalQty;
+                            decTotalAmount += Rec.TotalAmount;
+                            decTotalAmountInclVAT += Rec.TotalAmountInclVAT;
+                            Rec.INSERT;
+                        UNTIL SalesInvLine.NEXT = 0;
+                UNTIL SalesInvHdr.NEXT = 0;
         END;
+    end;
 
-        IF GETFILTERS <> '' THEN BEGIN
-            decTotalQty := 0;
-            decTotalAmount := 0;
-            decTotalAmountInclVAT := 0;
-            IF FINDSET THEN
+    procedure FindPostedSalesCrMemo(CurrGUID: Guid);
+    begin
+        IF PostedSalesCrMemo THEN BEGIN
+            SalesCrMemoHdr.Reset();
+            SalesCrMemoLine.Reset();
+            if SelltoCustomerFilter <> '' then
+                SalesCrMemoHdr.SetFilter("Sell-to Customer No.", SelltoCustomerFilter);
+            if BilltoCustomerFilter <> '' then
+                SalesCrMemoHdr.SetFilter("Bill-to Customer No.", BilltoCustomerFilter);
+            if PostingDateFilter <> '' then
+                SalesCrMemoHdr.SetFilter("Posting Date", PostingDateFilter);
+            if OrderDateFilter <> '' then
+                SalesCrMemoHdr.SetFilter("Document Date", OrderDateFilter);
+            IF SalesCrMemoHdr.FINDSET THEN
                 REPEAT
-                    decTotalQty += TotalQty;
-                    decTotalAmount += TotalAmount;
-                    decTotalAmountInclVAT += TotalAmountInclVAT;
-                UNTIL NEXT = 0;
+                    SalesCrMemoHdr.CalcFields(Comment, Amount, "Amount Including VAT");
+                    SalesCrMemoLine.SETRANGE("Document No.", SalesCrMemoHdr."No.");
+                    SalesCrMemoLine.SETFILTER(Type, '<>%1', SalesCrMemoLine.Type::" ");
+                    if not ShowZeroAmtLine then
+                        SalesCrMemoLine.SetFilter(Amount, '<>0');
+                    IF ItemFilter <> '' THEN
+                        SalesCrMemoLine.SETFILTER("No.", ItemFilter);
+                    IF SalesCrMemoLine.FINDSET THEN
+                        REPEAT
+                            Rec.INIT;
+                            SetFixedFields(CurrGUID);
+                            Rec."Document Type" := Rec."Document Type"::"Posted Credit Memo";
+                            Rec."Document No." := SalesCrMemoLine."Document No.";
+                            Rec."Order Status" := Rec."Order Status"::Released;
+                            Rec."Line No." := SalesCrMemoLine."Line No.";
+                            Rec."Customer PO No." := SalesCrMemoHdr."External Document No.";
+                            Rec."Shipment Date" := SalesCrMemoLine."Shipment Date";
+                            Rec."Customer No." := SalesCrMemoLine."Sell-to Customer No.";
+                            Rec."Customer Name" := SalesCrMemoHdr."Sell-to Customer Name";
+                            Rec."Sales to Countries" := SalesCrMemoHdr."Sell-to Country/Region Code";
+                            Rec."Bill-to Customer No." := SalesCrMemoHdr."Bill-to Customer No.";
+                            Rec."Bill-to Name" := SalesCrMemoHdr."Bill-to Name";
+                            Rec."Ship-to Code" := SalesCrMemoHdr."Ship-to Code";
+                            Rec."Ship-to Name" := SalesCrMemoHdr."Ship-to Name";
+                            Rec."Ship-to Address" := SalesCrMemoHdr."Ship-to Address";
+                            Rec."Ship-to City" := SalesCrMemoHdr."Ship-to City";
+                            Rec."Ship-to Post Code" := SalesCrMemoHdr."Ship-to Post Code";
+                            Rec."Ship-to Country/Region Code" := SalesCrMemoHdr."Ship-to Country/Region Code";
+                            Rec."Posting Date" := SalesCrMemoHdr."Posting Date";
+                            Rec."Document Date" := SalesCrMemoHdr."Document Date";
+                            Rec."Transaction Type" := SalesCrMemoLine."Transaction Type";
+                            Rec."Transaction Specification" := SalesCrMemoLine."Transaction Specification";
+                            Rec."Transport Method" := SalesCrMemoLine."Transport Method";
+                            Rec."Exit Point" := SalesCrMemoLine."Exit Point";
+                            Rec.Area := SalesCrMemoLine.Area;
+                            //  "Transaction Type" := SalesCrMemoHdr."Transaction Type";
+                            //  "Transaction Specification" := SalesCrMemoHdr."Transaction Specification";
+                            //  "Transport Method" := SalesCrMemoHdr."Transport Method";
+                            //  "Exit Point" := SalesCrMemoHdr."Exit Point";
+                            //  Area := SalesCrMemoHdr.Area;
+                            Rec.Type := SalesCrMemoLine.Type;
+                            Rec."Item No." := SalesCrMemoLine."No.";
+                            Rec."Item Description" := SalesCrMemoLine.Description;
+                            Rec.Quantity := SalesCrMemoLine.Quantity;
+                            Rec."Unit of Measure Code" := SalesCrMemoLine."Unit of Measure Code";
+                            Rec."Unit of Measure" := SalesCrMemoLine."Unit of Measure";
+                            Rec."Quantity Shipped" := SalesCrMemoLine.Quantity;
+                            Rec."Quantity Invoiced" := SalesCrMemoLine.Quantity;
+                            Rec."Currency Code" := SalesCrMemoHdr."Currency Code";
+                            Rec."Location Code" := SalesCrMemoLine."Location Code";
+                            Rec."Unit Cost" := SalesCrMemoLine."Unit Cost";
+                            Rec."Total Cost" := Rec.Quantity * Rec."Unit Cost";
+                            Rec."Line Amount" := SalesCrMemoLine."Line Amount";
+                            Rec."Line Discount Amount" := SalesCrMemoLine."Line Discount Amount";
+                            Rec."Line Discount %" := SalesCrMemoLine."Line Discount %";
+                            Rec."Shipment Method Code" := SalesCrMemoHdr."Shipment Method Code";
+                            Rec."Payment Terms Code" := SalesCrMemoHdr."Payment Terms Code";
+                            Rec."Payment Method Code" := SalesCrMemoHdr."Payment Method Code";
+                            //Rec."Pre-paid/Collect" := Rec."Pre-paid/Collect"::" ";
+                            Rec."Due Date" := SalesCrMemoHdr."Due Date";
+                            Rec."Payment Discount %" := SalesCrMemoHdr."Payment Discount %";
+                            Rec."Pmt. Discount Date" := SalesCrMemoHdr."Pmt. Discount Date";
+                            Rec."Gen. Bus. Posting Group" := SalesCrMemoLine."Gen. Bus. Posting Group";
+                            Rec."Gen. Prod. Posting Group" := SalesCrMemoLine."Gen. Prod. Posting Group";
+                            Rec."Customer Posting Group" := SalesCrMemoHdr."Customer Posting Group";
+                            Rec."VAT Bus. Posting Group" := SalesCrMemoLine."VAT Bus. Posting Group";
+                            Rec."VAT Prod. Posting Group" := SalesCrMemoLine."VAT Prod. Posting Group";
+                            Rec."Salesperson Code" := SalesCrMemoHdr."Salesperson Code";
+                            Rec."Responsibility Center" := SalesCrMemoLine."Responsibility Center";
+                            Rec."Net Weight" := SalesCrMemoLine."Net Weight";
+                            Rec."Gross Weight" := SalesCrMemoLine."Gross Weight";
+                            Rec."Reason Code" := SalesCrMemoHdr."Reason Code";
+                            Rec."Global Dimension 1 Code" := SalesCrMemoLine."Shortcut Dimension 1 Code";
+                            Rec."Global Dimension 2 Code" := SalesCrMemoLine."Shortcut Dimension 2 Code";
+                            Rec."Dimension Set ID" := SalesLine."Dimension Set ID";
+                            DimMgt.GetShortcutDimensions(SalesCrMemoLine."Dimension Set ID", ShortcutDimCode);
+                            Rec."Shortcut Dimension 3 Code" := ShortcutDimCode[3];
+                            Rec."Shortcut Dimension 4 Code" := ShortcutDimCode[4];
+                            Rec."Shortcut Dimension 5 Code" := ShortcutDimCode[5];
+                            Rec."Shortcut Dimension 6 Code" := ShortcutDimCode[6];
+                            Rec."Shortcut Dimension 7 Code" := ShortcutDimCode[7];
+                            Rec."Shortcut Dimension 8 Code" := ShortcutDimCode[8];
+                            Rec."Original Order No." := '';
+                            Rec.TotalQty := Rec.Quantity;
+                            Rec.TotalAmount := Rec."Line Amount";
+                            Rec.TotalAmountInclVAT := Rec."Line Amount" * (1 + SalesCrMemoLine."VAT %" / 100);
+                            IF Rec."Currency Code" <> '' THEN BEGIN
+                                Rec.TotalAmount :=
+                                    ROUND(CurrExchRate.ExchangeAmtFCYToLCY(GetDate(Rec."Posting Date"),
+                                          Rec."Currency Code", Rec.TotalAmount, SalesCrMemoHdr."Currency Factor"),
+                                          GLSetup."Amount Rounding Precision");
+                                Rec.TotalAmountInclVAT :=
+                                    ROUND(CurrExchRate.ExchangeAmtFCYToLCY(GetDate(Rec."Posting Date"),
+                                          Rec."Currency Code", Rec.TotalAmountInclVAT, SalesCrMemoHdr."Currency Factor"),
+                                          GLSetup."Amount Rounding Precision");
+                            END;
+                            decTotalQty += Rec.TotalQty;
+                            decTotalAmount += Rec.TotalAmount;
+                            decTotalAmountInclVAT += Rec.TotalAmountInclVAT;
+                            Rec.INSERT;
+                        UNTIL SalesCrMemoLine.NEXT = 0;
+                UNTIL SalesCrMemoHdr.NEXT = 0;
         END;
-        IF FINDFIRST THEN;
-    END; */
+    end;
 
     local procedure GetDate(RecDate: Date): Date;
     BEGIN
@@ -670,11 +893,11 @@ page 50001 "Sales Inquiry Subform"
     procedure ExportDataToExcel(ShowTrackingInfo: Boolean);
     var
         RowNo: Integer;
-        lrecSalesLine: Record 37;
+        SalesLine: Record 37;
         ReservEngineMgt: Codeunit 99000831;
         ReserveSalesOrderLine: Codeunit 99000832;
         lrReservEntry: Record 337;
-        lrecSalesInvLine: Record 113;
+        SalesInvLine: Record 113;
         ItemTrackingMgmt: Codeunit 6500;
         TempItemLedgEntry: Record 32;
         lrecSalesCrMemoLine: Record 115;
@@ -889,14 +1112,14 @@ page 50001 "Sales Inquiry Subform"
                         Rec."Document Type"::"Closed Order":
                             BEGIN
                                 //PBCJP-TRD-002-003: END
-                                IF lrecSalesLine.GET(Rec."Document Type", Rec."Document No.", Rec."Line No.") THEN BEGIN
-                                    if lrecSalesLine.ReservEntryExist() then begin
+                                IF SalesLine.GET(Rec."Document Type", Rec."Document No.", Rec."Line No.") THEN BEGIN
+                                    if SalesLine.ReservEntryExist() then begin
                                         lrReservEntry.Reset();
                                         lrReservEntry.SetCurrentKey("Source Type", "Source Subtype", "Source ID", "Source Ref. No.");
                                         lrReservEntry.SetRange("Source Type", Database::"Sales Line");
-                                        lrReservEntry.SetRange("Source Subtype", lrecSalesLine."Document Type".AsInteger());
-                                        lrReservEntry.SetRange("Source ID", lrecSalesLine."Document No.");
-                                        lrReservEntry.SetRange("Source Ref. No.", lrecSalesLine."Line No.");
+                                        lrReservEntry.SetRange("Source Subtype", SalesLine."Document Type".AsInteger());
+                                        lrReservEntry.SetRange("Source ID", SalesLine."Document No.");
+                                        lrReservEntry.SetRange("Source Ref. No.", SalesLine."Line No.");
                                         if lrReservEntry.FindSet() then
                                             REPEAT
                                                 IF (lrReservEntry."Serial No." <> '') OR (lrReservEntry."Lot No." <> '') THEN BEGIN
@@ -962,11 +1185,11 @@ page 50001 "Sales Inquiry Subform"
                             END;
                         Rec."Document Type"::"Posted Invoice":
                             BEGIN
-                                IF lrecSalesInvLine.GET(Rec."Document No.", Rec."Line No.") THEN BEGIN
+                                IF SalesInvLine.GET(Rec."Document No.", Rec."Line No.") THEN BEGIN
                                     CLEAR(TempItemLedgEntry);
                                     TempItemLedgEntry.DELETEALL;
                                     CLEAR(ItemTrackingMgmt);
-                                    RetrieveILEFromPostedInv(TempItemLedgEntry, lrecSalesInvLine.RowID1);
+                                    RetrieveILEFromPostedInv(TempItemLedgEntry, SalesInvLine.RowID1);
                                     IF TempItemLedgEntry.FINDSET THEN
                                         REPEAT
                                             IF (TempItemLedgEntry."Serial No." <> '') OR (TempItemLedgEntry."Lot No." <> '') THEN BEGIN
@@ -1036,13 +1259,7 @@ page 50001 "Sales Inquiry Subform"
         this.TempExcelBuffer.OpenExcel();
     END;
 
-    local procedure EnterCell(RowNo: Integer;
-ColumnNo: Integer;
-CellValue: Text[250];
-Bold: Boolean;
-Italic: Boolean;
-UnderLine: Boolean;
-NumberFormat: Text[50]);
+    local procedure EnterCell(RowNo: Integer; ColumnNo: Integer; CellValue: Text[250]; Bold: Boolean; Italic: Boolean; UnderLine: Boolean; NumberFormat: Text[50]);
     BEGIN
         TempExcelBuffer.INIT;
         TempExcelBuffer.VALIDATE("Row No.", RowNo);
@@ -1176,9 +1393,4 @@ NumberFormat: Text[50]);
             TempItemLedgEntry."Expiration Date" := ItemLedgEntry."Expiration Date";
         end;
     end;
-
-    /* local procedure LookupShortcutDimCode(FieldNumber : Integer; VAR ShortcutDimCode : Code[20]);
-    BEGIN
-        DimMgt.LookupDimValueCode(FieldNumber, ShortcutDimCode);
-    END; */
 }
