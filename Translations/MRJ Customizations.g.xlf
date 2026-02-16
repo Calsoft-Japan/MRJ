@@ -1524,7 +1524,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Closed Purchase Orders - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4165833255 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>NEBJ Sales Inquiry</source>
+          <source>Sales Inquiry</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Inquiry Card - Property Caption</note>
         </trans-unit>

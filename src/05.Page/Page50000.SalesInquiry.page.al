@@ -1,7 +1,7 @@
 page 50018 "Sales Inquiry Card"
 {
     ApplicationArea = All;
-    Caption = 'NEBJ Sales Inquiry';
+    Caption = 'Sales Inquiry';
     PageType = Document;
     UsageCategory = Tasks;
     DataCaptionExpression = '';
