@@ -12,6 +12,14 @@ pageextension 50005 "Service Order Ext" extends "Service Order"
             {
                 ApplicationArea = All;
             }
+            field("Parts From Location Code"; Rec."Parts From Location Code")
+            {
+                ApplicationArea = All;
+            }
+            field("Parts From Bin Code"; Rec."Parts From Bin Code")
+            {
+                ApplicationArea = All;
+            }
         }
     }
     actions
