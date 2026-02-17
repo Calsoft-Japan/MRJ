@@ -2,16 +2,8 @@ pageextension 50005 "Service Order Ext" extends "Service Order"
 {
     layout
     {
-        modify("Location Code") //JPN Caption modify
+        addbefore("Location Code")
         {
-            Caption = 'Location Code';
-        }
-        addafter("Location Code")
-        {
-            field("Bin Code"; Rec."Bin Code")
-            {
-                ApplicationArea = All;
-            }
             field("Parts From Location Code"; Rec."Parts From Location Code")
             {
                 ApplicationArea = All;
@@ -20,6 +12,18 @@ pageextension 50005 "Service Order Ext" extends "Service Order"
             {
                 ApplicationArea = All;
             }
+        }
+        modify("Location Code") //JPN Caption modify
+        {
+            Caption = 'Parts to Location Code';
+        }
+        addafter("Location Code")
+        {
+            field("Bin Code"; Rec."Bin Code")
+            {
+                ApplicationArea = All;
+            }
+
         }
     }
     actions

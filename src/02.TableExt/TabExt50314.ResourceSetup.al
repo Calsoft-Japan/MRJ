@@ -5,6 +5,7 @@ tableextension 50314 "Resource Setup Ext" extends "Resources Setup"
         field(50000; "Charge Out Res. Grp. Filter"; Code[250])
         {
             Caption = 'Charge Out Res. Grp. Filter';
+            TableRelation = "Resource Group";
         }
         field(50001; "Charge Out Credit Account"; Code[20])
         {

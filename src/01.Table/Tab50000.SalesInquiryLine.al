@@ -463,11 +463,11 @@ table 50000 "Sales Inquiry Line"
         {
             Caption = 'Credit Memo Remark 4';
         }
-        field(103; "Order Status"; Option)
+        field(103; "Order Status"; Enum "Sales Document Status")
         {
             Caption = 'Status';
-            OptionMembers = Open,Released,Pending_Approval,Pending_Prepayment;
-            OptionCaption = 'Open,Released,Pending Approval,Pending Prepayment';
+            //OptionMembers = Open,Released,Pending_Approval,Pending_Prepayment;
+            //OptionCaption = 'Open,Released,Pending Approval,Pending Prepayment';
         }
         field(104; "B/L Date"; Date)
         {
@@ -497,16 +497,28 @@ table 50000 "Sales Inquiry Line"
         {
             Caption = 'TotalAmountInclVAT';
         }
-        field(111; "Type"; Option)
+        field(111; "Type"; Enum "Sales Line Type")
         {
             Caption = 'Type';
-            OptionMembers = Blank,G_L_Account,Item,Resource,Fixed_Asset,Charge_Item;
-            OptionCaption = '" ,G/L Account,Item,Resource,Fixed Asset,Charge (Item)"';
         }
         field(112; "Total Cost"; Decimal)
         {
             Caption = 'Total Unit Cost';
             Description = 'PBCS10.01';
+        }
+        field(480; "Dimension Set ID"; Integer)
+        {
+            Caption = 'Dimension Set ID';
+            Editable = false;
+            TableRelation = "Dimension Set Entry";
+        }
+        field(200; GUID; GUID) //For Internal Logic
+        {
+            Caption = 'GUID', Locked = true;
+        }
+        field(201; "Creation Date"; Date) //For Internal Logic
+        {
+            Caption = 'Creation Date', Locked = true;
         }
     }
 
