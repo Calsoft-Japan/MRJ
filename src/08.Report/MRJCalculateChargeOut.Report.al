@@ -31,11 +31,10 @@ report 50030 "Calculate Charge Outs"
 
                     trigger OnAfterGetRecord() //ServLedEntry
                     begin
-
                         if "Service Ledger Entry"."Charge Out Posted to G/L" then
                             CurrReport.Skip();
 
-                        nextLineNo += 10;
+                        NextLineNo += 10;
 
                         GeneralPostingSetup.Get("Service Ledger Entry"."Gen. Bus. Posting Group",
                                                 "Service Ledger Entry"."Gen. Prod. Posting Group");
@@ -46,7 +45,7 @@ report 50030 "Calculate Charge Outs"
                             TmpDate := "Service Ledger Entry"."Posting Date";
 
                         GenJnlLine2.Reset();
-                        GenJnlLine2.SetRange("Source Ledger Entry Type", 1);
+                        GenJnlLine2.SetRange("Source Ledger Entry Type", GenJnlLine2."Source Ledger Entry Type"::"Service Ledger");
                         GenJnlLine2.SetRange("Source Ledger Entry No.", "Service Ledger Entry"."Entry No.");
                         if GenJnlLine2.FindSet() then begin
                             Error(ServEntryErr, GenJnlLine2."Journal Template Name", GenJnlLine2."Journal Batch Name",
@@ -89,11 +88,9 @@ report 50030 "Calculate Charge Outs"
                         GenJnlLine.Validate("Shortcut Dimension 1 Code", "Service Ledger Entry"."Global Dimension 1 Code");
                         GenJnlLine.Validate("Shortcut Dimension 2 Code", "Service Ledger Entry"."Global Dimension 2 Code");
                         GenJnlLine."Dimension Set ID" := "Res. Ledger Entry"."Dimension Set ID";
-                        GenJnlLine."Source Ledger Entry Type" := 1;
+                        GenJnlLine."Source Ledger Entry Type" := GenJnlLine."Source Ledger Entry Type"::"Service Ledger";
                         GenJnlLine."Source Ledger Entry No." := "Service Ledger Entry"."Entry No.";
                         GenJnlLine.Modify();
-
-
 
                         intProgress2 := intProgress2 + 1;
                         intProgress := Round(intProgress2 / ProgressTotal * 10000, 1);
@@ -110,6 +107,8 @@ report 50030 "Calculate Charge Outs"
                 }
                 dataitem("Res. Ledger Entry"; "Res. Ledger Entry")
                 {
+                    DataItemTableView = sorting("Charge Out Posted to G/L", "Source No.", "Source Type", "Entry Type", "Posting Date") order(Ascending) where("Entry Type" = filter(Sale));
+                    DataItemLink = "Resource No." = field("No.");
                     trigger OnPreDataItem() //ResLedEntry
                     begin
                         "Res. Ledger Entry".SetRange("Res. Ledger Entry"."Source Code", 'SALES');
@@ -127,8 +126,7 @@ report 50030 "Calculate Charge Outs"
 
                         NextLineNo += 10;
 
-                        GeneralPostingSetup.Get("Res. Ledger Entry"."Gen. Bus. Posting Group",
-                                                "Res. Ledger Entry"."Gen. Prod. Posting Group");
+                        GeneralPostingSetup.Get("Res. Ledger Entry"."Gen. Bus. Posting Group", "Res. Ledger Entry"."Gen. Prod. Posting Group");
 
                         if PostingDate <> 0D then
                             TmpDate := PostingDate
@@ -136,7 +134,7 @@ report 50030 "Calculate Charge Outs"
                             TmpDate := "Res. Ledger Entry"."Posting Date";
 
                         GenJnlLine2.Reset();
-                        GenJnlLine2.SetRange("Source Ledger Entry Type", 2);
+                        GenJnlLine2.SetRange("Source Ledger Entry Type", GenJnlLine2."Source Ledger Entry Type"::"Resource Ledger");
                         GenJnlLine2.SetRange("Source Ledger Entry No.", "Res. Ledger Entry"."Entry No.");
                         if GenJnlLine2.FindSet() then begin
                             Error(ResEntryErr, GenJnlLine2."Journal Template Name", GenJnlLine2."Journal Batch Name",
@@ -179,7 +177,7 @@ report 50030 "Calculate Charge Outs"
                         GenJnlLine.Validate("Shortcut Dimension 1 Code", "Res. Ledger Entry"."Global Dimension 1 Code");
                         GenJnlLine.Validate("Shortcut Dimension 2 Code", "Res. Ledger Entry"."Global Dimension 2 Code");
                         GenJnlLine."Dimension Set ID" := "Res. Ledger Entry"."Dimension Set ID";
-                        GenJnlLine."Source Ledger Entry Type" := 2;
+                        GenJnlLine."Source Ledger Entry Type" := GenJnlLine."Source Ledger Entry Type"::"Resource Ledger";
                         GenJnlLine."Source Ledger Entry No." := "Res. Ledger Entry"."Entry No.";
                         GenJnlLine.Modify();
 

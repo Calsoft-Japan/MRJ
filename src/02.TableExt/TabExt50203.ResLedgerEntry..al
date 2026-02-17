@@ -11,5 +11,9 @@ tableextension 50203 "Res. Led Entry Ext" extends "Res. Ledger Entry"
             DataClassification = ToBeClassified;
         }
     }
+    keys
+    {
+        key(MRJKey; "Charge Out Posted to G/L") { }
+    }
 }
 
