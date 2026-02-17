@@ -133,183 +133,207 @@ page 50001 "Sales Inquiry Subform"
                 }
                 field("Exit Point"; Rec."Exit Point")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field(RecArea; Rec.Area)
                 {
-
+                    Visible = ShowHeader;
                 }
                 field(Type; Rec.Type)
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Item No."; Rec."Item No.")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Item Description"; Rec."Item Description")
                 {
-
+                    Visible = ShowLine;
                 }
                 field(Quantity; Rec.Quantity)
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Unit of Measure"; Rec."Unit of Measure")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Reserved Quantity"; Rec."Reserved Quantity")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Qty. to Ship"; Rec."Qty. to Ship")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Qty. to Invoice"; Rec."Qty. to Invoice")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Quantity Shipped"; Rec."Quantity Shipped")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Quantity Invoiced"; Rec."Quantity Invoiced")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Currency Code"; Rec."Currency Code")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Location Code"; Rec."Location Code")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Unit Cost"; Rec."Unit Cost")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Total Cost"; Rec."Total Cost")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Line Amount"; Rec."Line Amount")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Line Discount Amount"; Rec."Line Discount Amount")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Line Discount %"; Rec."Line Discount %")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Shipment Method Code"; Rec."Shipment Method Code")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Shipping Agent Code"; Rec."Shipping Agent Code")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Payment Terms Code"; Rec."Payment Terms Code")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Payment Method Code"; Rec."Payment Method Code")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Due Date"; Rec."Due Date")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Payment Discount %"; Rec."Payment Discount %")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Pmt. Discount Date"; Rec."Pmt. Discount Date")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Gen. Bus. Posting Group"; Rec."Gen. Bus. Posting Group")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Customer Posting Group"; Rec."Customer Posting Group")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Salesperson Code"; Rec."Salesperson Code")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Responsibility Center"; Rec."Responsibility Center")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Prepayment %"; Rec."Prepayment %")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Prepmt. Payment Terms Code"; Rec."Prepmt. Payment Terms Code")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Prepayment Due Date"; Rec."Prepayment Due Date")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Prepmt. Payment Discount %"; Rec."Prepmt. Payment Discount %")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Prepmt. Pmt. Discount Date"; Rec."Prepmt. Pmt. Discount Date")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Net Weight"; Rec."Net Weight")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Gross Weight"; Rec."Gross Weight")
                 {
-
+                    Visible = ShowLine;
                 }
                 field("Reason Code"; Rec."Reason Code")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
-
+                    Visible = ShowHeader;
                 }
                 field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
-
+                    Visible = ShowHeader;
+                }
+                field("Shortcut Dimension 3 Code"; Rec."Shortcut Dimension 3 Code")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Shortcut Dimension 4 Code"; Rec."Shortcut Dimension 4 Code")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Shortcut Dimension 5 Code"; Rec."Shortcut Dimension 5 Code")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Shortcut Dimension 6 Code"; Rec."Shortcut Dimension 6 Code")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code")
+                {
+                    Visible = ShowHeader;
+                }
+                field("Shortcut Dimension 8 Code"; Rec."Shortcut Dimension 8 Code")
+                {
+                    Visible = ShowHeader;
                 }
                 field("Promised Delivery Date"; Rec."Promised Delivery Date")
                 {
-
+                    Visible = ShowHeader;
                 }
             }
         }
@@ -364,9 +388,9 @@ page 50001 "Sales Inquiry Subform"
         SalesInvoice := pSInv;
         SalesCreditMemo := pSCrMemo;
         SalesReturnOrder := pSRO;
-        //CloesdOrder := pSCO;
         PostedSalesInvoice := pPSInv;
         PostedSalesCrMemo := pPCrMemo;
+        //CloesdOrder := pSCO;
     end;
 
     procedure SetHeaderFilter(pSellToCust: Text; pBillToCust: Text; pPostDate: Text; pOrdDate: Text);
@@ -455,36 +479,35 @@ page 50001 "Sales Inquiry Subform"
         DocFilter: Text;
     begin
         DocFilter := '';
-        IF SalesQuote
-          THEN
+        if SalesQuote then
             DocFilter := '0';
 
-        IF SalesOrder AND (DocFilter <> '') THEN
+        if SalesOrder and (DocFilter <> '') then
             DocFilter := DocFilter + '|1';
-        IF SalesOrder AND (DocFilter = '') THEN
+        if SalesOrder and (DocFilter = '') then
             DocFilter := '1';
 
-        IF SalesInvoice AND (DocFilter <> '') THEN
+        if SalesInvoice and (DocFilter <> '') then
             DocFilter := DocFilter + '|2';
-        IF SalesInvoice AND (DocFilter = '') THEN
+        if SalesInvoice and (DocFilter = '') then
             DocFilter := '2';
 
-        IF SalesCreditMemo AND (DocFilter <> '') THEN
+        if SalesCreditMemo and (DocFilter <> '') then
             DocFilter := DocFilter + '|3';
-        IF SalesCreditMemo AND (DocFilter = '') THEN
+        if SalesCreditMemo and (DocFilter = '') then
             DocFilter := '3';
 
-        IF SalesReturnOrder AND (DocFilter <> '') THEN
+        if SalesReturnOrder and (DocFilter <> '') then
             DocFilter := DocFilter + '|5';
-        IF SalesReturnOrder AND (DocFilter = '') THEN
+        if SalesReturnOrder and (DocFilter = '') then
             DocFilter := '5';
 
-        IF CloesdOrder AND (DocFilter <> '') THEN
+        if CloesdOrder and (DocFilter <> '') then
             DocFilter := DocFilter + '|10';
-        IF CloesdOrder AND (DocFilter = '') THEN
+        if CloesdOrder and (DocFilter = '') then
             DocFilter := '10';
 
-        IF DocFilter <> '' THEN BEGIN
+        if DocFilter <> '' then begin
             SalesHdr.Reset();
             SalesLine.Reset();
             if DocFilter <> '' then
@@ -497,19 +520,19 @@ page 50001 "Sales Inquiry Subform"
                 SalesHdr.SetFilter("Posting Date", PostingDateFilter);
             if OrderDateFilter <> '' then
                 SalesHdr.SetFilter("Order Date", OrderDateFilter);
-            IF SalesHdr.FINDSET THEN
-                REPEAT
-                    SalesLine.SETRANGE("Document Type", SalesHdr."Document Type");
-                    SalesLine.SETRANGE("Document No.", SalesHdr."No.");
-                    SalesLine.SETFILTER(Type, '<>%1', SalesLine.Type::" ");
+            if SalesHdr.FindSet() then
+                repeat
+                    SalesLine.SetRange("Document Type", SalesHdr."Document Type");
+                    SalesLine.SetRange("Document No.", SalesHdr."No.");
+                    SalesLine.SetFilter(Type, '<>%1', SalesLine.Type::" ");
                     if not ShowZeroAmtLine then
                         SalesLine.SetFilter(Amount, '<>0');
-                    IF ItemFilter <> '' THEN
-                        SalesLine.SETFILTER("No.", ItemFilter);
-                    IF SalesLine.FINDSET THEN
-                        REPEAT
-                            Rec.INIT;
-                            CASE SalesLine."Document Type" OF
+                    if ItemFilter <> '' then
+                        SalesLine.SetFilter("No.", ItemFilter);
+                    if SalesLine.FindSet() then
+                        repeat
+                            Rec.Init();
+                            case SalesLine."Document Type" of
                                 SalesLine."Document Type"::Quote:
                                     Rec."Document Type" := Rec."Document Type"::Quote;
                                 SalesLine."Document Type"::Order:
@@ -522,7 +545,7 @@ page 50001 "Sales Inquiry Subform"
                                     Rec."Document Type" := Rec."Document Type"::"Return Order";
                             //SalesLine."Document Type"::"Closed Order":
                             //Rec."Document Type" := Rec."Document Type"::"Closed Order";
-                            END;
+                            end;
                             SetFixedFields(CurrGUID);
                             Rec."Document No." := SalesLine."Document No.";
                             Rec."Order Status" := SalesHdr.Status;
@@ -616,7 +639,7 @@ page 50001 "Sales Inquiry Subform"
                             decTotalQty := Rec.Quantity;
                             decTotalAmount := Rec."Line Amount";
                             decTotalAmountInclVAT := Rec."Line Amount" * (1 + SalesLine."VAT %" / 100);
-                            IF Rec."Currency Code" <> '' THEN BEGIN
+                            if Rec."Currency Code" <> '' then begin
                                 decTotalAmount :=
                                   ROUND(
                                     CurrExchRate.ExchangeAmtFCYToLCY(
@@ -629,20 +652,20 @@ page 50001 "Sales Inquiry Subform"
                                       GetDate(Rec."Posting Date"), Rec."Currency Code", decTotalAmountInclVAT,
                                       SalesHdr."Currency Factor"),
                                     GLSetup."Amount Rounding Precision");
-                            END;
+                            end;
                             decTotalQty += decTotalQty;
                             decTotalAmount += decTotalAmount;
                             decTotalAmountInclVAT += decTotalAmountInclVAT;
                             Rec.INSERT;
                         UNTIL SalesLine.NEXT = 0;
                 UNTIL SalesHdr.NEXT = 0;
-        END;
+        end;
     end;
 
     procedure FindPostedSalesInvoice(CurrGUID: Guid);
     var
     begin
-        IF PostedSalesInvoice THEN BEGIN
+        if PostedSalesInvoice then begin
             SalesInvHdr.Reset();
             SalesInvLine.Reset();
             if SelltoCustomerFilter <> '' then
@@ -654,17 +677,17 @@ page 50001 "Sales Inquiry Subform"
             if OrderDateFilter <> '' then
                 SalesInvHdr.SetFilter("Order Date", OrderDateFilter);
             if SalesInvHdr.FindSet() then
-                REPEAT
+                repeat
                     SalesInvHdr.CalcFields(Comment, Amount, "Amount Including VAT");
-                    SalesInvLine.SETRANGE("Document No.", SalesInvHdr."No.");
-                    SalesInvLine.SETFILTER(Type, '<>%1', SalesInvLine.Type::" ");
+                    SalesInvLine.SetRange("Document No.", SalesInvHdr."No.");
+                    SalesInvLine.SetFilter(Type, '<>%1', SalesInvLine.Type::" ");
                     if not ShowZeroAmtLine then
                         SalesInvLine.SetFilter(Amount, '<>0');
-                    IF ItemFilter <> '' THEN
-                        SalesInvLine.SETFILTER("No.", ItemFilter);
-                    IF SalesInvLine.FINDSET THEN
-                        REPEAT
-                            Rec.INIT;
+                    if ItemFilter <> '' then
+                        SalesInvLine.SetFilter("No.", ItemFilter);
+                    if SalesInvLine.FindSet() then
+                        repeat
+                            Rec.Init();
                             SetFixedFields(CurrGUID);
                             Rec."Document Type" := Rec."Document Type"::"Posted Invoice";
                             Rec."Document No." := SalesInvLine."Document No.";
@@ -743,7 +766,7 @@ page 50001 "Sales Inquiry Subform"
                             Rec.TotalQty := Rec.Quantity;
                             Rec.TotalAmount := Rec."Line Amount";
                             Rec.TotalAmountInclVAT := Rec."Line Amount" * (1 + SalesInvLine."VAT %" / 100);
-                            IF Rec."Currency Code" <> '' THEN BEGIN
+                            if Rec."Currency Code" <> '' then begin
                                 Rec.TotalAmount :=
                                     ROUND(CurrExchRate.ExchangeAmtFCYToLCY(GetDate(Rec."Posting Date"),
                                           Rec."Currency Code", Rec.TotalAmount, SalesInvHdr."Currency Factor"),
@@ -752,19 +775,19 @@ page 50001 "Sales Inquiry Subform"
                                     ROUND(CurrExchRate.ExchangeAmtFCYToLCY(GetDate(Rec."Posting Date"),
                                           Rec."Currency Code", Rec.TotalAmountInclVAT, SalesInvHdr."Currency Factor"),
                                           GLSetup."Amount Rounding Precision");
-                            END;
+                            end;
                             decTotalQty += Rec.TotalQty;
                             decTotalAmount += Rec.TotalAmount;
                             decTotalAmountInclVAT += Rec.TotalAmountInclVAT;
                             Rec.INSERT;
                         UNTIL SalesInvLine.NEXT = 0;
                 UNTIL SalesInvHdr.NEXT = 0;
-        END;
+        end;
     end;
 
     procedure FindPostedSalesCrMemo(CurrGUID: Guid);
     begin
-        IF PostedSalesCrMemo THEN BEGIN
+        if PostedSalesCrMemo then begin
             SalesCrMemoHdr.Reset();
             SalesCrMemoLine.Reset();
             if SelltoCustomerFilter <> '' then
@@ -775,18 +798,18 @@ page 50001 "Sales Inquiry Subform"
                 SalesCrMemoHdr.SetFilter("Posting Date", PostingDateFilter);
             if OrderDateFilter <> '' then
                 SalesCrMemoHdr.SetFilter("Document Date", OrderDateFilter);
-            IF SalesCrMemoHdr.FINDSET THEN
-                REPEAT
+            if SalesCrMemoHdr.FindSet() then
+                repeat
                     SalesCrMemoHdr.CalcFields(Comment, Amount, "Amount Including VAT");
-                    SalesCrMemoLine.SETRANGE("Document No.", SalesCrMemoHdr."No.");
-                    SalesCrMemoLine.SETFILTER(Type, '<>%1', SalesCrMemoLine.Type::" ");
+                    SalesCrMemoLine.SetRange("Document No.", SalesCrMemoHdr."No.");
+                    SalesCrMemoLine.SetFilter(Type, '<>%1', SalesCrMemoLine.Type::" ");
                     if not ShowZeroAmtLine then
                         SalesCrMemoLine.SetFilter(Amount, '<>0');
-                    IF ItemFilter <> '' THEN
-                        SalesCrMemoLine.SETFILTER("No.", ItemFilter);
-                    IF SalesCrMemoLine.FINDSET THEN
-                        REPEAT
-                            Rec.INIT;
+                    if ItemFilter <> '' then
+                        SalesCrMemoLine.SetFilter("No.", ItemFilter);
+                    if SalesCrMemoLine.FindSet() then
+                        repeat
+                            Rec.Init();
                             SetFixedFields(CurrGUID);
                             Rec."Document Type" := Rec."Document Type"::"Posted Credit Memo";
                             Rec."Document No." := SalesCrMemoLine."Document No.";
@@ -863,7 +886,7 @@ page 50001 "Sales Inquiry Subform"
                             Rec.TotalQty := Rec.Quantity;
                             Rec.TotalAmount := Rec."Line Amount";
                             Rec.TotalAmountInclVAT := Rec."Line Amount" * (1 + SalesCrMemoLine."VAT %" / 100);
-                            IF Rec."Currency Code" <> '' THEN BEGIN
+                            if Rec."Currency Code" <> '' then begin
                                 Rec.TotalAmount :=
                                     ROUND(CurrExchRate.ExchangeAmtFCYToLCY(GetDate(Rec."Posting Date"),
                                           Rec."Currency Code", Rec.TotalAmount, SalesCrMemoHdr."Currency Factor"),
@@ -872,23 +895,23 @@ page 50001 "Sales Inquiry Subform"
                                     ROUND(CurrExchRate.ExchangeAmtFCYToLCY(GetDate(Rec."Posting Date"),
                                           Rec."Currency Code", Rec.TotalAmountInclVAT, SalesCrMemoHdr."Currency Factor"),
                                           GLSetup."Amount Rounding Precision");
-                            END;
+                            end;
                             decTotalQty += Rec.TotalQty;
                             decTotalAmount += Rec.TotalAmount;
                             decTotalAmountInclVAT += Rec.TotalAmountInclVAT;
                             Rec.INSERT;
                         UNTIL SalesCrMemoLine.NEXT = 0;
                 UNTIL SalesCrMemoHdr.NEXT = 0;
-        END;
+        end;
     end;
 
     local procedure GetDate(RecDate: Date): Date;
-    BEGIN
-        IF RecDate <> 0D THEN
+    begin
+        if RecDate <> 0D then
             EXIT(RecDate)
         ELSE
             EXIT(WORKDATE);
-    END;
+    end;
 
     procedure ExportDataToExcel(ShowTrackingInfo: Boolean);
     var
@@ -904,7 +927,7 @@ page 50001 "Sales Inquiry Subform"
         decRemainingQty: Decimal;
         lrecItemLedgerEntry: Record 32;
         lresShipmentLine: Record 111;
-    BEGIN
+    begin
         TempExcelBuffer.DELETEALL;
         CLEAR(TempExcelBuffer);
 
@@ -992,31 +1015,31 @@ page 50001 "Sales Inquiry Subform"
         EnterCell(RowNo, 78, Rec.FIELDCAPTION("Shortcut Dimension 8 Code"), TRUE, FALSE, FALSE, '@');
         EnterCell(RowNo, 79, Rec.FIELDCAPTION("Expected Delivery Date"), TRUE, FALSE, FALSE, '@');
         EnterCell(RowNo, 80, Rec.FIELDCAPTION("Promised Delivery Date"), TRUE, FALSE, FALSE, '@');
-        IF ShowTrackingInfo THEN BEGIN
+        if ShowTrackingInfo then begin
             EnterCell(RowNo, 81, lrReservEntry.FIELDCAPTION("Serial No."), TRUE, FALSE, FALSE, '@');
             EnterCell(RowNo, 82, lrReservEntry.FIELDCAPTION("Lot No."), TRUE, FALSE, FALSE, '@');
             EnterCell(RowNo, 83, lrReservEntry.FIELDCAPTION("Expiration Date"), TRUE, FALSE, FALSE, '@');
             EnterCell(RowNo, 84, lrReservEntry.FIELDCAPTION(Quantity), TRUE, FALSE, FALSE, '@');
-        END;
+        end;
 
-        IF Rec.FINDSET THEN
-            REPEAT
+        if Rec.FindSet() then
+            repeat
                 RowNo += 1;
 
                 EnterCell(RowNo, 1, FORMAT(Rec."Document Type"), FALSE, FALSE, FALSE, '@');
                 EnterCell(RowNo, 2, FORMAT(Rec."Document No."), FALSE, FALSE, FALSE, '@');
                 EnterCell(RowNo, 3, FORMAT(Rec."Line No."), FALSE, FALSE, FALSE, '');
-                IF Rec."Customer PO No." <> '' THEN
+                if Rec."Customer PO No." <> '' then
                     EnterCell(RowNo, 4, FORMAT(Rec."Customer PO No."), FALSE, FALSE, FALSE, '@');
-                //IF Rec."Posted Sales Invoice No." <> '' THEN
+                //if Rec."Posted Sales Invoice No." <> '' then
                 //EnterCell(RowNo, 5, FORMAT(Rec."Posted Sales Invoice No."), FALSE, FALSE, FALSE, '@');
-                IF Rec."Requested Delivery Date" <> 0D THEN
+                if Rec."Requested Delivery Date" <> 0D then
                     EnterCell(RowNo, 6, FORMAT(Rec."Requested Delivery Date"), FALSE, FALSE, FALSE, '');
-                IF Rec."Planned Delivery Date" <> 0D THEN
+                if Rec."Planned Delivery Date" <> 0D then
                     EnterCell(RowNo, 7, FORMAT(Rec."Planned Delivery Date"), FALSE, FALSE, FALSE, '');
-                IF Rec."Planned Shipment Date" <> 0D THEN
+                if Rec."Planned Shipment Date" <> 0D then
                     EnterCell(RowNo, 8, FORMAT(Rec."Planned Shipment Date"), FALSE, FALSE, FALSE, '');
-                IF Rec."Shipment Date" <> 0D THEN
+                if Rec."Shipment Date" <> 0D then
                     EnterCell(RowNo, 9, FORMAT(Rec."Shipment Date"), FALSE, FALSE, FALSE, '');
                 EnterCell(RowNo, 10, FORMAT(Rec."Customer No."), FALSE, FALSE, FALSE, '@');
                 EnterCell(RowNo, 11, FORMAT(Rec."Customer Name"), FALSE, FALSE, FALSE, '@');
@@ -1082,37 +1105,37 @@ page 50001 "Sales Inquiry Subform"
                 EnterCell(RowNo, 67, FORMAT(Rec."Prepmt. Pmt. Discount Date"), FALSE, FALSE, FALSE, '');
                 EnterCell(RowNo, 68, FORMAT(Rec."Net Weight"), FALSE, FALSE, FALSE, '');
                 EnterCell(RowNo, 69, FORMAT(Rec."Gross Weight"), FALSE, FALSE, FALSE, '');
-                IF Rec."Reason Code" <> '' THEN
+                if Rec."Reason Code" <> '' then
                     EnterCell(RowNo, 70, FORMAT(Rec."Reason Code"), FALSE, FALSE, FALSE, '@');
-                IF Rec."Global Dimension 1 Code" <> '' THEN
+                if Rec."Global Dimension 1 Code" <> '' then
                     EnterCell(RowNo, 71, FORMAT(Rec."Global Dimension 1 Code"), FALSE, FALSE, FALSE, '@');
-                IF Rec."Global Dimension 2 Code" <> '' THEN
+                if Rec."Global Dimension 2 Code" <> '' then
                     EnterCell(RowNo, 72, FORMAT(Rec."Global Dimension 2 Code"), FALSE, FALSE, FALSE, '@');
-                IF Rec."Shortcut Dimension 3 Code" <> '' THEN
+                if Rec."Shortcut Dimension 3 Code" <> '' then
                     EnterCell(RowNo, 73, FORMAT(Rec."Shortcut Dimension 3 Code"), FALSE, FALSE, FALSE, '@');
-                IF Rec."Shortcut Dimension 4 Code" <> '' THEN
+                if Rec."Shortcut Dimension 4 Code" <> '' then
                     EnterCell(RowNo, 74, FORMAT(Rec."Shortcut Dimension 4 Code"), FALSE, FALSE, FALSE, '@');
-                IF Rec."Shortcut Dimension 5 Code" <> '' THEN
+                if Rec."Shortcut Dimension 5 Code" <> '' then
                     EnterCell(RowNo, 75, FORMAT(Rec."Shortcut Dimension 5 Code"), FALSE, FALSE, FALSE, '@');
-                IF Rec."Shortcut Dimension 6 Code" <> '' THEN
+                if Rec."Shortcut Dimension 6 Code" <> '' then
                     EnterCell(RowNo, 76, FORMAT(Rec."Shortcut Dimension 6 Code"), FALSE, FALSE, FALSE, '@');
-                IF Rec."Shortcut Dimension 7 Code" <> '' THEN
+                if Rec."Shortcut Dimension 7 Code" <> '' then
                     EnterCell(RowNo, 77, FORMAT(Rec."Shortcut Dimension 7 Code"), FALSE, FALSE, FALSE, '@');
-                IF Rec."Shortcut Dimension 8 Code" <> '' THEN
+                if Rec."Shortcut Dimension 8 Code" <> '' then
                     EnterCell(RowNo, 78, FORMAT(Rec."Shortcut Dimension 8 Code"), FALSE, FALSE, FALSE, '@');
                 EnterCell(RowNo, 79, FORMAT(Rec."Expected Delivery Date"), TRUE, FALSE, FALSE, '');
                 EnterCell(RowNo, 80, FORMAT(Rec."Promised Delivery Date"), TRUE, FALSE, FALSE, '');
 
-                IF ShowTrackingInfo THEN BEGIN
-                    CASE Rec."Document Type" OF
+                if ShowTrackingInfo then begin
+                    case Rec."Document Type" of
                         Rec."Document Type"::Quote,
                         Rec."Document Type"::Order,
                         Rec."Document Type"::Invoice,
                         Rec."Document Type"::"Credit Memo",
                         Rec."Document Type"::"Closed Order":
-                            BEGIN
-                                //PBCJP-TRD-002-003: END
-                                IF SalesLine.GET(Rec."Document Type", Rec."Document No.", Rec."Line No.") THEN BEGIN
+                            begin
+                                //PBCJP-TRD-002-003: end
+                                if SalesLine.GET(Rec."Document Type", Rec."Document No.", Rec."Line No.") then begin
                                     if SalesLine.ReservEntryExist() then begin
                                         lrReservEntry.Reset();
                                         lrReservEntry.SetCurrentKey("Source Type", "Source Subtype", "Source ID", "Source Ref. No.");
@@ -1121,147 +1144,147 @@ page 50001 "Sales Inquiry Subform"
                                         lrReservEntry.SetRange("Source ID", SalesLine."Document No.");
                                         lrReservEntry.SetRange("Source Ref. No.", SalesLine."Line No.");
                                         if lrReservEntry.FindSet() then
-                                            REPEAT
-                                                IF (lrReservEntry."Serial No." <> '') OR (lrReservEntry."Lot No." <> '') THEN BEGIN
+                                            repeat
+                                                if (lrReservEntry."Serial No." <> '') OR (lrReservEntry."Lot No." <> '') then begin
                                                     RowNo += 1;
-                                                    IF lrReservEntry."Serial No." <> '' THEN
+                                                    if lrReservEntry."Serial No." <> '' then
                                                         EnterCell(RowNo, 81, FORMAT(lrReservEntry."Serial No."), FALSE, FALSE, FALSE, '@');
-                                                    IF lrReservEntry."Lot No." <> '' THEN
+                                                    if lrReservEntry."Lot No." <> '' then
                                                         EnterCell(RowNo, 82, FORMAT(lrReservEntry."Lot No."), FALSE, FALSE, FALSE, '@');
-                                                    IF lrReservEntry."Expiration Date" <> 0D THEN
+                                                    if lrReservEntry."Expiration Date" <> 0D then
                                                         EnterCell(RowNo, 83, FORMAT(lrReservEntry."Expiration Date"), FALSE, FALSE, FALSE, '')
-                                                    ELSE BEGIN
+                                                    ELSE begin
                                                         lrecItemLedgerEntry.RESET;
-                                                        lrecItemLedgerEntry.SETRANGE("Item No.", lrReservEntry."Item No.");
-                                                        lrecItemLedgerEntry.SETRANGE("Variant Code", lrReservEntry."Variant Code");
-                                                        lrecItemLedgerEntry.SETRANGE("Lot No.", lrReservEntry."Lot No.");
-                                                        lrecItemLedgerEntry.SETRANGE("Serial No.", lrReservEntry."Serial No.");
-                                                        IF lrecItemLedgerEntry.FINDFIRST THEN BEGIN
-                                                            IF lrecItemLedgerEntry."Expiration Date" <> 0D THEN
+                                                        lrecItemLedgerEntry.SetRange("Item No.", lrReservEntry."Item No.");
+                                                        lrecItemLedgerEntry.SetRange("Variant Code", lrReservEntry."Variant Code");
+                                                        lrecItemLedgerEntry.SetRange("Lot No.", lrReservEntry."Lot No.");
+                                                        lrecItemLedgerEntry.SetRange("Serial No.", lrReservEntry."Serial No.");
+                                                        if lrecItemLedgerEntry.FINDFIRST then begin
+                                                            if lrecItemLedgerEntry."Expiration Date" <> 0D then
                                                                 EnterCell(RowNo, 83, FORMAT(lrecItemLedgerEntry."Expiration Date"), FALSE, FALSE, FALSE, '')
-                                                        END;
-                                                    END;
+                                                        end;
+                                                    end;
                                                     EnterCell(RowNo, 84, FORMAT(-lrReservEntry.Quantity), FALSE, FALSE, FALSE, '');
-                                                END;
+                                                end;
                                             UNTIL lrReservEntry.NEXT = 0;
                                     end;
                                     lresShipmentLine.RESET;
                                     lresShipmentLine.SETCURRENTKEY("Order No.", "Order Line No.");
-                                    lresShipmentLine.SETRANGE("Order No.", Rec."Document No.");
-                                    lresShipmentLine.SETRANGE("Order Line No.", Rec."Line No.");
-                                    IF lresShipmentLine.FINDSET THEN
-                                        REPEAT
+                                    lresShipmentLine.SetRange("Order No.", Rec."Document No.");
+                                    lresShipmentLine.SetRange("Order Line No.", Rec."Line No.");
+                                    if lresShipmentLine.FindSet() then
+                                        repeat
                                             CLEAR(TempItemLedgEntry);
                                             TempItemLedgEntry.DELETEALL;
                                             CLEAR(ItemTrackingMgmt);
                                             RetrieveILEFromShptRcpt(TempItemLedgEntry,
                                            DATABASE::"Sales Shipment Line", 0, lresShipmentLine."Document No.", '', 0, lresShipmentLine."Line No.");
-                                            IF TempItemLedgEntry.FINDSET THEN
-                                                REPEAT
-                                                    IF (TempItemLedgEntry."Serial No." <> '') OR (TempItemLedgEntry."Lot No." <> '') THEN BEGIN
+                                            if TempItemLedgEntry.FindSet() then
+                                                repeat
+                                                    if (TempItemLedgEntry."Serial No." <> '') OR (TempItemLedgEntry."Lot No." <> '') then begin
                                                         RowNo += 1;
-                                                        IF TempItemLedgEntry."Serial No." <> '' THEN
+                                                        if TempItemLedgEntry."Serial No." <> '' then
                                                             EnterCell(RowNo, 81, FORMAT(TempItemLedgEntry."Serial No."), FALSE, FALSE, FALSE, '@');
-                                                        IF TempItemLedgEntry."Lot No." <> '' THEN
+                                                        if TempItemLedgEntry."Lot No." <> '' then
                                                             EnterCell(RowNo, 82, FORMAT(TempItemLedgEntry."Lot No."), FALSE, FALSE, FALSE, '@');
-                                                        IF TempItemLedgEntry."Expiration Date" <> 0D THEN
+                                                        if TempItemLedgEntry."Expiration Date" <> 0D then
                                                             EnterCell(RowNo, 83, FORMAT(TempItemLedgEntry."Expiration Date"), FALSE, FALSE, FALSE, '')
-                                                        ELSE BEGIN
+                                                        ELSE begin
                                                             lrecItemLedgerEntry.RESET;
-                                                            lrecItemLedgerEntry.SETRANGE("Item No.", TempItemLedgEntry."Item No.");
-                                                            lrecItemLedgerEntry.SETRANGE("Variant Code", TempItemLedgEntry."Variant Code");
-                                                            lrecItemLedgerEntry.SETRANGE("Lot No.", TempItemLedgEntry."Lot No.");
-                                                            lrecItemLedgerEntry.SETRANGE("Serial No.", TempItemLedgEntry."Serial No.");
-                                                            IF lrecItemLedgerEntry.FINDFIRST THEN BEGIN
-                                                                IF lrecItemLedgerEntry."Expiration Date" <> 0D THEN
+                                                            lrecItemLedgerEntry.SetRange("Item No.", TempItemLedgEntry."Item No.");
+                                                            lrecItemLedgerEntry.SetRange("Variant Code", TempItemLedgEntry."Variant Code");
+                                                            lrecItemLedgerEntry.SetRange("Lot No.", TempItemLedgEntry."Lot No.");
+                                                            lrecItemLedgerEntry.SetRange("Serial No.", TempItemLedgEntry."Serial No.");
+                                                            if lrecItemLedgerEntry.FINDFIRST then begin
+                                                                if lrecItemLedgerEntry."Expiration Date" <> 0D then
                                                                     EnterCell(RowNo, 83, FORMAT(lrecItemLedgerEntry."Expiration Date"), FALSE, FALSE, FALSE, '')
-                                                            END;
-                                                        END;
+                                                            end;
+                                                        end;
                                                         EnterCell(RowNo, 84, FORMAT(TempItemLedgEntry.Quantity), FALSE, FALSE, FALSE, '');
-                                                    END;
+                                                    end;
                                                 UNTIL TempItemLedgEntry.NEXT = 0;
                                         UNTIL lresShipmentLine.NEXT = 0;
-                                END;
-                            END;
+                                end;
+                            end;
                         Rec."Document Type"::"Posted Invoice":
-                            BEGIN
-                                IF SalesInvLine.GET(Rec."Document No.", Rec."Line No.") THEN BEGIN
+                            begin
+                                if SalesInvLine.GET(Rec."Document No.", Rec."Line No.") then begin
                                     CLEAR(TempItemLedgEntry);
                                     TempItemLedgEntry.DELETEALL;
                                     CLEAR(ItemTrackingMgmt);
                                     RetrieveILEFromPostedInv(TempItemLedgEntry, SalesInvLine.RowID1);
-                                    IF TempItemLedgEntry.FINDSET THEN
-                                        REPEAT
-                                            IF (TempItemLedgEntry."Serial No." <> '') OR (TempItemLedgEntry."Lot No." <> '') THEN BEGIN
+                                    if TempItemLedgEntry.FindSet() then
+                                        repeat
+                                            if (TempItemLedgEntry."Serial No." <> '') OR (TempItemLedgEntry."Lot No." <> '') then begin
                                                 RowNo += 1;
-                                                IF TempItemLedgEntry."Serial No." <> '' THEN
+                                                if TempItemLedgEntry."Serial No." <> '' then
                                                     EnterCell(RowNo, 81, FORMAT(TempItemLedgEntry."Serial No."), FALSE, FALSE, FALSE, '@');
-                                                IF TempItemLedgEntry."Lot No." <> '' THEN
+                                                if TempItemLedgEntry."Lot No." <> '' then
                                                     EnterCell(RowNo, 82, FORMAT(TempItemLedgEntry."Lot No."), FALSE, FALSE, FALSE, '@');
-                                                IF TempItemLedgEntry."Expiration Date" <> 0D THEN
+                                                if TempItemLedgEntry."Expiration Date" <> 0D then
                                                     EnterCell(RowNo, 83, FORMAT(TempItemLedgEntry."Expiration Date"), FALSE, FALSE, FALSE, '')
-                                                ELSE BEGIN
+                                                ELSE begin
                                                     lrecItemLedgerEntry.RESET;
-                                                    lrecItemLedgerEntry.SETRANGE("Item No.", TempItemLedgEntry."Item No.");
-                                                    lrecItemLedgerEntry.SETRANGE("Variant Code", TempItemLedgEntry."Variant Code");
-                                                    lrecItemLedgerEntry.SETRANGE("Lot No.", TempItemLedgEntry."Lot No.");
-                                                    lrecItemLedgerEntry.SETRANGE("Serial No.", TempItemLedgEntry."Serial No.");
-                                                    IF lrecItemLedgerEntry.FINDFIRST THEN BEGIN
-                                                        IF lrecItemLedgerEntry."Expiration Date" <> 0D THEN
+                                                    lrecItemLedgerEntry.SetRange("Item No.", TempItemLedgEntry."Item No.");
+                                                    lrecItemLedgerEntry.SetRange("Variant Code", TempItemLedgEntry."Variant Code");
+                                                    lrecItemLedgerEntry.SetRange("Lot No.", TempItemLedgEntry."Lot No.");
+                                                    lrecItemLedgerEntry.SetRange("Serial No.", TempItemLedgEntry."Serial No.");
+                                                    if lrecItemLedgerEntry.FINDFIRST then begin
+                                                        if lrecItemLedgerEntry."Expiration Date" <> 0D then
                                                             EnterCell(RowNo, 83, FORMAT(lrecItemLedgerEntry."Expiration Date"), FALSE, FALSE, FALSE, '')
-                                                    END;
-                                                END;
+                                                    end;
+                                                end;
                                                 EnterCell(RowNo, 84, FORMAT(TempItemLedgEntry.Quantity), FALSE, FALSE, FALSE, '');
-                                            END;
+                                            end;
                                         UNTIL TempItemLedgEntry.NEXT = 0;
-                                END;
-                            END;
+                                end;
+                            end;
                         Rec."Document Type"::"Posted Credit Memo":
-                            BEGIN
-                                IF lrecSalesCrMemoLine.GET(Rec."Document No.", Rec."Line No.") THEN BEGIN
+                            begin
+                                if lrecSalesCrMemoLine.GET(Rec."Document No.", Rec."Line No.") then begin
                                     CLEAR(TempItemLedgEntry);
                                     TempItemLedgEntry.DELETEALL;
                                     CLEAR(ItemTrackingMgmt);
                                     RetrieveILEFromPostedInv(TempItemLedgEntry, lrecSalesCrMemoLine.RowID1);
-                                    IF TempItemLedgEntry.FINDSET THEN
-                                        REPEAT
-                                            IF (TempItemLedgEntry."Serial No." <> '') OR (TempItemLedgEntry."Lot No." <> '') THEN BEGIN
+                                    if TempItemLedgEntry.FindSet() then
+                                        repeat
+                                            if (TempItemLedgEntry."Serial No." <> '') OR (TempItemLedgEntry."Lot No." <> '') then begin
                                                 RowNo += 1;
-                                                IF TempItemLedgEntry."Serial No." <> '' THEN
+                                                if TempItemLedgEntry."Serial No." <> '' then
                                                     EnterCell(RowNo, 81, FORMAT(TempItemLedgEntry."Serial No."), FALSE, FALSE, FALSE, '@');
-                                                IF TempItemLedgEntry."Lot No." <> '' THEN
+                                                if TempItemLedgEntry."Lot No." <> '' then
                                                     EnterCell(RowNo, 82, FORMAT(TempItemLedgEntry."Lot No."), FALSE, FALSE, FALSE, '@');
-                                                IF TempItemLedgEntry."Expiration Date" <> 0D THEN
+                                                if TempItemLedgEntry."Expiration Date" <> 0D then
                                                     EnterCell(RowNo, 83, FORMAT(TempItemLedgEntry."Expiration Date"), FALSE, FALSE, FALSE, '')
-                                                ELSE BEGIN
+                                                ELSE begin
                                                     lrecItemLedgerEntry.RESET;
-                                                    lrecItemLedgerEntry.SETRANGE("Item No.", TempItemLedgEntry."Item No.");
-                                                    lrecItemLedgerEntry.SETRANGE("Variant Code", TempItemLedgEntry."Variant Code");
-                                                    lrecItemLedgerEntry.SETRANGE("Lot No.", TempItemLedgEntry."Lot No.");
-                                                    lrecItemLedgerEntry.SETRANGE("Serial No.", TempItemLedgEntry."Serial No.");
-                                                    IF lrecItemLedgerEntry.FINDFIRST THEN BEGIN
-                                                        IF lrecItemLedgerEntry."Expiration Date" <> 0D THEN
+                                                    lrecItemLedgerEntry.SetRange("Item No.", TempItemLedgEntry."Item No.");
+                                                    lrecItemLedgerEntry.SetRange("Variant Code", TempItemLedgEntry."Variant Code");
+                                                    lrecItemLedgerEntry.SetRange("Lot No.", TempItemLedgEntry."Lot No.");
+                                                    lrecItemLedgerEntry.SetRange("Serial No.", TempItemLedgEntry."Serial No.");
+                                                    if lrecItemLedgerEntry.FINDFIRST then begin
+                                                        if lrecItemLedgerEntry."Expiration Date" <> 0D then
                                                             EnterCell(RowNo, 83, FORMAT(lrecItemLedgerEntry."Expiration Date"), FALSE, FALSE, FALSE, '')
-                                                    END;
-                                                END;
+                                                    end;
+                                                end;
                                                 EnterCell(RowNo, 84, FORMAT(TempItemLedgEntry.Quantity), FALSE, FALSE, FALSE, '');
-                                            END;
+                                            end;
                                         UNTIL TempItemLedgEntry.NEXT = 0;
-                                END;
-                            END;
-                    END;
-                END;
+                                end;
+                            end;
+                    end;
+                end;
             UNTIL Rec.NEXT = 0;
 
         this.TempExcelBuffer.WriteSheet('Sales Inquiry', CompanyName, UserId);
         this.TempExcelBuffer.CloseBook();
         this.TempExcelBuffer.SetFriendlyFilename(StrSubstNo('Sales Inquiry', CurrentDateTime, UserId));
         this.TempExcelBuffer.OpenExcel();
-    END;
+    end;
 
     local procedure EnterCell(RowNo: Integer; ColumnNo: Integer; CellValue: Text[250]; Bold: Boolean; Italic: Boolean; UnderLine: Boolean; NumberFormat: Text[50]);
-    BEGIN
-        TempExcelBuffer.INIT;
+    begin
+        TempExcelBuffer.Init();
         TempExcelBuffer.VALIDATE("Row No.", RowNo);
         TempExcelBuffer.VALIDATE("Column No.", ColumnNo);
         TempExcelBuffer."Cell Value as Text" := CellValue;
@@ -1271,7 +1294,7 @@ page 50001 "Sales Inquiry Subform"
         TempExcelBuffer.Underline := UnderLine;
         TempExcelBuffer.NumberFormat := NumberFormat;  //PBCJP-TRD-002-011
         TempExcelBuffer.INSERT;
-    END;
+    end;
 
     procedure RetrieveILEFromShptRcpt(var TempItemLedgEntry: Record "Item Ledger Entry" temporary; Type: Integer; Subtype: Integer; ID: Code[20]; BatchName: Code[10]; ProdOrderLine: Integer; RefNo: Integer);
     var

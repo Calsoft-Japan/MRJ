@@ -1911,19 +1911,19 @@
         </trans-unit>
         <trans-unit id="TableExtension 549272158 - Field 342267782 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2850645989">
           <source>Charge Out Posted to G/L</source>
-          <target></target>
+          <target>転記済</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Res. Led Entry Ext - Field Charge Out Posted to G/L - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 549272158 - Field 1411740825 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2850645989">
           <source>G/L Entry No.</source>
-          <target></target>
+          <target>G/L Entry No.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Res. Led Entry Ext - Field G/L Entry No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 722015816 - Field 901102634 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4267907655">
           <source>Allow Change Resource Cost</source>
-          <target></target>
+          <target>Allow Change Resource Cost</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Resource Group Ext - Field Allow Change Resource Cost - Property Caption</note>
         </trans-unit>
