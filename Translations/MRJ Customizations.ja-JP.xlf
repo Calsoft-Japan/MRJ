@@ -1275,6 +1275,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Parts Transfer - Action RefreshAction - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2499531685 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculate Charge Outs</source>
+          <target>リソース原価振替</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Calculate Charge Outs - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2499531685 - NamedType 357982423" size-unit="char" translate="yes" xml:space="preserve">
           <source>Gen. Journal Line has been created by Res. Ledger Entry %4  in the Templete %1 , Batch %2, Line No. %3.</source>
           <target>ﾘｿｰｽ元帳 %4 により作成した一般仕訳帳はテンプレート %1 、バッチ %2、ライン%3に既に存在しました。</target>

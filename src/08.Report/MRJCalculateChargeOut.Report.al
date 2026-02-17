@@ -1,5 +1,6 @@
 report 50030 "Calculate Charge Outs"
 {
+    Caption = 'Calculate Charge Outs';
     ProcessingOnly = true;
     UsageCategory = Administration;
     ApplicationArea = All;
