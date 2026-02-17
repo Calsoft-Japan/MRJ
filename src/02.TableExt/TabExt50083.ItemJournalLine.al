@@ -19,7 +19,7 @@ tableextension 50083 "Item Jnl. Line Ext" extends "Item Journal Line"
         {
             Description = 'UPG';
             FieldClass = FlowField;
-            CalcFormula = Lookup("Item"."Base Unit of Measure" where("No." = field("Item No.")));
+            CalcFormula = Lookup(Item."New Shelf No." where("No." = field("Item No.")));
         }
         field(50003; "Shelf No. (Osaka)"; Code[10])
         {

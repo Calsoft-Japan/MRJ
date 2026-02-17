@@ -1958,6 +1958,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Inv Setup Ext - Control MRJCustomization - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3926397906 - Control 2905855265 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2187133665">
+          <source>Shows the new shelf number from Item master.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Phys. Inventory Journal Ext - Control New Shelf No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3926397906 - Control 2905855265 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2187133665">
+          <source>New Shelf No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Phys. Inventory Journal Ext - Control New Shelf No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 510266991 - Method 351171788 - NamedType 14768227" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 510266991">
           <source>You can not close Purchase Order "%1"  because there is a line that be linked Sales Order (%2).</source>
           <note from="Developer" annotates="general" priority="2"></note>

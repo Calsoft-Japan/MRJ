@@ -15,6 +15,9 @@ pageextension 50392 "Phys. Inventory Journal Ext" extends "Phys. Inventory Journ
             field("New Shelf No."; Rec."New Shelf No.")
             {
                 ApplicationArea = All;
+                Caption = 'New Shelf No.';
+                ToolTip = 'Shows the new shelf number from Item master.';
+                Editable = false;
             }
             field("Shelf No. (Osaka)"; Rec."Shelf No. (Osaka)")
             {
