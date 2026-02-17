@@ -334,42 +334,34 @@ table 50000 "Sales Inquiry Line"
         field(72; "Global Dimension 1 Code"; Code[20])
         {
             Caption = 'Global Dimension 1 Code';
-            //TableRelation = "Dimension Value".Code WHERE (Global Dimension No.=CONST(1));
         }
         field(73; "Global Dimension 2 Code"; Code[20])
         {
             Caption = 'Global Dimension 2 Code';
-            //TableRelation = "Dimension Value".Code WHERE (Global Dimension No.=CONST(2));
         }
         field(74; "Shortcut Dimension 3 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 3 Code';
-            Description = 'PBCJP-TRD-002-004';
         }
         field(75; "Shortcut Dimension 4 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 4 Code';
-            Description = 'PBCJP-TRD-002-004';
         }
         field(76; "Shortcut Dimension 5 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 5 Code';
-            Description = 'PBCJP-TRD-002-004';
         }
         field(77; "Shortcut Dimension 6 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 6 Code';
-            Description = 'PBCJP-TRD-002-004';
         }
         field(78; "Shortcut Dimension 7 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 7 Code';
-            Description = 'PBCJP-TRD-002-004';
         }
         field(79; "Shortcut Dimension 8 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 8 Code';
-            Description = 'PBCJP-TRD-002-004';
         }
         field(80; "Expected Delivery Date"; Date)
         {
