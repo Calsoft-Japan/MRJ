@@ -5,6 +5,7 @@ tableextension 50002 "Inv Setup Ext" extends "Inventory Setup"
         field(50000; "Def. Shipmt Location for Parts"; Code[20])
         {
             Caption = 'Def. Shipmt Location for Parts';
+            TableRelation = Location;
         }
     }
 }

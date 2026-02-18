@@ -679,9 +679,7 @@ page 50138 "Service Parts Transfer"
             Item.SetRange("Date Filter", 0D, WorkDate);
             Item.SetRange("Location Filter", InvSetup."Def. Shipmt Location for Parts");
             Item.SetRange("Drop Shipment Filter", false);
-
-            exit(
-              AvailableToPromise.CalcQtyAvailableToPromise(
+            exit(AvailableToPromise.CalcQtyAvailableToPromise(
                 Item,
                 GrossRequirement,
                 ScheduledReceipt,
