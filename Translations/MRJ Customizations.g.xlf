@@ -1898,6 +1898,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Sales Quotation - Control ShowOrderInfo - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 4281141003 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MRJ Service Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Invoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4281141003 - Control 1827888220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>角印の表示</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Invoice - Control ShowSeal - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 1079270555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>MRJ Service Order Confirmation</source>
           <note from="Developer" annotates="general" priority="2"></note>
