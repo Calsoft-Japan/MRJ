@@ -1898,6 +1898,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Sales Quotation - Control ShowOrderInfo - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3753925064 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MRJ Service Delivery Note</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Delivery Note - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3753925064 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>オプション</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Delivery Note - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3753925064 - Control 1649598499 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>注文書表示</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Delivery Note - Control ShowOrderInfoField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3753925064 - Control 143601472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>明細纏め</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Delivery Note - Control SummarizeLinesField - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 4281141003 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>MRJ Service Invoice</source>
           <note from="Developer" annotates="general" priority="2"></note>
