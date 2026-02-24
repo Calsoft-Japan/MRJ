@@ -453,7 +453,6 @@ page 50138 "Service Parts Transfer"
         RecServiceHeader.SetRange("Location Code", LocationCode);
         RecServiceHeader.SetRange("Bin Code", BinCode);
         RecServiceHeader.SetFilter("No.", OrderNoFilter);
-
         if RecServiceHeader.FindSet() then
             repeat
                 Rec.Init();
@@ -471,7 +470,6 @@ page 50138 "Service Parts Transfer"
                 RecServiceLine.SetRange("Document No.", RecServiceHeader."No.");
                 RecServiceLine.SetRange(Type, RecServiceLine.Type::Item);
                 RecServiceLine.SetFilter("No.", '<>%1', '');
-
                 if RecServiceLine.FindSet() then
                     repeat
                         if Rec.Get(RecServiceHeader."No.", RecServiceLine."No.") then begin
@@ -519,7 +517,6 @@ page 50138 "Service Parts Transfer"
                             end;
                         until RecWarehouseEntry.Next() = 0;
                 end;
-
             until RecServiceHeader.Next() = 0;
 
         // AVAILABILITY
@@ -591,13 +588,11 @@ page 50138 "Service Parts Transfer"
             RecTransferHeader.Validate("Transfer-from Code", FromLocationCode);
             RecTransferHeader.Validate("Transfer-to Code", LocationCode);
             RecTransferHeader.Modify(true);
-
             if InServiceHeader."Parts Receive TO No. Filter" = '' then
                 InServiceHeader."Parts Receive TO No. Filter" := RecTransferHeader."No."
             else
                 InServiceHeader."Parts Receive TO No. Filter" :=
                     InServiceHeader."Parts Receive TO No. Filter" + '|' + RecTransferHeader."No.";
-
             InServiceHeader.Modify(true);
         end;
 

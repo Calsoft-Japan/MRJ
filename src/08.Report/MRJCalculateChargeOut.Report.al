@@ -87,7 +87,7 @@ report 50030 "Calculate Charge Outs"
                         end;
                         GenJnlLine.Validate("Shortcut Dimension 1 Code", "Service Ledger Entry"."Global Dimension 1 Code");
                         GenJnlLine.Validate("Shortcut Dimension 2 Code", "Service Ledger Entry"."Global Dimension 2 Code");
-                        GenJnlLine."Dimension Set ID" := "Res. Ledger Entry"."Dimension Set ID";
+                        GenJnlLine."Dimension Set ID" := "Service Ledger Entry"."Dimension Set ID";
                         GenJnlLine."Source Ledger Entry Type" := GenJnlLine."Source Ledger Entry Type"::"Service Ledger";
                         GenJnlLine."Source Ledger Entry No." := "Service Ledger Entry"."Entry No.";
                         GenJnlLine.Modify();
