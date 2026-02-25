@@ -1603,16 +1603,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Inquiry Card - Control SalesReturnOrder - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 4165833255 - Control 1589179724 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Show Mode</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Inquiry Card - Control ShowMode - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4165833255 - Control 1589179724 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Header + Line</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Sales Inquiry Card - Control ShowMode - Property OptionCaption</note>
-        </trans-unit>
         <trans-unit id="Page 4165833255 - Control 2616754320 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Line Field Filter</source>
           <note from="Developer" annotates="general" priority="2"></note>
