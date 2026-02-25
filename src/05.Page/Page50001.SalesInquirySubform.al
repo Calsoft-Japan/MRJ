@@ -19,321 +19,246 @@ page 50001 "Sales Inquiry Subform"
                 {
                     Style = StandardAccent;
                     StyleExpr = true;
-                    Visible = ShowHeader;
                 }
                 field("Document No."; Rec."Document No.")
                 {
                     Style = StandardAccent;
                     StyleExpr = true;
-                    Visible = ShowHeader;
                 }
                 field("Original Order No."; Rec."Original Order No.")
                 {
                     Style = StandardAccent;
                     StyleExpr = true;
-                    Visible = ShowHeader;
                 }
                 field("Order Status"; Rec."Order Status")
                 {
                     Style = StandardAccent;
                     StyleExpr = true;
-                    Visible = ShowHeader;
                 }
                 field("Line No."; Rec."Line No.")
                 {
-                    Visible = ShowLine;
                 }
                 field("Customer PO No."; Rec."Customer PO No.")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Requested Delivery Date"; Rec."Requested Delivery Date")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Planned Delivery Date"; Rec."Planned Delivery Date")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Planned Shipment Date"; Rec."Planned Shipment Date")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Shipment Date"; Rec."Shipment Date")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Customer No."; Rec."Customer No.")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Customer Name"; Rec."Customer Name")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Sales to Countries"; Rec."Sales to Countries")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Bill-to Customer No."; Rec."Bill-to Customer No.")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Bill-to Name"; Rec."Bill-to Name")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Ship-to Code"; Rec."Ship-to Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Ship-to Name"; Rec."Ship-to Name")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Ship-to Address"; Rec."Ship-to Address")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Ship-to City"; Rec."Ship-to City")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Ship-to Post Code"; Rec."Ship-to Post Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Ship-to Country/Region Code"; Rec."Ship-to Country/Region Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Posting Date"; Rec."Posting Date")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Order Date"; Rec."Order Date")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Document Date"; Rec."Document Date")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Transaction Type"; Rec."Transaction Type")
                 {
-                    Visible = ShowLine;
                 }
                 field("Transaction Specification"; Rec."Transaction Specification")
                 {
-                    Visible = ShowLine;
                 }
                 field("Transport Method"; Rec."Transport Method")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Exit Point"; Rec."Exit Point")
                 {
-                    Visible = ShowHeader;
                 }
                 field(RecArea; Rec.Area)
                 {
-                    Visible = ShowHeader;
                 }
                 field(Type; Rec.Type)
                 {
-                    Visible = ShowLine;
                 }
                 field("Item No."; Rec."Item No.")
                 {
-                    Visible = ShowLine;
                 }
                 field("Item Description"; Rec."Item Description")
                 {
-                    Visible = ShowLine;
                 }
                 field(Quantity; Rec.Quantity)
                 {
-                    Visible = ShowLine;
                 }
                 field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
-                    Visible = ShowLine;
                 }
                 field("Unit of Measure"; Rec."Unit of Measure")
                 {
-                    Visible = ShowLine;
                 }
                 field("Reserved Quantity"; Rec."Reserved Quantity")
                 {
-                    Visible = ShowLine;
                 }
                 field("Qty. to Ship"; Rec."Qty. to Ship")
                 {
-                    Visible = ShowLine;
                 }
                 field("Qty. to Invoice"; Rec."Qty. to Invoice")
                 {
-                    Visible = ShowLine;
                 }
                 field("Quantity Shipped"; Rec."Quantity Shipped")
                 {
-                    Visible = ShowLine;
                 }
                 field("Quantity Invoiced"; Rec."Quantity Invoiced")
                 {
-                    Visible = ShowLine;
                 }
                 field("Currency Code"; Rec."Currency Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Location Code"; Rec."Location Code")
                 {
-                    Visible = ShowLine;
                 }
                 field("Unit Cost"; Rec."Unit Cost")
                 {
-                    Visible = ShowLine;
                 }
                 field("Total Cost"; Rec."Total Cost")
                 {
-                    Visible = ShowLine;
                 }
                 field("Line Amount"; Rec."Line Amount")
                 {
-                    Visible = ShowLine;
                 }
                 field("Line Discount Amount"; Rec."Line Discount Amount")
                 {
-                    Visible = ShowLine;
                 }
                 field("Line Discount %"; Rec."Line Discount %")
                 {
-                    Visible = ShowLine;
                 }
                 field("Shipment Method Code"; Rec."Shipment Method Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Shipping Agent Code"; Rec."Shipping Agent Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Payment Terms Code"; Rec."Payment Terms Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Payment Method Code"; Rec."Payment Method Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Due Date"; Rec."Due Date")
                 {
-                    Visible = ShowHeader;
+                }
+                field("Compress Prepayment"; Rec."Compress Prepayment")
+                {
                 }
                 field("Payment Discount %"; Rec."Payment Discount %")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Pmt. Discount Date"; Rec."Pmt. Discount Date")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Gen. Bus. Posting Group"; Rec."Gen. Bus. Posting Group")
                 {
-                    Visible = ShowLine;
                 }
                 field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
                 {
-                    Visible = ShowLine;
                 }
                 field("Customer Posting Group"; Rec."Customer Posting Group")
                 {
-                    Visible = ShowHeader;
                 }
                 field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
                 {
-                    Visible = ShowLine;
                 }
                 field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group")
                 {
-                    Visible = ShowLine;
                 }
                 field("Salesperson Code"; Rec."Salesperson Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Responsibility Center"; Rec."Responsibility Center")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Prepayment %"; Rec."Prepayment %")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Prepmt. Payment Terms Code"; Rec."Prepmt. Payment Terms Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Prepayment Due Date"; Rec."Prepayment Due Date")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Prepmt. Payment Discount %"; Rec."Prepmt. Payment Discount %")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Prepmt. Pmt. Discount Date"; Rec."Prepmt. Pmt. Discount Date")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Net Weight"; Rec."Net Weight")
                 {
-                    Visible = ShowLine;
                 }
                 field("Gross Weight"; Rec."Gross Weight")
                 {
-                    Visible = ShowLine;
                 }
                 field("Reason Code"; Rec."Reason Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Shortcut Dimension 3 Code"; Rec."Shortcut Dimension 3 Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Shortcut Dimension 4 Code"; Rec."Shortcut Dimension 4 Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Shortcut Dimension 5 Code"; Rec."Shortcut Dimension 5 Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Shortcut Dimension 6 Code"; Rec."Shortcut Dimension 6 Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Shortcut Dimension 8 Code"; Rec."Shortcut Dimension 8 Code")
                 {
-                    Visible = ShowHeader;
                 }
                 field("Promised Delivery Date"; Rec."Promised Delivery Date")
                 {
-                    Visible = ShowHeader;
                 }
             }
         }
@@ -390,7 +315,6 @@ page 50001 "Sales Inquiry Subform"
         SalesReturnOrder := pSRO;
         PostedSalesInvoice := pPSInv;
         PostedSalesCrMemo := pPCrMemo;
-        //CloesdOrder := pSCO;
     end;
 
     procedure SetHeaderFilter(pSellToCust: Text; pBillToCust: Text; pPostDate: Text; pOrdDate: Text);
@@ -407,7 +331,7 @@ page 50001 "Sales Inquiry Subform"
         ShowZeroAmtLine := pShowZeroAmtLine;
     end;
 
-    procedure ControlShowMode(ShowMode: Option "Header + Line","Header Only","Line Only");
+    /* procedure ControlShowMode(ShowMode: Option "Header + Line");
     begin
         case ShowMode of
             ShowMode::"Header + Line":
@@ -415,19 +339,9 @@ page 50001 "Sales Inquiry Subform"
                     ShowHeader := true;
                     ShowLine := true;
                 end;
-            ShowMode::"Header Only":
-                begin
-                    ShowHeader := true;
-                    ShowLine := false;
-                end;
-            ShowMode::"Line Only":
-                begin
-                    ShowHeader := false;
-                    ShowLine := true;
-                end;
         end;
         CurrPage.Update(false);
-    end;
+    end; */
 
     procedure ClearInquiryData(CurrGUID: Guid);
     begin
@@ -636,26 +550,26 @@ page 50001 "Sales Inquiry Subform"
                             Rec."Promised Delivery Date" := SalesLine."Promised Delivery Date";
                             Rec."Original Order No." := SalesHdr."No.";
 
-                            decTotalQty := Rec.Quantity;
-                            decTotalAmount := Rec."Line Amount";
-                            decTotalAmountInclVAT := Rec."Line Amount" * (1 + SalesLine."VAT %" / 100);
+                            Rec.TotalQty := Rec.Quantity;
+                            Rec.TotalAmount := Rec."Line Amount";
+                            Rec.TotalAmountInclVAT := Rec."Line Amount" * (1 + SalesLine."VAT %" / 100);
                             if Rec."Currency Code" <> '' then begin
-                                decTotalAmount :=
+                                Rec.TotalAmount :=
                                   ROUND(
                                     CurrExchRate.ExchangeAmtFCYToLCY(
                                       GetDate(Rec."Posting Date"), Rec."Currency Code", decTotalAmount,
                                       SalesHdr."Currency Factor"),
                                     GLSetup."Amount Rounding Precision");
-                                decTotalAmountInclVAT :=
+                                Rec.TotalAmountInclVAT :=
                                   ROUND(
                                     CurrExchRate.ExchangeAmtFCYToLCY(
                                       GetDate(Rec."Posting Date"), Rec."Currency Code", decTotalAmountInclVAT,
                                       SalesHdr."Currency Factor"),
                                     GLSetup."Amount Rounding Precision");
                             end;
-                            decTotalQty += decTotalQty;
-                            decTotalAmount += decTotalAmount;
-                            decTotalAmountInclVAT += decTotalAmountInclVAT;
+                            decTotalQty += Rec.TotalQty;
+                            decTotalAmount += Rec.TotalAmount;
+                            decTotalAmountInclVAT += Rec.TotalAmountInclVAT;
                             Rec.INSERT;
                         UNTIL SalesLine.NEXT = 0;
                 UNTIL SalesHdr.NEXT = 0;

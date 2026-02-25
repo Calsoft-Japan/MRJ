@@ -45,11 +45,10 @@ page 50018 "Sales Inquiry Card"
                 {
                     Caption = 'Show Mode';
                     Importance = Promoted;
-                    OptionCaption = 'Header + Line,Header Only,Line Only';
+                    OptionCaption = 'Header + Line';
 
                     trigger OnValidate();
                     begin
-                        CurrPage.SalesInquirySubform.Page.ControlShowMode(ShowMode);
                         CurrPage.Update(false);
                     end;
                 }
@@ -224,7 +223,6 @@ page 50018 "Sales Inquiry Card"
         PostedSalesInvoice := true;
         PostedSalesCrMemo := true;
         ShowDummyLine := true;
-        CurrPage.SalesInquirySubform.Page.ControlShowMode(ShowMode);
     end;
 
     trigger OnOpenPage();
