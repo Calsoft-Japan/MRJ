@@ -3464,11 +3464,16 @@ UGYVmaw820QP94rNGjZn+xwHtwsdiVGs9OW7TKaMM8OOcjP98PCeFSkgcNNGLDce5kpjwbI9oJ9h3u0+
         <Field Name="ShowSeal">
           <DataField>ShowSeal</DataField>
         </Field>
+<<<<<<< HEAD
         <Field Name="CompanyPic">
           <DataField>CompanyPic</DataField>
         </Field>
         <Field Name="CompanyStamp">
           <DataField>CompanyStamp</DataField>
+=======
+        <Field Name="CompanySeal">
+          <DataField>CompanySeal</DataField>
+>>>>>>> df90fb996dd0aad4dec749b53c3dd0e663743564
         </Field>
         <Field Name="BillToCustomerNo">
           <DataField>BillToCustomerNo</DataField>

@@ -1,5 +1,8 @@
 codeunit 50000 "Calculate Charge Out"
 {
+    Permissions = tabledata "Service Ledger Entry" = M,
+                  tabledata "Res. Ledger Entry" = M;
+
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnPostGLAccOnBeforeInsertGLEntry', '', true, true)]
     procedure OnPostGLAccOnBeforeInsertGLEntry(var GenJournalLine: Record "Gen. Journal Line"; var GLEntry: Record "G/L Entry");
     var
@@ -11,7 +14,7 @@ codeunit 50000 "Calculate Charge Out"
                 begin
                     ServLedgerEntry.Get(GenJournalLine."Source Ledger Entry No.");
                     ServLedgerEntry."Charge Out Posted to G/L" := true;
-                    IF ServLedgerEntry."G/L Entry No." = 0 then
+                    if ServLedgerEntry."G/L Entry No." = 0 then
                         ServLedgerEntry."G/L Entry No." := GLEntry."Entry No.";
                     ServLedgerEntry.Modify(false);
                 end;
