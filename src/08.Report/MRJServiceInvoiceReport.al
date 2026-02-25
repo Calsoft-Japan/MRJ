@@ -18,7 +18,8 @@ report 50023 "MRJ Service Invoice"
 
             // ---- Seal toggle ----
             column(ShowSeal; ShowSeal) { }
-            column(CompanySeal; CompanyInfo.Picture) { } // only if you really use CompanyInfo.Picture in RDLC
+            column(CompanyPic; CompanyInfo.Picture) { }
+            column(CompanyStamp; CompanyInfo.Stamp) { }
 
             // ---- Identifiers ----
             column(BillToCustomerNo; "Bill-to Customer No.") { }
@@ -92,7 +93,10 @@ report 50023 "MRJ Service Invoice"
             {
                 DataItemLinkReference = SvcInvHdr;
                 DataItemLink = "No." = field("No.");
-                DataItemTableView = sorting("No.", "Line No.");
+                // DataItemTableView = sorting("No.", "Line No.");                
+                //DataItemLink = "Table Subtype" = field("Document Type"), "No." = field("No.");
+                DataItemTableView = sorting("Table Name", "Table Subtype", "No.", "Type", "Table Line No.", "Line No.")
+                                    where("Table Name" = const("Service Invoice Header"));
 
                 column(CommentDate; Date) { }
                 column(CommentText; Comment) { }
@@ -102,10 +106,11 @@ report 50023 "MRJ Service Invoice"
                     // Always remove blank comments
                     SetFilter(Comment, '<>%1', '');
 
-                    // OPTIONAL (enable if your environment requires Table Name filter)
-                    // If you know your enum member exists, uncomment ONE:
-                    // SetRange("Table Name", "Table Name"::"Service Invoice Header");
-                    // SetRange("Table Name", "Table Name"::"Service Invoice Line");
+                    // IMPORTANT: restrict to posted service invoice comments only
+                    SetRange("Table Name", "Table Name"::"Service Invoice Header");
+
+                    // If your table has this field (some versions/localizations do), also filter it:
+                    // SetRange("Table Subtype", 0);
                 end;
             }
 
@@ -156,8 +161,8 @@ report 50023 "MRJ Service Invoice"
                 LineBase: Decimal;
                 LineVAT: Decimal;
             begin
-                // Load Company Picture once (header scope)
-                CompanyInfo.CalcFields(Picture);
+                // Load Company Picture and Stamp
+                CompanyInfo.CalcFields(Picture, Stamp);
 
                 // Document Date (fallback to Posting Date)
                 if "Document Date" <> 0D then
