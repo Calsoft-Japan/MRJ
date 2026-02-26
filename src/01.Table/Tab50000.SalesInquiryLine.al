@@ -192,6 +192,7 @@ table 50000 "Sales Inquiry Line"
         {
             Caption = 'Unit Cost';
             Editable = false;
+            AutoFormatExpression = Rec."Currency Code";
             AutoFormatType = 2;
         }
         field(43; "Line Amount"; Decimal)
@@ -507,7 +508,8 @@ table 50000 "Sales Inquiry Line"
         field(112; "Total Cost"; Decimal)
         {
             Caption = 'Total Unit Cost';
-            Description = 'PBCS10.01';
+            AutoFormatExpression = Rec."Currency Code";
+            AutoFormatType = 2;
         }
         field(480; "Dimension Set ID"; Integer)
         {
