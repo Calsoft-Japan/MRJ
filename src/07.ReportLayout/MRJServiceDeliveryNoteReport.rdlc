@@ -4676,6 +4676,15 @@ UGYVmaw820QP94rNGjZn+xwHtwsdiVGs9OW7TKaMM8OOcjP98PCeFSkgcNNGLDce5kpjwbI9oJ9h3u0+
         <Field Name="LineUOM">
           <DataField>LineUOM</DataField>
         </Field>
+        <Field Name="Quantity_ServLineCaption">
+          <DataField>Quantity_ServLineCaption</DataField>
+        </Field>
+        <Field Name="UnitPrice_ServLineCaption">
+          <DataField>UnitPrice_ServLineCaption</DataField>
+        </Field>
+        <Field Name="Description_ServLineCaption">
+          <DataField>Description_ServLineCaption</DataField>
+        </Field>
         <Field Name="FlatLineNo">
           <DataField>FlatLineNo</DataField>
         </Field>
