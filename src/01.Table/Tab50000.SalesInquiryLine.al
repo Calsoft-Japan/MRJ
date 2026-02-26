@@ -197,17 +197,20 @@ table 50000 "Sales Inquiry Line"
         field(43; "Line Amount"; Decimal)
         {
             Caption = 'Line Amount';
+            AutoFormatExpression = Rec."Currency Code";
             AutoFormatType = 1;
         }
         field(44; "Line Discount Amount"; Decimal)
         {
             Caption = 'Line Discount Amount';
+            AutoFormatExpression = Rec."Currency Code";
             AutoFormatType = 1;
         }
         field(45; "Line Discount %"; Decimal)
         {
             Caption = 'Line Discount %';
             DecimalPlaces = 0 : 5;
+            MaxValue = 100;
             MinValue = 0;
         }
         field(46; "Shipment Method Code"; Code[10])
@@ -286,6 +289,7 @@ table 50000 "Sales Inquiry Line"
         {
             Caption = 'Prepayment %';
             DecimalPlaces = 0 : 5;
+            MaxValue = 100;
             MinValue = 0;
         }
         field(62; "Compress Prepayment"; Boolean)
@@ -321,10 +325,12 @@ table 50000 "Sales Inquiry Line"
         field(69; "Net Weight"; Decimal)
         {
             Caption = 'Net Weight';
+            DecimalPlaces = 0 : 5;
         }
         field(70; "Gross Weight"; Decimal)
         {
             Caption = 'Gross Weight';
+            DecimalPlaces = 0 : 5;
         }
         field(71; "Reason Code"; Code[10])
         {
@@ -480,14 +486,19 @@ table 50000 "Sales Inquiry Line"
         field(108; "TotalQty"; Decimal)
         {
             Caption = 'TotalQty';
+            DecimalPlaces = 0 : 5;
         }
         field(109; "TotalAmount"; Decimal)
         {
             Caption = 'TotalAmount';
+            AutoFormatExpression = Rec."Currency Code";
+            AutoFormatType = 1;
         }
         field(110; "TotalAmountInclVAT"; Decimal)
         {
             Caption = 'TotalAmountInclVAT';
+            AutoFormatExpression = Rec."Currency Code";
+            AutoFormatType = 1;
         }
         field(111; "Type"; Enum "Sales Line Type")
         {

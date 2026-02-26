@@ -151,18 +151,22 @@ page 50001 "Sales Inquiry Subform"
                 }
                 field("Unit Cost"; Rec."Unit Cost")
                 {
+                    BlankZero = true;
                 }
                 field("Total Cost"; Rec."Total Cost")
                 {
+                    BlankZero = true;
                 }
                 field("Line Amount"; Rec."Line Amount")
                 {
+                    BlankZero = true;
                 }
                 field("Line Discount Amount"; Rec."Line Discount Amount")
                 {
                 }
                 field("Line Discount %"; Rec."Line Discount %")
                 {
+                    BlankZero = true;
                 }
                 field("Shipment Method Code"; Rec."Shipment Method Code")
                 {
@@ -184,6 +188,7 @@ page 50001 "Sales Inquiry Subform"
                 }
                 field("Payment Discount %"; Rec."Payment Discount %")
                 {
+                    BlankZero = true;
                 }
                 field("Pmt. Discount Date"; Rec."Pmt. Discount Date")
                 {
@@ -263,12 +268,6 @@ page 50001 "Sales Inquiry Subform"
             }
         }
     }
-    trigger OnInit();
-    begin
-        ShowHeader := true;
-        ShowLine := true;
-    end;
-
     trigger OnOpenPage();
     begin
         GLSetup.Get;
