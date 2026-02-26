@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-02-24T04:52:04.9739134Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-02-26T00:20:26.8773896Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -731,8 +731,8 @@
                 <TablixMember />
               </TablixMembers>
             </TablixRowHierarchy>
-            <Top>15.98525cm</Top>
-            <Left>13.2313cm</Left>
+            <Top>15.49949cm</Top>
+            <Left>13.17007cm</Left>
             <Height>1.45728cm</Height>
             <Width>5.0543cm</Width>
             <ZIndex>10</ZIndex>
@@ -1107,8 +1107,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Top>15.98525cm</Top>
-            <Left>5.01024cm</Left>
+            <Top>15.49949cm</Top>
+            <Left>4.94901cm</Left>
             <Height>0.49517cm</Height>
             <Width>7.61483cm</Width>
             <ZIndex>16</ZIndex>
@@ -1228,8 +1228,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Top>17.87449cm</Top>
-            <Left>0.2856cm</Left>
+            <Top>17.38873cm</Top>
+            <Left>0.22437cm</Left>
             <Height>1.09204cm</Height>
             <Width>10.70412cm</Width>
             <ZIndex>17</ZIndex>
@@ -2767,9 +2767,6 @@
                 <TablixRowHierarchy>
                   <TablixMembers>
                     <TablixMember>
-                      <Visibility>
-                        <Hidden>=NOT(Fields!SummarizeLines.Value)</Hidden>
-                      </Visibility>
                       <KeepWithGroup>After</KeepWithGroup>
                       <RepeatOnNewPage>true</RepeatOnNewPage>
                       <KeepTogether>true</KeepTogether>
@@ -2808,7 +2805,7 @@
             </ReportItems>
             <Top>8.44359cm</Top>
             <Left>0.2856cm</Left>
-            <Height>4.36267cm</Height>
+            <Height>4.31715cm</Height>
             <Width>18cm</Width>
             <ZIndex>19</ZIndex>
             <Style>
@@ -3829,7 +3826,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
-            <Top>13.41451cm</Top>
+            <Top>12.90185cm</Top>
             <Left>0.2856cm</Left>
             <Height>1.86134cm</Height>
             <Width>18.00001cm</Width>
@@ -4678,15 +4675,6 @@ UGYVmaw820QP94rNGjZn+xwHtwsdiVGs9OW7TKaMM8OOcjP98PCeFSkgcNNGLDce5kpjwbI9oJ9h3u0+
         </Field>
         <Field Name="LineUOM">
           <DataField>LineUOM</DataField>
-        </Field>
-        <Field Name="Quantity_ServLineCaption">
-          <DataField>Quantity_ServLineCaption</DataField>
-        </Field>
-        <Field Name="UnitPrice_ServLineCaption">
-          <DataField>UnitPrice_ServLineCaption</DataField>
-        </Field>
-        <Field Name="Description_ServLineCaption">
-          <DataField>Description_ServLineCaption</DataField>
         </Field>
         <Field Name="FlatLineNo">
           <DataField>FlatLineNo</DataField>
