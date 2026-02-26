@@ -209,18 +209,27 @@ report 50023 "MRJ Service Invoice"
 
                 if SvcInvLineTmp.FindSet() then
                     repeat
-                        // KEY FIX: use Line Amount (VAT Base Amount often 0 on posted service invoice lines)
-                        LineBase := SvcInvLineTmp.Amount;
+                        // FDD #1/#2: VAT Base Amount per VAT%
+                        // Use Line Amount first for posted lines, fallback to Amount
+                        LineBase := SvcInvLineTmp."Line Amount";
+                        if LineBase = 0 then
+                            LineBase := SvcInvLineTmp.Amount;
+
+                        // Only summarize real amount lines
                         if LineBase = 0 then
                             continue;
 
+                        // header totals (excl VAT)
                         TotalExclVAT += LineBase;
 
+                        // FDD #1/#2: accumulate base by VAT%
+                        AddOrUpdateVatSummary(SvcInvLineTmp."VAT %", LineBase);
+
+                        // total VAT (FDD #4 rounding rule 0.1)
                         LineVAT := Round(LineBase * SvcInvLineTmp."VAT %" / 100, 0.1);
                         TotalVAT += LineVAT;
                         TotalInclVAT += LineBase + LineVAT;
 
-                        AddOrUpdateVatSummary(SvcInvLineTmp."VAT %", LineBase);
                     until SvcInvLineTmp.Next() = 0;
             end;
         }
@@ -342,6 +351,12 @@ report 50023 "MRJ Service Invoice"
     var
         CurrBase: Decimal;
     begin
+        // // Ensure VAT% appears even when base is 0 
+        // if not VatSummaryDict.ContainsKey(VatPct) then begin
+        //     VatSummaryDict.Add(VatPct, 0);
+        //     InsertSortedVatPct(VatPct);
+        // end;
+
         if VatBase = 0 then
             exit;
 
@@ -349,10 +364,12 @@ report 50023 "MRJ Service Invoice"
             VatSummaryDict.Get(VatPct, CurrBase);
             CurrBase += VatBase;
             VatSummaryDict.Set(VatPct, CurrBase);
+
         end else begin
             VatSummaryDict.Add(VatPct, VatBase);
             InsertSortedVatPct(VatPct);
         end;
+
     end;
 
     local procedure InsertSortedVatPct(VatPct: Decimal)
