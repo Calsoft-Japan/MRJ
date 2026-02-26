@@ -542,7 +542,6 @@ page 50001 "Sales Inquiry Subform"
                             Rec."Reserved Quantity" := SalesLine."Reserved Quantity";
                             Rec."Promised Delivery Date" := SalesLine."Promised Delivery Date";
                             Rec."Original Order No." := SalesHdr."No.";
-
                             Rec.TotalQty := Rec.Quantity;
                             Rec.TotalAmount := Rec."Line Amount";
                             Rec.TotalAmountInclVAT := Rec."Line Amount" * (1 + SalesLine."VAT %" / 100);
@@ -550,13 +549,13 @@ page 50001 "Sales Inquiry Subform"
                                 Rec.TotalAmount :=
                                   ROUND(
                                     CurrExchRate.ExchangeAmtFCYToLCY(
-                                      GetDate(Rec."Posting Date"), Rec."Currency Code", decTotalAmount,
+                                      GetDate(Rec."Posting Date"), Rec."Currency Code", Rec.TotalAmount,
                                       SalesHdr."Currency Factor"),
                                     GLSetup."Amount Rounding Precision");
                                 Rec.TotalAmountInclVAT :=
                                   ROUND(
                                     CurrExchRate.ExchangeAmtFCYToLCY(
-                                      GetDate(Rec."Posting Date"), Rec."Currency Code", decTotalAmountInclVAT,
+                                      GetDate(Rec."Posting Date"), Rec."Currency Code", Rec.TotalAmountInclVAT,
                                       SalesHdr."Currency Factor"),
                                     GLSetup."Amount Rounding Precision");
                             end;
