@@ -41,17 +41,6 @@ page 50018 "Sales Inquiry Card"
                 {
                     Caption = 'Posted Sales Credit Memo';
                 }
-                field(ShowMode; ShowMode)
-                {
-                    Caption = 'Show Mode';
-                    Importance = Promoted;
-                    OptionCaption = 'Header + Line';
-
-                    trigger OnValidate();
-                    begin
-                        CurrPage.Update(false);
-                    end;
-                }
             }
             group(Group)
             {
@@ -239,7 +228,6 @@ page 50018 "Sales Inquiry Card"
     var
         SalesInqLine: Record "Sales Inquiry Line" temporary;
         ApplMgt: Codeunit "Filter Tokens";
-        ShowMode: Option "Header + Line","Header Only","Line Only";
         SelltoCustomerFilter: Text;
         BilltoCustomerFilter: Text;
         PostingDateFilter: Text;
