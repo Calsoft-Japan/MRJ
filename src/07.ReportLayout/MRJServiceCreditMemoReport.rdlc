@@ -24,6 +24,7 @@
       <rd:DataSourceID>49c84915-9762-4d49-b73d-474cb906a9f4</rd:DataSourceID>
     </DataSource>
   </DataSources>
+<<<<<<< HEAD
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Query>
@@ -502,6 +503,8 @@
       </Fields>
     </DataSet>
   </DataSets>
+=======
+>>>>>>> 53be9d1f43e94d9d1e782bb43226cfb4a4c47d83
   <ReportSections>
     <ReportSection>
       <Body>
@@ -3747,12 +3750,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -3906,4 +3903,254 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
   </EmbeddedImages>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="PostingDateTxt">
+          <DataField>PostingDateTxt</DataField>
+        </Field>
+        <Field Name="ShowSeal">
+          <DataField>ShowSeal</DataField>
+        </Field>
+        <Field Name="CompanySeal">
+          <DataField>CompanySeal</DataField>
+        </Field>
+        <Field Name="CurrencyCode_ServHeader">
+          <DataField>CurrencyCode_ServHeader</DataField>
+        </Field>
+        <Field Name="TitleTxt">
+          <DataField>TitleTxt</DataField>
+        </Field>
+        <Field Name="ShowOrderInfo">
+          <DataField>ShowOrderInfo</DataField>
+        </Field>
+        <Field Name="SummarizeLines">
+          <DataField>SummarizeLines</DataField>
+        </Field>
+        <Field Name="CustomerNo">
+          <DataField>CustomerNo</DataField>
+        </Field>
+        <Field Name="CrMemoNo">
+          <DataField>CrMemoNo</DataField>
+        </Field>
+        <Field Name="DocumentDateTxt">
+          <DataField>DocumentDateTxt</DataField>
+        </Field>
+        <Field Name="DeliveryNoteNo">
+          <DataField>DeliveryNoteNo</DataField>
+        </Field>
+        <Field Name="CustName">
+          <DataField>CustName</DataField>
+        </Field>
+        <Field Name="CustAddr2">
+          <DataField>CustAddr2</DataField>
+        </Field>
+        <Field Name="CustAddr3">
+          <DataField>CustAddr3</DataField>
+        </Field>
+        <Field Name="CustAddr4">
+          <DataField>CustAddr4</DataField>
+        </Field>
+        <Field Name="CustAddr5">
+          <DataField>CustAddr5</DataField>
+        </Field>
+        <Field Name="CustAddr6">
+          <DataField>CustAddr6</DataField>
+        </Field>
+        <Field Name="CustAddr7">
+          <DataField>CustAddr7</DataField>
+        </Field>
+        <Field Name="CustAddr8">
+          <DataField>CustAddr8</DataField>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+        <Field Name="CompanyAddr2">
+          <DataField>CompanyAddr2</DataField>
+        </Field>
+        <Field Name="CompanyAddr3">
+          <DataField>CompanyAddr3</DataField>
+        </Field>
+        <Field Name="CompanyAddr4">
+          <DataField>CompanyAddr4</DataField>
+        </Field>
+        <Field Name="CompanyAddr5">
+          <DataField>CompanyAddr5</DataField>
+        </Field>
+        <Field Name="CompanyAddr0">
+          <DataField>CompanyAddr0</DataField>
+        </Field>
+        <Field Name="CompanyRegistrationLine">
+          <DataField>CompanyRegistrationLine</DataField>
+        </Field>
+        <Field Name="CompanyRegistrationNo">
+          <DataField>CompanyRegistrationNo</DataField>
+        </Field>
+        <Field Name="PaymentBank1">
+          <DataField>PaymentBank1</DataField>
+        </Field>
+        <Field Name="PaymentBank2">
+          <DataField>PaymentBank2</DataField>
+        </Field>
+        <Field Name="PaymentBank3">
+          <DataField>PaymentBank3</DataField>
+        </Field>
+        <Field Name="TotalExclVAT">
+          <DataField>TotalExclVAT</DataField>
+        </Field>
+        <Field Name="TotalExclVATFormat">
+          <DataField>TotalExclVATFormat</DataField>
+        </Field>
+        <Field Name="TotalVAT">
+          <DataField>TotalVAT</DataField>
+        </Field>
+        <Field Name="TotalVATFormat">
+          <DataField>TotalVATFormat</DataField>
+        </Field>
+        <Field Name="TotalInclVAT">
+          <DataField>TotalInclVAT</DataField>
+        </Field>
+        <Field Name="TotalInclVATFormat">
+          <DataField>TotalInclVATFormat</DataField>
+        </Field>
+        <Field Name="PaymentTermText">
+          <DataField>PaymentTermText</DataField>
+        </Field>
+        <Field Name="PaymentMethodText">
+          <DataField>PaymentMethodText</DataField>
+        </Field>
+        <Field Name="ServiceItemNo">
+          <DataField>ServiceItemNo</DataField>
+        </Field>
+        <Field Name="LineType">
+          <DataField>LineType</DataField>
+        </Field>
+        <Field Name="NoOnLine">
+          <DataField>NoOnLine</DataField>
+        </Field>
+        <Field Name="ServiceItemDescription">
+          <DataField>ServiceItemDescription</DataField>
+        </Field>
+        <Field Name="Warranty">
+          <DataField>Warranty</DataField>
+        </Field>
+        <Field Name="LineNo_ServLine">
+          <DataField>LineNo_ServLine</DataField>
+        </Field>
+        <Field Name="Type_ServLine">
+          <DataField>Type_ServLine</DataField>
+        </Field>
+        <Field Name="Description_ServLine">
+          <DataField>Description_ServLine</DataField>
+        </Field>
+        <Field Name="Quantity_ServLine">
+          <DataField>Quantity_ServLine</DataField>
+        </Field>
+        <Field Name="Quantity_ServLineFormat">
+          <DataField>Quantity_ServLineFormat</DataField>
+        </Field>
+        <Field Name="UnitPrice_ServLine">
+          <DataField>UnitPrice_ServLine</DataField>
+        </Field>
+        <Field Name="UnitPrice_ServLineFormat">
+          <DataField>UnitPrice_ServLineFormat</DataField>
+        </Field>
+        <Field Name="Amt">
+          <DataField>Amt</DataField>
+        </Field>
+        <Field Name="AmtFormat">
+          <DataField>AmtFormat</DataField>
+        </Field>
+        <Field Name="GrossAmt">
+          <DataField>GrossAmt</DataField>
+        </Field>
+        <Field Name="GrossAmtFormat">
+          <DataField>GrossAmtFormat</DataField>
+        </Field>
+        <Field Name="LineUOM">
+          <DataField>LineUOM</DataField>
+        </Field>
+        <Field Name="Quantity_ServLineCaption">
+          <DataField>Quantity_ServLineCaption</DataField>
+        </Field>
+        <Field Name="UnitPrice_ServLineCaption">
+          <DataField>UnitPrice_ServLineCaption</DataField>
+        </Field>
+        <Field Name="Description_ServLineCaption">
+          <DataField>Description_ServLineCaption</DataField>
+        </Field>
+        <Field Name="FlatLineNo">
+          <DataField>FlatLineNo</DataField>
+        </Field>
+        <Field Name="FlatLineType">
+          <DataField>FlatLineType</DataField>
+        </Field>
+        <Field Name="FlatLineDescription">
+          <DataField>FlatLineDescription</DataField>
+        </Field>
+        <Field Name="FlatLineQuantity">
+          <DataField>FlatLineQuantity</DataField>
+        </Field>
+        <Field Name="FlatLineQuantityFormat">
+          <DataField>FlatLineQuantityFormat</DataField>
+        </Field>
+        <Field Name="FlatLineUOM">
+          <DataField>FlatLineUOM</DataField>
+        </Field>
+        <Field Name="FlatUnitPrice">
+          <DataField>FlatUnitPrice</DataField>
+        </Field>
+        <Field Name="FlatUnitPriceFormat">
+          <DataField>FlatUnitPriceFormat</DataField>
+        </Field>
+        <Field Name="FlatLineAmount">
+          <DataField>FlatLineAmount</DataField>
+        </Field>
+        <Field Name="FlatLineAmountFormat">
+          <DataField>FlatLineAmountFormat</DataField>
+        </Field>
+        <Field Name="FlatFaultReasonCode">
+          <DataField>FlatFaultReasonCode</DataField>
+        </Field>
+        <Field Name="FlatFaultReasonDisplay">
+          <DataField>FlatFaultReasonDisplay</DataField>
+        </Field>
+        <Field Name="FlatLineDiscountAmt">
+          <DataField>FlatLineDiscountAmt</DataField>
+        </Field>
+        <Field Name="FlatLineDiscountAmtFormat">
+          <DataField>FlatLineDiscountAmtFormat</DataField>
+        </Field>
+        <Field Name="CommentDate">
+          <DataField>CommentDate</DataField>
+        </Field>
+        <Field Name="CommentText">
+          <DataField>CommentText</DataField>
+        </Field>
+        <Field Name="VATDisplayTxt">
+          <DataField>VATDisplayTxt</DataField>
+        </Field>
+        <Field Name="VATBaseAmount">
+          <DataField>VATBaseAmount</DataField>
+        </Field>
+        <Field Name="VATBaseAmountFormat">
+          <DataField>VATBaseAmountFormat</DataField>
+        </Field>
+        <Field Name="VATLabelTxt">
+          <DataField>VATLabelTxt</DataField>
+        </Field>
+        <Field Name="VATAmount">
+          <DataField>VATAmount</DataField>
+        </Field>
+        <Field Name="VATAmountFormat">
+          <DataField>VATAmountFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>
