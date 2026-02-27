@@ -8,6 +8,7 @@ page 50001 "Sales Inquiry Subform"
     Pagetype = ListPart;
     SourceTable = "Sales Inquiry Line";
     SourceTableTemporary = true;
+    Permissions = tabledata "Item Ledger Entry" = D;
     layout
     {
         area(content)
@@ -329,18 +330,6 @@ page 50001 "Sales Inquiry Subform"
         ItemFilter := pItemTxt;
         ShowZeroAmtLine := pShowZeroAmtLine;
     end;
-
-    /* procedure ControlShowMode(ShowMode: Option "Header + Line");
-    begin
-        case ShowMode of
-            ShowMode::"Header + Line":
-                begin
-                    ShowHeader := true;
-                    ShowLine := true;
-                end;
-        end;
-        CurrPage.Update(false);
-    end; */
 
     procedure ClearInquiryData(CurrGUID: Guid);
     begin
@@ -815,7 +804,7 @@ page 50001 "Sales Inquiry Subform"
         lrReservEntry: Record 337;
         SalesInvLine: Record 113;
         ItemTrackingMgmt: Codeunit 6500;
-        TempItemLedgEntry: Record 32;
+        TempItemLedgEntry: Record "Item Ledger Entry";
         lrecSalesCrMemoLine: Record 115;
         decRemainingQty: Decimal;
         lrecItemLedgerEntry: Record 32;

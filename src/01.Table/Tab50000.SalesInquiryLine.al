@@ -341,34 +341,42 @@ table 50000 "Sales Inquiry Line"
         field(72; "Global Dimension 1 Code"; Code[20])
         {
             Caption = 'Global Dimension 1 Code';
+            CaptionClass = '1,2,1';
         }
         field(73; "Global Dimension 2 Code"; Code[20])
         {
             Caption = 'Global Dimension 2 Code';
+            CaptionClass = '1,2,2';
         }
         field(74; "Shortcut Dimension 3 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 3 Code';
+            CaptionClass = '1,2,3';
         }
         field(75; "Shortcut Dimension 4 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 4 Code';
+            CaptionClass = '1,2,4';
         }
         field(76; "Shortcut Dimension 5 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 5 Code';
+            CaptionClass = '1,2,5';
         }
         field(77; "Shortcut Dimension 6 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 6 Code';
+            CaptionClass = '1,2,6';
         }
         field(78; "Shortcut Dimension 7 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 7 Code';
+            CaptionClass = '1,2,7';
         }
         field(79; "Shortcut Dimension 8 Code"; Code[20])
         {
             Caption = 'Shortcut Dimension 8 Code';
+            CaptionClass = '1,2,8';
         }
         field(80; "Expected Delivery Date"; Date)
         {
