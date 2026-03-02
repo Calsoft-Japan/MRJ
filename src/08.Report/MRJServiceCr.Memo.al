@@ -339,7 +339,7 @@ report 50024 "MRJ Service Cr Memo"
         // Flat fields
         FlatLineDescription: Text[100];
         FlatQty: Decimal;
-        FlatUOM: Code[20];
+        FlatUOM: Text[50];
         FlatPrice: Decimal;
         FlatAmount: Decimal;
         FlatLineType: Text[20];
@@ -463,7 +463,7 @@ report 50024 "MRJ Service Cr Memo"
                 TempCrMemoLine.Type := TempCrMemoLine.Type::Cost;
                 TempCrMemoLine.Description := '通常修理（値引）';
                 TempCrMemoLine.Quantity := 0;
-                TempCrMemoLine."Unit of Measure Code" := '';
+                TempCrMemoLine."Unit of Measure" := '';
                 TempCrMemoLine."Unit Price" := 0;
                 TempCrMemoLine."Line Amount" := Abs(DiscountTotal); // positive like NAV
                 TempCrMemoLine.Insert();
