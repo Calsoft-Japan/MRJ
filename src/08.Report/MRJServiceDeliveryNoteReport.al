@@ -396,7 +396,7 @@ report 50089 "MRJ Service Delivery Note"
         // Flat fields for summarized dataset
         FlatLineDescription: Text[100];
         FlatQty: Decimal;
-        FlatUOM: Code[20];
+        FlatUOM: Text[50];
         FlatPrice: Decimal;
         FlatAmount: Decimal;
         FlatLineType: Text[20];
