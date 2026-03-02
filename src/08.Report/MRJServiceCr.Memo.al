@@ -20,75 +20,45 @@ report 50024 "MRJ Service Cr Memo"
             column(CompanySeal; CompanyInfo.Picture) { }
             column(CurrencyCode_ServHeader; "Currency Code") { }
             column(SummarizeLines; SummarizeLines) { }
+            column(HasVat8Pct; HasVat8Pct) { }
 
-            // ---- Identifiers ----
             column(CustomerNo; "Customer No.") { }
             column(CrMemoNo; "No.") { }
 
-            // ---- Customer (Left header block) ----
             column(CustName; CustAddr[1]) { }
             column(CustAddr2; CustAddr[2]) { }
             column(CustAddr3; CustAddr[3]) { }
             column(CustAddr4; CustAddr[4]) { }
             column(CustAddr5; CustAddr[5]) { }
-            column(CustAddr6; CustAddr[6]) { } // Post Code
-            column(CustAddr7; CustAddr[7]) { } // TEL
-            column(CustAddr8; CustAddr[8]) { } // FAX
+            column(CustAddr6; CustAddr[6]) { }
+            column(CustAddr7; CustAddr[7]) { }
+            column(CustAddr8; CustAddr[8]) { }
+            column(CustAddrP; "Bill-to Contact") { }
 
-            // ---- Company (Right header block) ----
             column(CompanyName; CompanyAddr[1]) { }
             column(CompanyAddr2; CompanyAddr[2]) { }
             column(CompanyAddr3; CompanyAddr[3]) { }
             column(CompanyAddr4; CompanyAddr[4]) { }
             column(CompanyAddr5; CompanyAddr[5]) { }
+            column(CompanyAddr6; CompanyAddr[6]) { }
             column(CompanyAddr0; CompanyInfo."Post Code") { }
 
-            // ---- Registration No. ----
             column(CompanyRegistrationLine; CompanyRegistrationLine) { }
             column(CompanyRegistrationNo; CompanyInfo."VAT Registration No.") { }
 
-            // ---- Bank (Company Info only) ----
             column(PaymentBank1; PaymentBank[1]) { }
             column(PaymentBank2; PaymentBank[2]) { }
             column(PaymentBank3; PaymentBank[3]) { }
 
-            // ---- Totals ----
             column(TotalExclVAT; TotalExclVAT) { }
             column(TotalVAT; TotalVAT) { }
             column(TotalInclVAT; TotalInclVAT) { }
 
-            // Payment terms, Payment method
             column(PaymentTermText; PaymentTermText) { }
             column(PaymentMethodText; PaymentMethodText) { }
 
             // =========================
-            // 1) サービス品目情報（互換）
-            // =========================
-            dataitem(SvcCrMemoItemLine; "Service Cr.Memo Line")
-            {
-                DataItemLink = "Document No." = field("No.");
-                DataItemLinkReference = SvcCrMemoHdr;
-                DataItemTableView = sorting("Document No.", "Line No.");
-
-                column(ServiceItemNo; "Service Item No.") { }
-                column(LineType; Type) { }
-                column(NoOnLine; "No.") { }
-                column(ServiceItemDescription; Description) { }
-                column(Warranty; WarrantyTxt) { }
-
-                trigger OnPreDataItem()
-                begin
-                    SetFilter("Service Item No.", '<>%1', '');
-                end;
-
-                trigger OnAfterGetRecord()
-                begin
-                    WarrantyTxt := GetYesNo(Warranty);
-                end;
-            }
-
-            // =========================
-            // 2) 明細（OFF）
+            // 2) Detail (OFF)
             // =========================
             dataitem(SvcCrMemoLine; "Service Cr.Memo Line")
             {
@@ -101,7 +71,7 @@ report 50024 "MRJ Service Cr Memo"
                 column(Description_ServLine; Description) { }
                 column(Quantity_ServLine; Quantity) { }
                 column(UnitPrice_ServLine; "Unit Price") { }
-                column(Amt; LineAmountCalc) { }
+                column(Amt; "Line Amount") { }
                 column(GrossAmt; "Amount Including VAT") { }
                 column(LineUOM; "Unit of Measure") { }
 
@@ -110,19 +80,10 @@ report 50024 "MRJ Service Cr Memo"
                     if SummarizeLines then
                         CurrReport.Break();
                 end;
-
-                trigger OnAfterGetRecord()
-                begin
-                    // Always keep sign from posted line amount if available
-                    if "Line Amount" <> 0 then
-                        LineAmountCalc := Round("Line Amount", 1)
-                    else
-                        LineAmountCalc := Round("Unit Price" * Quantity, 1);
-                end;
             }
 
             // =========================
-            // 2b) 明細纏め（ON）
+            // 2b) Summarized (ON)
             // =========================
             dataitem(SummarizedCrMemoLine; Integer)
             {
@@ -136,7 +97,7 @@ report 50024 "MRJ Service Cr Memo"
                 column(FlatUnitPrice; FlatPrice) { }
                 column(FlatLineAmount; FlatAmount) { }
 
-                // Keep columns (RDLC compatibility)
+                // keep (RDLC compatibility)
                 column(FlatFaultReasonCode; FlatFaultReasonCode) { }
                 column(FlatFaultReasonDisplay; FlatFaultReasonDisplay) { }
                 column(FlatLineDiscountAmt; FlatLineDiscountAmt) { }
@@ -156,40 +117,30 @@ report 50024 "MRJ Service Cr Memo"
                 end;
 
                 trigger OnAfterGetRecord()
-                var
-                    FaultReason: Record "Fault Reason Code";
                 begin
-                    // データの取得
                     if Number = 1 then
                         TempCrMemoLine.FindSet()
                     else
                         TempCrMemoLine.Next();
 
-                    // 1. 変数の初期化（前の行のデータが残らないように確実にリセット）
+                    // reset
                     FlatFaultReasonCode := '';
+                    FlatFaultReasonDisplay := '';
                     FlatLineDiscountAmt := 0;
 
-                    // 2. 基本データの代入
+                    // assign
                     FlatLineDescription := TempCrMemoLine.Description;
                     FlatQty := TempCrMemoLine.Quantity;
-                    FlatAmount := TempCrMemoLine."Line Amount";
+                    FlatUOM := TempCrMemoLine."Unit of Measure";
                     FlatPrice := TempCrMemoLine."Unit Price";
-                    FlatUOM := TempCrMemoLine."Unit of Measure Code";
+                    FlatAmount := TempCrMemoLine."Line Amount";
 
-                    // 3. --- Type別の表示制御ロジック ---
                     if TempCrMemoLine.Type = TempCrMemoLine.Type::Cost then begin
-                        // 【値引き行の場合】
                         FlatLineType := 'DISCOUNT';
-
-                        // 理由コードから名称（Description）を取得。マスタに無ければコードをそのまま表示
-                        if FaultReason.Get(TempCrMemoLine."Fault Reason Code") then
-                            FlatFaultReasonCode := FaultReason.Description
-                        else
-                            FlatFaultReasonCode := TempCrMemoLine."Fault Reason Code";
-
+                        // optional: show same label in a separate column if you want
+                        FlatFaultReasonCode := TempCrMemoLine.Description;
                         FlatLineDiscountAmt := TempCrMemoLine."Line Amount";
                     end else begin
-                        // 【通常の名寄せ明細行の場合】
                         case TempCrMemoLine.Type of
                             TempCrMemoLine.Type::Item:
                                 FlatLineType := 'ITEM';
@@ -198,15 +149,12 @@ report 50024 "MRJ Service Cr Memo"
                             else
                                 FlatLineType := 'OTHER';
                         end;
-                        // 通常行なので理由コードと値引き額は必ずクリア
-                        FlatFaultReasonCode := '';
-                        FlatLineDiscountAmt := 0;
                     end;
                 end;
             }
 
             // =========================
-            // コメント
+            // Comment
             // =========================
             dataitem(SvcCrMemoComment; "Service Comment Line")
             {
@@ -221,6 +169,9 @@ report 50024 "MRJ Service Cr Memo"
                 begin
                     SetRange("Table Line No.", 0);
                     SetFilter(Comment, '<>%1', '');
+
+                    UpdateHeaderInfo();
+                    if SummarizeLines then SummarizeCrMemoLinesProc();
                 end;
             }
 
@@ -269,6 +220,7 @@ report 50024 "MRJ Service Cr Memo"
                 LineVAT: Decimal;
             begin
                 CompanyInfo.CalcFields(Picture);
+
                 DocumentDateTxt := Format("Document Date", 0, '<Year4>年<Month,2>月<Day,2>日');
 
                 Clear(CompanyAddr);
@@ -284,12 +236,12 @@ report 50024 "MRJ Service Cr Memo"
 
                 CompanyRegistrationLine := BuildRegistrationLine();
 
-                Clear(PaymentTermText);
+                PaymentTermText := '';
                 if "Payment Terms Code" <> '' then
                     if PaymentTerms.Get("Payment Terms Code") then
                         PaymentTermText := PaymentTerms.Description;
 
-                Clear(PaymentMethodText);
+                PaymentMethodText := '';
                 if "Payment Method Code" <> '' then
                     if PaymentMethod.Get("Payment Method Code") then
                         PaymentMethodText := PaymentMethod.Description;
@@ -306,12 +258,7 @@ report 50024 "MRJ Service Cr Memo"
 
                 if CrLine.FindSet() then
                     repeat
-                        // Base uses posted line amount sign as-is
-                        if CrLine."Line Amount" <> 0 then
-                            LineBase := CrLine."Line Amount"
-                        else
-                            LineBase := CrLine."Unit Price" * CrLine.Quantity;
-
+                        LineBase := CrLine."Line Amount";
                         if LineBase = 0 then
                             continue;
 
@@ -327,6 +274,7 @@ report 50024 "MRJ Service Cr Memo"
 
                         AddOrUpdateVatSummary(CrLine."VAT %", LineBase);
                     until CrLine.Next() = 0;
+                HasVat8Pct := VatSummaryDict.ContainsKey(8);
             end;
         }
     }
@@ -380,13 +328,10 @@ report 50024 "MRJ Service Cr Memo"
         VATBaseAmount: Decimal;
         VATAmount: Decimal;
 
-        WarrantyTxt: Text[3];
         PaymentTermText: Text[250];
         PaymentMethodText: Text[250];
         PaymentTerms: Record "Payment Terms";
         PaymentMethod: Record "Payment Method";
-
-        LineAmountCalc: Decimal;
 
         // Summarize buffer
         TempCrMemoLine: Record "Service Cr.Memo Line" temporary;
@@ -398,18 +343,16 @@ report 50024 "MRJ Service Cr Memo"
         FlatPrice: Decimal;
         FlatAmount: Decimal;
         FlatLineType: Text[20];
+        HasVat8Pct: Boolean;
+        FlatIsTotalDiscount: Boolean;
 
-        // Keep for RDLC
+        // keep for RDLC
         FlatFaultReasonCode: Text[100];
         FlatFaultReasonDisplay: Text[120];
         FlatLineDiscountAmt: Decimal;
 
     // ==========================================================
-    // Summarize logic (NAV-like for credit memo)
-    // - Keep original sign from posted "Line Amount"
-    // - Resource: lump-sum Qty = -1, UOM=SET
-    // - Discount: ONE row "通常修理（値引）" with positive amount
-    // ==========================================================
+    // Summarize (toggle ON)
     local procedure SummarizeCrMemoLinesProc()
     var
         LineRec: Record "Service Cr.Memo Line";
@@ -421,7 +364,7 @@ report 50024 "MRJ Service Cr Memo"
         TargetResGrp: Code[20];
         CurrResGrp: Code[20];
         boolFound: Boolean;
-        LineAmtToUse: Decimal;
+        BaseBeforeDiscount: Decimal;
         DiscountTotal: Decimal;
         DiscountLineNo: Integer;
     begin
@@ -436,28 +379,27 @@ report 50024 "MRJ Service Cr Memo"
 
         if LineRec.FindSet() then
             repeat
-                // Keep discount total from posted lines (like quote logic)
-                // Credit memo: we want discount row as POSITIVE value
-                if (LineRec."Line Discount %" > 0) and (LineRec."Line Discount Amount" <> 0) then
-                    DiscountTotal += LineRec."Line Discount Amount";
-
-                // Skip truly empty lines
-                if (LineRec.Description = '') and (LineRec."No." = '') then
+                // 1) If source already has Cost lines, IGNORE them (we create one discount row ourselves)
+                if LineRec.Type = LineRec.Type::Cost then
                     continue;
 
-                // Amount to summarize: prefer posted Line Amount (keeps sign)
-                if LineRec."Line Amount" <> 0 then
-                    LineAmtToUse := LineRec."Line Amount"
-                else
-                    LineAmtToUse := LineRec."Unit Price" * LineRec.Quantity;
+                // 2) collect discount total from each line (usually positive)
+                if LineRec."Line Discount Amount" <> 0 then
+                    DiscountTotal += Abs(LineRec."Line Discount Amount");
+
+                // 3) normal line amount should be BEFORE discount (like quote logic)
+                //    Line Amount is usually net (after discount)
+                BaseBeforeDiscount := LineRec."Line Amount" + LineRec."Line Discount Amount";
+
+                // Skip totally empty
+                if (DelChr(LineRec.Description) = '') and (DelChr(LineRec."No.") = '') and (BaseBeforeDiscount = 0) then
+                    continue;
 
                 boolFound := false;
                 CurrResGrp := '';
                 TargetResGrp := '';
 
-                // --------------------------
-                // Resource group summarize
-                // --------------------------
+                // ---- Resource group summarize (by Resource Group No.) ----
                 if LineRec.Type = LineRec.Type::Resource then begin
                     if Res.Get(LineRec."No.") then begin
                         CurrResGrp := Res."Resource Group No.";
@@ -474,97 +416,65 @@ report 50024 "MRJ Service Cr Memo"
                         TempCrMemoLine.SetRange("Resource Group No.", TargetResGrp);
 
                         if TempCrMemoLine.FindFirst() then begin
-                            // Sum amount only
-                            TempCrMemoLine."Line Amount" += LineAmtToUse;
-
-                            // Lump-sum qty/uom (NAV sample style)
-                            TempCrMemoLine.Quantity := -1;
-                            TempCrMemoLine."Unit of Measure" := 'SET';
-                            TempCrMemoLine."Unit Price" := 0;
-
+                            TempCrMemoLine."Line Amount" += BaseBeforeDiscount;
+                            TempCrMemoLine.Quantity += LineRec.Quantity;
                             TempCrMemoLine.Modify();
                             boolFound := true;
                         end;
                     end;
                 end;
 
-                // --------------------------
-                // Item summarize (No+UOM+UnitPrice)
-                // --------------------------
-                if (not boolFound) and (LineRec.Type = LineRec.Type::Item) then begin
-                    TempCrMemoLine.Reset();
-                    TempCrMemoLine.SetRange(Type, TempCrMemoLine.Type::Item);
-                    TempCrMemoLine.SetRange("No.", LineRec."No.");
-                    TempCrMemoLine.SetRange("Unit of Measure", LineRec."Unit of Measure");
-                    TempCrMemoLine.SetRange("Unit Price", LineRec."Unit Price");
-
-                    if TempCrMemoLine.FindFirst() then begin
-                        TempCrMemoLine.Quantity += LineRec.Quantity;
-                        TempCrMemoLine."Line Amount" += LineAmtToUse; // keeps sign
-                        TempCrMemoLine.Modify();
-                        boolFound := true;
-                    end;
-                end;
-
-                // --------------------------
-                // Other summarize (keep as-is)
-                // --------------------------
                 if not boolFound then begin
+                    // 新規通常行の挿入
                     TempCrMemoLine.Init();
                     TempCrMemoLine.TransferFields(LineRec);
 
-                    TempCrMemoLine."Line Amount" := LineAmtToUse; // keep sign
+                    // 通常行として扱うため、理由コードを一旦クリアする
+                    TempCrMemoLine."Line Amount" := BaseBeforeDiscount;
 
-                    if LineRec.Type = LineRec.Type::Resource then begin
-                        // Lump-sum style for resource even if not grouped
-                        TempCrMemoLine.Quantity := -1;
-                        TempCrMemoLine."Unit of Measure" := 'SET';
-                        TempCrMemoLine."Unit Price" := 0;
-
-                        TempCrMemoLine."Resource Group No." := TargetResGrp;
-                        if (TargetResGrp <> '') and ResGrp.Get(TargetResGrp) then
-                            TempCrMemoLine.Description := ResGrp.Name;
-                    end;
-
+                    TempCrMemoLine."Resource Group No." := TargetResGrp;
+                    if (LineRec.Type = LineRec.Type::Resource) and (TargetResGrp <> '') then
+                        if ResGrp.Get(TargetResGrp) then TempCrMemoLine.Description := ResGrp.Name;
                     TempCrMemoLine.Insert();
                 end;
 
             until LineRec.Next() = 0;
 
-        // --------------------------
-        // Add ONE discount row at bottom (NAV sample):
-        // Description: 通常修理（値引）
-        // Amount: positive
-        // --------------------------
+        // ---- Add exactly ONE discount row (positive) ----
         if DiscountTotal <> 0 then begin
+            // pick next line no
             TempCrMemoLine.Reset();
             if TempCrMemoLine.FindLast() then
                 DiscountLineNo := TempCrMemoLine."Line No." + 10
             else
                 DiscountLineNo := 10000;
 
-            TempCrMemoLine.Init();
-            TempCrMemoLine."Document No." := SvcCrMemoHdr."No.";
-            TempCrMemoLine."Line No." := DiscountLineNo;
-            TempCrMemoLine.Type := TempCrMemoLine.Type::Cost;
-            TempCrMemoLine.Description := '通常修理（値引）';
-
-            TempCrMemoLine.Quantity := 0;
-            TempCrMemoLine."Unit of Measure" := '';
-            TempCrMemoLine."Unit Price" := 0;
-
-            TempCrMemoLine."Line Amount" := Abs(DiscountTotal); // NAV shows positive
-            TempCrMemoLine.Insert();
+            // ensure not duplicated inside temp
+            TempCrMemoLine.Reset();
+            TempCrMemoLine.SetRange(Type, TempCrMemoLine.Type::Cost);
+            TempCrMemoLine.SetRange(Description, '通常修理（値引）');
+            if TempCrMemoLine.FindFirst() then begin
+                TempCrMemoLine."Line Amount" := Abs(DiscountTotal);
+                TempCrMemoLine.Modify();
+            end else begin
+                TempCrMemoLine.Init();
+                TempCrMemoLine."Document No." := SvcCrMemoHdr."No.";
+                TempCrMemoLine."Line No." := DiscountLineNo;
+                TempCrMemoLine.Type := TempCrMemoLine.Type::Cost;
+                TempCrMemoLine.Description := '通常修理（値引）';
+                TempCrMemoLine.Quantity := 0;
+                TempCrMemoLine."Unit of Measure Code" := '';
+                TempCrMemoLine."Unit Price" := 0;
+                TempCrMemoLine."Line Amount" := Abs(DiscountTotal); // positive like NAV
+                TempCrMemoLine.Insert();
+            end;
         end;
 
-        // --------------------------
-        // Sort: Resource -> Item -> Other -> Cost
-        // --------------------------
+        // ---- Sort: Resource -> Item -> Other -> Cost ----
         TempSortBuffer.Reset();
         TempSortBuffer.DeleteAll();
         NextLineNo := 10000;
 
-        // A) Resource (by Resource Group No.)
         TempCrMemoLine.Reset();
         TempCrMemoLine.SetRange(Type, TempCrMemoLine.Type::Resource);
         TempCrMemoLine.SetCurrentKey("Resource Group No.");
@@ -573,7 +483,6 @@ report 50024 "MRJ Service Cr Memo"
                 InsertIntoCrMemoBuffer(TempCrMemoLine, TempSortBuffer, NextLineNo);
             until TempCrMemoLine.Next() = 0;
 
-        // B) Item
         TempCrMemoLine.Reset();
         TempCrMemoLine.SetRange(Type, TempCrMemoLine.Type::Item);
         if TempCrMemoLine.FindSet() then
@@ -581,7 +490,6 @@ report 50024 "MRJ Service Cr Memo"
                 InsertIntoCrMemoBuffer(TempCrMemoLine, TempSortBuffer, NextLineNo);
             until TempCrMemoLine.Next() = 0;
 
-        // C) Others (exclude Resource/Item/Cost)
         TempCrMemoLine.Reset();
         TempCrMemoLine.SetFilter(Type, '<>%1&<>%2&<>%3',
             TempCrMemoLine.Type::Resource,
@@ -592,7 +500,6 @@ report 50024 "MRJ Service Cr Memo"
                 InsertIntoCrMemoBuffer(TempCrMemoLine, TempSortBuffer, NextLineNo);
             until TempCrMemoLine.Next() = 0;
 
-        // D) Cost (discount row)
         TempCrMemoLine.Reset();
         TempCrMemoLine.SetRange(Type, TempCrMemoLine.Type::Cost);
         if TempCrMemoLine.FindSet() then
@@ -600,10 +507,8 @@ report 50024 "MRJ Service Cr Memo"
                 InsertIntoCrMemoBuffer(TempCrMemoLine, TempSortBuffer, NextLineNo);
             until TempCrMemoLine.Next() = 0;
 
-        // Write back ordered list
         TempCrMemoLine.Reset();
         TempCrMemoLine.DeleteAll();
-
         if TempSortBuffer.FindSet() then
             repeat
                 TempCrMemoLine.TransferFields(TempSortBuffer);
@@ -626,7 +531,6 @@ report 50024 "MRJ Service Cr Memo"
 
         if (Hdr."Customer No." = '') then
             exit;
-
         if not C.Get(Hdr."Customer No.") then
             exit;
 
@@ -711,14 +615,6 @@ report 50024 "MRJ Service Cr Memo"
         exit('登録番号：' + RegNo);
     end;
 
-    local procedure GetYesNo(ValueBool: Boolean): Text[3]
-    begin
-        if ValueBool then
-            exit('Yes')
-        else
-            exit('No');
-    end;
-
     local procedure InsertIntoCrMemoBuffer(var SourceLine: Record "Service Cr.Memo Line"; var BufferLine: Record "Service Cr.Memo Line" temporary; var LineNo: Integer)
     begin
         BufferLine.Init();
@@ -726,5 +622,42 @@ report 50024 "MRJ Service Cr Memo"
         BufferLine."Line No." := LineNo;
         BufferLine.Insert();
         LineNo += 10;
+    end;
+
+    local procedure UpdateHeaderInfo()
+    var
+        ServiceLineRec: Record "Service Line";
+        PaymentTerms: Record "Payment Terms";
+        PaymentMethod: Record "Payment Method";
+    begin
+
+        DocumentDateTxt := Format(SvcCrMemoHdr."Document Date", 0, '<Year4>年<Month,2>月<Day,2>日');
+
+        // 支払条件の名称取得
+        PaymentTermText := '';
+        if PaymentTerms.Get(SvcCrMemoHdr."Payment Terms Code") then
+            PaymentTermText := PaymentTerms.Description;
+
+        // 支払方法の名称取得
+        PaymentMethodText := '';
+        if PaymentMethod.Get(SvcCrMemoHdr."Payment Method Code") then
+            PaymentMethodText := PaymentMethod.Description;
+
+        CompanyInfo.Get();
+        if CompanyInfo.Picture.HasValue then CompanyInfo.CalcFields(Picture); // 画像が必要なら追加
+
+        // 住所取得
+        FillServiceCrMemoBillTo(CustAddr, SvcCrMemoHdr);
+        FormatAddress.Company(CompanyAddr, CompanyInfo);
+
+        TotalExclVAT := 0;
+        TotalInclVAT := 0;
+        ServiceLineRec.SetRange("Document No.", SvcCrMemoHdr."No.");
+        if ServiceLineRec.FindSet() then
+            repeat
+                TotalExclVAT += ServiceLineRec."Line Amount";
+                TotalInclVAT += ServiceLineRec."Amount Including VAT";
+            until ServiceLineRec.Next() = 0;
+        TotalVAT := TotalInclVAT - TotalExclVAT;
     end;
 }
