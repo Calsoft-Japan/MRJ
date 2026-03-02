@@ -865,36 +865,36 @@ page 50001 "Sales Inquiry Subform"
         EnterCell(RowNo, 47, Rec.FIELDCAPTION("Shipping Agent Code"), TRUE, FALSE, FALSE, '@');
         EnterCell(RowNo, 48, Rec.FIELDCAPTION("Payment Terms Code"), TRUE, FALSE, FALSE, '@');
         EnterCell(RowNo, 49, Rec.FIELDCAPTION("Payment Method Code"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 50, Rec.FIELDCAPTION("Pre-paid/Collect"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 51, Rec.FIELDCAPTION("Due Date"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 52, Rec.FIELDCAPTION("Payment Discount %"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 53, Rec.FIELDCAPTION("Pmt. Discount Date"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 54, Rec.FIELDCAPTION("Gen. Bus. Posting Group"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 55, Rec.FIELDCAPTION("Gen. Prod. Posting Group"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 56, Rec.FIELDCAPTION("Customer Posting Group"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 57, Rec.FIELDCAPTION("VAT Bus. Posting Group"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 58, Rec.FIELDCAPTION("VAT Prod. Posting Group"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 59, Rec.FIELDCAPTION("Salesperson Code"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 60, Rec.FIELDCAPTION("Responsibility Center"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 61, Rec.FIELDCAPTION("Prepayment %"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 62, Rec.FIELDCAPTION("Compress Prepayment"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 63, Rec.FIELDCAPTION("Prepmt. Payment Terms Code"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 64, Rec.FIELDCAPTION("Prepayment Due Date"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 65, Rec.FIELDCAPTION("Prepmt. Payment Discount %"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 66, Rec.FIELDCAPTION("Prepmt. Pmt. Discount Date"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 67, Rec.FIELDCAPTION("Net Weight"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 68, Rec.FIELDCAPTION("Gross Weight"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 69, Rec.FIELDCAPTION("Reason Code"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 70, Rec.FIELDCAPTION("Global Dimension 1 Code"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 71, Rec.FIELDCAPTION("Global Dimension 2 Code"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 72, Rec.FIELDCAPTION("Shortcut Dimension 3 Code"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 73, Rec.FIELDCAPTION("Shortcut Dimension 4 Code"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 74, Rec.FIELDCAPTION("Shortcut Dimension 5 Code"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 75, Rec.FIELDCAPTION("Shortcut Dimension 6 Code"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 76, Rec.FIELDCAPTION("Shortcut Dimension 7 Code"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 77, Rec.FIELDCAPTION("Shortcut Dimension 8 Code"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 78, Rec.FIELDCAPTION("Expected Delivery Date"), TRUE, FALSE, FALSE, '@');
-        EnterCell(RowNo, 79, Rec.FIELDCAPTION("Promised Delivery Date"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 50, Rec.FIELDCAPTION("Due Date"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 51, Rec.FIELDCAPTION("Payment Discount %"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 52, Rec.FIELDCAPTION("Pmt. Discount Date"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 53, Rec.FIELDCAPTION("Gen. Bus. Posting Group"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 54, Rec.FIELDCAPTION("Gen. Prod. Posting Group"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 55, Rec.FIELDCAPTION("Customer Posting Group"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 56, Rec.FIELDCAPTION("VAT Bus. Posting Group"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 57, Rec.FIELDCAPTION("VAT Prod. Posting Group"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 58, Rec.FIELDCAPTION("Salesperson Code"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 59, Rec.FIELDCAPTION("Responsibility Center"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 60, Rec.FIELDCAPTION("Prepayment %"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 61, Rec.FIELDCAPTION("Compress Prepayment"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 62, Rec.FIELDCAPTION("Prepmt. Payment Terms Code"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 63, Rec.FIELDCAPTION("Prepayment Due Date"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 64, Rec.FIELDCAPTION("Prepmt. Payment Discount %"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 65, Rec.FIELDCAPTION("Prepmt. Pmt. Discount Date"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 66, Rec.FIELDCAPTION("Net Weight"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 67, Rec.FIELDCAPTION("Gross Weight"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 68, Rec.FIELDCAPTION("Reason Code"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 69, Rec.FIELDCAPTION("Global Dimension 1 Code"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 70, Rec.FIELDCAPTION("Global Dimension 2 Code"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 71, Rec.FIELDCAPTION("Shortcut Dimension 3 Code"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 72, Rec.FIELDCAPTION("Shortcut Dimension 4 Code"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 73, Rec.FIELDCAPTION("Shortcut Dimension 5 Code"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 74, Rec.FIELDCAPTION("Shortcut Dimension 6 Code"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 75, Rec.FIELDCAPTION("Shortcut Dimension 7 Code"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 76, Rec.FIELDCAPTION("Shortcut Dimension 8 Code"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 77, Rec.FIELDCAPTION("Promised Delivery Date"), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 78, Rec.FIELDCAPTION("Original Order No."), TRUE, FALSE, FALSE, '@');
+        EnterCell(RowNo, 79, Rec.FIELDCAPTION("Order Status"), TRUE, FALSE, FALSE, '@');
         if ShowTrackingInfo then begin
             EnterCell(RowNo, 80, lrReservEntry.FIELDCAPTION("Serial No."), TRUE, FALSE, FALSE, '@');
             EnterCell(RowNo, 81, lrReservEntry.FIELDCAPTION("Lot No."), TRUE, FALSE, FALSE, '@');
@@ -959,45 +959,45 @@ page 50001 "Sales Inquiry Subform"
                 EnterCell(RowNo, 47, FORMAT(Rec."Shipping Agent Code"), FALSE, FALSE, FALSE, '@');
                 EnterCell(RowNo, 48, FORMAT(Rec."Payment Terms Code"), FALSE, FALSE, FALSE, '@');
                 EnterCell(RowNo, 49, FORMAT(Rec."Payment Method Code"), FALSE, FALSE, FALSE, '@');
-                EnterCell(RowNo, 50, FORMAT(Rec."Pre-paid/Collect"), FALSE, FALSE, FALSE, '@');
-                EnterCell(RowNo, 51, FORMAT(Rec."Due Date"), FALSE, FALSE, FALSE, '');
-                EnterCell(RowNo, 52, FORMAT(Rec."Payment Discount %"), FALSE, FALSE, FALSE, '');
-                EnterCell(RowNo, 53, FORMAT(Rec."Pmt. Discount Date"), FALSE, FALSE, FALSE, '');
-                EnterCell(RowNo, 54, FORMAT(Rec."Gen. Bus. Posting Group"), FALSE, FALSE, FALSE, '@');
-                EnterCell(RowNo, 55, FORMAT(Rec."Gen. Prod. Posting Group"), FALSE, FALSE, FALSE, '@');
-                EnterCell(RowNo, 56, FORMAT(Rec."Customer Posting Group"), FALSE, FALSE, FALSE, '@');
-                EnterCell(RowNo, 57, FORMAT(Rec."VAT Bus. Posting Group"), FALSE, FALSE, FALSE, '@');
-                EnterCell(RowNo, 58, FORMAT(Rec."VAT Prod. Posting Group"), FALSE, FALSE, FALSE, '@');
-                EnterCell(RowNo, 59, FORMAT(Rec."Salesperson Code"), FALSE, FALSE, FALSE, '@');
-                EnterCell(RowNo, 60, FORMAT(Rec."Responsibility Center"), FALSE, FALSE, FALSE, '@');
-                EnterCell(RowNo, 61, FORMAT(Rec."Prepayment %"), FALSE, FALSE, FALSE, '');
-                EnterCell(RowNo, 62, FORMAT(Rec."Compress Prepayment"), FALSE, FALSE, FALSE, '');
-                EnterCell(RowNo, 63, FORMAT(Rec."Prepmt. Payment Terms Code"), FALSE, FALSE, FALSE, '@');
-                EnterCell(RowNo, 64, FORMAT(Rec."Prepayment Due Date"), FALSE, FALSE, FALSE, '');
-                EnterCell(RowNo, 65, FORMAT(Rec."Prepmt. Payment Discount %"), FALSE, FALSE, FALSE, '');
-                EnterCell(RowNo, 66, FORMAT(Rec."Prepmt. Pmt. Discount Date"), FALSE, FALSE, FALSE, '');
-                EnterCell(RowNo, 67, FORMAT(Rec."Net Weight"), FALSE, FALSE, FALSE, '');
-                EnterCell(RowNo, 68, FORMAT(Rec."Gross Weight"), FALSE, FALSE, FALSE, '');
+                EnterCell(RowNo, 50, FORMAT(Rec."Due Date"), FALSE, FALSE, FALSE, '');
+                EnterCell(RowNo, 51, FORMAT(Rec."Payment Discount %"), FALSE, FALSE, FALSE, '');
+                EnterCell(RowNo, 52, FORMAT(Rec."Pmt. Discount Date"), FALSE, FALSE, FALSE, '');
+                EnterCell(RowNo, 53, FORMAT(Rec."Gen. Bus. Posting Group"), FALSE, FALSE, FALSE, '@');
+                EnterCell(RowNo, 54, FORMAT(Rec."Gen. Prod. Posting Group"), FALSE, FALSE, FALSE, '@');
+                EnterCell(RowNo, 55, FORMAT(Rec."Customer Posting Group"), FALSE, FALSE, FALSE, '@');
+                EnterCell(RowNo, 56, FORMAT(Rec."VAT Bus. Posting Group"), FALSE, FALSE, FALSE, '@');
+                EnterCell(RowNo, 57, FORMAT(Rec."VAT Prod. Posting Group"), FALSE, FALSE, FALSE, '@');
+                EnterCell(RowNo, 58, FORMAT(Rec."Salesperson Code"), FALSE, FALSE, FALSE, '@');
+                EnterCell(RowNo, 59, FORMAT(Rec."Responsibility Center"), FALSE, FALSE, FALSE, '@');
+                EnterCell(RowNo, 60, FORMAT(Rec."Prepayment %"), FALSE, FALSE, FALSE, '');
+                EnterCell(RowNo, 61, FORMAT(Rec."Compress Prepayment"), FALSE, FALSE, FALSE, '');
+                EnterCell(RowNo, 62, FORMAT(Rec."Prepmt. Payment Terms Code"), FALSE, FALSE, FALSE, '@');
+                EnterCell(RowNo, 63, FORMAT(Rec."Prepayment Due Date"), FALSE, FALSE, FALSE, '');
+                EnterCell(RowNo, 64, FORMAT(Rec."Prepmt. Payment Discount %"), FALSE, FALSE, FALSE, '');
+                EnterCell(RowNo, 65, FORMAT(Rec."Prepmt. Pmt. Discount Date"), FALSE, FALSE, FALSE, '');
+                EnterCell(RowNo, 66, FORMAT(Rec."Net Weight"), FALSE, FALSE, FALSE, '');
+                EnterCell(RowNo, 67, FORMAT(Rec."Gross Weight"), FALSE, FALSE, FALSE, '');
                 if Rec."Reason Code" <> '' then
-                    EnterCell(RowNo, 69, FORMAT(Rec."Reason Code"), FALSE, FALSE, FALSE, '@');
+                    EnterCell(RowNo, 68, FORMAT(Rec."Reason Code"), FALSE, FALSE, FALSE, '@');
                 if Rec."Global Dimension 1 Code" <> '' then
-                    EnterCell(RowNo, 70, FORMAT(Rec."Global Dimension 1 Code"), FALSE, FALSE, FALSE, '@');
+                    EnterCell(RowNo, 69, FORMAT(Rec."Global Dimension 1 Code"), FALSE, FALSE, FALSE, '@');
                 if Rec."Global Dimension 2 Code" <> '' then
-                    EnterCell(RowNo, 71, FORMAT(Rec."Global Dimension 2 Code"), FALSE, FALSE, FALSE, '@');
+                    EnterCell(RowNo, 70, FORMAT(Rec."Global Dimension 2 Code"), FALSE, FALSE, FALSE, '@');
                 if Rec."Shortcut Dimension 3 Code" <> '' then
-                    EnterCell(RowNo, 72, FORMAT(Rec."Shortcut Dimension 3 Code"), FALSE, FALSE, FALSE, '@');
+                    EnterCell(RowNo, 71, FORMAT(Rec."Shortcut Dimension 3 Code"), FALSE, FALSE, FALSE, '@');
                 if Rec."Shortcut Dimension 4 Code" <> '' then
-                    EnterCell(RowNo, 73, FORMAT(Rec."Shortcut Dimension 4 Code"), FALSE, FALSE, FALSE, '@');
+                    EnterCell(RowNo, 72, FORMAT(Rec."Shortcut Dimension 4 Code"), FALSE, FALSE, FALSE, '@');
                 if Rec."Shortcut Dimension 5 Code" <> '' then
-                    EnterCell(RowNo, 74, FORMAT(Rec."Shortcut Dimension 5 Code"), FALSE, FALSE, FALSE, '@');
+                    EnterCell(RowNo, 73, FORMAT(Rec."Shortcut Dimension 5 Code"), FALSE, FALSE, FALSE, '@');
                 if Rec."Shortcut Dimension 6 Code" <> '' then
-                    EnterCell(RowNo, 75, FORMAT(Rec."Shortcut Dimension 6 Code"), FALSE, FALSE, FALSE, '@');
+                    EnterCell(RowNo, 74, FORMAT(Rec."Shortcut Dimension 6 Code"), FALSE, FALSE, FALSE, '@');
                 if Rec."Shortcut Dimension 7 Code" <> '' then
-                    EnterCell(RowNo, 76, FORMAT(Rec."Shortcut Dimension 7 Code"), FALSE, FALSE, FALSE, '@');
+                    EnterCell(RowNo, 75, FORMAT(Rec."Shortcut Dimension 7 Code"), FALSE, FALSE, FALSE, '@');
                 if Rec."Shortcut Dimension 8 Code" <> '' then
-                    EnterCell(RowNo, 77, FORMAT(Rec."Shortcut Dimension 8 Code"), FALSE, FALSE, FALSE, '@');
-                EnterCell(RowNo, 78, FORMAT(Rec."Expected Delivery Date"), TRUE, FALSE, FALSE, '');
-                EnterCell(RowNo, 79, FORMAT(Rec."Promised Delivery Date"), TRUE, FALSE, FALSE, '');
+                    EnterCell(RowNo, 76, FORMAT(Rec."Shortcut Dimension 8 Code"), FALSE, FALSE, FALSE, '@');
+                EnterCell(RowNo, 77, FORMAT(Rec."Promised Delivery Date"), TRUE, FALSE, FALSE, '');
+                EnterCell(RowNo, 78, FORMAT(Rec."Original Order No."), TRUE, FALSE, FALSE, '');
+                EnterCell(RowNo, 79, FORMAT(Rec."Order Status"), TRUE, FALSE, FALSE, '');
                 if ShowTrackingInfo then begin
                     case Rec."Document Type" of
                         Rec."Document Type"::Quote,
