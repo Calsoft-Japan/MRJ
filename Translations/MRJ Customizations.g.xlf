@@ -1943,16 +1943,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Purchase Order (JP) - Control OrderDateParam - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 994406390 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>MRJ Sales Credit Memo (JP)</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Sales Credit Memo - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 994406390 - Control 1215198615 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>発行日</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Sales Credit Memo - Control IssueDate - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Report 2314668512 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>MRJ Sales Invoice</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2073,6 +2063,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Quotation - Control SummarizeLinesField - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 1045276378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>精算見積書</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Settlement Estimate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1045276378 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>オプション</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Settlement Estimate - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1045276378 - Control 143601472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>明細纏め</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Settlement Estimate - Control SummarizeLinesField - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2656121039 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>MRJ Transfer Shipment (JP)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2187,6 +2192,11 @@
           <source>MRJ Customization</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Inv Setup Ext - Control MRJCustomization - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 385824587 - Action 1534142131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1561133952">
+          <source>精算見積書</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension MRJ Posted Service Shipment - Action 精算見積書 - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3926397906 - Control 2905855265 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2187133665">
           <source>Shows the new shelf number from Item master.</source>
