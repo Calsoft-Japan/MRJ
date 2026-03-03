@@ -2083,6 +2083,76 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 1054195013 - NamedType 2411428814" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bin Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType BinCodeLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1054195013 - NamedType 3665354930" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bin Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType BinDescLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1054195013 - NamedType 1542941690" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType DateLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1054195013 - NamedType 1603954322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType ItemDescLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1054195013 - NamedType 3938104762" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType ItemNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1054195013 - NamedType 1877187315" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType PageLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1054195013 - NamedType 2319902091" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Parts Transfer No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType PartsTRNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1054195013 - NamedType 3259830970" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Qty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType QtyLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1054195013 - NamedType 954826001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Parts Request Form</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType RepCapLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1054195013 - NamedType 1107639596" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Requested Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType ReqDateLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1054195013 - NamedType 757185678" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Requested Ship. Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType ReqShipDateLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1054195013 - NamedType 484978319" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ret. Qty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType RetQtyLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1054195013 - NamedType 1112967181" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Serial No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType SerlNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1054195013 - NamedType 1295971201" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shelf No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType ShelfNoLbl</note>
+        </trans-unit>
         <trans-unit id="Report 1054195013 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must fill in Requested Date.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2092,6 +2162,16 @@
           <source>Request Shipping Date is greater than Requested Date.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Report 1054195013 - NamedType 3675990074" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType UserIDLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1054195013 - NamedType 3817753216" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType UserNameLbl</note>
         </trans-unit>
         <trans-unit id="Report 1054195013 - Control 2411446999 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ending Date</source>
@@ -2202,6 +2282,11 @@
           <source>Create (Parts)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv Item WorkSheet Ext - Action CreateParts - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4054556956 - Action 1883011495 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 449515330">
+          <source>Parts Request</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv Item WorkSheet Ext - Action PartsRequest - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 4054556956 - Action 366713437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 449515330">
           <source>Show</source>

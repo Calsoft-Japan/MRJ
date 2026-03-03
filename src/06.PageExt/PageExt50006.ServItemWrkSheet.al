@@ -58,6 +58,25 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet"
                             CreatePurchOrder(true);
                     end;
                 }
+                action(PartsRequest)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Parts Request';
+                    Promoted = true;
+                    PromotedOnly = true;
+                    PromotedIsBig = true;
+                    Image = Report;
+                    trigger OnAction()
+                    var
+                        ServHeader: Record "Service Header";
+                    begin
+                        Clear(ServHeader);
+                        ServHeader.Get(Rec."Document Type", Rec."Document No.");
+                        ServHeader.SetRange(ServHeader."No.", Rec."Document No.");
+                        Report.RunModal(Report::"Parts Request Form", true, true, ServHeader);
+                        CurrPage.Update(false);
+                    end;
+                }
             }
         }
     }

@@ -14,6 +14,22 @@ report 50071 "Parts Request Form"
             DataItemTableView = sorting("Document Type", "No.") where("Document Type" = const(Order));
             RequestFilterFields = "No.";
 
+            column(PageLbl; PageLbl) { }
+            column(DateLbl; DateLbl) { }
+            column(PartsTRNoLbl; PartsTRNoLbl) { }
+            column(BinDescLbl; BinDescLbl) { }
+            column(BinCodeLbl; BinCodeLbl) { }
+            column(ReqShipDateLbl; ReqShipDateLbl) { }
+            column(UserIDLbl; UserIDLbl) { }
+            column(UserNameLbl; UserNameLbl) { }
+            column(ReqDateLbl; ReqDateLbl) { }
+            column(ItemNoLbl; ItemNoLbl) { }
+            column(ItemDescLbl; ItemDescLbl) { }
+            column(ShelfNoLbl; ShelfNoLbl) { }
+            column(SerlNoLbl; SerlNoLbl) { }
+            column(QtyLbl; QtyLbl) { }
+            column(RetQtyLbl; RetQtyLbl) { }
+            column(RepCapLbl; RepCapLbl) { }
             column(CompanyPicture; CompanyInfo.Picture) { }
             column(PageDate; Format(Today, 0, '<Year4>/<Month,2>/<Day,2>')) { }
             column(PartsTransferNo; PartsTransferNo) { }
@@ -206,6 +222,11 @@ report 50071 "Parts Request Form"
                 }
             }
         }
+        trigger OnOpenPage()
+        begin
+            ReqStartDate := WorkDate();
+            ReqEndDate := WorkDate();
+        end;
     }
     trigger OnPreReport() //Report DataItem
     begin
@@ -221,7 +242,7 @@ report 50071 "Parts Request Form"
         CompanyInfo: Record "Company Information";
         TransferHeader: Record "Transfer Header";
         TransShptHeader: Record "Transfer Shipment Header";
-        PartsTransBuf: Record "Parts Transfer Buffer" temporary;
+        PartsTransBuf: Record "Parts Transfer Buffer";
         Item: Record Item;
         RecUser: Record User;
         PartsTransferNo: Code[40];
@@ -233,6 +254,22 @@ report 50071 "Parts Request Form"
         VerNo: Integer;
         Qty: Decimal;
         ShowLineCnt: Integer;
+        PageLbl: Label 'Page';
+        DateLbl: Label 'Date';
+        PartsTRNoLbl: Label 'Parts Transfer No.';
+        RepCapLbl: Label 'Parts Request Form';
+        BinDescLbl: Label 'Bin Description';
+        BinCodeLbl: Label 'Bin Code';
+        ReqShipDateLbl: Label 'Requested Ship. Date';
+        UserIDLbl: Label 'User ID';
+        UserNameLbl: Label 'User Name';
+        ReqDateLbl: Label 'Requested Date';
+        ItemNoLbl: Label 'Item No.';
+        ItemDescLbl: Label 'Description';
+        ShelfNoLbl: Label 'Shelf No.';
+        SerlNoLbl: Label 'Serial No.';
+        QtyLbl: Label 'Qty.';
+        RetQtyLbl: Label 'Ret. Qty.';
         Text000: Label 'You must fill in Requested Date.'; // JPN: 依頼日を入力してください。
         Text001: Label 'Request Shipping Date is greater than Requested Date.'; // JPN: 出荷要求日が依頼日より後の日付になっています。
 }
