@@ -137,7 +137,6 @@ report 50024 "MRJ Service Cr Memo"
 
                     if TempCrMemoLine.Type = TempCrMemoLine.Type::Cost then begin
                         FlatLineType := 'DISCOUNT';
-                        // optional: show same label in a separate column if you want
                         FlatFaultReasonCode := TempCrMemoLine.Description;
                         FlatLineDiscountAmt := TempCrMemoLine."Line Amount";
                     end else begin
