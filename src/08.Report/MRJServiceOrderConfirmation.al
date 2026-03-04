@@ -216,17 +216,17 @@ report 50022 "MRJ Service Order Confirmation"
             {
                 group(Options)
                 {
-                    Caption = 'オプション';
+                    Caption = 'Options';
                     field(ShowQtyField; ShowQty)
                     {
                         ApplicationArea = Service;
-                        Caption = '金額基準';
-                        OptionCaption = '数量,請求済数量';
+                        Caption = 'Amounts Based on';
+                        OptionCaption = 'Quantity,Quantity Invoiced';
                     }
                     field(SummarizeLinesField; SummarizeLines)
                     {
                         ApplicationArea = All;
-                        Caption = '明細纏め';
+                        Caption = 'Line Combine';
                     }
                 }
             }
@@ -273,7 +273,7 @@ report 50022 "MRJ Service Order Confirmation"
         FaultReasonName: Text[50];
         boolFound: Boolean; // ★追加
         LineBaseAmount: Decimal; // 値引前の行金額用
-        Text50020: Label '%1 Discount', Comment = '%1 = Fault Reason Description';
+        Text50020: Label '%1（値引）', Comment = '%1 = Fault Reason Description';
         TempLineNo: Integer; // ★追加：一時的な行番号用
     begin
         // 初期化

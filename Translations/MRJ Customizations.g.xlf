@@ -2074,27 +2074,27 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Order Confirmation - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 1079270555 - Method 1581168813 - NamedType 136984654" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 Discount</source>
+          <source>%1（値引）</source>
           <note from="Developer" annotates="general" priority="2">%1 = Fault Reason Description</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Order Confirmation - Method SummarizeServiceLines - NamedType Text50020</note>
         </trans-unit>
         <trans-unit id="Report 1079270555 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>オプション</source>
+          <source>Options</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Order Confirmation - Control Options - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 1079270555 - Control 1081263575 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>金額基準</source>
+          <source>Amounts Based on</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Order Confirmation - Control ShowQtyField - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 1079270555 - Control 1081263575 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
-          <source>数量,請求済数量</source>
+          <source>Quantity,Quantity Invoiced</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Order Confirmation - Control ShowQtyField - Property OptionCaption</note>
         </trans-unit>
         <trans-unit id="Report 1079270555 - Control 143601472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>明細纏め</source>
+          <source>Line Combine</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Order Confirmation - Control SummarizeLinesField - Property Caption</note>
         </trans-unit>
@@ -2109,17 +2109,17 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Quotation - Method SummarizeServiceLines - NamedType Text50020</note>
         </trans-unit>
         <trans-unit id="Report 990646150 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>オプション</source>
+          <source>Options</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Quotation - Control Options - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 990646150 - Control 1649598499 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>注文書表示</source>
+          <source>Show Order Information</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Quotation - Control ShowOrderInfoField - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 990646150 - Control 143601472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>明細纏め</source>
+          <source>Line Combine</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Quotation - Control SummarizeLinesField - Property Caption</note>
         </trans-unit>

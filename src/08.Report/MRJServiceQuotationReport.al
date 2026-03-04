@@ -253,16 +253,16 @@ report 50021 "MRJ Service Quotation"
             {
                 group(Options)
                 {
-                    Caption = 'オプション';
+                    Caption = 'Options';
                     field(ShowOrderInfoField; ShowOrderInfo)
                     {
                         ApplicationArea = All;
-                        Caption = '注文書表示';
+                        Caption = 'Show Order Information';
                     }
                     field(SummarizeLinesField; SummarizeLines)
                     {
                         ApplicationArea = All;
-                        Caption = '明細纏め';
+                        Caption = 'Line Combine';
                     }
                 }
             }
