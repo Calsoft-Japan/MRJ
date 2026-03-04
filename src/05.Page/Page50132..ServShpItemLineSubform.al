@@ -1,8 +1,9 @@
 
 page 50132 "Serv. Shpt. Item Line Subform"
 {
+    Caption = 'Service Shipment';
     PageType = ListPart;
-    SourceTable = "Service Shipment Item Line"; // Table5989 from C/AL (Service Shipment Item Line?)
+    SourceTable = "Service Shipment Item Line";
     ApplicationArea = All;
     Editable = false;
 
@@ -40,25 +41,9 @@ page 50132 "Serv. Shpt. Item Line Subform"
                     end;
                 }
                 field(Description; Rec.Description) { ApplicationArea = All; }
-                field("Description 2"; Rec."Description 2")
-                {
-                    ApplicationArea = All;
-                    Visible = false;
-                }
-                field("Item Description"; Rec."Item Description")
-                {
-                    ApplicationArea = All;
-                    Visible = false;
-                }
-                field("Item Description 2"; Rec."Item Description 2")
-                {
-                    ApplicationArea = All;
-                    Visible = false;
-                }
                 field(Warranty; Rec.Warranty)
                 {
                     ApplicationArea = All;
-                    ShowCaption = false;
                 }
                 field("Contract No."; Rec."Contract No.")
                 {
@@ -84,6 +69,7 @@ page 50132 "Serv. Shpt. Item Line Subform"
             group(Comments)
             {
                 Caption = 'Comments';
+                ShowCaption = false;
                 field(FaultComment; FaultComment)
                 {
                     ApplicationArea = All;
@@ -102,7 +88,7 @@ page 50132 "Serv. Shpt. Item Line Subform"
                 {
                     ApplicationArea = All;
                     Editable = false;
-                    Caption = 'Resolution Comment'; // JPN: 解決コメント
+                    Caption = 'Resolution Comment';
                     trigger OnLookup(var Text: Text): Boolean
                     begin
                         if Rec."No." = '' then
@@ -116,7 +102,7 @@ page 50132 "Serv. Shpt. Item Line Subform"
                 {
                     ApplicationArea = All;
                     Editable = false;
-                    Caption = 'Fault Area Comment'; // JPN: 故障箇所コメント
+                    Caption = 'Fault Area Comment';
                     trigger OnLookup(var Text: Text): Boolean
                     begin
                         if Rec."No." = '' then
@@ -130,7 +116,7 @@ page 50132 "Serv. Shpt. Item Line Subform"
                 {
                     ApplicationArea = All;
                     Editable = false;
-                    Caption = 'Symptom Comment'; // JPN: 症状コメント
+                    Caption = 'Symptom Comment';
                     trigger OnLookup(var Text: Text): Boolean
                     begin
                         if Rec."No." = '' then
@@ -140,46 +126,6 @@ page 50132 "Serv. Shpt. Item Line Subform"
                         exit(true);
                     end;
                 }
-            }
-        }
-    }
-
-    actions
-    {
-        area(processing)
-        {
-            action(BtnOpenIWS)
-            {
-                Caption = 'Item Worksheet';
-                ApplicationArea = All;
-                Image = Worksheet;
-                trigger OnAction()
-                var
-                    OpenPostedServItemLine: Record 5989;
-                begin
-                    if Rec."No." = '' then
-                        exit;
-                    Clear(OpenPostedServItemLine);
-                    OpenPostedServItemLine.SetRange("No.", Rec."No.");
-                    OpenPostedServItemLine.SetRange("Line No.", Rec."Line No.");
-                    //Page.RunModal(Page::"Posted Serv. Item Worksheet", OpenPostedServItemLine);
-                end;
-            }
-            action(BtnOpenSWR)
-            {
-                Caption = 'Work Report';
-                ApplicationArea = All;
-                Image = Report;
-                trigger OnAction()
-                var
-                    ServShipHeader: Record "Service Shipment Header";
-                begin
-                    if Rec."No." = '' then
-                        exit;
-                    Clear(ServShipHeader);
-                    ServShipHeader.SetRange("No.", Rec."No.");
-                    Report.Run(50084, true, false, ServShipHeader);
-                end;
             }
         }
     }
@@ -213,8 +159,6 @@ page 50132 "Serv. Shpt. Item Line Subform"
     local procedure Refresh()
     begin
         NotEmpty := ((Rec.Count > 0) and (Rec."No." <> ''));
-        //CurrPage.BtnOpenIWS.Visible := NotEmpty;
-        //CurrPage.BtnOpenSWR.Visible := NotEmpty;
         FaultAreaComment := '';
         SymptomComment := '';
         FaultComment := '';

@@ -18,6 +18,19 @@ tableextension 55911 "Serv. Mgt. Setup Ext" extends "Service Mgt. Setup"
             Caption = 'G/L Account for Repair';
             TableRelation = "G/L Account";
         }
+        field(50053; "Serv Ord Reservation Location"; Code[10])
+        {
+            Caption = 'Serv Ord Reservation Location';
+            TableRelation = Location;
+        }
+        field(90019; "Warning Date Range 1"; DateFormula)
+        {
+            Caption = 'Warning Date Range 1';
+        }
+        field(90020; "Warning Date Range 2"; DateFormula)
+        {
+            Caption = 'Warning Date Range 2';
+        }
     }
 }
 

@@ -273,7 +273,7 @@ report 50022 "MRJ Service Order Confirmation"
         FaultReasonName: Text[50];
         boolFound: Boolean; // ★追加
         LineBaseAmount: Decimal; // 値引前の行金額用
-        Text50020: Label '%1（値引）', Comment = '%1 = Fault Reason Description';
+        Text50020: Label '%1 Discount', Comment = '%1 = Fault Reason Description';
         TempLineNo: Integer; // ★追加：一時的な行番号用
     begin
         // 初期化

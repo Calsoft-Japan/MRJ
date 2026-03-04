@@ -1658,6 +1658,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Inquiry Subform - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3928026391 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Item Line Subform - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3928026391 - Control 503024588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Comments</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1688,30 +1693,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Item Line Subform - Control Document No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3928026391 - Action 3664339237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Parts Transfer</source>
+        <trans-unit id="Page 374249760 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Shipment</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Item Line Subform - Action BtnOpenCPT - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3928026391 - Action 4251348083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Item Worksheet</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Item Line Subform - Action BtnOpenIWS - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3928026391 - Action 3391180886 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Work Report</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Item Line Subform - Action BtnOpenSWR - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3928026391 - Action 2475632950 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Dispatch Board</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Item Line Subform - Action DispatchBoard - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3928026391 - Action 2554814069 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Tasks</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Item Line Subform - Action ServiceTasks - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Shpt. Item Line Subform - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 374249760 - Control 503024588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Comments</source>
@@ -1738,15 +1723,90 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Shpt. Item Line Subform - Control SymptomComment - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 374249760 - Action 4251348083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Item Worksheet</source>
+        <trans-unit id="Page 812732725 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Engine</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Shpt. Item Line Subform - Action BtnOpenIWS - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 374249760 - Action 3391180886 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Work Report</source>
+        <trans-unit id="Page 812732725 - NamedType 1218460513" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Can not find any Service Item, do you want to create Service Quote?</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Shpt. Item Line Subform - Action BtnOpenSWR - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - NamedType TEST0001</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - NamedType 580763896" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to create Service Order?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - NamedType TEST0002</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - NamedType 4238034575" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to create Service Quote?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - NamedType TEST0003</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - NamedType 111976302" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Order '%1' created successfully, do you want to open?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - NamedType TEST0004</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - NamedType 3769246981" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Quote '%1' created successfully, do you want to open?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - NamedType TEST0005</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - NamedType 3131550364" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 days after last date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - NamedType TEST0006</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - NamedType 2493853747" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to copy Service Line?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - NamedType TEST0007</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Control 284195533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Filters</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Filters - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Control 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Control 1067981715 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Serial No. Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control SerialNoFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Control 3250481512 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Work Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control TheWorkDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Control 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Control 4258502013 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control ServiceOrder - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Control 538715564 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Shipment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Shipment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Action 2483269207 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create &amp;Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Action MRJCreateServOrder - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Action 3981923572 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service &amp;Contracts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Action OpenServiceContracts - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3646928396 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Inquiry</source>
@@ -2014,7 +2074,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Order Confirmation - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 1079270555 - Method 1581168813 - NamedType 136984654" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1（値引）</source>
+          <source>%1 Discount</source>
           <note from="Developer" annotates="general" priority="2">%1 = Fault Reason Description</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Order Confirmation - Method SummarizeServiceLines - NamedType Text50020</note>
         </trans-unit>
@@ -2967,6 +3027,21 @@
           <source>ソード優先リソースグループ</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Resource Group for Sort - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1360054054 - Field 1149941114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
+          <source>Serv Ord Reservation Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Serv Ord Reservation Location - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1360054054 - Field 131214492 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
+          <source>Warning Date Range 1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Warning Date Range 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1360054054 - Field 768911109 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
+          <source>Warning Date Range 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Warning Date Range 2 - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2426476168 - Field 3720664786 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2662845818">
           <source>Fault Area Comment</source>

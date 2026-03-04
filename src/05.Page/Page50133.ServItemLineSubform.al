@@ -1,8 +1,9 @@
 
 page 50133 "Serv. Item Line Subform"
 {
+    Caption = 'Service Order';
     PageType = ListPart;
-    SourceTable = 5901; // Table5901 from C/AL (Service Item Line)
+    SourceTable = "Service Item Line";
     ApplicationArea = All;
     Editable = false;
 
@@ -42,25 +43,9 @@ page 50133 "Serv. Item Line Subform"
                     end;
                 }
                 field(Description; Rec.Description) { ApplicationArea = All; }
-                field("Description 2"; Rec."Description 2")
-                {
-                    ApplicationArea = All;
-                    Visible = false;
-                }
-                field("Item Description"; Rec."Item Description")
-                {
-                    ApplicationArea = All;
-                    Visible = false;
-                }
-                field("Item Description 2"; Rec."Item Description 2")
-                {
-                    ApplicationArea = All;
-                    Visible = false;
-                }
                 field(Warranty; Rec.Warranty)
                 {
                     ApplicationArea = All;
-                    ShowCaption = false;
                 }
                 field("Contract No."; Rec."Contract No.")
                 {
@@ -86,6 +71,7 @@ page 50133 "Serv. Item Line Subform"
             group(Comments)
             {
                 Caption = 'Comments';
+                ShowCaption = false;
                 field(FaultComment; FaultComment)
                 {
                     ApplicationArea = All;
@@ -95,7 +81,7 @@ page 50133 "Serv. Item Line Subform"
                     begin
                         if Rec."Document No." = '' then
                             exit(true);
-                        Rec.ShowComments(1);
+                        Rec.ShowComments(SrvCmtLineType::Fault);
                         Refresh();
                         exit(true);
                     end;
@@ -109,7 +95,7 @@ page 50133 "Serv. Item Line Subform"
                     begin
                         if Rec."Document No." = '' then
                             exit(true);
-                        Rec.ShowComments(2);
+                        Rec.ShowComments(SrvCmtLineType::Resolution);
                         Refresh();
                         exit(true);
                     end;
@@ -123,7 +109,7 @@ page 50133 "Serv. Item Line Subform"
                     begin
                         if Rec."Document No." = '' then
                             exit(true);
-                        Rec.ShowComments(6);
+                        Rec.ShowComments(SrvCmtLineType::"Fault Area");
                         Refresh();
                         exit(true);
                     end;
@@ -137,93 +123,11 @@ page 50133 "Serv. Item Line Subform"
                     begin
                         if Rec."Document No." = '' then
                             exit(true);
-                        Rec.ShowComments(7);
+                        Rec.ShowComments(SrvCmtLineType::Symptom);
                         Refresh();
                         exit(true);
                     end;
                 }
-            }
-        }
-    }
-
-    actions
-    {
-        area(processing)
-        {
-            action(BtnOpenIWS)
-            {
-                Caption = 'Item Worksheet';
-                ApplicationArea = All;
-                Image = Worksheet;
-                trigger OnAction()
-                var
-                    OpenServiceItemLine: Record 5901;
-                begin
-                    if Rec."Document No." = '' then
-                        exit;
-                    Clear(OpenServiceItemLine);
-                    OpenServiceItemLine.SetRange("Document Type", Rec."Document Type");
-                    OpenServiceItemLine.SetRange("Document No.", Rec."Document No.");
-                    OpenServiceItemLine.SetRange("Line No.", Rec."Line No.");
-                    Page.RunModal(Page::"Service Item Worksheet", OpenServiceItemLine);
-                end;
-            }
-            action(BtnOpenSWR)
-            {
-                Caption = 'Work Report';
-                ApplicationArea = All;
-                Image = Report;
-                trigger OnAction()
-                var
-                    ServHeader: Record 5900;
-                begin
-                    if Rec."Document No." = '' then
-                        exit;
-                    Clear(ServHeader);
-                    ServHeader.SetRange("Document Type", Rec."Document Type");
-                    ServHeader.SetRange("No.", Rec."Document No.");
-                    //Report.Run(Report::"Service Work Report", true, false, ServHeader);
-                end;
-            }
-            action(BtnOpenCPT)
-            {
-                Caption = 'Parts Transfer';
-                ApplicationArea = All;
-                Image = TransferOrder;
-                trigger OnAction()
-                var
-                    ServHeader: Record 5900;
-                begin
-                    Clear(ServHeader);
-                    ServHeader.Get(Rec."Document Type", Rec."Document No.");
-                    // The following calls assume page 50138 was converted to a page with methods SetDefaultFilter/SetDefaultFilter2
-                    Page.Run(50138, ServHeader); // TODO: Replace with proper page and method calls if needed
-                end;
-            }
-            action(ServiceTasks)
-            {
-                Caption = 'Service Tasks';
-                ApplicationArea = All;
-                Image = Task;
-                trigger OnAction()
-                var
-                    OpenServiceItemLine: Record 5901;
-                begin
-                    Clear(OpenServiceItemLine);
-                    if Rec."Document No." <> '' then begin
-                        OpenServiceItemLine.SetRange("Document Type", Rec."Document Type");
-                        OpenServiceItemLine.SetRange("Document No.", Rec."Document No.");
-                        OpenServiceItemLine.SetRange("Line No.", Rec."Line No.");
-                    end;
-                    Page.RunModal(Page::"Service Tasks", OpenServiceItemLine);
-                end;
-            }
-            action(DispatchBoard)
-            {
-                Caption = 'Dispatch Board';
-                ApplicationArea = All;
-                Image = Timeline;
-                RunObject = Page 6000; // Converted from Form 6000
             }
         }
     }
@@ -241,6 +145,7 @@ page 50133 "Serv. Item Line Subform"
         ServCommentLine: Record 5906;
         iLoop: Integer;
         NotEmpty: Boolean;
+        SrvCmtLineType: Enum "Service Comment Line Type";
 
     procedure Relink(ServiceItemNo: Code[20]; ContractNoFilter: Text[250])
     begin
@@ -253,9 +158,6 @@ page 50133 "Serv. Item Line Subform"
     local procedure Refresh()
     begin
         NotEmpty := ((Rec.Count > 0) and (Rec."Document No." <> ''));
-        //CurrPage.BtnOpenIWS.Visible := NotEmpty;
-        //CurrPage.BtnOpenSWR.Visible := NotEmpty;
-        //CurrPage.BtnOpenCPT.Visible := NotEmpty;
         FaultAreaComment := '';
         SymptomComment := '';
         FaultComment := '';
