@@ -2211,7 +2211,7 @@
         </trans-unit>
         <trans-unit id="Report 1079270555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>MRJ Service Order Confirmation</source>
-          <target></target>
+          <target>サービス受注確認書</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Order Confirmation - Property Caption</note>
         </trans-unit>
@@ -2247,7 +2247,7 @@
         </trans-unit>
         <trans-unit id="Report 990646150 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Quotation (JP)</source>
-          <target></target>
+          <target>サービス見積書</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Quotation - Property Caption</note>
         </trans-unit>
