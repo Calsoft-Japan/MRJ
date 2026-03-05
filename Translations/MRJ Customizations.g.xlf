@@ -2033,6 +2033,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Cr Memo - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 1242599189 - NamedType 136984654" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1（値引）</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Fault Reason Description</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Cr Memo - NamedType Text50020</note>
+        </trans-unit>
         <trans-unit id="Report 1242599189 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>オプション</source>
           <note from="Developer" annotates="general" priority="2"></note>

@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-02-28T11:53:34.7718014Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-05T01:33:49.3975816Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -316,7 +316,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Tel. 050-2018-7305 (経理), 050-2018-7306 (ｻｰﾋﾞｽ)</Value>
+                    <Value>=Fields!CompanyAddr7.value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -346,11 +346,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=IIF(
-  Fields!HasVat8Pct.Value,
-  "Fax. 050-2018-7320（経理）, 050-2018-7322（サービス）",
-  "Fax. 050-2018-7320（経理）, 050-2018-7325（部品）"
-)</Value>
+                    <Value>=Fields!CompanyAddr8.value</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>MS UI Gothic</FontFamily>
@@ -1943,9 +1939,6 @@
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
-                  <Visibility>
-                    <Hidden>=IsNothing(Fields!CommentText.Value)</Hidden>
-                  </Visibility>
                   <KeepWithGroup>After</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
@@ -2979,6 +2972,11 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <SortExpressions>
+              <SortExpression>
+                <Value>=Fields!FlatLineType.Value</Value>
+              </SortExpression>
+            </SortExpressions>
             <Top>9.27777cm</Top>
             <Left>0.16668cm</Left>
             <Height>1.48035cm</Height>
@@ -3501,6 +3499,12 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="CompanyAddr6">
           <DataField>CompanyAddr6</DataField>
+        </Field>
+        <Field Name="CompanyAddr7">
+          <DataField>CompanyAddr7</DataField>
+        </Field>
+        <Field Name="CompanyAddr8">
+          <DataField>CompanyAddr8</DataField>
         </Field>
         <Field Name="CompanyAddr0">
           <DataField>CompanyAddr0</DataField>
