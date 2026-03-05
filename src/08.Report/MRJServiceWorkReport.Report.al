@@ -270,8 +270,7 @@ report 50075 "Service Work Report"
             var
                 LangId: Integer;
             begin
-                LangId := LanguageRec.GetLanguageId("Language Code");
-                CurrReport.Language(LangId);
+                //CurrReport.Language := LanguageRec.GetLanguageId("Language Code");
 
                 if CurrReport.Language = 1041 then
                     OutputDate := Format("Document Date", 0, '<Year4>年<Month,2>月<Day,2>日')
@@ -283,9 +282,7 @@ report 50075 "Service Work Report"
                 else
                     CompanyML(CompanyAddr, CompanyInfo, CurrReport.Language);
 
-                // Sell-to address on Service Header
                 ServiceHeaderSellToML(CustAddr, "Service Header", CurrReport.Language);
-
             end;
         }
     }
@@ -381,9 +378,7 @@ report 50075 "Service Work Report"
     procedure RespCenterML(var AddrArray: array[8] of Text[50];
                                var RespCenter: Record "Responsibility Center"; LanguageID: Integer)
     begin
-        LanguageCode := GetLanguageCode(LanguageID);
-
-        if LanguageCode = 'JPN' then
+        if LanguageID = 1041 then
             FormatAddrJPN(AddrArray,
                           RespCenter.Name, RespCenter."Name 2", RespCenter.Contact,
                           RespCenter.Address, RespCenter."Address 2",
@@ -399,28 +394,23 @@ report 50075 "Service Work Report"
 
     procedure CompanyML(var AddrArray: array[8] of Text[50]; var CompanyInfo: Record "Company Information"; LanguageID: Integer)
     begin
-        LanguageCode := GetLanguageCode(LanguageID);
-
-        if LanguageCode = 'JPN' then begin
+        if LanguageID = 1041 then
             FormatAddrJPN(AddrArray,
                           CompanyInfo.Name, CompanyInfo."Name 2", '',
                           CompanyInfo.Address, CompanyInfo."Address 2",
                           CompanyInfo.City, CompanyInfo."Post Code", CompanyInfo.County, '',
-                          CompanyInfo."Phone No.", CompanyInfo."Fax No.", '', '');
-        end else begin
+                          CompanyInfo."Phone No.", CompanyInfo."Fax No.", '', '')
+        else
             FormatAddrENU(AddrArray,
                           CompanyInfo.Name, CompanyInfo."Name 2", '',
                           CompanyInfo.Address, CompanyInfo."Address 2",
                           CompanyInfo.City, CompanyInfo."Post Code", CompanyInfo.County, '',
                           CompanyInfo."Phone No.", CompanyInfo."Fax No.", '', '');
-        end;
     end;
 
     procedure ServiceHeaderSellToML(var AddrArray: array[8] of Text[50]; var ServiceHeader: Record "Service Header"; LanguageID: Integer)
     begin
-        LanguageCode := GetLanguageCode(LanguageID);
-
-        if LanguageCode = 'JPN' then
+        if LanguageID = 1041 then
             FormatAddrJPN(AddrArray,
                           ServiceHeader.Name, ServiceHeader."Name 2", ServiceHeader."Contact Name",
                           ServiceHeader.Address, ServiceHeader."Address 2",

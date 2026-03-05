@@ -64,9 +64,11 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet"
         {
             action(ServiceReport)
             {
-                ApplicationArea = All;
+                ApplicationArea = Service;
                 Caption = 'Service Report';
                 Image = Report;
+                Promoted = true;
+                PromotedOnly = true;
                 trigger OnAction()
                 var
                     ServHeader: Record "Service Header";
@@ -83,7 +85,6 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet"
                 Caption = 'Parts Request';
                 Promoted = true;
                 PromotedOnly = true;
-                PromotedIsBig = true;
                 Image = Report;
                 trigger OnAction()
                 var
