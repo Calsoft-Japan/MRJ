@@ -2003,6 +2003,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Purchase Order (JP) - Control OrderDateParam - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 994406390 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MRJ Sales Credit Memo (JP)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Sales Credit Memo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 994406390 - Control 1215198615 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>発行日</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Sales Credit Memo - Control IssueDate - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2314668512 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>MRJ Sales Invoice</source>
           <note from="Developer" annotates="general" priority="2"></note>
