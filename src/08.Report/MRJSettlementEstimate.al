@@ -262,7 +262,7 @@ report 50100 "MRJ Settlement Estimate"
                 LineVAT: Decimal;
             begin
                 if ShowOrderInfo then
-                    TitleTxt := '納品書';
+                    TitleTxt := '精算見積書';
 
                 CompanyInfo.CalcFields(Picture);
 
