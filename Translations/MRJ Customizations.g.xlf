@@ -2248,6 +2248,221 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - Control ReqStartDate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 1293106958 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Work Report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 1245862610" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType AmountLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 2873454903" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Authorized</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType AuthorizedLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 3764383116" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Confirmed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType ConfirmLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 1341770390" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType ContactLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 2123708446" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cost of R</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType CostOfRLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 291269830" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType CreatedLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 117108317" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType CustLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 1542941690" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date -</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType DateLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 3819082293" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType DescLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 3405983715" size-unit="char" translate="yes" xml:space="preserve">
+          <source>※上記金額に、消費税は含まれておりません。</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType DisclaimerLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 2302863972" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Equipment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType EquipmentLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 2464321537" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fault Area</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType FaultAreaLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 4193698852" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fault</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType FaultLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 97011245" size-unit="char" translate="yes" xml:space="preserve">
+          <source>h</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType HrsLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 980274199" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Internal</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType InternalLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 1314000525" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType NoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 1060023023" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order No. -</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType OrderNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 1877187315" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType PageLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 2170363422" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prod. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType ProdNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 1812627602" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Production Time</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType ProdTimeLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 3259830970" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Qty.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType QtyLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 4228570543" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType RepTitleLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 537995568" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Resolution</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType ResolutionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 3280915453" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Serial No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType SerialNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 431601316" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Series No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType SeriesNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 1309793803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Item Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType ServItemStatusLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 3277881248" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Serv. Ord. Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType SrvOrdTypeLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 3840841532" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start &amp; End Time</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType StartEndTimeLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 810539710" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType StartingLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 2566476901" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Symptom</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType SymptomLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 3817301937" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tel #</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType TelLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 845787964" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType TotalAmtLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 961827798" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType TypeLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 2786556803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType UnitPriceLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 1215069719" size-unit="char" translate="yes" xml:space="preserve">
+          <source>UOM</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType UOMLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 963777514" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Warranty</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType WarrantyLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 4096294353" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Work Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType WorkDateLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 4243285512" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Worker</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType WorkerLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 1997622193" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Work Condition</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType WrkConditionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - Control 914494942 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Option</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - Control PrintOption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - Control 914494942 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.,Item No./Lot.No.,Item No./Lot No./Serial No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - Control PrintOption - Property OptionCaption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 836936761 - Control 54496332 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1180040559">
           <source>MRJ Customization</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2353,15 +2568,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv Item WorkSheet Ext - Action CreateParts - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4054556956 - Action 366713437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 449515330">
+          <source>Show</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv Item WorkSheet Ext - Action Show - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4054556956 - Action 1883011495 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 449515330">
           <source>Parts Request</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv Item WorkSheet Ext - Action PartsRequest - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 4054556956 - Action 366713437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 449515330">
-          <source>Show</source>
+        <trans-unit id="PageExtension 4054556956 - Action 3539565669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 449515330">
+          <source>Service Report</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv Item WorkSheet Ext - Action Show - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv Item WorkSheet Ext - Action ServiceReport - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3390929214 - Action 148278340 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2145436509">
           <source>Create Parts Transfer</source>
