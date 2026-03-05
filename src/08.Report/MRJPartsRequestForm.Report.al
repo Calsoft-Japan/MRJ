@@ -3,7 +3,6 @@ report 50071 "Parts Request Form"
     Caption = 'Parts Request Form';
     UsageCategory = None;
     ApplicationArea = All;
-
     DefaultLayout = RDLC;
     RDLCLayout = 'src\07.ReportLayout\MRJPartsRequestForm.rdlc';
 
