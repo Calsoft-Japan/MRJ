@@ -17,6 +17,7 @@ report 50018 "MRJ Purchase Order (JP)"
             column(Currency_Code; "Currency Code") { }                       // 通貨コード
             column(PurchaseOrderNo; "No.") { }                              // 発注書番号
             column(Order_Date; "Order Date") { }                      // 注文年月日 
+            column(Document_Date; "Document Date") { }                   // 発注書印刷日
 
             // 希望納期 / 支払方法
             column(RequestedReceiptDate; "Requested Receipt Date") { } // 希望納期
@@ -143,8 +144,10 @@ report 50018 "MRJ Purchase Order (JP)"
                     FormatAddr.Company(CompanyAddr, CompanyInfo);
 
                 // ----- Company TEL/FAX -----
+                // Fetch from Responsibility Center first; fallback to Company Information
                 CompanyTelTxt := '';
                 CompanyFaxTxt := '';
+
                 if ("Responsibility Center" <> '') and RespCenter.Get("Responsibility Center") then begin
                     CompanyTelTxt := BuildContactTxt('TEL', RespCenter."Phone No.", RespCenter."Phone No. 2");
                     CompanyFaxTxt := BuildContactTxt('FAX', RespCenter."Fax No.", RespCenter."Fax No. 2");
