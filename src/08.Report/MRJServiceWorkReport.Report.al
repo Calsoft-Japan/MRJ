@@ -161,7 +161,6 @@ report 50075 "Service Work Report"
 
                             TotalText := TotalLbl;
                             TotalLineAmtText := Format(TotalLineAmt);
-                            UnderLine := UnderLineLbl;
                             DisclaimerText := DisclaimerLbl;
                         end;
                     }
@@ -174,7 +173,6 @@ report 50075 "Service Work Report"
                     var
                         UnitofMeasure: Record "Unit of Measure";
                     begin
-
                         UOM := GetUnitOfMeasureText("Unit of Measure Code", CurrReport.Language.ToText());
                         ServLineQty := "Outstanding Quantity";
                         if "Quantity" <> 0 then
@@ -209,7 +207,6 @@ report 50075 "Service Work Report"
 
                         ServLineCnt += ReservCnt;
                         TotalLineAmt += ServLineAmt;
-
                     end;
                 }
                 dataitem(GridLines; Integer)
@@ -355,7 +352,6 @@ report 50075 "Service Work Report"
         TotalLbl: Label 'Total', Locked = true;
         SubtotalLbl: Label 'Sub Total', Locked = true;
         DisclaimerLbl: Label '※上記金額に、消費税は含まれておりません。';
-        UnderLineLbl: Label '______________________________________________________________', Locked = true;
 
     local procedure SetComment(var Comment: array[4] of Text[80]; CType: Enum "Service Comment Line Type")
     var
