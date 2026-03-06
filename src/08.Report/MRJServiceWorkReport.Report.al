@@ -115,11 +115,14 @@ report 50075 "Service Work Report"
                                    "Service Item Serial No." = field("Serial No.");
                     column(TypeLbl; TypeLbl) { }
                     column(NoLbl; NoLbl) { }
+                    column(LotNoLbl; LotNoLbl) { }
+                    column(SrlNoLbl; SrlNoLbl) { }
                     column(DescLbl; DescLbl) { }
                     column(QtyLbl; QtyLbl) { }
                     column(UOMLbl; UOMLbl) { }
                     column(UnitPriceLbl; UnitPriceLbl) { }
                     column(AmountLbl; AmountLbl) { }
+                    column(PrintOption; PrintOption) { }
                     column(SrvLineType; Type) { }
                     column(SrvLineNo; "No.") { }
                     column(SrvLineDesc; Description) { }
@@ -134,7 +137,6 @@ report 50075 "Service Work Report"
                         DataItemTableView = sorting(Number);
                         column(TotalText; TotalText) { }
                         column(TotalLineAmtText; TotalLineAmtText) { }
-                        column(UnderLine; UnderLine) { }
                         column(DisclaimerText; DisclaimerText) { }
                         column(ResvLotNo; ReservEntry."Lot No.") { }
                         column(ResvSerialNo; ReservEntry."Serial No.") { }
@@ -267,8 +269,6 @@ report 50075 "Service Work Report"
             var
                 LangId: Integer;
             begin
-                //CurrReport.Language := LanguageRec.GetLanguageId("Language Code");
-
                 if CurrReport.Language = 1041 then
                     OutputDate := Format("Document Date", 0, '<Year4>年<Month,2>月<Day,2>日')
                 else
@@ -542,6 +542,8 @@ report 50075 "Service Work Report"
         InternalLbl: Label 'Internal';
         TypeLbl: Label 'Type';
         NoLbl: Label 'No.';
+        LotNoLbl: Label 'Lot No.';
+        SrlNoLbl: Label 'Serial No.';
         DescLbl: Label 'Description';
         QtyLbl: Label 'Qty.';
         UOMLbl: Label 'UOM';

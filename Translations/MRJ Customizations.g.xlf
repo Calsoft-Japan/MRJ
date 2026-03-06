@@ -2343,6 +2343,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType InternalLbl</note>
         </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 952773960" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lot No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType LotNoLbl</note>
+        </trans-unit>
         <trans-unit id="Report 1293106958 - NamedType 1314000525" size-unit="char" translate="yes" xml:space="preserve">
           <source>No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2397,6 +2402,11 @@
           <source>Service Item Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType ServItemStatusLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1293106958 - NamedType 4040531146" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Serial No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType SrlNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 1293106958 - NamedType 3277881248" size-unit="char" translate="yes" xml:space="preserve">
           <source>Serv. Ord. Type</source>
