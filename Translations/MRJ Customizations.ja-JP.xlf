@@ -2081,7 +2081,7 @@
         </trans-unit>
         <trans-unit id="Page 812732725 - Control 284195533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Filters</source>
-          <target>フ</target>
+          <target>フィルター</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Filters - Property Caption</note>
         </trans-unit>
@@ -4201,7 +4201,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 3060134483 - Field 1417094296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 521506452">
           <source>Inspection In-Charge (Dept.)</source>
-          <target></target>
+          <target>検収担当部署</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Service Item Ext - Field Inspection In-Charge (Dept.) - Property Caption</note>
         </trans-unit>
