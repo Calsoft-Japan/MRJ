@@ -1827,6 +1827,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Closed Purchase Orders - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 223509155 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Transfer Shipment Lines</source>
+          <target>転記済移送出荷ライン</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Pstd. Transfer Ship Lines - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4165833255 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Inquiry</source>
           <target>販売照会</target>

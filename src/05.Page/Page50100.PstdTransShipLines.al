@@ -79,6 +79,7 @@ page 50100 "Pstd. Transfer Ship Lines"
                 field("Auto Service Order No."; Rec."Auto Service Order No.")
                 {
                     ApplicationArea = All;
+                    Editable = false;
                 }
                 field("Manual Service Order No."; Rec."Manual Service Order No.")
                 {

@@ -1,4 +1,4 @@
-tableextension 50290 "VAT Amt. Line Ext" extends "VAT Amount Line"
+/* tableextension 50290 "VAT Amt. Line Ext" extends "VAT Amount Line"
 {
     fields
     {
@@ -9,5 +9,5 @@ tableextension 50290 "VAT Amt. Line Ext" extends "VAT Amount Line"
             Description = 'UPG';
         }
     }
-}
+} */
 

@@ -3863,11 +3863,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Trans Ship Line Ext - Field Manual Service Order No. - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 3665620830 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3353980043">
-          <source>Line No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension VAT Amt. Line Ext - Field Line No. - Property Caption</note>
-        </trans-unit>
         <trans-unit id="TableExtension 398329876 - Field 3190251065 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1535614531">
           <source>For Loan Shipment</source>
           <note from="Developer" annotates="general" priority="2"></note>
