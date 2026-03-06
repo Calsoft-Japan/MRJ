@@ -68,13 +68,12 @@ page 50132 "Serv. Shpt. Item Line Subform"
 
             group(Comments)
             {
-                Caption = 'Comments';
                 ShowCaption = false;
                 field(FaultComment; FaultComment)
                 {
                     ApplicationArea = All;
                     Editable = false;
-                    Caption = 'Fault Comment'; // JPN: 故障コメント
+                    Caption = 'Fault Comment';
                     trigger OnLookup(var Text: Text): Boolean
                     begin
                         if Rec."No." = '' then

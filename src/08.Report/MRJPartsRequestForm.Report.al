@@ -254,8 +254,8 @@ report 50071 "Parts Request Form"
         Qty: Decimal;
         ShowLineCnt: Integer;
         PageLbl: Label 'Page';
-        DateLbl: Label 'Date';
-        PartsTRNoLbl: Label 'Parts Transfer No.';
+        DateLbl: Label 'Date -';
+        PartsTRNoLbl: Label 'Parts Transfer No. -';
         RepCapLbl: Label 'Parts Request Form';
         BinDescLbl: Label 'Bin Description';
         BinCodeLbl: Label 'Bin Code';

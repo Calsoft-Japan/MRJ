@@ -1663,11 +1663,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Item Line Subform - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3928026391 - Control 503024588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Comments</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Item Line Subform - Control Comments - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 3928026391 - Control 2341317882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fault Area Comment</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1698,11 +1693,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Shpt. Item Line Subform - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 374249760 - Control 503024588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Comments</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Shpt. Item Line Subform - Control Comments - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 374249760 - Control 2341317882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fault Area Comment</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1728,30 +1718,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 812732725 - NamedType 1218460513" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Can not find any Service Item, do you want to create Service Quote?</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - NamedType TEST0001</note>
-        </trans-unit>
         <trans-unit id="Page 812732725 - NamedType 580763896" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to create Service Order?</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - NamedType TEST0002</note>
         </trans-unit>
-        <trans-unit id="Page 812732725 - NamedType 4238034575" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Do you want to create Service Quote?</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - NamedType TEST0003</note>
-        </trans-unit>
         <trans-unit id="Page 812732725 - NamedType 111976302" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Order '%1' created successfully, do you want to open?</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - NamedType TEST0004</note>
-        </trans-unit>
-        <trans-unit id="Page 812732725 - NamedType 3769246981" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Quote '%1' created successfully, do you want to open?</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - NamedType TEST0005</note>
         </trans-unit>
         <trans-unit id="Page 812732725 - NamedType 3131550364" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 days after last date.</source>
@@ -2174,7 +2149,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType BinDescLbl</note>
         </trans-unit>
         <trans-unit id="Report 1054195013 - NamedType 1542941690" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Date</source>
+          <source>Date -</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType DateLbl</note>
         </trans-unit>
@@ -2194,7 +2169,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType PageLbl</note>
         </trans-unit>
         <trans-unit id="Report 1054195013 - NamedType 2319902091" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Parts Transfer No.</source>
+          <source>Parts Transfer No. -</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType PartsTRNoLbl</note>
         </trans-unit>
@@ -2718,10 +2693,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Inv Setup Ext - Control MRJCustomization - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 385824587 - Action 1534142131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1561133952">
-          <source>精算見積書</source>
+        <trans-unit id="PageExtension 385824587 - Action 4105436453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1561133952">
+          <source>Settlement Estimate</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension MRJ Posted Service Shipment - Action 精算見積書 - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension MRJ Posted Service Shipment - Action SettleMentEstimate - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3926397906 - Control 2905855265 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2187133665">
           <source>Shows the new shelf number from Item master.</source>

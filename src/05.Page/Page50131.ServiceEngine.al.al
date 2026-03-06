@@ -33,8 +33,8 @@ page 50131 "Service Engine"
                         Rec.SetFilter("Serial No.", SerialNoFilter);
                         CurrPage.Update(false);
                         Refresh();
-                        if Rec.IsEmpty() then
-                            FindNothing();
+                        //if Rec.IsEmpty() then
+                        //FindNothing();
                     end;
                 }
                 field("Customer No."; Rec."Customer No.")
@@ -141,7 +141,7 @@ page 50131 "Service Engine"
                 part(SbfServItemLine; "Serv. Item Line Subform")
                 {
                     SubPageLink = "Service Item No." = field("No.");
-                    SubPageView = SORTING("Document Type", "Document No.", "Line No.") ORDER(Descending) WHERE("Document Type" = const(Order));
+                    SubPageView = sorting("Document Type", "Document No.", "Line No.") ORDER(Descending) WHERE("Document Type" = const(Order));
                 }
             }
         }
@@ -181,16 +181,13 @@ page 50131 "Service Engine"
     begin
         SrvMgtSetup.Get();
         TheWorkDate := WorkDate();
-        //PhoneNoFilter := Rec.GetFilter("Phone No. (Service)");
         SerialNoFilter := Rec.GetFilter("Serial No.");
-        //ProductSeriesFilter := Rec.GetFilter("Product Series");
         Rec.Reset();
         Rec.SetFilter("No.", GetServItemNoFilter());
         Rec.SetFilter("Serial No.", SerialNoFilter);
-        //Rec.SetFilter("Product Series", ProductSeriesFilter);
         Refresh();
-        if Rec.IsEmpty() then
-            FindNothing();
+        //if Rec.IsEmpty() then
+        //FindNothing();
     end;
 
     trigger OnAfterGetCurrRecord()
@@ -352,7 +349,7 @@ page 50131 "Service Engine"
         Page.RunModal(Page::"Service Order", ServHeaderInst);
     end;
 
-    local procedure FindNothing()
+    /* local procedure FindNothing()
     var
         ServHeaderInst: Record 5900;
     begin
@@ -366,7 +363,7 @@ page 50131 "Service Engine"
         if not Dialog.Confirm(StrSubstNo(TEST0005, ServHeaderInst."No."), true) then
             exit;
         Page.RunModal(Page::"Service Quote", ServHeaderInst);
-    end;
+    end; */
 
     local procedure GetServItemNoFilter(): Text
     var
@@ -470,11 +467,8 @@ page 50131 "Service Engine"
         ShowDateWarningRed: Boolean;
         ShowUncRec: Boolean;
         UncRecText: Text[100];
-        TEST0001: Label 'Can not find any Service Item, do you want to create Service Quote?';
         TEST0002: Label 'Do you want to create Service Order?';
-        TEST0003: Label 'Do you want to create Service Quote?';
         TEST0004: Label 'Service Order ''%1'' created successfully, do you want to open?';
-        TEST0005: Label 'Service Quote ''%1'' created successfully, do you want to open?';
         TEST0006: Label '%1 days after last date.';
         TEST0007: Label 'Do you want to copy Service Line?';
 }

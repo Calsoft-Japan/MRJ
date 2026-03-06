@@ -4,9 +4,9 @@ pageextension 55975 "MRJ Posted Service Shipment" extends "Posted Service Shipme
     {
         addlast(Processing)
         {
-            action("精算見積書")
+            action(SettleMentEstimate)
             {
-                Caption = '精算見積書';
+                Caption = 'Settlement Estimate';
                 ApplicationArea = All;
                 Image = Print;
 

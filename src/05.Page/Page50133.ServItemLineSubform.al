@@ -70,7 +70,6 @@ page 50133 "Serv. Item Line Subform"
 
             group(Comments)
             {
-                Caption = 'Comments';
                 ShowCaption = false;
                 field(FaultComment; FaultComment)
                 {
