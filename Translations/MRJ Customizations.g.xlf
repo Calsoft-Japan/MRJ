@@ -2733,6 +2733,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Phys. Inventory Journal Ext - Control New Shelf No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2423346876 - Action 1065330975 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3231970241">
+          <source>Fault Area</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Pstd Serv Ship Subform Ext - Action FaultArea - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2423346876 - Action 3435435619 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3231970241">
+          <source>Symptom</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Pstd Serv Ship Subform Ext - Action Symtom - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3575984871 - Action 623964021 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3722804899">
           <source>Service Report</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2837,6 +2847,16 @@
           <source>Service Report</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv Item WorkSheet Ext - Action ServiceReport - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3694413315 - Action 1065330975 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2247137235">
+          <source>Fault Area</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv. Order Subform Ext - Action FaultArea - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3694413315 - Action 3435435619 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2247137235">
+          <source>Symptom</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv. Order Subform Ext - Action Symtom - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3390929214 - Action 148278340 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2145436509">
           <source>Create Parts Transfer</source>
