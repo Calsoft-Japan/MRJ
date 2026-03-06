@@ -18,7 +18,7 @@ pageextension 55970 "Pstd. Serv. Shipment Lines Ext" extends "Posted Service Shi
                     ServShipHeader: Record "Service Shipment Header";
                 begin
                     Clear(ServShipHeader);
-                    ServShipHeader.SetRange("No.", Rec."No.");
+                    ServShipHeader.SetRange("No.", Rec."Document No.");
                     Report.Run(Report::"Pstd. Service Work Report", true, false, ServShipHeader);
                 end;
             }
