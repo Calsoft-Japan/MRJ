@@ -1586,13 +1586,6 @@
                       <FontSize>9pt</FontSize>
                     </Style>
                   </TextRun>
-                  <TextRun>
-                    <Value>9</Value>
-                    <Style>
-                      <FontFamily>MS UI Gothic</FontFamily>
-                      <FontSize>9pt</FontSize>
-                    </Style>
-                  </TextRun>
                 </TextRuns>
                 <Style>
                   <TextAlign>Left</TextAlign>
@@ -5080,6 +5073,7 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
+              <Top>0cm</Top>
               <Left>12.11474cm</Left>
               <Height>3.9352cm</Height>
               <Width>7.9433cm</Width>
@@ -6393,6 +6387,7 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
+              <Top>0cm</Top>
               <Height>3.9352cm</Height>
               <Width>12.11474cm</Width>
               <ZIndex>1</ZIndex>
