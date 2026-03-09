@@ -45,6 +45,8 @@ report 50018 "MRJ Purchase Order (JP)"
             column(CompanyAddr2; CompanyAddr[2]) { }
             column(CompanyAddr3; CompanyAddr[3]) { }
             column(CompanyAddr4; CompanyAddr[4]) { }
+            column(CompanyAddr5; CompanyInfo."Phone No.") { }
+            column(CompanyAddr6; CompanyInfo."Fax No.") { }
             column(CompanyPostCode; CompanyInfo."Post Code") { }
 
             // TEL/FAX (RC first; fallback CompanyInfo) -> "No. / No. 2"
@@ -142,19 +144,6 @@ report 50018 "MRJ Purchase Order (JP)"
                     FormatAddr.RespCenter(CompanyAddr, RespCenter)
                 else
                     FormatAddr.Company(CompanyAddr, CompanyInfo);
-
-                // ----- Company TEL/FAX -----
-                // Fetch from Responsibility Center first; fallback to Company Information
-                CompanyTelTxt := '';
-                CompanyFaxTxt := '';
-
-                if ("Responsibility Center" <> '') and RespCenter.Get("Responsibility Center") then begin
-                    CompanyTelTxt := BuildContactTxt('TEL', RespCenter."Phone No.", RespCenter."Phone No. 2");
-                    CompanyFaxTxt := BuildContactTxt('FAX', RespCenter."Fax No.", RespCenter."Fax No. 2");
-                end else begin
-                    CompanyTelTxt := BuildContactTxt('TEL', CompanyInfo."Phone No.", CompanyInfo."Phone No. 2");
-                    //CompanyFaxTxt := BuildContactTxt('FAX', CompanyInfo."Fax No.", CompanyInfo."Fax No. 2");
-                end;
 
                 if VendorRec.Get("Buy-from Vendor No.") then begin
                     FormatAddr.Vendor(VendAddr, VendorRec);

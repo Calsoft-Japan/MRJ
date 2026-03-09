@@ -574,25 +574,26 @@ report 50024 "MRJ Service Cr Memo"
             until TempSortBuffer.Next() = 0;
     end;
     // ==========================================================
-    // Company TEL/FAX (Resp Center -> fallback Company), comma separated
-    local procedure FillCompanyTelFax(var Addr: array[8] of Text[90])
-    var
-        TelLine: Text[120];
-        FaxLine: Text[120];
-    begin
-        TelLine := DelChr(CompanyInfo."Phone No.", '<>', ' ');
-        FaxLine := DelChr(CompanyInfo."Fax No.", '<>', ' ');
+    // Company TEL/FAX helper
+    // ==========================================================
+    // local procedure FillCompanyTelFax(var Addr: array[8] of Text[90])
+    // var
+    //     TelLine: Text[120];
+    //     FaxLine: Text[120];
+    // begin
+    //     TelLine := JoinWithComma(CompanyInfo."Phone No.", CompanyInfo."Phone No. 2");
+    //     FaxLine := JoinWithComma(CompanyInfo."Fax No.", CompanyInfo."Fax No. 2");
 
-        if TelLine <> '' then
-            Addr[7] := CopyStr('TEL: ' + TelLine, 1, MaxStrLen(Addr[7]))
-        else
-            Addr[7] := '';
+    //     if TelLine <> '' then
+    //         Addr[7] := CopyStr('TEL: ' + TelLine, 1, MaxStrLen(Addr[7]))
+    //     else
+    //         Addr[7] := '';
 
-        if FaxLine <> '' then
-            Addr[8] := CopyStr('FAX: ' + FaxLine, 1, MaxStrLen(Addr[8]))
-        else
-            Addr[8] := '';
-    end;
+    //     if FaxLine <> '' then
+    //         Addr[8] := CopyStr('FAX: ' + FaxLine, 1, MaxStrLen(Addr[8]))
+    //     else
+    //         Addr[8] := '';
+    // end;
 
     local procedure JoinWithComma(Part1: Text; Part2: Text): Text
     begin
@@ -768,7 +769,7 @@ report 50024 "MRJ Service Cr Memo"
         FormatAddress.Company(CompanyAddr, CompanyInfo);
 
         // Always use Company Information for TEL/FAX
-        FillCompanyTelFax(CompanyAddr);
+        //FillCompanyTelFax(CompanyAddr);
 
         TotalExclVAT := 0;
         TotalInclVAT := 0;

@@ -38,6 +38,8 @@ report 50082 "MRJ Sales Credit Memo"
             column(CompanyAddr3; CompanyAddr[3]) { }
             column(CompanyAddr4; CompanyAddr[4]) { }
             column(CompanyAddr5; CompanyAddr[5]) { }
+            column(CompanyAddr6; CompanyInfo."Phone No.") { }
+            column(CompanyAddr7; CompanyInfo."Fax No.") { }
             column(CompanyAddr0; CompanyInfo."Post Code") { }       // JP Post Code
 
             // TEL/FAX (RC first; fallback Company Info) -> "No. / No. 2"
@@ -45,8 +47,7 @@ report 50082 "MRJ Sales Credit Memo"
             column(FaxLine; CompanyFaxTxt) { }
 
             // ==================================================
-            // Company EN (RC Name2/Address2; fallback CompanyInfo)
-            // (Keep only if you will bind in RDLC)
+            // Company EN 
             // ==================================================
             column(CompanyNameEN; CompanyNameEN) { }
             column(CompanyAddrEN; CompanyAddrEN) { }

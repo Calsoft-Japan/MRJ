@@ -2660,6 +2660,12 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="CompanyAddr4">
           <DataField>CompanyAddr4</DataField>
         </Field>
+        <Field Name="CompanyAddr5">
+          <DataField>CompanyAddr5</DataField>
+        </Field>
+        <Field Name="CompanyAddr6">
+          <DataField>CompanyAddr6</DataField>
+        </Field>
         <Field Name="CompanyPostCode">
           <DataField>CompanyPostCode</DataField>
         </Field>
