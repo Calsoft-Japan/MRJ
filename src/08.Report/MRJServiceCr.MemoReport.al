@@ -41,8 +41,8 @@ report 50024 "MRJ Service Cr Memo"
             column(CompanyAddr4; CompanyAddr[4]) { }
             column(CompanyAddr5; CompanyAddr[5]) { }
             column(CompanyAddr6; CompanyAddr[6]) { }
-            column(CompanyAddr7; CompanyAddr[7]) { } // TEL
-            column(CompanyAddr8; CompanyAddr[8]) { } // FAX
+            column(CompanyAddr7; CompanyInfo."Phone No.") { } // TEL
+            column(CompanyAddr8; CompanyInfo."Fax No.") { } // FAX
             column(CompanyAddr0; CompanyInfo."Post Code") { }
 
             column(CompanyRegistrationLine; CompanyRegistrationLine) { }
@@ -251,9 +251,7 @@ report 50024 "MRJ Service Cr Memo"
                 else
                     FormatAddress.Company(CompanyAddr, CompanyInfo);
 
-                // TEL/FAX: Resp. Center -> fallback Company, comma separated
-                FillCompanyTelFax(CompanyAddr, "Responsibility Center");
-
+                // TEL/FAX
                 FillPaymentBankFromCompanyInfo();
 
                 Clear(CustAddr);
@@ -379,7 +377,8 @@ report 50024 "MRJ Service Cr Memo"
         Text50020: Label '%1（値引）', Comment = '%1 = Fault Reason Description';
 
     // ==========================================================
-    // Summarize (toggle ON) - NAV style output
+    // Summarize
+    // ==========================================================
     local procedure SummarizeCrMemoLinesProc()
     var
         LineRec: Record "Service Cr.Memo Line";
@@ -576,30 +575,13 @@ report 50024 "MRJ Service Cr Memo"
     end;
     // ==========================================================
     // Company TEL/FAX (Resp Center -> fallback Company), comma separated
-    local procedure FillCompanyTelFax(var Addr: array[8] of Text[90]; RespCenterCode: Code[10])
+    local procedure FillCompanyTelFax(var Addr: array[8] of Text[90])
     var
-        RespCenter: Record "Responsibility Center";
-        Tel1: Text;
-        Tel2: Text;
-        Fax1: Text;
-        Fax2: Text;
         TelLine: Text[120];
         FaxLine: Text[120];
     begin
-        // Tel1 := CompanyInfo."Phone No.";
-        // Tel2 := CompanyInfo."Phone No. 2";
-        // Fax1 := CompanyInfo."Fax No.";
-        // Fax2 := CompanyInfo."Fax No. 2";
-
-        if (RespCenterCode <> '') and RespCenter.Get(RespCenterCode) then begin
-            Tel1 := RespCenter."Phone No.";
-            Tel2 := RespCenter."Phone No. 2";
-            Fax1 := RespCenter."Fax No.";
-            Fax2 := RespCenter."Fax No. 2";
-        end;
-
-        TelLine := JoinWithComma(Tel1, Tel2);
-        FaxLine := JoinWithComma(Fax1, Fax2);
+        TelLine := DelChr(CompanyInfo."Phone No.", '<>', ' ');
+        FaxLine := DelChr(CompanyInfo."Fax No.", '<>', ' ');
 
         if TelLine <> '' then
             Addr[7] := CopyStr('TEL: ' + TelLine, 1, MaxStrLen(Addr[7]))
@@ -763,7 +745,6 @@ report 50024 "MRJ Service Cr Memo"
         CrLine: Record "Service Cr.Memo Line";
         PaymentTermsLoc: Record "Payment Terms";
         PaymentMethodLoc: Record "Payment Method";
-        RespCenter: Record "Responsibility Center";
     begin
         if not CompanyInfo.Get() then
             CompanyInfo.Get();
@@ -782,13 +763,12 @@ report 50024 "MRJ Service Cr Memo"
 
         FillServiceCrMemoBillTo(CustAddr, SvcCrMemoHdr);
 
+        // Always use Company Information for address
         Clear(CompanyAddr);
-        if (SvcCrMemoHdr."Responsibility Center" <> '') and RespCenter.Get(SvcCrMemoHdr."Responsibility Center") then
-            FormatAddress.RespCenter(CompanyAddr, RespCenter)
-        else
-            FormatAddress.Company(CompanyAddr, CompanyInfo);
+        FormatAddress.Company(CompanyAddr, CompanyInfo);
 
-        FillCompanyTelFax(CompanyAddr, SvcCrMemoHdr."Responsibility Center");
+        // Always use Company Information for TEL/FAX
+        FillCompanyTelFax(CompanyAddr);
 
         TotalExclVAT := 0;
         TotalInclVAT := 0;

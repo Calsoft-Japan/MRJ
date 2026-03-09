@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-03-09T08:37:08.3834738Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-09T13:04:02.9202624Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -542,7 +542,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!CompanyAddr7.value</Value>
+                    <Value>="Tel." &amp; Fields!CompanyAddr7.value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -572,7 +572,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!CompanyAddr8.value</Value>
+                    <Value>="Fax." &amp; Fields!CompanyAddr8.value</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>MS UI Gothic</FontFamily>
@@ -2728,7 +2728,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="textbox103">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -3242,7 +3241,7 @@
             <Top>9.17927cm</Top>
             <Left>0.16668cm</Left>
             <Height>1.86134cm</Height>
-            <Width>17.62067cm</Width>
+            <Width>17.62066cm</Width>
             <ZIndex>21</ZIndex>
             <Visibility>
               <Hidden>=Not Fields!SummarizeLines.Value</Hidden>
