@@ -105,6 +105,8 @@ report 50024 "MRJ Service Cr Memo"
                 column(FlatLineDiscountAmt; FlatLineDiscountAmt) { }
 
                 trigger OnPreDataItem()
+                var
+                    FaultReason: Record "Fault Reason Code";
                 begin
                     if not SummarizeLines then
                         CurrReport.Break();
@@ -119,6 +121,8 @@ report 50024 "MRJ Service Cr Memo"
                 end;
 
                 trigger OnAfterGetRecord()
+                var
+                    FaultReason: Record "Fault Reason Code";
                 begin
                     if Number = 1 then
                         TempCrMemoLine.FindSet()
@@ -143,11 +147,16 @@ report 50024 "MRJ Service Cr Memo"
                     FlatPrice := TempCrMemoLine."Unit Price";
                     FlatAmount := TempCrMemoLine."Line Amount";
 
+                    // -----------------------------
+
                     if TempCrMemoLine.Type = TempCrMemoLine.Type::Cost then begin
                         // Discount rows: show text from Description (NAV style)
                         FlatLineType := 'DISCOUNT';
-                        FlatFaultReasonCode := TempCrMemoLine.Description;
-                        FlatFaultReasonDisplay := TempCrMemoLine.Description;
+                        if FaultReason.Get(TempcrMemoLine."Fault Reason Code") then
+                            FlatFaultReasonCode := FaultReason.Description
+                        else
+                            FlatFaultReasonCode := TempCrMemoLine."Fault Reason Code";
+
                         FlatLineDiscountAmt := TempCrMemoLine."Line Amount";
                     end else begin
                         case TempCrMemoLine.Type of
@@ -378,28 +387,25 @@ report 50024 "MRJ Service Cr Memo"
         ResGrp: Record "Resource Group";
         ServiceMgtSetup: Record "Service Mgt. Setup";
         TempSortBuffer: Record "Service Cr.Memo Line" temporary;
-
         NextLineNo: Integer;
         CurrResGrp: Code[20];
         TargetResGrp: Code[20];
-
+        DiscountAmt: Decimal;
         FaultReasonCodeMst: Record "Fault Reason Code";
-        FaultReasonName: Text[50];
-
         LineBaseAmount: Decimal;
-        DiscAmt: Decimal;
-        TotalDiscountAmt: Decimal;
+        FaultReasonName: Text[50];
         TempLineNo: Integer;
         boolFound: Boolean;
-
-        TotalDiscountCode: Code[20];
+        DiscountResLine: Record "Service Cr.Memo Line" temporary;
+        HasDiscountResLine: Boolean;
     begin
         TempCrMemoLine.Reset();
         TempCrMemoLine.DeleteAll();
-
         TempLineNo := -1;
-        TotalDiscountAmt := 0;
-        TotalDiscountCode := 'ZZZZ_TOTAL';
+
+        DiscountResLine.Reset();
+        DiscountResLine.DeleteAll();
+        HasDiscountResLine := false;
 
         ServiceMgtSetup.Get();
 
@@ -408,59 +414,64 @@ report 50024 "MRJ Service Cr Memo"
 
         if LineRec.FindSet() then
             repeat
-                // ignore existing Cost lines from source (we generate NAV-style rows ourselves)
-                if LineRec.Type = LineRec.Type::Cost then
-                    continue;
+                // Keep posted total-discount resource line aside and print it last
+                if (LineRec.Type = LineRec.Type::Resource) and Res.Get(LineRec."No.") then
+                    if Res."Resource Group No." = 'DISCOUNT' then begin
+                        DiscountResLine.Init();
+                        DiscountResLine.TransferFields(LineRec);
 
-                // ===== Normal line base amount: Quantity * Unit Price (Quotation-style) =====
-                LineBaseAmount := Round(LineRec.Quantity * LineRec."Unit Price", 0.00001);
+                        if ResGrp.Get('DISCOUNT') then
+                            DiscountResLine.Description := ResGrp.Name;
 
-                // fallback if Unit Price is not reliable
-                if (LineBaseAmount = 0) and ((LineRec."Line Amount" <> 0) or (LineRec."Line Discount Amount" <> 0)) then
-                    LineBaseAmount := LineRec."Line Amount" + LineRec."Line Discount Amount";
+                        DiscountResLine.Insert();
+                        HasDiscountResLine := true;
+                        continue;
+                    end;
 
-                // skip empty
-                if (DelChr(LineRec.Description) = '') and (DelChr(LineRec."No.") = '') and (LineBaseAmount = 0) then
-                    continue;
-
+                // -----------------------------
+                // 1. Normal summarized lines
+                // -----------------------------
+                LineBaseAmount := LineRec."Line Amount" + Abs(LineRec."Line Discount Amount");
                 boolFound := false;
+
+                // Determine resource aggregation target
                 CurrResGrp := '';
                 TargetResGrp := '';
-
-                // ---- Resource group summarize (by Resource Group No.) ----
                 if LineRec.Type = LineRec.Type::Resource then begin
                     if Res.Get(LineRec."No.") then begin
                         CurrResGrp := Res."Resource Group No.";
                         TargetResGrp := CurrResGrp;
 
                         if (ServiceMgtSetup."Resource Group Filter" <> '') and
-                           IsResGrpInFilter(CurrResGrp, ServiceMgtSetup."Resource Group Filter") and
-                           (ServiceMgtSetup."Resource Group for Sort" <> '') then
+                           (StrPos(ServiceMgtSetup."Resource Group Filter", CurrResGrp) > 0) then
                             TargetResGrp := ServiceMgtSetup."Resource Group for Sort";
                     end;
+                end;
 
-                    if TargetResGrp <> '' then begin
-                        TempCrMemoLine.Reset();
-                        TempCrMemoLine.SetRange(Type, TempCrMemoLine.Type::Resource);
-                        TempCrMemoLine.SetRange("Resource Group No.", TargetResGrp);
+                // Resource grouping check
+                if (LineRec.Type = LineRec.Type::Resource) and (TargetResGrp <> '') then begin
+                    TempCrMemoLine.Reset();
+                    TempCrMemoLine.SetRange(Type, TempCrMemoLine.Type::Resource);
+                    TempCrMemoLine.SetRange("Resource Group No.", TargetResGrp);
 
-                        if TempCrMemoLine.FindFirst() then begin
-                            TempCrMemoLine."Line Amount" += LineBaseAmount;
-                            TempCrMemoLine.Quantity += LineRec.Quantity;
-                            TempCrMemoLine.Modify();
-                            boolFound := true;
-                        end;
+                    if TempCrMemoLine.FindFirst() then begin
+                        TempCrMemoLine.Quantity += LineRec.Quantity;
+                        TempCrMemoLine."Line Amount" += LineBaseAmount;
+                        TempCrMemoLine.Modify();
+                        boolFound := true;
                     end;
                 end;
 
                 if not boolFound then begin
+                    TempCrMemoLine.Reset();
                     TempCrMemoLine.Init();
                     TempCrMemoLine.TransferFields(LineRec);
 
-                    TempCrMemoLine."Fault Reason Code" := ''; // normal line: clear
+                    TempCrMemoLine."Fault Reason Code" := '';
+                    TempCrMemoLine.Quantity := LineRec.Quantity;
                     TempCrMemoLine."Line Amount" := LineBaseAmount;
-
                     TempCrMemoLine."Resource Group No." := TargetResGrp;
+
                     if (LineRec.Type = LineRec.Type::Resource) and (TargetResGrp <> '') then
                         if ResGrp.Get(TargetResGrp) then
                             TempCrMemoLine.Description := ResGrp.Name;
@@ -468,26 +479,25 @@ report 50024 "MRJ Service Cr Memo"
                     TempCrMemoLine.Insert();
                 end;
 
-                // ===== Discount category line (Fault Reason) =====
-                DiscAmt := Abs(LineRec."Line Discount Amount");
-                if DiscAmt <> 0 then begin
-                    TotalDiscountAmt += DiscAmt;
-
+                // -----------------------------
+                // 2. Discount summarized lines
+                // -----------------------------
+                if LineRec."Line Discount %" > 0 then begin
                     FaultReasonName := '';
-                    if (LineRec."Fault Reason Code" <> '') and FaultReasonCodeMst.Get(LineRec."Fault Reason Code") then
+                    if FaultReasonCodeMst.Get(LineRec."Fault Reason Code") then
                         FaultReasonName := FaultReasonCodeMst.Description;
 
                     TempCrMemoLine.Reset();
                     TempCrMemoLine.SetRange(Type, TempCrMemoLine.Type::Cost);
                     TempCrMemoLine.SetRange("Fault Reason Code", LineRec."Fault Reason Code");
-                    TempCrMemoLine.SetFilter("Fault Reason Code", '<>%1', TotalDiscountCode);
 
                     if TempCrMemoLine.FindFirst() then begin
-                        TempCrMemoLine."Line Amount" += DiscAmt; // positive
+                        TempCrMemoLine."Line Amount" -= LineRec."Line Discount Amount";
                         TempCrMemoLine.Modify();
                     end else begin
+                        TempCrMemoLine.Reset();
                         TempCrMemoLine.Init();
-                        TempCrMemoLine."Document No." := SvcCrMemoHdr."No.";
+                        TempCrMemoLine."Document No." := LineRec."Document No.";
                         TempCrMemoLine."Line No." := TempLineNo;
                         TempLineNo -= 1;
 
@@ -499,39 +509,23 @@ report 50024 "MRJ Service Cr Memo"
                         else
                             TempCrMemoLine.Description := '値引';
 
-                        TempCrMemoLine.Quantity := 0; // NAV shows blank
-                        TempCrMemoLine."Unit of Measure" := '';
-                        TempCrMemoLine."Unit Price" := 0;
-                        TempCrMemoLine."Line Amount" := DiscAmt; // positive
+                        TempCrMemoLine."Line Amount" := -LineRec."Line Discount Amount";
+                        TempCrMemoLine.Quantity := 1;
                         TempCrMemoLine.Insert();
                     end;
                 end;
 
             until LineRec.Next() = 0;
 
-        // ===== Total discount line (NAV: 合計値引 / Qty -1 / UOM Set) =====
-        if TotalDiscountAmt <> 0 then begin
-            TempCrMemoLine.Init();
-            TempCrMemoLine."Document No." := SvcCrMemoHdr."No.";
-            TempCrMemoLine."Line No." := TempLineNo;
-            TempLineNo -= 1;
-
-            TempCrMemoLine.Type := TempCrMemoLine.Type::Cost;
-            TempCrMemoLine."Fault Reason Code" := TotalDiscountCode;
-            TempCrMemoLine.Description := GetDiscountResGrpName(); // Resource Group 'DISCOUNT'.Name (合計値引)
-
-            TempCrMemoLine.Quantity := -1;
-            TempCrMemoLine."Unit of Measure" := 'Set';
-            TempCrMemoLine."Unit Price" := 0;
-            TempCrMemoLine."Line Amount" := Abs(TotalDiscountAmt); // positive
-            TempCrMemoLine.Insert();
-        end;
-
-        // ---- Sort: Resource -> Item -> Other -> Cost ----
+        // -----------------------------
+        // 3. Sort order
+        // Resource -> Item -> Discount -> Original DISCOUNT-S last
+        // -----------------------------
         TempSortBuffer.Reset();
         TempSortBuffer.DeleteAll();
         NextLineNo := 10000;
 
+        // A. Resource
         TempCrMemoLine.Reset();
         TempCrMemoLine.SetRange(Type, TempCrMemoLine.Type::Resource);
         TempCrMemoLine.SetCurrentKey("Resource Group No.");
@@ -540,6 +534,7 @@ report 50024 "MRJ Service Cr Memo"
                 InsertIntoCrMemoBuffer(TempCrMemoLine, TempSortBuffer, NextLineNo);
             until TempCrMemoLine.Next() = 0;
 
+        // B. Item
         TempCrMemoLine.Reset();
         TempCrMemoLine.SetRange(Type, TempCrMemoLine.Type::Item);
         if TempCrMemoLine.FindSet() then
@@ -547,16 +542,7 @@ report 50024 "MRJ Service Cr Memo"
                 InsertIntoCrMemoBuffer(TempCrMemoLine, TempSortBuffer, NextLineNo);
             until TempCrMemoLine.Next() = 0;
 
-        TempCrMemoLine.Reset();
-        TempCrMemoLine.SetFilter(Type, '<>%1&<>%2&<>%3',
-            TempCrMemoLine.Type::Resource,
-            TempCrMemoLine.Type::Item,
-            TempCrMemoLine.Type::Cost);
-        if TempCrMemoLine.FindSet() then
-            repeat
-                InsertIntoCrMemoBuffer(TempCrMemoLine, TempSortBuffer, NextLineNo);
-            until TempCrMemoLine.Next() = 0;
-
+        // C. Cost / Discount
         TempCrMemoLine.Reset();
         TempCrMemoLine.SetRange(Type, TempCrMemoLine.Type::Cost);
         TempCrMemoLine.SetCurrentKey("Fault Reason Code");
@@ -565,16 +551,29 @@ report 50024 "MRJ Service Cr Memo"
                 InsertIntoCrMemoBuffer(TempCrMemoLine, TempSortBuffer, NextLineNo);
             until TempCrMemoLine.Next() = 0;
 
-        // write back
+        // D. Original posted DISCOUNT-S line always last
+        if HasDiscountResLine then begin
+            if DiscountResLine.FindFirst() then begin
+
+                // Flip sign so it prints as positive
+                DiscountResLine."Line Amount" := Abs(DiscountResLine."Line Amount");
+
+                InsertIntoCrMemoBuffer(DiscountResLine, TempSortBuffer, NextLineNo);
+            end;
+        end;
+
+        // -----------------------------
+        // 4. Write back sorted buffer
+        // -----------------------------
         TempCrMemoLine.Reset();
         TempCrMemoLine.DeleteAll();
+
         if TempSortBuffer.FindSet() then
             repeat
                 TempCrMemoLine.TransferFields(TempSortBuffer);
                 TempCrMemoLine.Insert();
             until TempSortBuffer.Next() = 0;
     end;
-
     // ==========================================================
     // Company TEL/FAX (Resp Center -> fallback Company), comma separated
     local procedure FillCompanyTelFax(var Addr: array[8] of Text[90]; RespCenterCode: Code[10])
