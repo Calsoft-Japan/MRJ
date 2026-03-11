@@ -1748,11 +1748,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - NamedType TEST0004</note>
         </trans-unit>
-        <trans-unit id="Page 812732725 - NamedType 3131550364" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 days after last date.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - NamedType TEST0006</note>
-        </trans-unit>
         <trans-unit id="Page 812732725 - NamedType 2493853747" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to copy Service Line?</source>
           <note from="Developer" annotates="general" priority="2"></note>

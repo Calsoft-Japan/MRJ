@@ -33,8 +33,6 @@ page 50131 "Service Engine"
                         Rec.SetFilter("Serial No.", SerialNoFilter);
                         CurrPage.Update(false);
                         Refresh();
-                        //if Rec.IsEmpty() then
-                        //FindNothing();
                     end;
                 }
                 field("Customer No."; Rec."Customer No.")
@@ -196,8 +194,6 @@ page 50131 "Service Engine"
         Rec.SetFilter("No.", GetServItemNoFilter());
         Rec.SetFilter("Serial No.", SerialNoFilter);
         Refresh();
-        //if Rec.IsEmpty() then
-        //FindNothing();
     end;
 
     trigger OnAfterGetCurrRecord()
@@ -214,66 +210,12 @@ page 50131 "Service Engine"
 
         // Update subpages
         if NotEmpty then begin
-            CurrPage.SbfShptItemLine.Page.Relink(Rec."No.", ContractNoFilter, FaultAreaFilter, SymptomFilter, FaultFilter, ResolutionFilter);
-            CurrPage.SbfServItemLine.Page.Relink(Rec."No.", ContractNoFilter);
+            CurrPage.SbfShptItemLine.Page.Relink(Rec."No.");
+            CurrPage.SbfServItemLine.Page.Relink(Rec."No.");
         end else begin
-            CurrPage.SbfShptItemLine.Page.Relink('', ContractNoFilter, FaultAreaFilter, SymptomFilter, FaultFilter, ResolutionFilter);
-            CurrPage.SbfServItemLine.Page.Relink('', ContractNoFilter);
+            CurrPage.SbfShptItemLine.Page.Relink('');
+            CurrPage.SbfServItemLine.Page.Relink('');
         end;
-
-        // Warranty flags
-        InWarrantyPeriodParts := false;
-        InWarrantyPeriodLabor := false;
-        if NotEmpty then begin
-            if (TheWorkDate >= Rec."Warranty Starting Date (Parts)") and
-               (TheWorkDate <= Rec."Warranty Ending Date (Parts)") then
-                InWarrantyPeriodParts := true;
-            if (TheWorkDate >= Rec."Warranty Starting Date (Labor)") and
-               (TheWorkDate <= Rec."Warranty Ending Date (Labor)") then
-                InWarrantyPeriodLabor := true;
-        end;
-
-        // Date warning bands
-        DateWarning := '';
-        ShowDateWarningGreen := false;
-        ShowDateWarningYellow := false;
-        ShowDateWarningRed := false;
-        if NotEmpty then begin
-            ServItemLine.Reset();
-            ServItemLine.SetRange("Document Type", ServItemLine."Document Type"::Order);
-            ServItemLine.SetRange("Service Item No.", Rec."No.");
-            if ServItemLine.FindLast() then
-                if ServHeader.Get(ServItemLine."Document Type", ServItemLine."Document No.") then begin
-                    DateWarning := StrSubstNo(TEST0006, TheWorkDate - ServHeader."Order Date");
-                    if TheWorkDate < CalcDate(SrvMgtSetup."Warning Date Range 1", ServHeader."Order Date") then
-                        ShowDateWarningGreen := true
-                    else
-                        if TheWorkDate < CalcDate(SrvMgtSetup."Warning Date Range 2", ServHeader."Order Date") then
-                            ShowDateWarningYellow := true
-                        else
-                            ShowDateWarningRed := true;
-                end;
-        end;
-
-        // Uncollected receivables
-        UncRecCount := 0;
-        UncRecAmount := 0;
-        ShowUncRec := false;
-        if NotEmpty then begin
-            CustLedgerEntry.Reset();
-            CustLedgerEntry.SetRange("Customer No.", Rec."Customer No.");
-            CustLedgerEntry.SetFilter("Due Date", '<%1', TheWorkDate);
-            UncRecCount := CustLedgerEntry.Count();
-            if CustLedgerEntry.FindSet() then begin
-                ShowUncRec := true;
-                repeat
-                    CustLedgerEntry.CalcFields(Amount);
-                    UncRecAmount := UncRecAmount + CustLedgerEntry.Amount;
-                until CustLedgerEntry.Next() = 0;
-            end;
-        end;
-        UncRecAmount := Round(UncRecAmount, 1, '=');
-        UncRecText := StrSubstNo('%1(%2)', UncRecAmount, UncRecCount);
     end;
 
     procedure CreateServOrder()
@@ -315,12 +257,7 @@ page 50131 "Service Engine"
             ServItemLineInst.Validate("Service Item No.", Rec."No.");
             ServItemLineInst.Validate("Line No.", 10000);
             ServItemLineInst.Insert(true);
-            ServItemLineInst.Validate("Fault Area Code", FaultAreaFilter);
-            ServItemLineInst.Validate("Symptom Code", SymptomFilter);
-            ServItemLineInst.Validate("Fault Code", FaultFilter);
-            ServItemLineInst.Validate("Resolution Code", ResolutionFilter);
             ServItemLineInst.Modify(true);
-
             if ServShptItemLine."No." <> '' then
                 if Dialog.Confirm(TEST0007, true) then begin
                     Clear(ServLineInst);
@@ -359,22 +296,6 @@ page 50131 "Service Engine"
         Page.RunModal(Page::"Service Order", ServHeaderInst);
     end;
 
-    /* local procedure FindNothing()
-    var
-        ServHeaderInst: Record 5900;
-    begin
-        if not Dialog.Confirm(TEST0001, true) then
-            exit;
-        Clear(ServHeaderInst);
-        ServHeaderInst.Init();
-        ServHeaderInst.Validate("Document Type", ServHeaderInst."Document Type"::Quote);
-        ServHeaderInst.Insert(true);
-        Commit();
-        if not Dialog.Confirm(StrSubstNo(TEST0005, ServHeaderInst."No."), true) then
-            exit;
-        Page.RunModal(Page::"Service Quote", ServHeaderInst);
-    end; */
-
     local procedure GetServItemNoFilter(): Text
     var
         ServItem: Record 5940;
@@ -382,62 +303,6 @@ page 50131 "Service Engine"
         FilterBuilder: Text;
     begin
         FilterBuilder := '';
-        if PhoneNoFilter = '' then
-            exit('');
-
-        /*
-        Clear(ServPhoneBookTmp);
-        ServPhoneBookTmp.DeleteAll();
-        ServItem.Reset();
-        if ServItem.FindSet() then
-            repeat
-                // Copy all existing phone book entries for this service item into temp
-                ServPhoneBook.Reset();
-                ServPhoneBook.SetRange(Type, ServPhoneBook.Type::"Service Item");
-                ServPhoneBook.SetRange("No.", ServItem."No.");
-                if ServPhoneBook.FindSet() then
-                    repeat
-                        ServPhoneBookTmp.Init();
-                        ServPhoneBookTmp.TransferFields(ServPhoneBook);
-                        ServPhoneBookTmp.Insert();
-                    until ServPhoneBook.Next() = 0;
-
-                // Add derived phone entries from Service Item itself
-                ServPhoneBookTmp.Init();
-                ServPhoneBookTmp.Type := ServPhoneBookTmp.Type::"Service Item";
-                ServPhoneBookTmp."No." := ServItem."No.";
-                ServPhoneBookTmp."Line No." := 1;
-                ServItem.CalcFields("Phone No.");
-                ServPhoneBookTmp."Phone No." := ServItem."Phone No.";
-                ServPhoneBookTmp.Insert();
-
-                ServPhoneBookTmp."Line No." := 2;
-                ServPhoneBookTmp."Phone No." := ServItem."Phone No. (Service)";
-                ServPhoneBookTmp.Insert();
-            until ServItem.Next() = 0;
-
-        ServPhoneBookTmp.Reset();
-        ServPhoneBookTmp.SetFilter("Phone No.", PhoneNoFilter);
-        if ServPhoneBookTmp.Count() = 0 then begin
-            // remove '-' and try again
-            if ServPhoneBookTmp.FindSet() then
-                repeat
-                    ServPhoneBookTmp."Phone No." := DelChr(ServPhoneBookTmp."Phone No.", '=', '-');
-                    ServPhoneBookTmp.Modify();
-                until ServPhoneBookTmp.Next() = 0;
-            ServPhoneBookTmp.Reset();
-            ServPhoneBookTmp.SetFilter("Phone No.", PhoneNoFilter);
-        end;
-
-        Clear(ServItemTmp);
-        ServItemTmp.DeleteAll();
-        if ServPhoneBookTmp.FindSet() then
-            repeat
-                ServItemTmp.Init();
-                ServItemTmp."No." := ServPhoneBookTmp."No.";
-                if ServItemTmp.Insert() then;
-            until ServPhoneBookTmp.Next() = 0;
-        */
 
         if ServItemTmp.FindSet() then
             repeat
@@ -455,30 +320,9 @@ page 50131 "Service Engine"
     var
         SrvMgtSetup: Record "Service Mgt. Setup";
         TheWorkDate: Date;
-        PhoneNoFilter: Text[250];
         SerialNoFilter: Text[250];
-        ContractNoFilter: Text[250];
-        InWarrantyPeriodParts: Boolean;
-        InWarrantyPeriodLabor: Boolean;
-        DateWarning: Text[80];
         NotEmpty: Boolean;
-        ServItemLine: Record 5901;
-        ServHeader: Record 5900;
-        UncRecCount: Integer;
-        UncRecAmount: Decimal;
-        CustLedgerEntry: Record 21;
-        FaultAreaFilter: Code[10];
-        SymptomFilter: Code[10];
-        FaultFilter: Code[10];
-        ResolutionFilter: Code[10];
-        ProductSeriesFilter: Text[250];
-        ShowDateWarningGreen: Boolean;
-        ShowDateWarningYellow: Boolean;
-        ShowDateWarningRed: Boolean;
-        ShowUncRec: Boolean;
-        UncRecText: Text[100];
         TEST0002: Label 'Do you want to create Service Order?';
         TEST0004: Label 'Service Order ''%1'' created successfully, do you want to open?';
-        TEST0006: Label '%1 days after last date.';
         TEST0007: Label 'Do you want to copy Service Line?';
 }

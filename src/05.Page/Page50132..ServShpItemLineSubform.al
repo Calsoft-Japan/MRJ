@@ -151,14 +151,9 @@ page 50132 "Serv. Shpt. Item Line Subform"
         iLoop: Integer;
         NotEmpty: Boolean;
 
-    procedure Relink(ServiceItemNo: Code[20]; ContractNoFilter: Text[250]; FaultAreaFilter: Code[10]; SymptomFilter: Code[10]; FaultFilter: Code[10]; ResolutionFilter: Code[10])
+    procedure Relink(ServiceItemNo: Code[20])
     begin
         Rec.SetRange("Service Item No.", ServiceItemNo);
-        Rec.SetFilter("Contract No.", ContractNoFilter);
-        Rec.SetFilter("Fault Area Code", FaultAreaFilter);
-        Rec.SetFilter("Symptom Code", SymptomFilter);
-        Rec.SetFilter("Fault Code", FaultFilter);
-        Rec.SetFilter("Resolution Code", ResolutionFilter);
         Refresh();
         CurrPage.Update(false);
     end;

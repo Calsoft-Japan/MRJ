@@ -158,10 +158,9 @@ page 50133 "Serv. Item Line Subform"
         NotEmpty: Boolean;
         SrvCmtLineType: Enum "Service Comment Line Type";
 
-    procedure Relink(ServiceItemNo: Code[20]; ContractNoFilter: Text[250])
+    procedure Relink(ServiceItemNo: Code[20])
     begin
         Rec.SetRange("Service Item No.", ServiceItemNo);
-        Rec.SetFilter("Contract No.", ContractNoFilter);
         Refresh();
         CurrPage.Update(false);
     end;
