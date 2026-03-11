@@ -5,6 +5,8 @@ tableextension 55745 "Trans Ship Line Ext" extends "Transfer Shipment Line"
         field(50000; "Auto Service Order No."; Code[20])
         {
             Caption = 'Auto Service Order No.';
+            FieldClass = FlowField;
+            CalcFormula = lookup("Transfer Shipment Header"."Service Order No." where("No." = field("Document No.")));
         }
         field(50001; "Manual Service Order No."; Code[20])
         {
