@@ -13,9 +13,7 @@ report 50024 "MRJ Service Cr Memo"
             DataItemTableView = sorting("No.");
             RequestFilterFields = "No.", "Customer No.";
 
-            // =========================
             // Header
-            // =========================
             column(DocumentDateTxt; DocumentDateTxt) { }
             column(CompanySeal; CompanyInfo.Picture) { }
             column(CurrencyCode_ServHeader; "Currency Code") { }
@@ -41,8 +39,8 @@ report 50024 "MRJ Service Cr Memo"
             column(CompanyAddr4; CompanyAddr[4]) { }
             column(CompanyAddr5; CompanyAddr[5]) { }
             column(CompanyAddr6; CompanyAddr[6]) { }
-            column(CompanyAddr7; CompanyAddr[7]) { } // TEL
-            column(CompanyAddr8; CompanyAddr[8]) { } // FAX
+            column(CompanyAddr7; CompanyInfo."Phone No.") { }
+            column(CompanyAddr8; CompanyInfo."Fax No.") { }
             column(CompanyAddr0; CompanyInfo."Post Code") { }
 
             column(CompanyRegistrationLine; CompanyRegistrationLine) { }
@@ -59,9 +57,6 @@ report 50024 "MRJ Service Cr Memo"
             column(PaymentTermText; PaymentTermText) { }
             column(PaymentMethodText; PaymentMethodText) { }
 
-            // =========================
-            // 2) Detail (OFF)
-            // =========================
             dataitem(SvcCrMemoLine; "Service Cr.Memo Line")
             {
                 DataItemLink = "Document No." = field("No.");
@@ -84,9 +79,6 @@ report 50024 "MRJ Service Cr Memo"
                 end;
             }
 
-            // =========================
-            // 2b) Summarized (ON)
-            // =========================
             dataitem(SummarizedCrMemoLine; Integer)
             {
                 DataItemTableView = sorting(Number);
@@ -99,7 +91,7 @@ report 50024 "MRJ Service Cr Memo"
                 column(FlatUnitPrice; FlatPrice) { }
                 column(FlatLineAmount; FlatAmount) { }
 
-                // keep (RDLC compatibility)
+                // RDLC compatibility
                 column(FlatFaultReasonCode; FlatFaultReasonCode) { }
                 column(FlatFaultReasonDisplay; FlatFaultReasonDisplay) { }
                 column(FlatLineDiscountAmt; FlatLineDiscountAmt) { }
@@ -119,13 +111,14 @@ report 50024 "MRJ Service Cr Memo"
                 end;
 
                 trigger OnAfterGetRecord()
+                var
+                    FaultReason: Record "Fault Reason Code";
                 begin
                     if Number = 1 then
                         TempCrMemoLine.FindSet()
                     else
                         TempCrMemoLine.Next();
 
-                    // reset
                     FlatLineType := '';
                     FlatLineDescription := '';
                     FlatQty := 0;
@@ -136,7 +129,6 @@ report 50024 "MRJ Service Cr Memo"
                     FlatFaultReasonDisplay := '';
                     FlatLineDiscountAmt := 0;
 
-                    // assign base
                     FlatLineDescription := TempCrMemoLine.Description;
                     FlatQty := TempCrMemoLine.Quantity;
                     FlatUOM := TempCrMemoLine."Unit of Measure";
@@ -144,10 +136,13 @@ report 50024 "MRJ Service Cr Memo"
                     FlatAmount := TempCrMemoLine."Line Amount";
 
                     if TempCrMemoLine.Type = TempCrMemoLine.Type::Cost then begin
-                        // Discount rows: show text from Description (NAV style)
                         FlatLineType := 'DISCOUNT';
-                        FlatFaultReasonCode := TempCrMemoLine.Description;
-                        FlatFaultReasonDisplay := TempCrMemoLine.Description;
+
+                        if FaultReason.Get(TempCrMemoLine."Fault Reason Code") then
+                            FlatFaultReasonCode := FaultReason.Description
+                        else
+                            FlatFaultReasonCode := TempCrMemoLine."Fault Reason Code";
+
                         FlatLineDiscountAmt := TempCrMemoLine."Line Amount";
                     end else begin
                         case TempCrMemoLine.Type of
@@ -162,9 +157,6 @@ report 50024 "MRJ Service Cr Memo"
                 end;
             }
 
-            // =========================
-            // Comment
-            // =========================
             dataitem(SvcCrMemoComment; "Service Comment Line")
             {
                 DataItemLinkReference = SvcCrMemoHdr;
@@ -185,9 +177,6 @@ report 50024 "MRJ Service Cr Memo"
                 end;
             }
 
-            // =========================
-            // VAT Summary
-            // =========================
             dataitem(VATSummary; Integer)
             {
                 DataItemTableView = sorting(Number);
@@ -201,6 +190,7 @@ report 50024 "MRJ Service Cr Memo"
                 begin
                     if VatPctList.Count() = 0 then
                         CurrReport.Break();
+
                     SetRange(Number, 1, VatPctList.Count());
                 end;
 
@@ -224,45 +214,31 @@ report 50024 "MRJ Service Cr Memo"
 
             trigger OnAfterGetRecord()
             var
-                RespCenter: Record "Responsibility Center";
                 CrLine: Record "Service Cr.Memo Line";
                 LineBase: Decimal;
                 LineVAT: Decimal;
             begin
-                if not CompanyInfo.Get() then
-                    CompanyInfo.Get();
+                CompanyInfo.Get();
                 CompanyInfo.CalcFields(Picture);
 
                 DocumentDateTxt := Format("Document Date", 0, '<Year4>年<Month,2>月<Day,2>日');
 
-                // Address: Resp. Center -> fallback Company
                 Clear(CompanyAddr);
-                if ("Responsibility Center" <> '') and RespCenter.Get("Responsibility Center") then
-                    FormatAddress.RespCenter(CompanyAddr, RespCenter)
-                else
-                    FormatAddress.Company(CompanyAddr, CompanyInfo);
-
-                // TEL/FAX: Resp. Center -> fallback Company, comma separated
-                FillCompanyTelFax(CompanyAddr, "Responsibility Center");
+                FormatAddress.Company(CompanyAddr, CompanyInfo);
 
                 FillPaymentBankFromCompanyInfo();
-
-                Clear(CustAddr);
                 FillServiceCrMemoBillTo(CustAddr, SvcCrMemoHdr);
 
                 CompanyRegistrationLine := BuildRegistrationLine();
 
-                PaymentTermText := '';
-                if "Payment Terms Code" <> '' then
-                    if PaymentTerms.Get("Payment Terms Code") then
-                        PaymentTermText := PaymentTerms.Description;
+                Clear(PaymentTermText);
+                if ("Payment Terms Code" <> '') and PaymentTerms.Get("Payment Terms Code") then
+                    PaymentTermText := PaymentTerms.Description;
 
-                PaymentMethodText := '';
-                if "Payment Method Code" <> '' then
-                    if PaymentMethod.Get("Payment Method Code") then
-                        PaymentMethodText := PaymentMethod.Description;
+                Clear(PaymentMethodText);
+                if ("Payment Method Code" <> '') and PaymentMethod.Get("Payment Method Code") then
+                    PaymentMethodText := PaymentMethod.Description;
 
-                // Totals + VAT
                 TotalExclVAT := 0;
                 TotalVAT := 0;
                 TotalInclVAT := 0;
@@ -317,15 +293,17 @@ report 50024 "MRJ Service Cr Memo"
 
     trigger OnInitReport()
     begin
-        if not CompanyInfo.Get() then
-            CompanyInfo.Get();
+        CompanyInfo.Get();
     end;
 
     var
         CompanyInfo: Record "Company Information";
         FormatAddress: Codeunit "Format Address";
+        PaymentTerms: Record "Payment Terms";
+        PaymentMethod: Record "Payment Method";
 
         SummarizeLines: Boolean;
+        HasVat8Pct: Boolean;
 
         PaymentBank: array[3] of Text[50];
         CustAddr: array[8] of Text[90];
@@ -347,30 +325,23 @@ report 50024 "MRJ Service Cr Memo"
 
         PaymentTermText: Text[250];
         PaymentMethodText: Text[250];
-        PaymentTerms: Record "Payment Terms";
-        PaymentMethod: Record "Payment Method";
 
-        // Summarize buffer
         TempCrMemoLine: Record "Service Cr.Memo Line" temporary;
 
-        // Flat fields
         FlatLineDescription: Text[100];
         FlatQty: Decimal;
         FlatUOM: Text[50];
         FlatPrice: Decimal;
         FlatAmount: Decimal;
         FlatLineType: Text[20];
-        HasVat8Pct: Boolean;
 
-        // keep for RDLC
+        // RDLC compatibility
         FlatFaultReasonCode: Text[100];
         FlatFaultReasonDisplay: Text[120];
         FlatLineDiscountAmt: Decimal;
 
         Text50020: Label '%1（値引）', Comment = '%1 = Fault Reason Description';
 
-    // ==========================================================
-    // Summarize (toggle ON) - NAV style output
     local procedure SummarizeCrMemoLinesProc()
     var
         LineRec: Record "Service Cr.Memo Line";
@@ -378,28 +349,24 @@ report 50024 "MRJ Service Cr Memo"
         ResGrp: Record "Resource Group";
         ServiceMgtSetup: Record "Service Mgt. Setup";
         TempSortBuffer: Record "Service Cr.Memo Line" temporary;
-
         NextLineNo: Integer;
         CurrResGrp: Code[20];
         TargetResGrp: Code[20];
-
         FaultReasonCodeMst: Record "Fault Reason Code";
-        FaultReasonName: Text[50];
-
         LineBaseAmount: Decimal;
-        DiscAmt: Decimal;
-        TotalDiscountAmt: Decimal;
+        FaultReasonName: Text[50];
         TempLineNo: Integer;
-        boolFound: Boolean;
-
-        TotalDiscountCode: Code[20];
+        Found: Boolean;
+        DiscountResLine: Record "Service Cr.Memo Line" temporary;
+        HasDiscountResLine: Boolean;
     begin
         TempCrMemoLine.Reset();
         TempCrMemoLine.DeleteAll();
-
         TempLineNo := -1;
-        TotalDiscountAmt := 0;
-        TotalDiscountCode := 'ZZZZ_TOTAL';
+
+        DiscountResLine.Reset();
+        DiscountResLine.DeleteAll();
+        HasDiscountResLine := false;
 
         ServiceMgtSetup.Get();
 
@@ -408,59 +375,59 @@ report 50024 "MRJ Service Cr Memo"
 
         if LineRec.FindSet() then
             repeat
-                // ignore existing Cost lines from source (we generate NAV-style rows ourselves)
-                if LineRec.Type = LineRec.Type::Cost then
-                    continue;
+                if (LineRec.Type = LineRec.Type::Resource) and Res.Get(LineRec."No.") then
+                    if Res."Resource Group No." = 'DISCOUNT' then begin
+                        DiscountResLine.Init();
+                        DiscountResLine.TransferFields(LineRec);
 
-                // ===== Normal line base amount: Quantity * Unit Price (Quotation-style) =====
-                LineBaseAmount := Round(LineRec.Quantity * LineRec."Unit Price", 0.00001);
+                        if ResGrp.Get('DISCOUNT') then
+                            DiscountResLine.Description := ResGrp.Name;
 
-                // fallback if Unit Price is not reliable
-                if (LineBaseAmount = 0) and ((LineRec."Line Amount" <> 0) or (LineRec."Line Discount Amount" <> 0)) then
-                    LineBaseAmount := LineRec."Line Amount" + LineRec."Line Discount Amount";
+                        DiscountResLine.Insert();
+                        HasDiscountResLine := true;
+                        continue;
+                    end;
 
-                // skip empty
-                if (DelChr(LineRec.Description) = '') and (DelChr(LineRec."No.") = '') and (LineBaseAmount = 0) then
-                    continue;
+                LineBaseAmount := LineRec."Line Amount" + Abs(LineRec."Line Discount Amount");
+                Found := false;
 
-                boolFound := false;
                 CurrResGrp := '';
                 TargetResGrp := '';
 
-                // ---- Resource group summarize (by Resource Group No.) ----
                 if LineRec.Type = LineRec.Type::Resource then begin
                     if Res.Get(LineRec."No.") then begin
                         CurrResGrp := Res."Resource Group No.";
                         TargetResGrp := CurrResGrp;
 
                         if (ServiceMgtSetup."Resource Group Filter" <> '') and
-                           IsResGrpInFilter(CurrResGrp, ServiceMgtSetup."Resource Group Filter") and
-                           (ServiceMgtSetup."Resource Group for Sort" <> '') then
+                           (StrPos(ServiceMgtSetup."Resource Group Filter", CurrResGrp) > 0) then
                             TargetResGrp := ServiceMgtSetup."Resource Group for Sort";
-                    end;
-
-                    if TargetResGrp <> '' then begin
-                        TempCrMemoLine.Reset();
-                        TempCrMemoLine.SetRange(Type, TempCrMemoLine.Type::Resource);
-                        TempCrMemoLine.SetRange("Resource Group No.", TargetResGrp);
-
-                        if TempCrMemoLine.FindFirst() then begin
-                            TempCrMemoLine."Line Amount" += LineBaseAmount;
-                            TempCrMemoLine.Quantity += LineRec.Quantity;
-                            TempCrMemoLine.Modify();
-                            boolFound := true;
-                        end;
                     end;
                 end;
 
-                if not boolFound then begin
+                if (LineRec.Type = LineRec.Type::Resource) and (TargetResGrp <> '') then begin
+                    TempCrMemoLine.Reset();
+                    TempCrMemoLine.SetRange(Type, TempCrMemoLine.Type::Resource);
+                    TempCrMemoLine.SetRange("Resource Group No.", TargetResGrp);
+
+                    if TempCrMemoLine.FindFirst() then begin
+                        TempCrMemoLine.Quantity += LineRec.Quantity;
+                        TempCrMemoLine."Line Amount" += LineBaseAmount;
+                        TempCrMemoLine.Modify();
+                        Found := true;
+                    end;
+                end;
+
+                if not Found then begin
+                    TempCrMemoLine.Reset();
                     TempCrMemoLine.Init();
                     TempCrMemoLine.TransferFields(LineRec);
 
-                    TempCrMemoLine."Fault Reason Code" := ''; // normal line: clear
+                    TempCrMemoLine."Fault Reason Code" := '';
+                    TempCrMemoLine.Quantity := LineRec.Quantity;
                     TempCrMemoLine."Line Amount" := LineBaseAmount;
-
                     TempCrMemoLine."Resource Group No." := TargetResGrp;
+
                     if (LineRec.Type = LineRec.Type::Resource) and (TargetResGrp <> '') then
                         if ResGrp.Get(TargetResGrp) then
                             TempCrMemoLine.Description := ResGrp.Name;
@@ -468,26 +435,22 @@ report 50024 "MRJ Service Cr Memo"
                     TempCrMemoLine.Insert();
                 end;
 
-                // ===== Discount category line (Fault Reason) =====
-                DiscAmt := Abs(LineRec."Line Discount Amount");
-                if DiscAmt <> 0 then begin
-                    TotalDiscountAmt += DiscAmt;
-
+                if LineRec."Line Discount %" > 0 then begin
                     FaultReasonName := '';
-                    if (LineRec."Fault Reason Code" <> '') and FaultReasonCodeMst.Get(LineRec."Fault Reason Code") then
+                    if FaultReasonCodeMst.Get(LineRec."Fault Reason Code") then
                         FaultReasonName := FaultReasonCodeMst.Description;
 
                     TempCrMemoLine.Reset();
                     TempCrMemoLine.SetRange(Type, TempCrMemoLine.Type::Cost);
                     TempCrMemoLine.SetRange("Fault Reason Code", LineRec."Fault Reason Code");
-                    TempCrMemoLine.SetFilter("Fault Reason Code", '<>%1', TotalDiscountCode);
 
                     if TempCrMemoLine.FindFirst() then begin
-                        TempCrMemoLine."Line Amount" += DiscAmt; // positive
+                        TempCrMemoLine."Line Amount" -= LineRec."Line Discount Amount";
                         TempCrMemoLine.Modify();
                     end else begin
+                        TempCrMemoLine.Reset();
                         TempCrMemoLine.Init();
-                        TempCrMemoLine."Document No." := SvcCrMemoHdr."No.";
+                        TempCrMemoLine."Document No." := LineRec."Document No.";
                         TempCrMemoLine."Line No." := TempLineNo;
                         TempLineNo -= 1;
 
@@ -499,35 +462,13 @@ report 50024 "MRJ Service Cr Memo"
                         else
                             TempCrMemoLine.Description := '値引';
 
-                        TempCrMemoLine.Quantity := 0; // NAV shows blank
-                        TempCrMemoLine."Unit of Measure" := '';
-                        TempCrMemoLine."Unit Price" := 0;
-                        TempCrMemoLine."Line Amount" := DiscAmt; // positive
+                        TempCrMemoLine."Line Amount" := -LineRec."Line Discount Amount";
+                        TempCrMemoLine.Quantity := 1;
                         TempCrMemoLine.Insert();
                     end;
                 end;
-
             until LineRec.Next() = 0;
 
-        // ===== Total discount line (NAV: 合計値引 / Qty -1 / UOM Set) =====
-        if TotalDiscountAmt <> 0 then begin
-            TempCrMemoLine.Init();
-            TempCrMemoLine."Document No." := SvcCrMemoHdr."No.";
-            TempCrMemoLine."Line No." := TempLineNo;
-            TempLineNo -= 1;
-
-            TempCrMemoLine.Type := TempCrMemoLine.Type::Cost;
-            TempCrMemoLine."Fault Reason Code" := TotalDiscountCode;
-            TempCrMemoLine.Description := GetDiscountResGrpName(); // Resource Group 'DISCOUNT'.Name (合計値引)
-
-            TempCrMemoLine.Quantity := -1;
-            TempCrMemoLine."Unit of Measure" := 'Set';
-            TempCrMemoLine."Unit Price" := 0;
-            TempCrMemoLine."Line Amount" := Abs(TotalDiscountAmt); // positive
-            TempCrMemoLine.Insert();
-        end;
-
-        // ---- Sort: Resource -> Item -> Other -> Cost ----
         TempSortBuffer.Reset();
         TempSortBuffer.DeleteAll();
         NextLineNo := 10000;
@@ -548,16 +489,6 @@ report 50024 "MRJ Service Cr Memo"
             until TempCrMemoLine.Next() = 0;
 
         TempCrMemoLine.Reset();
-        TempCrMemoLine.SetFilter(Type, '<>%1&<>%2&<>%3',
-            TempCrMemoLine.Type::Resource,
-            TempCrMemoLine.Type::Item,
-            TempCrMemoLine.Type::Cost);
-        if TempCrMemoLine.FindSet() then
-            repeat
-                InsertIntoCrMemoBuffer(TempCrMemoLine, TempSortBuffer, NextLineNo);
-            until TempCrMemoLine.Next() = 0;
-
-        TempCrMemoLine.Reset();
         TempCrMemoLine.SetRange(Type, TempCrMemoLine.Type::Cost);
         TempCrMemoLine.SetCurrentKey("Fault Reason Code");
         if TempCrMemoLine.FindSet() then
@@ -565,9 +496,15 @@ report 50024 "MRJ Service Cr Memo"
                 InsertIntoCrMemoBuffer(TempCrMemoLine, TempSortBuffer, NextLineNo);
             until TempCrMemoLine.Next() = 0;
 
-        // write back
+        if HasDiscountResLine then
+            if DiscountResLine.FindFirst() then begin
+                DiscountResLine."Line Amount" := Abs(DiscountResLine."Line Amount");
+                InsertIntoCrMemoBuffer(DiscountResLine, TempSortBuffer, NextLineNo);
+            end;
+
         TempCrMemoLine.Reset();
         TempCrMemoLine.DeleteAll();
+
         if TempSortBuffer.FindSet() then
             repeat
                 TempCrMemoLine.TransferFields(TempSortBuffer);
@@ -575,87 +512,9 @@ report 50024 "MRJ Service Cr Memo"
             until TempSortBuffer.Next() = 0;
     end;
 
-    // ==========================================================
-    // Company TEL/FAX (Resp Center -> fallback Company), comma separated
-    local procedure FillCompanyTelFax(var Addr: array[8] of Text[90]; RespCenterCode: Code[10])
-    var
-        RespCenter: Record "Responsibility Center";
-        Tel1: Text;
-        Tel2: Text;
-        Fax1: Text;
-        Fax2: Text;
-        TelLine: Text[120];
-        FaxLine: Text[120];
-    begin
-        // Tel1 := CompanyInfo."Phone No.";
-        // Tel2 := CompanyInfo."Phone No. 2";
-        // Fax1 := CompanyInfo."Fax No.";
-        // Fax2 := CompanyInfo."Fax No. 2";
-
-        if (RespCenterCode <> '') and RespCenter.Get(RespCenterCode) then begin
-            Tel1 := RespCenter."Phone No.";
-            Tel2 := RespCenter."Phone No. 2";
-            Fax1 := RespCenter."Fax No.";
-            Fax2 := RespCenter."Fax No. 2";
-        end;
-
-        TelLine := JoinWithComma(Tel1, Tel2);
-        FaxLine := JoinWithComma(Fax1, Fax2);
-
-        if TelLine <> '' then
-            Addr[7] := CopyStr('TEL: ' + TelLine, 1, MaxStrLen(Addr[7]))
-        else
-            Addr[7] := '';
-
-        if FaxLine <> '' then
-            Addr[8] := CopyStr('FAX: ' + FaxLine, 1, MaxStrLen(Addr[8]))
-        else
-            Addr[8] := '';
-    end;
-
-    local procedure JoinWithComma(Part1: Text; Part2: Text): Text
-    begin
-        Part1 := DelChr(Part1, '<>', ' ');
-        Part2 := DelChr(Part2, '<>', ' ');
-
-        if (Part1 <> '') and (Part2 <> '') then
-            exit(Part1 + ', ' + Part2);
-
-        if Part1 <> '' then
-            exit(Part1);
-
-        exit(Part2);
-    end;
-
-    local procedure IsResGrpInFilter(ResGrpNo: Code[20]; FilterTxt: Text): Boolean
-    var
-        RG: Record "Resource Group";
-    begin
-        if (ResGrpNo = '') or (FilterTxt = '') then
-            exit(false);
-
-        RG.Reset();
-        RG.SetFilter("No.", FilterTxt);
-        RG.SetRange("No.", ResGrpNo);
-        exit(RG.FindFirst());
-    end;
-
-    local procedure GetDiscountResGrpName(): Text[100]
-    var
-        RG: Record "Resource Group";
-    begin
-        if RG.Get('DISCOUNT') then
-            exit(CopyStr(RG.Name, 1, 100));
-
-        exit('合計値引'); // fallback only if master missing
-    end;
-
-    // -------------------------
-    // Bill-to address + TEL/FAX (Customer)
-    // -------------------------
     local procedure FillServiceCrMemoBillTo(var Addr: array[8] of Text[90]; Hdr: Record "Service Cr.Memo Header")
     var
-        C: Record Customer;
+        Customer: Record Customer;
         Tmp: array[8] of Text[100];
         i: Integer;
         TelTxt: Text[80];
@@ -663,12 +522,10 @@ report 50024 "MRJ Service Cr Memo"
     begin
         Clear(Addr);
 
-        if (Hdr."Customer No." = '') then
-            exit;
-        if not C.Get(Hdr."Customer No.") then
+        if (Hdr."Customer No." = '') or (not Customer.Get(Hdr."Customer No.")) then
             exit;
 
-        FormatAddress.Customer(Tmp, C);
+        FormatAddress.Customer(Tmp, Customer);
         for i := 1 to 6 do
             Addr[i] := CopyStr(Tmp[i], 1, MaxStrLen(Addr[i]));
 
@@ -684,10 +541,10 @@ report 50024 "MRJ Service Cr Memo"
         TelTxt := '';
         FaxTxt := '';
 
-        if C."Phone No." <> '' then
-            TelTxt := 'TEL: ' + C."Phone No.";
-        if C."Fax No." <> '' then
-            FaxTxt := 'FAX: ' + C."Fax No.";
+        if Customer."Phone No." <> '' then
+            TelTxt := 'TEL: ' + Customer."Phone No.";
+        if Customer."Fax No." <> '' then
+            FaxTxt := 'FAX: ' + Customer."Fax No.";
 
         Addr[7] := CopyStr(TelTxt, 1, MaxStrLen(Addr[7]));
         Addr[8] := CopyStr(FaxTxt, 1, MaxStrLen(Addr[8]));
@@ -732,6 +589,7 @@ report 50024 "MRJ Service Cr Memo"
             if VatPct = Curr then
                 exit;
         end;
+
         VatPctList.Add(VatPct);
     end;
 
@@ -758,16 +616,13 @@ report 50024 "MRJ Service Cr Memo"
         LineNo += 10;
     end;
 
-    // Posted totals helper (fix: use Service Cr.Memo Line)
     local procedure UpdateHeaderInfo()
     var
         CrLine: Record "Service Cr.Memo Line";
         PaymentTermsLoc: Record "Payment Terms";
         PaymentMethodLoc: Record "Payment Method";
-        RespCenter: Record "Responsibility Center";
     begin
-        if not CompanyInfo.Get() then
-            CompanyInfo.Get();
+        CompanyInfo.Get();
         if CompanyInfo.Picture.HasValue then
             CompanyInfo.CalcFields(Picture);
 
@@ -784,12 +639,7 @@ report 50024 "MRJ Service Cr Memo"
         FillServiceCrMemoBillTo(CustAddr, SvcCrMemoHdr);
 
         Clear(CompanyAddr);
-        if (SvcCrMemoHdr."Responsibility Center" <> '') and RespCenter.Get(SvcCrMemoHdr."Responsibility Center") then
-            FormatAddress.RespCenter(CompanyAddr, RespCenter)
-        else
-            FormatAddress.Company(CompanyAddr, CompanyInfo);
-
-        FillCompanyTelFax(CompanyAddr, SvcCrMemoHdr."Responsibility Center");
+        FormatAddress.Company(CompanyAddr, CompanyInfo);
 
         TotalExclVAT := 0;
         TotalInclVAT := 0;

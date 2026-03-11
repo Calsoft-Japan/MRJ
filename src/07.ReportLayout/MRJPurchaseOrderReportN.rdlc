@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-03-05T08:21:56.1012937Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-11T01:59:59.6507117Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -28,249 +28,6 @@
     <ReportSection>
       <Body>
         <ReportItems>
-          <Textbox Name="Textbox31">
-            <rd:DefaultName>Textbox12</rd:DefaultName>
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Fields!CompanyFaxLine.Value</Value>
-                    <Style>
-                      <FontFamily>MS UI Gothic</FontFamily>
-                      <FontSize>8pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <Top>3.64949cm</Top>
-            <Left>10.12064cm</Left>
-            <Height>0.49683cm</Height>
-            <Width>7.28839cm</Width>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox46">
-            <rd:DefaultName>Textbox12</rd:DefaultName>
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Fields!CompanyAddr3.value</Value>
-                    <Style>
-                      <FontFamily>MS UI Gothic</FontFamily>
-                      <FontSize>8pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <Top>2.10928cm</Top>
-            <Left>10.12064cm</Left>
-            <Height>0.52318cm</Height>
-            <Width>7.27671cm</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox47">
-            <rd:DefaultName>Textbox12</rd:DefaultName>
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Fields!CompanyName.Value</Value>
-                    <Style>
-                      <FontFamily>MS UI Gothic</FontFamily>
-                      <FontSize>9pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <Top>0.48099cm</Top>
-            <Left>10.12064cm</Left>
-            <Height>0.48276cm</Height>
-            <Width>7.28839cm</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <BottomBorder>
-                <Color>Black</Color>
-                <Style>Solid</Style>
-                <Width>1pt</Width>
-              </BottomBorder>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox49">
-            <rd:DefaultName>Textbox12</rd:DefaultName>
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Fields!CompanyAddr2.value</Value>
-                    <Style>
-                      <FontFamily>MS UI Gothic</FontFamily>
-                      <FontSize>8pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <Top>1.04506cm</Top>
-            <Left>10.12064cm</Left>
-            <Height>0.49683cm</Height>
-            <Width>7.28839cm</Width>
-            <ZIndex>3</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox50">
-            <rd:DefaultName>Textbox12</rd:DefaultName>
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Fields!CompanyAddr4.value</Value>
-                    <Style>
-                      <FontFamily>MS UI Gothic</FontFamily>
-                      <FontSize>8pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <Top>2.63246cm</Top>
-            <Left>10.12064cm</Left>
-            <Height>0.48276cm</Height>
-            <Width>7.28839cm</Width>
-            <ZIndex>4</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox51">
-            <rd:DefaultName>Textbox12</rd:DefaultName>
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Fields!CompanyTelLine.Value</Value>
-                    <Style>
-                      <FontFamily>MS UI Gothic</FontFamily>
-                      <FontSize>8pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <Top>3.1505cm</Top>
-            <Left>10.12064cm</Left>
-            <Height>0.49683cm</Height>
-            <Width>7.28839cm</Width>
-            <ZIndex>5</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox56">
-            <rd:DefaultName>Textbox12</rd:DefaultName>
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>="〒" + Fields!CompanyPostCode.value</Value>
-                    <Style>
-                      <FontFamily>MS UI Gothic</FontFamily>
-                      <FontSize>8pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <Top>1.57716cm</Top>
-            <Left>10.12064cm</Left>
-            <Height>0.49684cm</Height>
-            <Width>7.28839cm</Width>
-            <ZIndex>6</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox2">
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <CanGrow>true</CanGrow>
@@ -294,7 +51,6 @@
             <Left>10.12064cm</Left>
             <Height>0.5492cm</Height>
             <Width>7.28839cm</Width>
-            <ZIndex>7</ZIndex>
             <Visibility>
               <Hidden>=IIF(
   IsNothing(Fields!Purchaser.Value) OR Trim(CStr(Fields!Purchaser.Value)) = "",
@@ -334,7 +90,7 @@
             <Left>13.05238cm</Left>
             <Height>1.29319cm</Height>
             <Width>2.00944cm</Width>
-            <ZIndex>8</ZIndex>
+            <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -384,7 +140,7 @@
             <Left>15.40845cm</Left>
             <Height>1.29319cm</Height>
             <Width>2.00058cm</Width>
-            <ZIndex>9</ZIndex>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -439,7 +195,7 @@
             <Left>13.05238cm</Left>
             <Height>0.57763cm</Height>
             <Width>2.00944cm</Width>
-            <ZIndex>10</ZIndex>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -495,7 +251,7 @@
             <Left>15.40845cm</Left>
             <Height>0.57762cm</Height>
             <Width>2.00058cm</Width>
-            <ZIndex>11</ZIndex>
+            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -557,7 +313,7 @@
             <Left>15.0971cm</Left>
             <Height>0.49417cm</Height>
             <Width>2.32361cm</Width>
-            <ZIndex>12</ZIndex>
+            <ZIndex>5</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -596,7 +352,7 @@
             <Left>15.0971cm</Left>
             <Height>0.45183cm</Height>
             <Width>2.32361cm</Width>
-            <ZIndex>13</ZIndex>
+            <ZIndex>6</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -636,7 +392,7 @@
             <Left>15.0971cm</Left>
             <Height>0.49417cm</Height>
             <Width>2.32361cm</Width>
-            <ZIndex>14</ZIndex>
+            <ZIndex>7</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -672,7 +428,7 @@
             <Left>12.7876cm</Left>
             <Height>0.49417cm</Height>
             <Width>2.27422cm</Width>
-            <ZIndex>15</ZIndex>
+            <ZIndex>8</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -708,7 +464,7 @@
             <Left>12.7876cm</Left>
             <Height>0.45183cm</Height>
             <Width>2.27422cm</Width>
-            <ZIndex>16</ZIndex>
+            <ZIndex>9</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -744,7 +500,7 @@
             <Left>12.7876cm</Left>
             <Height>0.49417cm</Height>
             <Width>2.27422cm</Width>
-            <ZIndex>17</ZIndex>
+            <ZIndex>10</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1615,7 +1371,7 @@
             <Left>0.26526cm</Left>
             <Height>1.16754cm</Height>
             <Width>17.14377cm</Width>
-            <ZIndex>18</ZIndex>
+            <ZIndex>11</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1653,9 +1409,9 @@
                     <TextRuns>
                       <TextRun>
                         <Value>=IIF(
-    IsNothing(Fields!ShipToAddr2.Value) OR Trim(Fields!ShipToAddr2.Value) = "",
+    IsNothing(Fields!ShipToAddr5.Value) OR Trim(Fields!ShipToAddr5.Value) = "",
     "",
-    "〒" &amp; Fields!ShipToAddr2.Value
+    "〒" &amp; Fields!ShipToAddr5.Value
 )</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
@@ -1666,7 +1422,7 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
-                <Top>1.71505cm</Top>
+                <Top>1.60922cm</Top>
                 <Left>0cm</Left>
                 <Height>0.6cm</Height>
                 <Width>8.53311cm</Width>
@@ -1723,7 +1479,10 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!ShipToAddr3.Value</Value>
+                        <Value>=Fields!ShipToAddr3.Value &amp;
+IIF(IsNothing(Fields!ShipToAddr4.Value) OR Fields!ShipToAddr4.Value = "",
+"",
+vbCrLf &amp; Fields!ShipToAddr4.Value)</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -1733,7 +1492,7 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
-                <Top>2.27977cm</Top>
+                <Top>2.17394cm</Top>
                 <Left>0cm</Left>
                 <Height>0.6cm</Height>
                 <Width>8.53311cm</Width>
@@ -1786,13 +1545,49 @@
                   <PaddingBottom>2pt</PaddingBottom>
                 </Style>
               </Textbox>
+              <Textbox Name="Textbox35">
+                <rd:DefaultName>Textbox17</rd:DefaultName>
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>=IIF(IsNothing(Fields!ShipToTelLine.Value) OR Fields!ShipToTelLine.Value = "",
+"",
+"Tel. " &amp; Fields!ShipToTelLine.Value)</Value>
+                        <Style>
+                          <FontFamily>MS UI Gothic</FontFamily>
+                          <FontSize>9pt</FontSize>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style />
+                  </Paragraph>
+                </Paragraphs>
+                <Top>2.87977cm</Top>
+                <Left>0cm</Left>
+                <Height>0.6cm</Height>
+                <Width>8.53311cm</Width>
+                <ZIndex>4</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <VerticalAlign>Middle</VerticalAlign>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>14.72113cm</Top>
             <Left>0.51947cm</Left>
-            <Height>2.91682cm</Height>
-            <Width>8.62562cm</Width>
-            <ZIndex>19</ZIndex>
+            <Height>3.57298cm</Height>
+            <Width>8.64796cm</Width>
+            <ZIndex>12</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2015,7 +1810,7 @@
             <Left>0.51947cm</Left>
             <Height>3.99489cm</Height>
             <Width>7.18347cm</Width>
-            <ZIndex>20</ZIndex>
+            <ZIndex>13</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2044,7 +1839,7 @@
             <Left>0.26526cm</Left>
             <Height>0.56544cm</Height>
             <Width>6.9083cm</Width>
-            <ZIndex>21</ZIndex>
+            <ZIndex>14</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2082,7 +1877,7 @@
             <Left>0.26526cm</Left>
             <Height>0.48783cm</Height>
             <Width>6.9083cm</Width>
-            <ZIndex>22</ZIndex>
+            <ZIndex>15</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2125,12 +1920,183 @@
             <Left>0.26526cm</Left>
             <Height>1.4763cm</Height>
             <Width>7.43768cm</Width>
-            <ZIndex>23</ZIndex>
+            <ZIndex>16</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
               <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox17">
+            <rd:DefaultName>Textbox12</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>="Fax." + "      " + Fields!CompanyFaxNo.Value</Value>
+                    <Style>
+                      <FontFamily>MS UI Gothic</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>2.18627cm</Top>
+            <Left>10.12064cm</Left>
+            <Height>0.49683cm</Height>
+            <Width>6.45086cm</Width>
+            <ZIndex>17</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox21">
+            <rd:DefaultName>Textbox12</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!CompanyAddr2.Value &amp; IIF(IsNothing(Fields!CompanyAddrEN.Value) Or Fields!CompanyAddrEN.Value = "", "", Microsoft.VisualBasic.Constants.vbCrLf &amp; Fields!CompanyAddrEN.Value)</Value>
+                    <Style>
+                      <FontFamily>MS UI Gothic</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>1.21259cm</Top>
+            <Left>10.12064cm</Left>
+            <Height>0.52318cm</Height>
+            <Width>6.45086cm</Width>
+            <ZIndex>18</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox24">
+            <rd:DefaultName>Textbox12</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>="〒" + " " + Fields!CompanyAddr3.Value</Value>
+                    <Style>
+                      <FontFamily>MS UI Gothic</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>0.69313cm</Top>
+            <Left>10.12064cm</Left>
+            <Height>0.48418cm</Height>
+            <Width>6.45086cm</Width>
+            <ZIndex>19</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox26">
+            <rd:DefaultName>Textbox12</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!CompanyAddr1.Value &amp; IIF(IsNothing(Fields!CompanyNameEN.Value) Or Fields!CompanyNameEN.Value = "", "", Microsoft.VisualBasic.Constants.vbCrLf &amp; Fields!CompanyNameEN.Value)</Value>
+                    <Style>
+                      <FontFamily>MS UI Gothic</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>0.18299cm</Top>
+            <Left>10.12064cm</Left>
+            <Height>0.51014cm</Height>
+            <Width>6.45086cm</Width>
+            <ZIndex>20</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <BottomBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </BottomBorder>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox31">
+            <rd:DefaultName>Textbox12</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>="Tel." + "      " + Fields!CompanyPhoneNo.Value</Value>
+                    <Style>
+                      <FontFamily>MS UI Gothic</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>1.73577cm</Top>
+            <Left>10.12064cm</Left>
+            <Height>0.4505cm</Height>
+            <Width>6.45086cm</Width>
+            <ZIndex>21</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
@@ -2648,8 +2614,8 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="VendorFax">
           <DataField>VendorFax</DataField>
         </Field>
-        <Field Name="CompanyName">
-          <DataField>CompanyName</DataField>
+        <Field Name="CompanyAddr1">
+          <DataField>CompanyAddr1</DataField>
         </Field>
         <Field Name="CompanyAddr2">
           <DataField>CompanyAddr2</DataField>
@@ -2659,6 +2625,30 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="CompanyAddr4">
           <DataField>CompanyAddr4</DataField>
+        </Field>
+        <Field Name="CompanyAddr5">
+          <DataField>CompanyAddr5</DataField>
+        </Field>
+        <Field Name="CompanyAddr6">
+          <DataField>CompanyAddr6</DataField>
+        </Field>
+        <Field Name="CompanyAddr7">
+          <DataField>CompanyAddr7</DataField>
+        </Field>
+        <Field Name="CompanyAddr8">
+          <DataField>CompanyAddr8</DataField>
+        </Field>
+        <Field Name="CompanyNameEN">
+          <DataField>CompanyNameEN</DataField>
+        </Field>
+        <Field Name="CompanyAddrEN">
+          <DataField>CompanyAddrEN</DataField>
+        </Field>
+        <Field Name="CompanyPhoneNo">
+          <DataField>CompanyPhoneNo</DataField>
+        </Field>
+        <Field Name="CompanyFaxNo">
+          <DataField>CompanyFaxNo</DataField>
         </Field>
         <Field Name="CompanyPostCode">
           <DataField>CompanyPostCode</DataField>
@@ -2686,6 +2676,12 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="ShipToAddr5">
           <DataField>ShipToAddr5</DataField>
+        </Field>
+        <Field Name="ShipToAddr6">
+          <DataField>ShipToAddr6</DataField>
+        </Field>
+        <Field Name="ShipToTelLine">
+          <DataField>ShipToTelLine</DataField>
         </Field>
         <Field Name="TotalExclVAT">
           <DataField>TotalExclVAT</DataField>

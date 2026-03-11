@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-03-05T01:33:49.3975816Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-09T13:04:02.9202624Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -316,7 +316,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!CompanyAddr7.value</Value>
+                    <Value>="Tel." &amp; Fields!CompanyAddr7.value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -346,7 +346,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!CompanyAddr8.value</Value>
+                    <Value>="Fax." &amp; Fields!CompanyAddr8.value</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>MS UI Gothic</FontFamily>
@@ -1627,8 +1627,8 @@
                 <TablixMember />
               </TablixMembers>
             </TablixRowHierarchy>
-            <Top>10.9345cm</Top>
-            <Left>12.79591cm</Left>
+            <Top>11.42026cm</Top>
+            <Left>12.76405cm</Left>
             <Height>1.45728cm</Height>
             <Width>5.0543cm</Width>
             <ZIndex>15</ZIndex>
@@ -1829,8 +1829,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Top>10.9345cm</Top>
-            <Left>4.57485cm</Left>
+            <Top>11.42026cm</Top>
+            <Left>4.54299cm</Left>
             <Height>0.49517cm</Height>
             <Width>7.61483cm</Width>
             <ZIndex>16</ZIndex>
@@ -1950,8 +1950,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Top>12.66852cm</Top>
-            <Left>0.16668cm</Left>
+            <Top>13.15428cm</Top>
+            <Left>0.13482cm</Left>
             <Height>1.09204cm</Height>
             <Width>8.88503cm</Width>
             <ZIndex>17</ZIndex>
@@ -2010,28 +2010,67 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="Textbox30">
+            <rd:DefaultName>Textbox12</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=IIF(
+    IsNothing(Fields!CustAddrP.Value) 
+    OR Len(Trim(Fields!CustAddrP.Value)) = 0,
+    Nothing,
+    "様"
+)</Value>
+                    <Style>
+                      <FontFamily>MS UI Gothic</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>2.91487cm</Top>
+            <Left>0.16668cm</Left>
+            <Height>0.51013cm</Height>
+            <Width>5.97133cm</Width>
+            <ZIndex>20</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
           <Tablix Name="Tablix8">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>8.88503cm</Width>
+                  <Width>8.78604cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.79301cm</Width>
+                  <Width>1.69402cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.73958cm</Width>
+                  <Width>1.64059cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.62255cm</Width>
+                  <Width>2.98749cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.6115cm</Width>
+                  <Width>2.51252cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.39417cm</Height>
+                  <Height>0.48942cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2305,7 +2344,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.57056cm</Height>
+                  <Height>0.66581cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2337,7 +2376,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Bottom</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
                           </Style>
@@ -2353,13 +2392,9 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(
-    Fields!FlatLineQuantity.Value = 0,
-    "",
-    FormatNumber(-1 * Abs(Fields!FlatLineQuantity.Value), 0)
-)</Value>
+                                  <Value>=IIF(Fields!FlatLineQuantity.Value = 0, "", FormatNumber(-1 * Abs(Fields!FlatLineQuantity.Value), 0))</Value>
                                   <Style>
-                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <Format>=Fields!Quantity_ServLineFormat.Value</Format>
                                   </Style>
@@ -2380,7 +2415,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Bottom</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
                           </Style>
@@ -2398,7 +2433,7 @@
                                 <TextRun>
                                   <Value>=Fields!FlatLineUOM.Value</Value>
                                   <Style>
-                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <Format>=Fields!UnitPrice_ServLineFormat.Value</Format>
                                   </Style>
@@ -2419,7 +2454,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Bottom</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
                           </Style>
@@ -2437,7 +2472,7 @@
                                 <TextRun>
                                   <Value>=IIF(Fields!FlatLineType.Value = "ITEM", Format(Fields!FlatUnitPrice.Value, "#,##0"), "")</Value>
                                   <Style>
-                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <Format>=Fields!AmtFormat.Value</Format>
                                   </Style>
@@ -2458,7 +2493,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Bottom</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
                           </Style>
@@ -2475,13 +2510,20 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=IIF(
-    IsNothing(Fields!FlatLineDescription.Value) OR Trim(Fields!FlatLineDescription.Value) = ""
-    OR IsNothing(Fields!FlatLineAmount.Value) OR Fields!FlatLineAmount.Value = 0,
-    Nothing,
-    -Abs(Fields!FlatLineAmount.Value)
+    Fields!FlatLineAmount.Value = 0,
+    "",
+    IIF(
+        Fields!FlatLineDescription.Value = "合計値引",
+        FormatNumber(Abs(Fields!FlatLineAmount.Value), 0),
+        IIF(
+            Fields!FlatLineType.Value = "DISCOUNT",
+            FormatNumber(Abs(Fields!FlatLineAmount.Value), 0),
+            FormatNumber(-1 * Abs(Fields!FlatLineAmount.Value), 0)
+        )
+    )
 )</Value>
                                   <Style>
-                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <Format>#,0</Format>
                                   </Style>
@@ -2503,7 +2545,7 @@
                             <RightBorder>
                               <Style>Solid</Style>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Bottom</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                           </Style>
                         </Textbox>
@@ -2512,7 +2554,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.43624cm</Height>
+                  <Height>0.6cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2524,10 +2566,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(
-    Len(Trim(CStr(Fields!FlatFaultReasonCode.Value))) = 0,
-    "",
-    CStr(Fields!FlatFaultReasonCode.Value) )</Value>
+                                  <Value>=Fields!FlatFaultReasonCode.Value</Value>
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -2548,7 +2587,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Bottom</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
                           </Style>
@@ -2586,7 +2625,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Bottom</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
                           </Style>
@@ -2595,7 +2634,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox13">
+                        <Textbox Name="Textbox11">
                           <rd:DefaultName>Textbox9</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -2624,7 +2663,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Bottom</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
                           </Style>
@@ -2633,7 +2672,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox15">
+                        <Textbox Name="Textbox13">
                           <rd:DefaultName>Textbox10</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -2662,7 +2701,7 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Bottom</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                             <PaddingRight>5pt</PaddingRight>
                           </Style>
@@ -2671,7 +2710,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox17">
+                        <Textbox Name="Textbox15">
                           <rd:DefaultName>Textbox13</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -2679,9 +2718,13 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!FlatLineDiscountAmt.Value</Value>
+                                  <Value>=IIF(
+    Fields!FlatLineDiscountAmt.Value = 0,
+    "",
+    FormatNumber(Abs(Fields!FlatLineDiscountAmt.Value), 0)
+)</Value>
                                   <Style>
-                                    <FontFamily>MS UI Gothic</FontFamily>
+                                    <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <Format>#,##0; -#,##0</Format>
                                   </Style>
@@ -2702,7 +2745,7 @@
                             <RightBorder>
                               <Style>Solid</Style>
                             </RightBorder>
-                            <VerticalAlign>Middle</VerticalAlign>
+                            <VerticalAlign>Bottom</VerticalAlign>
                             <PaddingLeft>5pt</PaddingLeft>
                           </Style>
                         </Textbox>
@@ -2711,7 +2754,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.07938cm</Height>
+                  <Height>0.10611cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2949,14 +2992,11 @@
                   <KeepTogether>true</KeepTogether>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="Details3" />
+                  <Group Name="Details2" />
                   <TablixMembers>
                     <TablixMember>
                       <Visibility>
-                        <Hidden>=Fields!FlatLineType.Value = "DISCOUNT" 
- Or IsNothing(Fields!FlatLineDescription.Value) 
- Or Fields!FlatLineDescription.Value = "" 
- Or Fields!FlatLineQuantity.Value = 0</Hidden>
+                        <Hidden>=Fields!FlatLineType.Value = "DISCOUNT" Or IsNothing(Fields!FlatLineDescription.Value) Or Fields!FlatLineDescription.Value = "" Or Fields!FlatLineQuantity.Value = 0</Hidden>
                       </Visibility>
                     </TablixMember>
                     <TablixMember>
@@ -2972,16 +3012,11 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
-            <SortExpressions>
-              <SortExpression>
-                <Value>=Fields!FlatLineType.Value</Value>
-              </SortExpression>
-            </SortExpressions>
-            <Top>9.27777cm</Top>
+            <Top>9.17927cm</Top>
             <Left>0.16668cm</Left>
-            <Height>1.48035cm</Height>
-            <Width>17.65167cm</Width>
-            <ZIndex>20</ZIndex>
+            <Height>1.86134cm</Height>
+            <Width>17.62066cm</Width>
+            <ZIndex>21</ZIndex>
             <Visibility>
               <Hidden>=Not Fields!SummarizeLines.Value</Hidden>
             </Visibility>
@@ -2991,45 +3026,6 @@
               </Border>
             </Style>
           </Tablix>
-          <Textbox Name="Textbox30">
-            <rd:DefaultName>Textbox12</rd:DefaultName>
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=IIF(
-    IsNothing(Fields!CustAddrP.Value) 
-    OR Len(Trim(Fields!CustAddrP.Value)) = 0,
-    Nothing,
-    "様"
-)</Value>
-                    <Style>
-                      <FontFamily>MS UI Gothic</FontFamily>
-                      <FontSize>9pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <Top>2.91487cm</Top>
-            <Left>0.16668cm</Left>
-            <Height>0.51013cm</Height>
-            <Width>5.97133cm</Width>
-            <ZIndex>21</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
         </ReportItems>
         <Height>15.64733cm</Height>
         <Style />
