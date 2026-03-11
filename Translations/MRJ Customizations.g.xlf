@@ -1688,6 +1688,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Item Line Subform - Control Document No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3928026391 - Control 3144967940 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fault Area Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Item Line Subform - Control Fault Area Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3928026391 - Control 463191725 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Resolution Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Item Line Subform - Control Resolution Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 374249760 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Shipment</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1712,6 +1722,16 @@
           <source>Symptom Comment</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Shpt. Item Line Subform - Control SymptomComment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 374249760 - Control 3144967940 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fault Area Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Shpt. Item Line Subform - Control Fault Area Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 374249760 - Control 463191725 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Resolution Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Shpt. Item Line Subform - Control Resolution Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 812732725 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Engine</source>
@@ -1743,6 +1763,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Filters - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 812732725 - Control 1417094296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inspection In-Charge (Dept.)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Inspection In-Charge (Dept.) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Control 3171492862 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inspection In-Charge (Person)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Inspection In-Charge (Person) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 812732725 - Control 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1762,6 +1792,21 @@
           <source>Service Item No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Control 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Control 478002456 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Warranty Ending Date (Labor)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Warranty Ending Date (Labor) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Control 928859325 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Warranty Starting Date (Labor)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Warranty Starting Date (Labor) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 812732725 - Control 4258502013 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Order</source>

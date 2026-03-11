@@ -50,8 +50,16 @@ page 50131 "Service Engine"
                 field("Address 2"; Rec."Address 2") { ApplicationArea = All; }
                 field("Phone No."; Rec."Phone No.") { ApplicationArea = All; }
                 field("Phone No. (Service)"; Rec."Phone No. (Service)") { ApplicationArea = All; }
-                field("Inspection In-Charge (Dept.)"; Rec."Inspection In-Charge (Dept.)") { ApplicationArea = All; }
-                field("Inspection In-Charge (Person)"; Rec."Inspection In-Charge (Person)") { ApplicationArea = All; }
+                field("Inspection In-Charge (Dept.)"; Rec."Inspection In-Charge (Dept.)")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Inspection In-Charge (Dept.)';
+                }
+                field("Inspection In-Charge (Person)"; Rec."Inspection In-Charge (Person)")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Inspection In-Charge (Person)';
+                }
             }
 
             repeater(List)
@@ -77,6 +85,7 @@ page 50131 "Service Engine"
                 }
                 field(Status; Rec.Status)
                 {
+                    Caption = 'Status';
                     ApplicationArea = All;
                 }
                 field("Item No."; Rec."Item No.")
@@ -99,7 +108,6 @@ page 50131 "Service Engine"
                 field("Item Description"; Rec."Item Description")
                 {
                     ApplicationArea = All;
-                    Visible = false;
                 }
                 field("Serial No."; Rec."Serial No.")
                 {
@@ -108,10 +116,12 @@ page 50131 "Service Engine"
                 field("Warranty Starting Date (Labor)"; Rec."Warranty Starting Date (Labor)")
                 {
                     ApplicationArea = All;
+                    Caption = 'Warranty Starting Date (Labor)';
                 }
                 field("Warranty Ending Date (Labor)"; Rec."Warranty Ending Date (Labor)")
                 {
                     ApplicationArea = All;
+                    Caption = 'Warranty Ending Date (Labor)';
                 }
                 field("Warranty Starting Date (Parts)"; Rec."Warranty Starting Date (Parts)")
                 {

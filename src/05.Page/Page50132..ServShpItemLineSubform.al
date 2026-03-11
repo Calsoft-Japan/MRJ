@@ -60,10 +60,18 @@ page 50132 "Serv. Shpt. Item Line Subform"
                         exit(true);
                     end;
                 }
-                field("Fault Area Code"; Rec."Fault Area Code") { ApplicationArea = All; }
+                field("Fault Area Code"; Rec."Fault Area Code")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Fault Area Code';
+                }
                 field("Symptom Code"; Rec."Symptom Code") { ApplicationArea = All; }
                 field("Fault Code"; Rec."Fault Code") { ApplicationArea = All; }
-                field("Resolution Code"; Rec."Resolution Code") { ApplicationArea = All; }
+                field("Resolution Code"; Rec."Resolution Code")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Resolution Code';
+                }
             }
 
             group(Comments)

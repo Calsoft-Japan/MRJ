@@ -851,7 +851,7 @@
         </trans-unit>
         <trans-unit id="Table 1566533854 - Field 1171137197 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Name</source>
-          <target>得意先名</target>
+          <target>名前</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Service Inquiry Line - Field Customer Name - Property Caption</note>
         </trans-unit>
@@ -2025,6 +2025,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Item Line Subform - Control Document No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3928026391 - Control 3144967940 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fault Area Code</source>
+          <target>故障箇所コード</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Item Line Subform - Control Fault Area Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3928026391 - Control 463191725 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Resolution Code</source>
+          <target>解決コード</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Item Line Subform - Control Resolution Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 374249760 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Shipment</source>
           <target>転記済出荷</target>
@@ -2054,6 +2066,18 @@
           <target>症状コメント</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Shpt. Item Line Subform - Control SymptomComment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 374249760 - Control 3144967940 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fault Area Code</source>
+          <target>故障箇所コード</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Shpt. Item Line Subform - Control Fault Area Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 374249760 - Control 463191725 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Resolution Code</source>
+          <target>解決コード</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Serv. Shpt. Item Line Subform - Control Resolution Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 812732725 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Engine</source>
@@ -2091,9 +2115,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Filters - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 812732725 - Control 1417094296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inspection In-Charge (Dept.)</source>
+          <target>検収担当部署</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Inspection In-Charge (Dept.) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Control 3171492862 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inspection In-Charge (Person)</source>
+          <target>検収責任者</target> 
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Inspection In-Charge (Person) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 812732725 - Control 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Name</source>
-          <target>得意先名前</target>
+          <target>名前</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Name - Property Caption</note>
         </trans-unit>
@@ -2114,6 +2150,24 @@
           <target>サービス品目番号</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Control 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <target>ステータス</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Control 478002456 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Warranty Ending Date (Labor)</source>
+          <target>保証終了日(作業)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Warranty Ending Date (Labor) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 812732725 - Control 928859325 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Warranty Starting Date (Labor)</source>
+          <target>保証開始日 (作業)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Warranty Starting Date (Labor) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 812732725 - Control 4258502013 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Order</source>

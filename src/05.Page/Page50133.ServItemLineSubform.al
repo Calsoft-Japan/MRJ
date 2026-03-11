@@ -62,10 +62,18 @@ page 50133 "Serv. Item Line Subform"
                         exit(true);
                     end;
                 }
-                field("Fault Area Code"; Rec."Fault Area Code") { ApplicationArea = All; }
+                field("Fault Area Code"; Rec."Fault Area Code")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Fault Area Code';
+                }
                 field("Symptom Code"; Rec."Symptom Code") { ApplicationArea = All; }
                 field("Fault Code"; Rec."Fault Code") { ApplicationArea = All; }
-                field("Resolution Code"; Rec."Resolution Code") { ApplicationArea = All; }
+                field("Resolution Code"; Rec."Resolution Code")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Resolution Code';
+                }
             }
 
             group(Comments)
@@ -76,6 +84,7 @@ page 50133 "Serv. Item Line Subform"
                     ApplicationArea = All;
                     Editable = false;
                     Caption = 'Fault Comment';
+                    Visible = false;
                     trigger OnLookup(var Text: Text): Boolean
                     begin
                         if Rec."Document No." = '' then
@@ -90,6 +99,7 @@ page 50133 "Serv. Item Line Subform"
                     ApplicationArea = All;
                     Editable = false;
                     Caption = 'Resolution Comment';
+                    Visible = false;
                     trigger OnLookup(var Text: Text): Boolean
                     begin
                         if Rec."Document No." = '' then
@@ -104,6 +114,7 @@ page 50133 "Serv. Item Line Subform"
                     ApplicationArea = All;
                     Editable = false;
                     Caption = 'Fault Area Comment';
+                    Visible = false;
                     trigger OnLookup(var Text: Text): Boolean
                     begin
                         if Rec."Document No." = '' then
@@ -118,6 +129,7 @@ page 50133 "Serv. Item Line Subform"
                     ApplicationArea = All;
                     Editable = false;
                     Caption = 'Symptom Comment';
+                    Visible = false;
                     trigger OnLookup(var Text: Text): Boolean
                     begin
                         if Rec."Document No." = '' then
