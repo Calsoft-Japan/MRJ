@@ -2558,7 +2558,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - Control ReqStartDate - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 21210417 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Pstd. Service Work Report</source>
+          <source>Posted Service Work Report</source>
           <target>作業報告書</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Pstd. Service Work Report - Property Caption</note>
@@ -3235,12 +3235,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv Item WorkSheet Ext - Action Show - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 4054556956 - Action 1883011495 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 449515330">
-          <source>Parts Request</source>
-          <target>パーツ持ち出し依頼書</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv Item WorkSheet Ext - Action PartsRequest - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PageExtension 4054556956 - Action 3539565669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 449515330">
           <source>Service Report</source>
           <target>作業報告書</target>
@@ -3265,6 +3259,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Order Ext - Action CreatePartTransfer - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3390929214 - Action 1883011495 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2145436509">
+          <source>Parts Request</source>
+          <target>パーツ持ち出し依頼書</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Order Ext - Action PartsRequest - Property Caption</note>
+        </trans-unit>
+        
         <trans-unit id="PageExtension 3390929214 - Change 2161572060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2145436509">
           <source>Parts to Location Code</source>
           <target>パーツ出荷先場所コード</target>
@@ -3583,11 +3584,29 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Aging Year - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1222098016 - Field 299022368 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
+          <source>Description2</source>
+          <target>Description2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Description2 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1222098016 - Field 2034335627 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
           <source>Diff. Qty.</source>
           <target>Diff. Qty.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Diff. Qty. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1222098016 - Field 901474620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
+          <source>Item No.2</source>
+          <target>Item No.2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Item No.2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1222098016 - Field 2905855265 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
+          <source>New Shelf No.</source>
+          <target>New Shelf No.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field New Shelf No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1222098016 - Field 135825779 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
           <source>Old NAV No.</source>

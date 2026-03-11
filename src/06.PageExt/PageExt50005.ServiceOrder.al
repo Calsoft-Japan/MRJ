@@ -53,5 +53,28 @@ pageextension 50005 "Service Order Ext" extends "Service Order"
                 end;
             }
         }
+        addafter(AttachAsPDF_Promoted)
+        {
+            actionref(PartsRequest_Promoted; PartsRequest) { }
+        }
+        addafter(AttachAsPDF)
+        {
+            action(PartsRequest)
+            {
+                ApplicationArea = All;
+                Caption = 'Parts Request';
+                Image = Report;
+                trigger OnAction()
+                var
+                    ServHeader: Record "Service Header";
+                begin
+                    Clear(ServHeader);
+                    ServHeader.Get(Rec."Document Type", Rec."No.");
+                    ServHeader.SetRange(ServHeader."No.", Rec."No.");
+                    Report.RunModal(Report::"Parts Request Form", true, true, ServHeader);
+                    CurrPage.Update(false);
+                end;
+            }
+        }
     }
 }

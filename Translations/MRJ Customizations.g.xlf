@@ -2813,11 +2813,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv Item WorkSheet Ext - Action Show - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 4054556956 - Action 1883011495 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 449515330">
-          <source>Parts Request</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv Item WorkSheet Ext - Action PartsRequest - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PageExtension 4054556956 - Action 3539565669 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 449515330">
           <source>Service Report</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2837,6 +2832,11 @@
           <source>Create Parts Transfer</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Order Ext - Action CreatePartTransfer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3390929214 - Action 1883011495 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2145436509">
+          <source>Parts Request</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Order Ext - Action PartsRequest - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3390929214 - Change 2161572060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2145436509">
           <source>Parts to Location Code</source>
