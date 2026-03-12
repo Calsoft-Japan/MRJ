@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="JanLbl">
+          <DataField>JanLbl</DataField>
+        </Field>
+        <Field Name="FebLbl">
+          <DataField>FebLbl</DataField>
+        </Field>
+        <Field Name="MarLbl">
+          <DataField>MarLbl</DataField>
+        </Field>
+        <Field Name="AprLbl">
+          <DataField>AprLbl</DataField>
+        </Field>
+        <Field Name="MayLbl">
+          <DataField>MayLbl</DataField>
+        </Field>
+        <Field Name="JunLbl">
+          <DataField>JunLbl</DataField>
+        </Field>
+        <Field Name="JulLbl">
+          <DataField>JulLbl</DataField>
+        </Field>
+        <Field Name="AugLbl">
+          <DataField>AugLbl</DataField>
+        </Field>
+        <Field Name="SepLbl">
+          <DataField>SepLbl</DataField>
+        </Field>
+        <Field Name="OctLbl">
+          <DataField>OctLbl</DataField>
+        </Field>
+        <Field Name="Nov1Lbl">
+          <DataField>Nov1Lbl</DataField>
+        </Field>
+        <Field Name="DecLbl">
+          <DataField>DecLbl</DataField>
+        </Field>
+        <Field Name="ItemNo">
+          <DataField>ItemNo</DataField>
+        </Field>
+        <Field Name="ItemName">
+          <DataField>ItemName</DataField>
+        </Field>
+        <Field Name="JanQty">
+          <DataField>JanQty</DataField>
+        </Field>
+        <Field Name="JanQtyFormat">
+          <DataField>JanQtyFormat</DataField>
+        </Field>
+        <Field Name="FebQty">
+          <DataField>FebQty</DataField>
+        </Field>
+        <Field Name="FebQtyFormat">
+          <DataField>FebQtyFormat</DataField>
+        </Field>
+        <Field Name="MarQty">
+          <DataField>MarQty</DataField>
+        </Field>
+        <Field Name="MarQtyFormat">
+          <DataField>MarQtyFormat</DataField>
+        </Field>
+        <Field Name="AprQty">
+          <DataField>AprQty</DataField>
+        </Field>
+        <Field Name="AprQtyFormat">
+          <DataField>AprQtyFormat</DataField>
+        </Field>
+        <Field Name="MayQty">
+          <DataField>MayQty</DataField>
+        </Field>
+        <Field Name="MayQtyFormat">
+          <DataField>MayQtyFormat</DataField>
+        </Field>
+        <Field Name="JunQty">
+          <DataField>JunQty</DataField>
+        </Field>
+        <Field Name="JunQtyFormat">
+          <DataField>JunQtyFormat</DataField>
+        </Field>
+        <Field Name="JulQty">
+          <DataField>JulQty</DataField>
+        </Field>
+        <Field Name="JulQtyFormat">
+          <DataField>JulQtyFormat</DataField>
+        </Field>
+        <Field Name="AugQty">
+          <DataField>AugQty</DataField>
+        </Field>
+        <Field Name="AugQtyFormat">
+          <DataField>AugQtyFormat</DataField>
+        </Field>
+        <Field Name="SepQty">
+          <DataField>SepQty</DataField>
+        </Field>
+        <Field Name="SepQtyFormat">
+          <DataField>SepQtyFormat</DataField>
+        </Field>
+        <Field Name="OctQty">
+          <DataField>OctQty</DataField>
+        </Field>
+        <Field Name="OctQtyFormat">
+          <DataField>OctQtyFormat</DataField>
+        </Field>
+        <Field Name="NovQty">
+          <DataField>NovQty</DataField>
+        </Field>
+        <Field Name="NovQtyFormat">
+          <DataField>NovQtyFormat</DataField>
+        </Field>
+        <Field Name="DecQty">
+          <DataField>DecQty</DataField>
+        </Field>
+        <Field Name="DecQtyFormat">
+          <DataField>DecQtyFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

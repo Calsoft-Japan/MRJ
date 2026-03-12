@@ -130,7 +130,6 @@ page 50131 "Service Engine"
                     ApplicationArea = All;
                 }
             }
-
             group(Shipment)
             {
                 Caption = 'Service Shipment';
@@ -141,7 +140,6 @@ page 50131 "Service Engine"
                     SubPageView = sorting("No.", "Line No.") order(Descending);
                 }
             }
-
             group(ServiceOrder)
             {
                 Caption = 'Service Order';
@@ -191,7 +189,6 @@ page 50131 "Service Engine"
         TheWorkDate := WorkDate();
         SerialNoFilter := Rec.GetFilter("Serial No.");
         Rec.Reset();
-        Rec.SetFilter("No.", GetServItemNoFilter());
         Rec.SetFilter("Serial No.", SerialNoFilter);
         Refresh();
     end;
@@ -220,12 +217,12 @@ page 50131 "Service Engine"
 
     procedure CreateServOrder()
     var
-        ServShptItemLine: Record 5989;
-        ServHeaderInst: Record 5900;
-        ServShptHeader: Record 5990;
-        ServItemLineInst: Record 5901;
-        ServLineInst: Record 5902;
-        ServShptLine: Record 5991;
+        ServShptItemLine: Record "Service Shipment Item Line";
+        ServHeaderInst: Record "Service Header";
+        ServShptHeader: Record "Service Shipment Header";
+        ServItemLineInst: Record "Service Item Line";
+        ServLineInst: Record "Service Line";
+        ServShptLine: Record "Service Shipment Line";
     begin
         SrvMgtSetup.Get();
         if not Dialog.Confirm(TEST0002, true) then
@@ -294,27 +291,6 @@ page 50131 "Service Engine"
         if not Dialog.Confirm(StrSubstNo(TEST0004, ServHeaderInst."No."), true) then
             exit;
         Page.RunModal(Page::"Service Order", ServHeaderInst);
-    end;
-
-    local procedure GetServItemNoFilter(): Text
-    var
-        ServItem: Record 5940;
-        ServItemTmp: Record 5940 temporary;
-        FilterBuilder: Text;
-    begin
-        FilterBuilder := '';
-
-        if ServItemTmp.FindSet() then
-            repeat
-                if FilterBuilder = '' then
-                    FilterBuilder := ServItemTmp."No."
-                else
-                    FilterBuilder := FilterBuilder + '|' + ServItemTmp."No."; // use '|' list for AL
-            until ServItemTmp.Next() = 0;
-
-        if FilterBuilder = '' then
-            exit('>1&<0'); // empty-result filter
-        exit(FilterBuilder);
     end;
 
     var
