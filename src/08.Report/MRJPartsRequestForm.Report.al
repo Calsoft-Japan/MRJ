@@ -118,7 +118,7 @@ report 50071 "Parts Request Form"
                 column(QtyReceived; "Qty. Received") { }
                 dataitem(ShowLine; Integer)
                 {
-                    DataItemTableView = SORTING(Number);
+                    DataItemTableView = sorting(Number);
 
                     column(LineQty; Qty) { DecimalPlaces = 0 : 0; }
                     column(ItemShelfNo; Item."Shelf No.") { }
