@@ -2019,17 +2019,17 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report - NamedType AugLbl</note>
         </trans-unit>
         <trans-unit id="Report 60501374 - NamedType 3046642558" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Average Inventory (Last Year)</source>
+          <source>Avg. Inv. (Last Year)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report - NamedType AvgInvLastYrLbl</note>
         </trans-unit>
         <trans-unit id="Report 60501374 - NamedType 2760689603" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Average Inventory (Yearly)</source>
+          <source>Avg Inv. (Yearly)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report - NamedType AvgInvYearlyLbl</note>
         </trans-unit>
         <trans-unit id="Report 60501374 - NamedType 2553067404" size-unit="char" translate="yes" xml:space="preserve">
-          <source>12</source>
+          <source>.12</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report - NamedType DecLbl</note>
         </trans-unit>
@@ -2039,12 +2039,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report - NamedType FebLbl</note>
         </trans-unit>
         <trans-unit id="Report 60501374 - NamedType 686631988" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Inventory Turn Over (Monthly)</source>
+          <source>Inv. Turn Over (Monthly)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report - NamedType InvTurnOverMonthLbl</note>
         </trans-unit>
         <trans-unit id="Report 60501374 - NamedType 1020727465" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Inventory Turn Over (Yearly)</source>
+          <source>Inv. Turn Over (Yearly)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report - NamedType InvTurnOverYearLbl</note>
         </trans-unit>
@@ -2084,12 +2084,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report - NamedType MayLbl</note>
         </trans-unit>
         <trans-unit id="Report 60501374 - NamedType 3553796503" size-unit="char" translate="yes" xml:space="preserve">
-          <source>11</source>
+          <source>.11</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report - NamedType NovLbl</note>
         </trans-unit>
         <trans-unit id="Report 60501374 - NamedType 575434006" size-unit="char" translate="yes" xml:space="preserve">
-          <source>10</source>
+          <source>.10</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report - NamedType OctLbl</note>
         </trans-unit>

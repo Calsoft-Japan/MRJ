@@ -153,62 +153,62 @@ report 50000 "Inv. Turn Over Report"
                 end;
             until ItemLedgEntry.Next() = 0;
 
-        if (JanQty > 0) and (PrevYearQty > 0) then
+        if PrevYearQty > 0 then
             JanAvgQty := JanQty / PrevYearQty
         else
             JanAvgQty := 0;
 
-        if (FebQty > 0) and (PrevYearQty > 0) then
+        if PrevYearQty > 0 then
             FebAvgQty := FebQty / PrevYearQty
         else
             FebAvgQty := 0;
 
-        if (MarQty > 0) and (PrevYearQty > 0) then
+        if PrevYearQty > 0 then
             MarAvgQty := MarQty / PrevYearQty
         else
             MarAvgQty := 0;
 
-        if (AprQty > 0) and (PrevYearQty > 0) then
+        if PrevYearQty > 0 then
             AprAvgQty := AprQty / PrevYearQty
         else
             AprAvgQty := 0;
 
-        if (MarQty > 0) and (PrevYearQty > 0) then
+        if PrevYearQty > 0 then
             MayAvgQty := MayQty / PrevYearQty
         else
             MayAvgQty := 0;
 
-        if (JunQty > 0) and (PrevYearQty > 0) then
+        if PrevYearQty > 0 then
             JunAvgQty := JunQty / PrevYearQty
         else
             JunAvgQty := 0;
 
-        if (JulQty > 0) and (PrevYearQty > 0) then
+        if PrevYearQty > 0 then
             JulAvgQty := JulQty / PrevYearQty
         else
             JulAvgQty := 0;
 
-        if (AugQty > 0) and (PrevYearQty > 0) then
+        if PrevYearQty > 0 then
             AugAvgQty := AugQty / PrevYearQty
         else
             AugAvgQty := 0;
 
-        if (SepQty > 0) and (PrevYearQty > 0) then
+        if PrevYearQty > 0 then
             SepAvgQty := SepQty / PrevYearQty
         else
             SepAvgQty := 0;
 
-        if (OctQty > 0) and (PrevYearQty > 0) then
+        if PrevYearQty > 0 then
             OctAvgQty := OctQty / PrevYearQty
         else
             OctAvgQty := 0;
 
-        if (NovQty > 0) and (PrevYearQty > 0) then
+        if PrevYearQty > 0 then
             NovAvgQty := NovQty / PrevYearQty
         else
             NovAvgQty := 0;
 
-        if (DecQty > 0) and (PrevYearQty > 0) then
+        if PrevYearQty > 0 then
             DecAvgQty := DecQty / PrevYearQty
         else
             DecAvgQty := 0;
