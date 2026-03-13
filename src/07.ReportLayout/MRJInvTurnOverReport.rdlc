@@ -1293,8 +1293,8 @@ End Function
         <Field Name="OctLbl">
           <DataField>OctLbl</DataField>
         </Field>
-        <Field Name="Nov1Lbl">
-          <DataField>Nov1Lbl</DataField>
+        <Field Name="NovLbl">
+          <DataField>NovLbl</DataField>
         </Field>
         <Field Name="DecLbl">
           <DataField>DecLbl</DataField>

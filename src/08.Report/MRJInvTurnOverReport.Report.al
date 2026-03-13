@@ -12,18 +12,18 @@ report 50000 "Inv. Turn Over Report"
         dataitem(HeaderCaptions; Integer)
         {
             DataItemTableView = sorting(Number) where(Number = const(1));
-            column(JanLbl; Format(YearFilter) + Month1Lbl) { }
-            column(FebLbl; Format(YearFilter) + Month2Lbl) { }
-            column(MarLbl; Format(YearFilter) + Month3Lbl) { }
-            column(AprLbl; Format(YearFilter) + Month4Lbl) { }
-            column(MayLbl; Format(YearFilter) + Month5Lbl) { }
-            column(JunLbl; Format(YearFilter) + Month6Lbl) { }
-            column(JulLbl; Format(YearFilter) + Month7Lbl) { }
-            column(AugLbl; Format(YearFilter) + Month8Lbl) { }
-            column(SepLbl; Format(YearFilter) + Month9Lbl) { }
-            column(OctLbl; Format(YearFilter) + Month10Lbl) { }
-            column(Nov1Lbl; Format(YearFilter) + Month11Lbl) { }
-            column(DecLbl; Format(YearFilter) + Month12Lbl) { }
+            column(JanLbl; Format(YearFilter) + JanLbl) { }
+            column(FebLbl; Format(YearFilter) + FebLbl) { }
+            column(MarLbl; Format(YearFilter) + MarLbl) { }
+            column(AprLbl; Format(YearFilter) + AprLbl) { }
+            column(MayLbl; Format(YearFilter) + MayLbl) { }
+            column(JunLbl; Format(YearFilter) + JunLbl) { }
+            column(JulLbl; Format(YearFilter) + JulLbl) { }
+            column(AugLbl; Format(YearFilter) + AugLbl) { }
+            column(SepLbl; Format(YearFilter) + SepLbl) { }
+            column(OctLbl; Format(YearFilter) + OctLbl) { }
+            column(NovLbl; Format(YearFilter) + NovLbl) { }
+            column(DecLbl; Format(YearFilter) + DecLbl) { }
         }
         dataitem(Item; Item)
         {
@@ -65,6 +65,8 @@ report 50000 "Inv. Turn Over Report"
                 else
                     AvgPrevYearQty := 0;
                 CalcMonthlyInventory("No.");
+                //ExportDataToExcel();
+                MakeExcelDataBody();
             end;
         }
     }
@@ -87,47 +89,15 @@ report 50000 "Inv. Turn Over Report"
         }
     }
 
-    var
-        ItemLedgEntry: Record "Item Ledger Entry";
-        YearFilter: Integer;
-        JanQty: Decimal;
-        FebQty: Decimal;
-        MarQty: Decimal;
-        AprQty: Decimal;
-        MayQty: Decimal;
-        JunQty: Decimal;
-        JulQty: Decimal;
-        AugQty: Decimal;
-        SepQty: Decimal;
-        OctQty: Decimal;
-        NovQty: Decimal;
-        DecQty: Decimal;
-        JanAvgQty: Decimal;
-        FebAvgQty: Decimal;
-        MarAvgQty: Decimal;
-        AprAvgQty: Decimal;
-        MayAvgQty: Decimal;
-        JunAvgQty: Decimal;
-        JulAvgQty: Decimal;
-        AugAvgQty: Decimal;
-        SepAvgQty: Decimal;
-        OctAvgQty: Decimal;
-        NovAvgQty: Decimal;
-        DecAvgQty: Decimal;
-        PrevYearQty: Decimal;
-        AvgPrevYearQty: Decimal;
-        Month1Lbl: Label '.1';
-        Month2Lbl: Label '.2';
-        Month3Lbl: Label '.3';
-        Month4Lbl: Label '.4';
-        Month5Lbl: Label '.5';
-        Month6Lbl: Label '.6';
-        Month7Lbl: Label '.7';
-        Month8Lbl: Label '.8';
-        Month9Lbl: Label '.9';
-        Month10Lbl: Label '10';
-        Month11Lbl: Label '11';
-        Month12Lbl: Label '12';
+    trigger OnPreReport()
+    begin
+        MakeExcelDataHeader();
+    end;
+
+    trigger OnPostReport()
+    begin
+        CreateExcelBook()
+    end;
 
     local procedure ClearVariables()
     begin
@@ -195,62 +165,62 @@ report 50000 "Inv. Turn Over Report"
                 end;
             until ItemLedgEntry.Next() = 0;
 
-        if JanQty > 0 then
+        if (JanQty > 0) and (PrevYearQty > 0) then
             JanAvgQty := JanQty / PrevYearQty
         else
             JanAvgQty := 0;
 
-        if FebQty > 0 then
+        if (FebQty > 0) and (PrevYearQty > 0) then
             FebAvgQty := FebQty / PrevYearQty
         else
             FebAvgQty := 0;
 
-        if MarQty > 0 then
+        if (MarQty > 0) and (PrevYearQty > 0) then
             MarAvgQty := MarQty / PrevYearQty
         else
             MarAvgQty := 0;
 
-        if AprQty > 0 then
+        if (AprQty > 0) and (PrevYearQty > 0) then
             AprAvgQty := AprQty / PrevYearQty
         else
             AprAvgQty := 0;
 
-        if MarQty > 0 then
+        if (MarQty > 0) and (PrevYearQty > 0) then
             MayAvgQty := MayQty / PrevYearQty
         else
             MayAvgQty := 0;
 
-        if JunQty > 0 then
+        if (JunQty > 0) and (PrevYearQty > 0) then
             JunAvgQty := JunQty / PrevYearQty
         else
             JunAvgQty := 0;
 
-        if JulQty > 0 then
+        if (JulQty > 0) and (PrevYearQty > 0) then
             JulAvgQty := JulQty / PrevYearQty
         else
             JulAvgQty := 0;
 
-        if AugQty > 0 then
+        if (AugQty > 0) and (PrevYearQty > 0) then
             AugAvgQty := AugQty / PrevYearQty
         else
             AugAvgQty := 0;
 
-        if SepQty > 0 then
+        if (SepQty > 0) and (PrevYearQty > 0) then
             SepAvgQty := SepQty / PrevYearQty
         else
             SepAvgQty := 0;
 
-        if OctQty > 0 then
+        if (OctQty > 0) and (PrevYearQty > 0) then
             OctAvgQty := OctQty / PrevYearQty
         else
             OctAvgQty := 0;
 
-        if NovQty > 0 then
+        if (NovQty > 0) and (PrevYearQty > 0) then
             NovAvgQty := NovQty / PrevYearQty
         else
             NovAvgQty := 0;
 
-        if DecQty > 0 then
+        if (DecQty > 0) and (PrevYearQty > 0) then
             DecAvgQty := DecQty / PrevYearQty
         else
             DecAvgQty := 0;
@@ -276,4 +246,176 @@ report 50000 "Inv. Turn Over Report"
             until ItemLedgerEntry.Next() = 0;
         exit(Qty);
     end;
+
+    local procedure MakeExcelDataHeader()
+    begin
+        TempExcelBuffer.NewRow();
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(AvgInvLastYrLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(JanLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(FebLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(MarLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(AprLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(MayLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(JunLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(JulLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(AugLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(SepLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(OctLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(NovLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(DecLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(AvgInvYearlyLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(QtyShipYearLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(InvTurnOverYearLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+    end;
+
+    local procedure MakeExcelDataBody()
+    begin
+        TempExcelBuffer.NewRow();
+        TempExcelBuffer.AddColumn(Item."No.", false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(Item.Description, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(AvgPrevYearQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(JanQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(FebQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(MarQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(AprQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(MayQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(JunQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(JulQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(AugQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(SepQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(OctQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(NovQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(DecQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        //TempExcelBuffer.AddColumn(, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        //TempExcelBuffer.AddColumn(, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        //TempExcelBuffer.AddColumn(, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+    end;
+
+    procedure CreateExcelBook()
+    begin
+        TempExcelBuffer.CreateNewBook(SheetNameLbl);
+        TempExcelBuffer.WriteSheet(SheetNameLbl, CompanyName, UserId);
+        TempExcelBuffer.CloseBook();
+        TempExcelBuffer.SetFriendlyFilename(StrSubstNo(SheetNameLbl, CurrentDateTime, UserId));
+        TempExcelBuffer.OpenExcel();
+    end;
+
+    local procedure ExportDataToExcel()
+    var
+        RowNo: Integer;
+    begin
+        TempExcelBuffer.DeleteAll();
+        Clear(TempExcelBuffer);
+
+        RowNo := 1;
+        TempExcelBuffer.CreateNewBook(SheetNameLbl);
+        EnterCell(RowNo, 1, '', true, false, false, '@');
+        EnterCell(RowNo, 2, '', true, false, false, '@');
+        EnterCell(RowNo, 3, AvgInvLastYrLbl, true, false, false, '@');
+        EnterCell(RowNo, 4, JanLbl, true, false, false, '@');
+        EnterCell(RowNo, 5, FebLbl, true, false, false, '@');
+        EnterCell(RowNo, 6, MarLbl, true, false, false, '@');
+        EnterCell(RowNo, 7, AprLbl, true, false, false, '@');
+        EnterCell(RowNo, 8, MayLbl, true, false, false, '@');
+        EnterCell(RowNo, 9, JunLbl, true, false, false, '@');
+        EnterCell(RowNo, 10, JulLbl, true, false, false, '@');
+        EnterCell(RowNo, 11, AugLbl, true, false, false, '@');
+        EnterCell(RowNo, 12, SepLbl, true, false, false, '@');
+        EnterCell(RowNo, 13, OctLbl, true, false, false, '@');
+        EnterCell(RowNo, 14, NovLbl, true, false, false, '@');
+        EnterCell(RowNo, 15, DecLbl, true, false, false, '@');
+        EnterCell(RowNo, 16, AvgInvYearlyLbl, true, false, false, '@');
+        EnterCell(RowNo, 17, QtyShipYearLbl, true, false, false, '@');
+        EnterCell(RowNo, 18, InvTurnOverYearLbl, true, false, false, '@');
+
+        RowNo += 1;
+        EnterCell(RowNo, 1, Format(Item."No."), false, false, false, '@');
+        EnterCell(RowNo, 2, Format(Item.Description), false, false, false, '@');
+        EnterCell(RowNo, 3, Format(AvgPrevYearQty), false, false, false, '');
+        EnterCell(RowNo, 4, Format(JanQty), false, false, false, '');
+        EnterCell(RowNo, 5, Format(FebQty), false, false, false, '');
+        EnterCell(RowNo, 6, Format(MarQty), false, false, false, '');
+        EnterCell(RowNo, 7, Format(AprQty), false, false, false, '');
+        EnterCell(RowNo, 8, Format(MayQty), false, false, false, '');
+        EnterCell(RowNo, 9, Format(JunQty), false, false, false, '');
+        EnterCell(RowNo, 10, Format(JulQty), false, false, false, '');
+        EnterCell(RowNo, 11, Format(AugQty), false, false, false, '');
+        EnterCell(RowNo, 12, Format(SepQty), false, false, false, '');
+        EnterCell(RowNo, 13, Format(OctQty), false, false, false, '');
+        EnterCell(RowNo, 14, Format(NovQty), false, false, false, '');
+        EnterCell(RowNo, 15, Format(DecQty), false, false, false, '');
+
+        TempExcelBuffer.WriteSheet(SheetNameLbl, CompanyName, UserId);
+        TempExcelBuffer.CloseBook();
+        TempExcelBuffer.SetFriendlyFilename(StrSubstNo(SheetNameLbl, CurrentDateTime, UserId));
+        TempExcelBuffer.OpenExcel();
+    end;
+
+    local procedure EnterCell(RowNo: Integer; ColumnNo: Integer; CellValue: Text[250]; Bold: Boolean; Italic: Boolean; UnderLine: Boolean; NumberFormat: Text[50]);
+    begin
+        TempExcelBuffer.Init();
+        TempExcelBuffer.Validate("Row No.", RowNo);
+        TempExcelBuffer.Validate("Column No.", ColumnNo);
+        TempExcelBuffer."Cell Value as Text" := CellValue;
+        TempExcelBuffer.Formula := '';
+        TempExcelBuffer.Bold := Bold;
+        TempExcelBuffer.Italic := Italic;
+        TempExcelBuffer.Underline := UnderLine;
+        TempExcelBuffer.NumberFormat := NumberFormat;
+        TempExcelBuffer.Insert();
+    end;
+
+    var
+        ItemLedgEntry: Record "Item Ledger Entry";
+        TempExcelBuffer: Record "Excel Buffer" temporary;
+        YearFilter: Integer;
+        JanQty: Decimal;
+        FebQty: Decimal;
+        MarQty: Decimal;
+        AprQty: Decimal;
+        MayQty: Decimal;
+        JunQty: Decimal;
+        JulQty: Decimal;
+        AugQty: Decimal;
+        SepQty: Decimal;
+        OctQty: Decimal;
+        NovQty: Decimal;
+        DecQty: Decimal;
+        JanAvgQty: Decimal;
+        FebAvgQty: Decimal;
+        MarAvgQty: Decimal;
+        AprAvgQty: Decimal;
+        MayAvgQty: Decimal;
+        JunAvgQty: Decimal;
+        JulAvgQty: Decimal;
+        AugAvgQty: Decimal;
+        SepAvgQty: Decimal;
+        OctAvgQty: Decimal;
+        NovAvgQty: Decimal;
+        DecAvgQty: Decimal;
+        PrevYearQty: Decimal;
+        AvgPrevYearQty: Decimal;
+        ItemNoLbl: Label 'Item No.';
+        ItemNameLbl: Label 'Item Description';
+        AvgInvLastYrLbl: Label 'Average Inventory (Last Year)';
+        QtyShipMonthLbl: Label 'Qty. Shipped (Monthly)';
+        InvTurnOverMonthLbl: Label 'Inventory Turn Over (Monthly)';
+        AvgInvYearlyLbl: Label 'Average Inventory (Yearly)';
+        QtyShipYearLbl: Label 'Qty. Shipped (Yearly)';
+        InvTurnOverYearLbl: Label 'Inventory Turn Over (Yearly)';
+        JanLbl: Label '.1';
+        FebLbl: Label '.2';
+        MarLbl: Label '.3';
+        AprLbl: Label '.4';
+        MayLbl: Label '.5';
+        JunLbl: Label '.6';
+        JulLbl: Label '.7';
+        AugLbl: Label '.8';
+        SepLbl: Label '.9';
+        OctLbl: Label '10';
+        NovLbl: Label '11';
+        DecLbl: Label '12';
+        SheetNameLbl: Label 'Inventory Turn Over Report';
 }
