@@ -1263,6 +1263,7 @@ End Function
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Fields>
+<<<<<<< HEAD
         <Field Name="JanLbl">
           <DataField>JanLbl</DataField>
         </Field>
@@ -1299,6 +1300,8 @@ End Function
         <Field Name="DecLbl">
           <DataField>DecLbl</DataField>
         </Field>
+=======
+>>>>>>> 37382552322db8ddb148a6f721ccba8d20d96a9c
         <Field Name="ItemNo">
           <DataField>ItemNo</DataField>
         </Field>
