@@ -1263,45 +1263,6 @@ End Function
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Fields>
-<<<<<<< HEAD
-        <Field Name="JanLbl">
-          <DataField>JanLbl</DataField>
-        </Field>
-        <Field Name="FebLbl">
-          <DataField>FebLbl</DataField>
-        </Field>
-        <Field Name="MarLbl">
-          <DataField>MarLbl</DataField>
-        </Field>
-        <Field Name="AprLbl">
-          <DataField>AprLbl</DataField>
-        </Field>
-        <Field Name="MayLbl">
-          <DataField>MayLbl</DataField>
-        </Field>
-        <Field Name="JunLbl">
-          <DataField>JunLbl</DataField>
-        </Field>
-        <Field Name="JulLbl">
-          <DataField>JulLbl</DataField>
-        </Field>
-        <Field Name="AugLbl">
-          <DataField>AugLbl</DataField>
-        </Field>
-        <Field Name="SepLbl">
-          <DataField>SepLbl</DataField>
-        </Field>
-        <Field Name="OctLbl">
-          <DataField>OctLbl</DataField>
-        </Field>
-        <Field Name="NovLbl">
-          <DataField>NovLbl</DataField>
-        </Field>
-        <Field Name="DecLbl">
-          <DataField>DecLbl</DataField>
-        </Field>
-=======
->>>>>>> 37382552322db8ddb148a6f721ccba8d20d96a9c
         <Field Name="ItemNo">
           <DataField>ItemNo</DataField>
         </Field>
