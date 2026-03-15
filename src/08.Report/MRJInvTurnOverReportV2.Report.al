@@ -1,38 +1,14 @@
-report 50000 "Inv. Turn Over Report"
+report 50001 "Inv. Turn Over Report V2"
 {
     Caption = 'Inventory Turn Over Report';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
+    ProcessingOnly = true;
     DefaultLayout = RDLC;
-    RDLCLayout = 'src\07.ReportLayout\MRJInvTurnOverReport.rdlc';
+    RDLCLayout = 'src\07.ReportLayout\MRJInvTurnOverReportV2.rdlc';
 
     dataset
     {
-        dataitem(HeaderCaptions; Integer)
-        {
-            DataItemTableView = sorting(Number) where(Number = const(1));
-            column(ItemNoLbl; ItemNoLbl) { }
-            column(ItemNameLbl; ItemNameLbl) { }
-            column(PrevYear; YearFilter - 1) { }
-            column(AvgInvLastYrLbl; AvgInvLastYrLbl) { }
-            column(QtyLbl; QtyShipMonthLbl) { }
-            column(AvgLbl; InvTurnOverMonthLbl) { }
-            column(JanLbl; Format(YearFilter) + JanLbl) { }
-            column(FebLbl; Format(YearFilter) + FebLbl) { }
-            column(MarLbl; Format(YearFilter) + MarLbl) { }
-            column(AprLbl; Format(YearFilter) + AprLbl) { }
-            column(MayLbl; Format(YearFilter) + MayLbl) { }
-            column(JunLbl; Format(YearFilter) + JunLbl) { }
-            column(JulLbl; Format(YearFilter) + JulLbl) { }
-            column(AugLbl; Format(YearFilter) + AugLbl) { }
-            column(SepLbl; Format(YearFilter) + SepLbl) { }
-            column(OctLbl; Format(YearFilter) + OctLbl) { }
-            column(NovLbl; Format(YearFilter) + NovLbl) { }
-            column(DecLbl; Format(YearFilter) + DecLbl) { }
-            column(AvgInvYearlyLbl; AvgInvYearlyLbl) { }
-            column(QtyShipYearLbl; QtyShipYearLbl) { }
-            column(InvTurnOverYearLbl; InvTurnOverYearLbl) { }
-        }
         dataitem(Item; Item)
         {
             DataItemTableView = where(Blocked = const(false));
@@ -63,9 +39,6 @@ report 50000 "Inv. Turn Over Report"
             column(NovAvgQty; NovAvgQty) { }
             column(DecQty; DecQty) { }
             column(DecAvgQty; DecAvgQty) { }
-            column(CurrYearAvgQty; CurrYearAvgQty) { }
-            column(CurrYearQty; CurrYearQty) { }
-            column(CurrYearTurnOver; CurrYearTurnOver) { }
             trigger OnAfterGetRecord()
             begin
                 ClearVariables();
@@ -79,6 +52,9 @@ report 50000 "Inv. Turn Over Report"
                     CurrYearTurnOver := CurrYearQty / CurrYearAvgQty
                 else
                     CurrYearTurnOver := 0;
+
+                CalcMonthlyInventory("No.");
+                MakeExcelDataBody();
             end;
         }
     }
@@ -103,10 +79,12 @@ report 50000 "Inv. Turn Over Report"
 
     trigger OnPreReport()
     begin
+        MakeExcelDataHeader();
     end;
 
     trigger OnPostReport()
     begin
+        CreateExcelBook()
     end;
 
     local procedure ClearVariables()
@@ -285,6 +263,85 @@ report 50000 "Inv. Turn Over Report"
         exit(Qty);
     end;
 
+    local procedure MakeExcelDataHeader()
+    begin
+        TempExcelBuffer.NewRow();
+        TempExcelBuffer.AddColumn(ItemNoLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(ItemNameLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(AvgInvLastYrLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(Format(YearFilter) + JanLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(Format(YearFilter) + FebLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(Format(YearFilter) + MarLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(Format(YearFilter) + AprLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(Format(YearFilter) + MayLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(Format(YearFilter) + JunLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(Format(YearFilter) + JulLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(Format(YearFilter) + AugLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(Format(YearFilter) + SepLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(Format(YearFilter) + OctLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(Format(YearFilter) + NovLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(Format(YearFilter) + DecLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(AvgInvYearlyLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(QtyShipYearLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(InvTurnOverYearLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+    end;
+
+    local procedure MakeExcelDataBody()
+    begin
+        TempExcelBuffer.NewRow();
+        TempExcelBuffer.AddColumn(Item."No.", false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(Item.Description, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(PrevYearAvgQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(JanQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(JanAvgQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(FebQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(FebAvgQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(MarQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(MarAvgQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(AprQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(AprAvgQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(MayQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(MayAvgQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(JunQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(JunAvgQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(JulQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(JulAvgQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(AugQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(AugAvgQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(SepQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(SepAvgQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(OctQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(OctAvgQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(NovQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(NovAvgQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(DecQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(DecAvgQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(CurrYearQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(CurrYearAvgQty, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(CurrYearTurnOver, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+    end;
+
+    procedure CreateExcelBook()
+    begin
+        TempExcelBuffer.CreateNewBook(SheetNameLbl);
+        TempExcelBuffer.WriteSheet(SheetNameLbl, CompanyName, UserId);
+        TempExcelBuffer.CloseBook();
+        TempExcelBuffer.SetFriendlyFilename(StrSubstNo(SheetNameLbl, CurrentDateTime, UserId));
+        TempExcelBuffer.OpenExcel();
+    end;
+
     var
         ItemLedgEntry: Record "Item Ledger Entry";
         TempExcelBuffer: Record "Excel Buffer" temporary;
@@ -314,7 +371,6 @@ report 50000 "Inv. Turn Over Report"
         NovAvgQty: Decimal;
         DecAvgQty: Decimal;
         PrevYearQty: Decimal;
-        AvgPrevYearQty: Decimal;
         PrevYearAvgQty: Decimal;
         CurrYearQty: Decimal;
         CurrYearAvgQty: Decimal;

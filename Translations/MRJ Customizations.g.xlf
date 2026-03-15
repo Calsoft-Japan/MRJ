@@ -2118,6 +2118,121 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report - Control FiscalYear - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 1289716530 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inventory Turn Over Report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 2184343587" size-unit="char" translate="yes" xml:space="preserve">
+          <source>.4</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType AprLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 4083712123" size-unit="char" translate="yes" xml:space="preserve">
+          <source>.8</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType AugLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 3046642558" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Avg. Inv. (Last Year)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType AvgInvLastYrLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 2760689603" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Avg Inv. (Yearly)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType AvgInvYearlyLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 2553067404" size-unit="char" translate="yes" xml:space="preserve">
+          <source>.12</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType DecLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 2351890829" size-unit="char" translate="yes" xml:space="preserve">
+          <source>.2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType FebLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 686631988" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inv. Turn Over (Monthly)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType InvTurnOverMonthLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 1020727465" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inv. Turn Over (Yearly)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType InvTurnOverYearLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 3036318740" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType ItemNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 3938104762" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType ItemNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 1859794041" size-unit="char" translate="yes" xml:space="preserve">
+          <source>.1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType JanLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 3155129067" size-unit="char" translate="yes" xml:space="preserve">
+          <source>.7</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType JulLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 3429432045" size-unit="char" translate="yes" xml:space="preserve">
+          <source>.6</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType JunLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 2580223584" size-unit="char" translate="yes" xml:space="preserve">
+          <source>.3</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType MarLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 3115312905" size-unit="char" translate="yes" xml:space="preserve">
+          <source>.5</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType MayLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 3553796503" size-unit="char" translate="yes" xml:space="preserve">
+          <source>.11</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType NovLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 575434006" size-unit="char" translate="yes" xml:space="preserve">
+          <source>.10</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType OctLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 1798547016" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Qty. Shipped (Monthly)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType QtyShipMonthLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 1418557845" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Qty. Shipped (Yearly)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType QtyShipYearLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 4094463272" size-unit="char" translate="yes" xml:space="preserve">
+          <source>.9</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType SepLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - NamedType 3417773150" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inventory Turn Over Report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - NamedType SheetNameLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1289716530 - Control 2055464223 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fiscal Year</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report V2 - Control FiscalYear - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 1527990427 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>MRJ Sales Shipment (JP)</source>
           <note from="Developer" annotates="general" priority="2"></note>
