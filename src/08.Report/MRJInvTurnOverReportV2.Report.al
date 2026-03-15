@@ -39,6 +39,9 @@ report 50001 "Inv. Turn Over Report V2"
             column(NovAvgQty; NovAvgQty) { }
             column(DecQty; DecQty) { }
             column(DecAvgQty; DecAvgQty) { }
+            column(CurrYearAvgQty; CurrYearAvgQty) { }
+            column(CurrYearQty; CurrYearQty) { }
+            column(CurrYearTurnOver; CurrYearTurnOver) { }
             trigger OnAfterGetRecord()
             begin
                 ClearVariables();

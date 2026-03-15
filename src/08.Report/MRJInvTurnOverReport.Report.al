@@ -80,6 +80,8 @@ report 50000 "Inv. Turn Over Report"
                     CurrYearTurnOver := CurrYearQty / CurrYearAvgQty
                 else
                     CurrYearTurnOver := 0;
+
+                CalcMonthlyInventory("No.");
             end;
         }
     }
@@ -315,7 +317,6 @@ report 50000 "Inv. Turn Over Report"
         NovAvgQty: Decimal;
         DecAvgQty: Decimal;
         PrevYearQty: Decimal;
-        AvgPrevYearQty: Decimal;
         PrevYearAvgQty: Decimal;
         CurrYearQty: Decimal;
         CurrYearAvgQty: Decimal;

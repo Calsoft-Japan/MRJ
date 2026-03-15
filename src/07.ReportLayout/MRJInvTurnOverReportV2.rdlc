@@ -1419,6 +1419,24 @@ End Function
         <Field Name="DecAvgQtyFormat">
           <DataField>DecAvgQtyFormat</DataField>
         </Field>
+        <Field Name="CurrYearAvgQty">
+          <DataField>CurrYearAvgQty</DataField>
+        </Field>
+        <Field Name="CurrYearAvgQtyFormat">
+          <DataField>CurrYearAvgQtyFormat</DataField>
+        </Field>
+        <Field Name="CurrYearQty">
+          <DataField>CurrYearQty</DataField>
+        </Field>
+        <Field Name="CurrYearQtyFormat">
+          <DataField>CurrYearQtyFormat</DataField>
+        </Field>
+        <Field Name="CurrYearTurnOver">
+          <DataField>CurrYearTurnOver</DataField>
+        </Field>
+        <Field Name="CurrYearTurnOverFormat">
+          <DataField>CurrYearTurnOverFormat</DataField>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>
