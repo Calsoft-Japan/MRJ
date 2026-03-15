@@ -14,6 +14,7 @@ report 50000 "Inv. Turn Over Report"
             column(ItemNoLbl; ItemNoLbl) { }
             column(ItemNameLbl; ItemNameLbl) { }
             column(PrevYear; YearFilter - 1) { }
+            column(CurrYear; YearFilter) { }
             column(AvgInvLastYrLbl; AvgInvLastYrLbl) { }
             column(QtyLbl; QtyShipMonthLbl) { }
             column(AvgLbl; InvTurnOverMonthLbl) { }
