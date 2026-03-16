@@ -69,10 +69,8 @@ page 50138 "Service Parts Transfer"
                             if RecServiceHeader.FindFirst() then begin
                                 LocationCodeTmp := RecServiceHeader."Location Code";
                                 BinCodeTmp := RecServiceHeader."Bin Code";
-
                                 RecServiceHeader.SetFilter("Location Code", '<>%1', LocationCodeTmp);
                                 RecServiceHeader.SetFilter("Bin Code", '<>%1', BinCodeTmp);
-
                                 if RecServiceHeader.Count = 0 then begin
                                     LocationCode := LocationCodeTmp;
                                     BinCode := BinCodeTmp;
@@ -87,15 +85,12 @@ page 50138 "Service Parts Transfer"
                     begin
                         RecServiceHeader.Reset();
                         RecServiceHeader.SetRange("Document Type", RecServiceHeader."Document Type"::Order);
-
                         if BinCode <> '' then begin
                             RecServiceHeader.SetRange("Location Code", LocationCode);
                             RecServiceHeader.SetRange("Bin Code", BinCode);
                         end;
 
                         if Page.RunModal(Page::"Service Orders", RecServiceHeader) = Action::LookupOK then begin
-                            // In BC there is no "GetSelectionFilter" like old Forms
-                            // User can select one record, we take its No.
                             OrderNoFilter := RecServiceHeader."No.";
                             Text := OrderNoFilter;
                             exit(true);
@@ -314,12 +309,10 @@ page 50138 "Service Parts Transfer"
                     RecServiceHeader.SetRange("Location Code", LocationCode);
                     RecServiceHeader.SetRange("Bin Code", BinCode);
                     RecServiceHeader.SetFilter("No.", OrderNoFilter);
-
                     if RecServiceHeader.FindSet() then
                         repeat
                             CreateReceiveTO(RecServiceHeader);
                         until RecServiceHeader.Next() = 0;
-
                     Refresh();
                 end;
             }
@@ -342,12 +335,10 @@ page 50138 "Service Parts Transfer"
                     RecServiceHeader.SetRange("Location Code", LocationCode);
                     RecServiceHeader.SetRange("Bin Code", BinCode);
                     RecServiceHeader.SetFilter("No.", OrderNoFilter);
-
                     if RecServiceHeader.FindSet() then
                         repeat
                             CreateReturnTO(RecServiceHeader);
                         until RecServiceHeader.Next() = 0;
-
                     Refresh();
                 end;
             }
@@ -412,16 +403,17 @@ page 50138 "Service Parts Transfer"
     end;
 
     var
-        InvSetup: Record "Inventory Setup";
+
+
         RecBin: Record Bin;
+        LocBin: Record Bin;
+        RecItem: Record Item;
+        InvSetup: Record "Inventory Setup";
         RecServiceHeader: Record "Service Header";
-        RecServItemLine: Record 5901;
-        RecServiceLine: Record 5902;
-        RecWarehouseEntry: Record 7312;
-        RecItem: Record 27;
-        RecTransferHeader: Record 5740;
-        RecTransferLine: Record 5741;
-        LocBin: Record 7354;
+        RecServiceLine: Record "Service Line";
+        RecWarehouseEntry: Record "Warehouse Entry";
+        RecTransferHeader: Record "Transfer Header";
+        RecTransferLine: Record "Transfer Line";
         LocationCode: Code[10];
         BinCode: Code[20];
         OrderNoFilter: Text[250];
@@ -433,7 +425,6 @@ page 50138 "Service Parts Transfer"
         ServiceOrderNoFilter: Text[1024];
         GFromLocationCode: Code[10];
         GFromBinCode: Code[20];
-        QtyTmp: Decimal;
         LineNoTmp: Integer;
         TEXT0001: Label 'Bin Code ''%1'' does not exists.';
         TEXT0012: Label 'Do you want to create Receive Parts Transfer Order?';
