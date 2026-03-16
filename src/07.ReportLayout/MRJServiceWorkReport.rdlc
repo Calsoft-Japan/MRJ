@@ -3695,7 +3695,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>SrvLineUOM</rd:DefaultName>
@@ -3867,7 +3869,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>SrvLineLotNo</rd:DefaultName>
@@ -3969,7 +3973,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>SrvLineUOM</rd:DefaultName>
@@ -4141,7 +4147,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>ResvLotNo</rd:DefaultName>
@@ -4156,6 +4164,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -4274,7 +4283,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>SrvLineUOM</rd:DefaultName>
@@ -5073,7 +5084,6 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0cm</Top>
               <Left>12.11474cm</Left>
               <Height>3.9352cm</Height>
               <Width>7.9433cm</Width>
@@ -6387,7 +6397,6 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0cm</Top>
               <Height>3.9352cm</Height>
               <Width>12.11474cm</Width>
               <ZIndex>1</ZIndex>
@@ -6832,6 +6841,9 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="SrvLineLotNo">
           <DataField>SrvLineLotNo</DataField>
+        </Field>
+        <Field Name="Number">
+          <DataField>Number</DataField>
         </Field>
         <Field Name="TotalText">
           <DataField>TotalText</DataField>

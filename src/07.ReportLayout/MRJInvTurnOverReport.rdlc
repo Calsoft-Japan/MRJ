@@ -10,256 +10,6 @@
       <rd:DataSourceID>9bce611a-92cd-41a6-b142-e80e5b169f98</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="ItemNoLbl">
-          <DataField>ItemNoLbl</DataField>
-        </Field>
-        <Field Name="ItemNameLbl">
-          <DataField>ItemNameLbl</DataField>
-        </Field>
-        <Field Name="PrevYear">
-          <DataField>PrevYear</DataField>
-        </Field>
-        <Field Name="CurrYear">
-          <DataField>CurrYear</DataField>
-        </Field>
-        <Field Name="AvgInvLastYrLbl">
-          <DataField>AvgInvLastYrLbl</DataField>
-        </Field>
-        <Field Name="QtyLbl">
-          <DataField>QtyLbl</DataField>
-        </Field>
-        <Field Name="AvgLbl">
-          <DataField>AvgLbl</DataField>
-        </Field>
-        <Field Name="JanLbl">
-          <DataField>JanLbl</DataField>
-        </Field>
-        <Field Name="FebLbl">
-          <DataField>FebLbl</DataField>
-        </Field>
-        <Field Name="MarLbl">
-          <DataField>MarLbl</DataField>
-        </Field>
-        <Field Name="AprLbl">
-          <DataField>AprLbl</DataField>
-        </Field>
-        <Field Name="MayLbl">
-          <DataField>MayLbl</DataField>
-        </Field>
-        <Field Name="JunLbl">
-          <DataField>JunLbl</DataField>
-        </Field>
-        <Field Name="JulLbl">
-          <DataField>JulLbl</DataField>
-        </Field>
-        <Field Name="AugLbl">
-          <DataField>AugLbl</DataField>
-        </Field>
-        <Field Name="SepLbl">
-          <DataField>SepLbl</DataField>
-        </Field>
-        <Field Name="OctLbl">
-          <DataField>OctLbl</DataField>
-        </Field>
-        <Field Name="NovLbl">
-          <DataField>NovLbl</DataField>
-        </Field>
-        <Field Name="DecLbl">
-          <DataField>DecLbl</DataField>
-        </Field>
-        <Field Name="AvgInvYearlyLbl">
-          <DataField>AvgInvYearlyLbl</DataField>
-        </Field>
-        <Field Name="QtyShipYearLbl">
-          <DataField>QtyShipYearLbl</DataField>
-        </Field>
-        <Field Name="InvTurnOverYearLbl">
-          <DataField>InvTurnOverYearLbl</DataField>
-        </Field>
-        <Field Name="ItemNo">
-          <DataField>ItemNo</DataField>
-        </Field>
-        <Field Name="ItemName">
-          <DataField>ItemName</DataField>
-        </Field>
-        <Field Name="PrevYearAvgQty">
-          <DataField>PrevYearAvgQty</DataField>
-        </Field>
-        <Field Name="PrevYearAvgQtyFormat">
-          <DataField>PrevYearAvgQtyFormat</DataField>
-        </Field>
-        <Field Name="JanQty">
-          <DataField>JanQty</DataField>
-        </Field>
-        <Field Name="JanQtyFormat">
-          <DataField>JanQtyFormat</DataField>
-        </Field>
-        <Field Name="JanAvgQty">
-          <DataField>JanAvgQty</DataField>
-        </Field>
-        <Field Name="JanAvgQtyFormat">
-          <DataField>JanAvgQtyFormat</DataField>
-        </Field>
-        <Field Name="FebQty">
-          <DataField>FebQty</DataField>
-        </Field>
-        <Field Name="FebQtyFormat">
-          <DataField>FebQtyFormat</DataField>
-        </Field>
-        <Field Name="FebAvgQty">
-          <DataField>FebAvgQty</DataField>
-        </Field>
-        <Field Name="FebAvgQtyFormat">
-          <DataField>FebAvgQtyFormat</DataField>
-        </Field>
-        <Field Name="MarQty">
-          <DataField>MarQty</DataField>
-        </Field>
-        <Field Name="MarQtyFormat">
-          <DataField>MarQtyFormat</DataField>
-        </Field>
-        <Field Name="MarAvgQty">
-          <DataField>MarAvgQty</DataField>
-        </Field>
-        <Field Name="MarAvgQtyFormat">
-          <DataField>MarAvgQtyFormat</DataField>
-        </Field>
-        <Field Name="AprQty">
-          <DataField>AprQty</DataField>
-        </Field>
-        <Field Name="AprQtyFormat">
-          <DataField>AprQtyFormat</DataField>
-        </Field>
-        <Field Name="AprAvgQty">
-          <DataField>AprAvgQty</DataField>
-        </Field>
-        <Field Name="AprAvgQtyFormat">
-          <DataField>AprAvgQtyFormat</DataField>
-        </Field>
-        <Field Name="MayQty">
-          <DataField>MayQty</DataField>
-        </Field>
-        <Field Name="MayQtyFormat">
-          <DataField>MayQtyFormat</DataField>
-        </Field>
-        <Field Name="MayAvgQty">
-          <DataField>MayAvgQty</DataField>
-        </Field>
-        <Field Name="MayAvgQtyFormat">
-          <DataField>MayAvgQtyFormat</DataField>
-        </Field>
-        <Field Name="JunQty">
-          <DataField>JunQty</DataField>
-        </Field>
-        <Field Name="JunQtyFormat">
-          <DataField>JunQtyFormat</DataField>
-        </Field>
-        <Field Name="JunAvgQty">
-          <DataField>JunAvgQty</DataField>
-        </Field>
-        <Field Name="JunAvgQtyFormat">
-          <DataField>JunAvgQtyFormat</DataField>
-        </Field>
-        <Field Name="JulQty">
-          <DataField>JulQty</DataField>
-        </Field>
-        <Field Name="JulQtyFormat">
-          <DataField>JulQtyFormat</DataField>
-        </Field>
-        <Field Name="JulAvgQty">
-          <DataField>JulAvgQty</DataField>
-        </Field>
-        <Field Name="JulAvgQtyFormat">
-          <DataField>JulAvgQtyFormat</DataField>
-        </Field>
-        <Field Name="AugQty">
-          <DataField>AugQty</DataField>
-        </Field>
-        <Field Name="AugQtyFormat">
-          <DataField>AugQtyFormat</DataField>
-        </Field>
-        <Field Name="AugAvgQty">
-          <DataField>AugAvgQty</DataField>
-        </Field>
-        <Field Name="AugAvgQtyFormat">
-          <DataField>AugAvgQtyFormat</DataField>
-        </Field>
-        <Field Name="SepQty">
-          <DataField>SepQty</DataField>
-        </Field>
-        <Field Name="SepQtyFormat">
-          <DataField>SepQtyFormat</DataField>
-        </Field>
-        <Field Name="SepAvgQty">
-          <DataField>SepAvgQty</DataField>
-        </Field>
-        <Field Name="SepAvgQtyFormat">
-          <DataField>SepAvgQtyFormat</DataField>
-        </Field>
-        <Field Name="OctQty">
-          <DataField>OctQty</DataField>
-        </Field>
-        <Field Name="OctQtyFormat">
-          <DataField>OctQtyFormat</DataField>
-        </Field>
-        <Field Name="OctAvgQty">
-          <DataField>OctAvgQty</DataField>
-        </Field>
-        <Field Name="OctAvgQtyFormat">
-          <DataField>OctAvgQtyFormat</DataField>
-        </Field>
-        <Field Name="NovQty">
-          <DataField>NovQty</DataField>
-        </Field>
-        <Field Name="NovQtyFormat">
-          <DataField>NovQtyFormat</DataField>
-        </Field>
-        <Field Name="NovAvgQty">
-          <DataField>NovAvgQty</DataField>
-        </Field>
-        <Field Name="NovAvgQtyFormat">
-          <DataField>NovAvgQtyFormat</DataField>
-        </Field>
-        <Field Name="DecQty">
-          <DataField>DecQty</DataField>
-        </Field>
-        <Field Name="DecQtyFormat">
-          <DataField>DecQtyFormat</DataField>
-        </Field>
-        <Field Name="DecAvgQty">
-          <DataField>DecAvgQty</DataField>
-        </Field>
-        <Field Name="DecAvgQtyFormat">
-          <DataField>DecAvgQtyFormat</DataField>
-        </Field>
-        <Field Name="CurrYearAvgQty">
-          <DataField>CurrYearAvgQty</DataField>
-        </Field>
-        <Field Name="CurrYearAvgQtyFormat">
-          <DataField>CurrYearAvgQtyFormat</DataField>
-        </Field>
-        <Field Name="CurrYearQty">
-          <DataField>CurrYearQty</DataField>
-        </Field>
-        <Field Name="CurrYearQtyFormat">
-          <DataField>CurrYearQtyFormat</DataField>
-        </Field>
-        <Field Name="CurrYearTurnOver">
-          <DataField>CurrYearTurnOver</DataField>
-        </Field>
-        <Field Name="CurrYearTurnOverFormat">
-          <DataField>CurrYearTurnOverFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -3129,12 +2879,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -3174,4 +2918,254 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="ItemNoLbl">
+          <DataField>ItemNoLbl</DataField>
+        </Field>
+        <Field Name="ItemNameLbl">
+          <DataField>ItemNameLbl</DataField>
+        </Field>
+        <Field Name="PrevYear">
+          <DataField>PrevYear</DataField>
+        </Field>
+        <Field Name="CurrYear">
+          <DataField>CurrYear</DataField>
+        </Field>
+        <Field Name="AvgInvLastYrLbl">
+          <DataField>AvgInvLastYrLbl</DataField>
+        </Field>
+        <Field Name="QtyLbl">
+          <DataField>QtyLbl</DataField>
+        </Field>
+        <Field Name="AvgLbl">
+          <DataField>AvgLbl</DataField>
+        </Field>
+        <Field Name="JanLbl">
+          <DataField>JanLbl</DataField>
+        </Field>
+        <Field Name="FebLbl">
+          <DataField>FebLbl</DataField>
+        </Field>
+        <Field Name="MarLbl">
+          <DataField>MarLbl</DataField>
+        </Field>
+        <Field Name="AprLbl">
+          <DataField>AprLbl</DataField>
+        </Field>
+        <Field Name="MayLbl">
+          <DataField>MayLbl</DataField>
+        </Field>
+        <Field Name="JunLbl">
+          <DataField>JunLbl</DataField>
+        </Field>
+        <Field Name="JulLbl">
+          <DataField>JulLbl</DataField>
+        </Field>
+        <Field Name="AugLbl">
+          <DataField>AugLbl</DataField>
+        </Field>
+        <Field Name="SepLbl">
+          <DataField>SepLbl</DataField>
+        </Field>
+        <Field Name="OctLbl">
+          <DataField>OctLbl</DataField>
+        </Field>
+        <Field Name="NovLbl">
+          <DataField>NovLbl</DataField>
+        </Field>
+        <Field Name="DecLbl">
+          <DataField>DecLbl</DataField>
+        </Field>
+        <Field Name="AvgInvYearlyLbl">
+          <DataField>AvgInvYearlyLbl</DataField>
+        </Field>
+        <Field Name="QtyShipYearLbl">
+          <DataField>QtyShipYearLbl</DataField>
+        </Field>
+        <Field Name="InvTurnOverYearLbl">
+          <DataField>InvTurnOverYearLbl</DataField>
+        </Field>
+        <Field Name="ItemNo">
+          <DataField>ItemNo</DataField>
+        </Field>
+        <Field Name="ItemName">
+          <DataField>ItemName</DataField>
+        </Field>
+        <Field Name="PrevYearAvgQty">
+          <DataField>PrevYearAvgQty</DataField>
+        </Field>
+        <Field Name="PrevYearAvgQtyFormat">
+          <DataField>PrevYearAvgQtyFormat</DataField>
+        </Field>
+        <Field Name="JanQty">
+          <DataField>JanQty</DataField>
+        </Field>
+        <Field Name="JanQtyFormat">
+          <DataField>JanQtyFormat</DataField>
+        </Field>
+        <Field Name="JanAvgQty">
+          <DataField>JanAvgQty</DataField>
+        </Field>
+        <Field Name="JanAvgQtyFormat">
+          <DataField>JanAvgQtyFormat</DataField>
+        </Field>
+        <Field Name="FebQty">
+          <DataField>FebQty</DataField>
+        </Field>
+        <Field Name="FebQtyFormat">
+          <DataField>FebQtyFormat</DataField>
+        </Field>
+        <Field Name="FebAvgQty">
+          <DataField>FebAvgQty</DataField>
+        </Field>
+        <Field Name="FebAvgQtyFormat">
+          <DataField>FebAvgQtyFormat</DataField>
+        </Field>
+        <Field Name="MarQty">
+          <DataField>MarQty</DataField>
+        </Field>
+        <Field Name="MarQtyFormat">
+          <DataField>MarQtyFormat</DataField>
+        </Field>
+        <Field Name="MarAvgQty">
+          <DataField>MarAvgQty</DataField>
+        </Field>
+        <Field Name="MarAvgQtyFormat">
+          <DataField>MarAvgQtyFormat</DataField>
+        </Field>
+        <Field Name="AprQty">
+          <DataField>AprQty</DataField>
+        </Field>
+        <Field Name="AprQtyFormat">
+          <DataField>AprQtyFormat</DataField>
+        </Field>
+        <Field Name="AprAvgQty">
+          <DataField>AprAvgQty</DataField>
+        </Field>
+        <Field Name="AprAvgQtyFormat">
+          <DataField>AprAvgQtyFormat</DataField>
+        </Field>
+        <Field Name="MayQty">
+          <DataField>MayQty</DataField>
+        </Field>
+        <Field Name="MayQtyFormat">
+          <DataField>MayQtyFormat</DataField>
+        </Field>
+        <Field Name="MayAvgQty">
+          <DataField>MayAvgQty</DataField>
+        </Field>
+        <Field Name="MayAvgQtyFormat">
+          <DataField>MayAvgQtyFormat</DataField>
+        </Field>
+        <Field Name="JunQty">
+          <DataField>JunQty</DataField>
+        </Field>
+        <Field Name="JunQtyFormat">
+          <DataField>JunQtyFormat</DataField>
+        </Field>
+        <Field Name="JunAvgQty">
+          <DataField>JunAvgQty</DataField>
+        </Field>
+        <Field Name="JunAvgQtyFormat">
+          <DataField>JunAvgQtyFormat</DataField>
+        </Field>
+        <Field Name="JulQty">
+          <DataField>JulQty</DataField>
+        </Field>
+        <Field Name="JulQtyFormat">
+          <DataField>JulQtyFormat</DataField>
+        </Field>
+        <Field Name="JulAvgQty">
+          <DataField>JulAvgQty</DataField>
+        </Field>
+        <Field Name="JulAvgQtyFormat">
+          <DataField>JulAvgQtyFormat</DataField>
+        </Field>
+        <Field Name="AugQty">
+          <DataField>AugQty</DataField>
+        </Field>
+        <Field Name="AugQtyFormat">
+          <DataField>AugQtyFormat</DataField>
+        </Field>
+        <Field Name="AugAvgQty">
+          <DataField>AugAvgQty</DataField>
+        </Field>
+        <Field Name="AugAvgQtyFormat">
+          <DataField>AugAvgQtyFormat</DataField>
+        </Field>
+        <Field Name="SepQty">
+          <DataField>SepQty</DataField>
+        </Field>
+        <Field Name="SepQtyFormat">
+          <DataField>SepQtyFormat</DataField>
+        </Field>
+        <Field Name="SepAvgQty">
+          <DataField>SepAvgQty</DataField>
+        </Field>
+        <Field Name="SepAvgQtyFormat">
+          <DataField>SepAvgQtyFormat</DataField>
+        </Field>
+        <Field Name="OctQty">
+          <DataField>OctQty</DataField>
+        </Field>
+        <Field Name="OctQtyFormat">
+          <DataField>OctQtyFormat</DataField>
+        </Field>
+        <Field Name="OctAvgQty">
+          <DataField>OctAvgQty</DataField>
+        </Field>
+        <Field Name="OctAvgQtyFormat">
+          <DataField>OctAvgQtyFormat</DataField>
+        </Field>
+        <Field Name="NovQty">
+          <DataField>NovQty</DataField>
+        </Field>
+        <Field Name="NovQtyFormat">
+          <DataField>NovQtyFormat</DataField>
+        </Field>
+        <Field Name="NovAvgQty">
+          <DataField>NovAvgQty</DataField>
+        </Field>
+        <Field Name="NovAvgQtyFormat">
+          <DataField>NovAvgQtyFormat</DataField>
+        </Field>
+        <Field Name="DecQty">
+          <DataField>DecQty</DataField>
+        </Field>
+        <Field Name="DecQtyFormat">
+          <DataField>DecQtyFormat</DataField>
+        </Field>
+        <Field Name="DecAvgQty">
+          <DataField>DecAvgQty</DataField>
+        </Field>
+        <Field Name="DecAvgQtyFormat">
+          <DataField>DecAvgQtyFormat</DataField>
+        </Field>
+        <Field Name="CurrYearAvgQty">
+          <DataField>CurrYearAvgQty</DataField>
+        </Field>
+        <Field Name="CurrYearAvgQtyFormat">
+          <DataField>CurrYearAvgQtyFormat</DataField>
+        </Field>
+        <Field Name="CurrYearQty">
+          <DataField>CurrYearQty</DataField>
+        </Field>
+        <Field Name="CurrYearQtyFormat">
+          <DataField>CurrYearQtyFormat</DataField>
+        </Field>
+        <Field Name="CurrYearTurnOver">
+          <DataField>CurrYearTurnOver</DataField>
+        </Field>
+        <Field Name="CurrYearTurnOverFormat">
+          <DataField>CurrYearTurnOverFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

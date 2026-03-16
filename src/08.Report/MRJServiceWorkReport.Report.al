@@ -102,7 +102,7 @@ report 50075 "Service Work Report"
                 column(InternalComment4; InternalComment[4]) { }
                 column(SrvItemLineDesc; Description) { }
                 column(SrvItemLineSerialNo; "Serial No.") { }
-                column(SrvItemLineWarranty; Warranty) { }
+                column(SrvItemLineWarranty; WarantyTxt) { }
                 column(SrvItemLinePrdSeries; "Product Series") { }
                 column(RepairStatusDesc; RepairStatus.Description) { }
 
@@ -135,6 +135,7 @@ report 50075 "Service Work Report"
                     dataitem(ServLines; Integer)
                     {
                         DataItemTableView = sorting(Number);
+                        column(Number; Number) { }
                         column(TotalText; TotalText) { }
                         column(TotalLineAmtText; TotalLineAmtText) { }
                         column(DisclaimerText; DisclaimerText) { }
@@ -187,12 +188,12 @@ report 50075 "Service Work Report"
 
                         if PrintOption <> PrintOption::ItemOnly then begin
                             ReservEntry.Reset();
+                            ReservEntry.SetCurrentKey("Item No.");
                             ReservEntry.SetRange("Item No.", "No.");
                             ReservEntry.SetRange("Source Type", Database::"Service Line");
                             ReservEntry.SetRange("Source Subtype", 1);
                             ReservEntry.SetRange("Source ID", "Document No.");
                             ReservEntry.SetRange("Source Ref. No.", "Line No.");
-
                             if ReservEntry.FindFirst() then begin
                                 case PrintOption of
                                     PrintOption::ItemAndLot:
@@ -250,6 +251,11 @@ report 50075 "Service Work Report"
                     if "Repair Status Code" <> '' then
                         RepairStatus.Get("Repair Status Code");
 
+                    Clear(WarantyTxt);
+                    WarantyTxt := 'No';
+                    if Warranty then
+                        WarantyTxt := 'Yes';
+
                     Clear(FaultAreaComment);
                     Clear(SymptomComment);
                     Clear(FaultComment);
@@ -274,10 +280,7 @@ report 50075 "Service Work Report"
                 else
                     OutputDate := Format("Document Date", 0, '<Year4>/<Month,2>/<Day,2>');
 
-                if RespCenter.Get("Responsibility Center") then
-                    RespCenterML(CompanyAddr, RespCenter, CurrReport.Language)
-                else
-                    CompanyML(CompanyAddr, CompanyInfo, CurrReport.Language);
+                CompanyML(CompanyAddr, CompanyInfo, CurrReport.Language);
 
                 ServiceHeaderSellToML(CustAddr, "Service Header", CurrReport.Language);
             end;
@@ -334,6 +337,7 @@ report 50075 "Service Work Report"
         FaultComment: array[4] of Text[80];
         ResolutionComment: array[4] of Text[80];
         InternalComment: array[4] of Text[80];
+        WarantyTxt: Text[10];
         UOM: Text[50];
         ServLineAmt: Decimal;
         ServLineQty: Decimal;
@@ -371,37 +375,13 @@ report 50075 "Service Work Report"
         end;
     end;
 
-    procedure RespCenterML(var AddrArray: array[8] of Text[50];
-                               var RespCenter: Record "Responsibility Center"; LanguageID: Integer)
-    begin
-        if LanguageID = 1041 then
-            FormatAddrJPN(AddrArray,
-                          RespCenter.Name, RespCenter."Name 2", RespCenter.Contact,
-                          RespCenter.Address, RespCenter."Address 2",
-                          RespCenter.City, RespCenter."Post Code", RespCenter.County, RespCenter."Country/Region Code",
-                          RespCenter."Phone No.", RespCenter."Fax No.", '', '')
-        else
-            FormatAddrENU(AddrArray,
-                          RespCenter.Name, RespCenter."Name 2", RespCenter.Contact,
-                          RespCenter.Address, RespCenter."Address 2",
-                          RespCenter.City, RespCenter."Post Code", RespCenter.County, RespCenter."Country/Region Code",
-                          RespCenter."Phone No.", RespCenter."Fax No.", '', '');
-    end;
-
     procedure CompanyML(var AddrArray: array[8] of Text[50]; var CompanyInfo: Record "Company Information"; LanguageID: Integer)
     begin
-        if LanguageID = 1041 then
-            FormatAddrJPN(AddrArray,
-                          CompanyInfo.Name, CompanyInfo."Name 2", '',
-                          CompanyInfo.Address, CompanyInfo."Address 2",
-                          CompanyInfo.City, CompanyInfo."Post Code", CompanyInfo.County, '',
-                          CompanyInfo."Phone No.", CompanyInfo."Fax No.", '', '')
-        else
-            FormatAddrENU(AddrArray,
-                          CompanyInfo.Name, CompanyInfo."Name 2", '',
-                          CompanyInfo.Address, CompanyInfo."Address 2",
-                          CompanyInfo.City, CompanyInfo."Post Code", CompanyInfo.County, '',
-                          CompanyInfo."Phone No.", CompanyInfo."Fax No.", '', '');
+        FormatAddrJPN(AddrArray,
+                      CompanyInfo.Name, CompanyInfo."Name 2", '',
+                      CompanyInfo.Address, CompanyInfo."Address 2",
+                      CompanyInfo.City, CompanyInfo."Post Code", CompanyInfo.County, '',
+                      CompanyInfo."Phone No.", CompanyInfo."Fax No.", '', '')
     end;
 
     procedure ServiceHeaderSellToML(var AddrArray: array[8] of Text[50]; var ServiceHeader: Record "Service Header"; LanguageID: Integer)
@@ -442,7 +422,7 @@ report 50075 "Service Work Report"
         Clear(AddrArray);
 
         if PostCode <> '' then
-            AddrArray[3] := ' ' + PostCode;
+            AddrArray[3] := '〒' + PostCode;
 
         AddrArray[4] := Addr;
         AddrArray[5] := Addr2;
