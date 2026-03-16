@@ -1,4 +1,4 @@
-report 50001 "Inv. Turn Over Report V2"
+report 50001 "Inv. Turn Over Report"
 {
     Caption = 'Inventory Turn Over Report';
     UsageCategory = ReportsAndAnalysis;
@@ -104,71 +104,76 @@ report 50001 "Inv. Turn Over Report V2"
 
     procedure GetCurrYearInventory(ItemNo: Code[20]): Decimal
     var
-        ItemLedgerEntry: Record "Item Ledger Entry";
+        ItemLedEntry: Record "Item Ledger Entry";
         Qty: Decimal;
     begin
-        ItemLedgerEntry.Reset();
-        ItemLedgerEntry.SetRange("Item No.", ItemNo);
-        ItemLedgerEntry.SetRange("Posting Date", CurrYrStartDate, CurrYrEndDate);
-        ItemLedgerEntry.SetLoadFields(Quantity);
-        if ItemLedgerEntry.FindSet() then
+        ItemLedEntry.Reset();
+        ItemLedEntry.SetCurrentKey("Item No.", "Posting Date");
+        ItemLedEntry.SetRange("Item No.", ItemNo);
+        ItemLedEntry.SetRange("Posting Date", CurrYrStartDate, CurrYrEndDate);
+        ItemLedEntry.SetLoadFields(Quantity);
+        if ItemLedEntry.FindSet() then
             repeat
-                Qty += ItemLedgerEntry.Quantity;
-            until ItemLedgerEntry.Next() = 0;
+                Qty += ItemLedEntry.Quantity;
+            until ItemLedEntry.Next() = 0;
         exit(Qty);
     end;
 
     procedure GetPrevYearInventory(ItemNo: Code[20]): Decimal
     var
-        ItemLedgerEntry: Record "Item Ledger Entry";
+        ItemLedEntry: Record "Item Ledger Entry";
         Qty: Decimal;
     begin
-        ItemLedgerEntry.Reset();
-        ItemLedgerEntry.SetRange("Item No.", ItemNo);
-        ItemLedgerEntry.SetRange("Posting Date", PrevYrStartDate, PrevYrEndDate);
-        ItemLedgerEntry.SetLoadFields(Quantity);
-        if ItemLedgerEntry.FindSet() then
+        ItemLedEntry.Reset();
+        ItemLedEntry.SetCurrentKey("Item No.", "Posting Date");
+        ItemLedEntry.SetRange("Item No.", ItemNo);
+        ItemLedEntry.SetRange("Posting Date", PrevYrStartDate, PrevYrEndDate);
+        ItemLedEntry.SetLoadFields(Quantity);
+        if ItemLedEntry.FindSet() then
             repeat
-                Qty += ItemLedgerEntry.Quantity;
-            until ItemLedgerEntry.Next() = 0;
+                Qty += ItemLedEntry.Quantity;
+            until ItemLedEntry.Next() = 0;
         exit(Qty);
     end;
 
     local procedure CalcMonthlyInventory(ItemNo: Code[20])
+    var
+        ItemLedEntry: Record "Item Ledger Entry";
     begin
-        ItemLedgEntry.Reset();
-        ItemLedgEntry.SetRange("Item No.", ItemNo);
-        ItemLedgEntry.SetRange("Posting Date", CurrYrStartDate, CurrYrEndDate);
-        ItemLedgEntry.SetLoadFields(Quantity);
-        if ItemLedgEntry.FindSet() then
+        ItemLedEntry.Reset();
+        ItemLedEntry.SetRange("Item No.", ItemNo);
+        ItemLedEntry.SetCurrentKey("Item No.", "Posting Date");
+        ItemLedEntry.SetRange("Posting Date", CurrYrStartDate, CurrYrEndDate);
+        ItemLedEntry.SetLoadFields(Quantity);
+        if ItemLedEntry.FindSet() then
             repeat
-                case Date2DMY(ItemLedgEntry."Posting Date", 2) of
+                case Date2DMY(ItemLedEntry."Posting Date", 2) of
                     1:
-                        JanQty += ItemLedgEntry.Quantity;
+                        JanQty += ItemLedEntry.Quantity;
                     2:
-                        FebQty += ItemLedgEntry.Quantity;
+                        FebQty += ItemLedEntry.Quantity;
                     3:
-                        MarQty += ItemLedgEntry.Quantity;
+                        MarQty += ItemLedEntry.Quantity;
                     4:
-                        AprQty += ItemLedgEntry.Quantity;
+                        AprQty += ItemLedEntry.Quantity;
                     5:
-                        MayQty += ItemLedgEntry.Quantity;
+                        MayQty += ItemLedEntry.Quantity;
                     6:
-                        JunQty += ItemLedgEntry.Quantity;
+                        JunQty += ItemLedEntry.Quantity;
                     7:
-                        JulQty += ItemLedgEntry.Quantity;
+                        JulQty += ItemLedEntry.Quantity;
                     8:
-                        AugQty += ItemLedgEntry.Quantity;
+                        AugQty += ItemLedEntry.Quantity;
                     9:
-                        SepQty += ItemLedgEntry.Quantity;
+                        SepQty += ItemLedEntry.Quantity;
                     10:
-                        OctQty += ItemLedgEntry.Quantity;
+                        OctQty += ItemLedEntry.Quantity;
                     11:
-                        NovQty += ItemLedgEntry.Quantity;
+                        NovQty += ItemLedEntry.Quantity;
                     12:
-                        DecQty += ItemLedgEntry.Quantity;
+                        DecQty += ItemLedEntry.Quantity;
                 end;
-            until ItemLedgEntry.Next() = 0;
+            until ItemLedEntry.Next() = 0;
 
         if PrevYearQty > 0 then
             JanAvgQty := JanQty / PrevYearQty
@@ -343,7 +348,6 @@ report 50001 "Inv. Turn Over Report V2"
     end;
 
     var
-        ItemLedgEntry: Record "Item Ledger Entry";
         TempExcelBuffer: Record "Excel Buffer" temporary;
         YearFilter: Integer;
         JanQty: Decimal;
