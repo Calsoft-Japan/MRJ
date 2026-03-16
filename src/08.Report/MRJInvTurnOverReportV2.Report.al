@@ -4,47 +4,18 @@ report 50001 "Inv. Turn Over Report V2"
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     ProcessingOnly = true;
-    DefaultLayout = RDLC;
-    RDLCLayout = 'src\07.ReportLayout\MRJInvTurnOverReportV2.rdlc';
-
     dataset
     {
         dataitem(Item; Item)
         {
             DataItemTableView = where(Blocked = const(false));
+            RequestFilterFields = "No.";
             column(ItemNo; "No.") { }
             column(ItemName; Description) { }
-            column(PrevYearAvgQty; PrevYearAvgQty) { }
-            column(JanQty; JanQty) { }
-            column(JanAvgQty; JanAvgQty) { }
-            column(FebQty; FebQty) { }
-            column(FebAvgQty; FebAvgQty) { }
-            column(MarQty; MarQty) { }
-            column(MarAvgQty; MarAvgQty) { }
-            column(AprQty; AprQty) { }
-            column(AprAvgQty; AprAvgQty) { }
-            column(MayQty; MayQty) { }
-            column(MayAvgQty; MayAvgQty) { }
-            column(JunQty; JunQty) { }
-            column(JunAvgQty; JunAvgQty) { }
-            column(JulQty; JulQty) { }
-            column(JulAvgQty; JulAvgQty) { }
-            column(AugQty; AugQty) { }
-            column(AugAvgQty; AugAvgQty) { }
-            column(SepQty; SepQty) { }
-            column(SepAvgQty; SepAvgQty) { }
-            column(OctQty; OctQty) { }
-            column(OctAvgQty; OctAvgQty) { }
-            column(NovQty; NovQty) { }
-            column(NovAvgQty; NovAvgQty) { }
-            column(DecQty; DecQty) { }
-            column(DecAvgQty; DecAvgQty) { }
-            column(CurrYearAvgQty; CurrYearAvgQty) { }
-            column(CurrYearQty; CurrYearQty) { }
-            column(CurrYearTurnOver; CurrYearTurnOver) { }
             trigger OnAfterGetRecord()
             begin
                 ClearVariables();
+
                 PrevYearQty := GetPrevYearInventory("No.");
                 PrevYearAvgQty := PrevYearQty / 12;
 
@@ -82,6 +53,14 @@ report 50001 "Inv. Turn Over Report V2"
 
     trigger OnPreReport()
     begin
+        // Get last date of previous year from selecte year
+        PrevYrStartDate := DMY2Date(1, 1, YearFilter - 1);
+        PrevYrEndDate := DMY2Date(31, 12, YearFilter - 1);
+
+        // Get last date of selected year
+        CurrYrStartDate := DMY2Date(1, 1, YearFilter);
+        CurrYrEndDate := DMY2Date(31, 12, YearFilter);
+
         MakeExcelDataHeader();
     end;
 
@@ -123,11 +102,43 @@ report 50001 "Inv. Turn Over Report V2"
         CurrYearTurnOver := 0;
     end;
 
+    procedure GetCurrYearInventory(ItemNo: Code[20]): Decimal
+    var
+        ItemLedgerEntry: Record "Item Ledger Entry";
+        Qty: Decimal;
+    begin
+        ItemLedgerEntry.Reset();
+        ItemLedgerEntry.SetRange("Item No.", ItemNo);
+        ItemLedgerEntry.SetRange("Posting Date", CurrYrStartDate, CurrYrEndDate);
+        ItemLedgerEntry.SetLoadFields(Quantity);
+        if ItemLedgerEntry.FindSet() then
+            repeat
+                Qty += ItemLedgerEntry.Quantity;
+            until ItemLedgerEntry.Next() = 0;
+        exit(Qty);
+    end;
+
+    procedure GetPrevYearInventory(ItemNo: Code[20]): Decimal
+    var
+        ItemLedgerEntry: Record "Item Ledger Entry";
+        Qty: Decimal;
+    begin
+        ItemLedgerEntry.Reset();
+        ItemLedgerEntry.SetRange("Item No.", ItemNo);
+        ItemLedgerEntry.SetRange("Posting Date", PrevYrStartDate, PrevYrEndDate);
+        ItemLedgerEntry.SetLoadFields(Quantity);
+        if ItemLedgerEntry.FindSet() then
+            repeat
+                Qty += ItemLedgerEntry.Quantity;
+            until ItemLedgerEntry.Next() = 0;
+        exit(Qty);
+    end;
+
     local procedure CalcMonthlyInventory(ItemNo: Code[20])
     begin
         ItemLedgEntry.Reset();
         ItemLedgEntry.SetRange("Item No.", ItemNo);
-        ItemLedgEntry.SetRange("Posting Date", DMY2Date(1, 1, YearFilter), DMY2Date(31, 12, YearFilter));
+        ItemLedgEntry.SetRange("Posting Date", CurrYrStartDate, CurrYrEndDate);
         ItemLedgEntry.SetLoadFields(Quantity);
         if ItemLedgEntry.FindSet() then
             repeat
@@ -220,58 +231,12 @@ report 50001 "Inv. Turn Over Report V2"
             DecAvgQty := 0;
     end;
 
-    procedure GetPrevYearInventory(ItemNo: Code[20]): Decimal
-    var
-        ItemLedgerEntry: Record "Item Ledger Entry";
-        StartDate: Date;
-        EndDate: Date;
-        Qty: Decimal;
-    begin
-        // Get last date of previous year
-        StartDate := DMY2Date(1, 1, YearFilter - 1);
-        EndDate := DMY2Date(31, 12, YearFilter - 1);
-        Qty := 0;
-
-        ItemLedgerEntry.Reset();
-        ItemLedgerEntry.SetRange("Item No.", ItemNo);
-        ItemLedgerEntry.SetFilter("Posting Date", '%1..%2', StartDate, EndDate);
-        ItemLedgerEntry.SetLoadFields(Quantity);
-        if ItemLedgerEntry.FindSet() then
-            repeat
-                Qty += ItemLedgerEntry.Quantity;
-            until ItemLedgerEntry.Next() = 0;
-        exit(Qty);
-    end;
-
-    procedure GetCurrYearInventory(ItemNo: Code[20]): Decimal
-    var
-        ItemLedgerEntry: Record "Item Ledger Entry";
-        StartDate: Date;
-        EndDate: Date;
-        Qty: Decimal;
-    begin
-        // Get last date of selected year
-        StartDate := DMY2Date(1, 1, YearFilter);
-        EndDate := DMY2Date(31, 12, YearFilter);
-        Qty := 0;
-
-        ItemLedgerEntry.Reset();
-        ItemLedgerEntry.SetRange("Item No.", ItemNo);
-        ItemLedgerEntry.SetFilter("Posting Date", '%1..%1', StartDate, EndDate);
-        ItemLedgerEntry.SetLoadFields(Quantity);
-        if ItemLedgerEntry.FindSet() then
-            repeat
-                Qty += ItemLedgerEntry.Quantity;
-            until ItemLedgerEntry.Next() = 0;
-        exit(Qty);
-    end;
-
     local procedure MakeExcelDataHeader()
     begin
         TempExcelBuffer.NewRow();
-        TempExcelBuffer.AddColumn(ItemNoLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-        TempExcelBuffer.AddColumn(ItemNameLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
-        TempExcelBuffer.AddColumn(AvgInvLastYrLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn((YearFilter - 1), false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
         TempExcelBuffer.AddColumn(Format(YearFilter) + JanLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
         TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
         TempExcelBuffer.AddColumn(Format(YearFilter) + FebLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
@@ -296,6 +261,38 @@ report 50001 "Inv. Turn Over Report V2"
         TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
         TempExcelBuffer.AddColumn(Format(YearFilter) + DecLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
         TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn('', false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+
+        TempExcelBuffer.NewRow();
+        TempExcelBuffer.AddColumn(ItemNoLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(ItemNameLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(AvgInvLastYrLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(QtyShipMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(InvTurnOverMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(QtyShipMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(InvTurnOverMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(QtyShipMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(InvTurnOverMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(QtyShipMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(InvTurnOverMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(QtyShipMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(InvTurnOverMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(QtyShipMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(InvTurnOverMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(QtyShipMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(InvTurnOverMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(QtyShipMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(InvTurnOverMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(QtyShipMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(InvTurnOverMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(QtyShipMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(InvTurnOverMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(QtyShipMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(InvTurnOverMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(QtyShipMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
+        TempExcelBuffer.AddColumn(InvTurnOverMonthLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
         TempExcelBuffer.AddColumn(AvgInvYearlyLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
         TempExcelBuffer.AddColumn(QtyShipYearLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
         TempExcelBuffer.AddColumn(InvTurnOverYearLbl, false, '', true, false, true, '', TempExcelBuffer."Cell Type"::Text);
@@ -378,6 +375,10 @@ report 50001 "Inv. Turn Over Report V2"
         CurrYearQty: Decimal;
         CurrYearAvgQty: Decimal;
         CurrYearTurnOver: Decimal;
+        PrevYrStartDate: Date;
+        PrevYrEndDate: Date;
+        CurrYrStartDate: Date;
+        CurrYrEndDate: Date;
         SheetNameLbl: Label 'Inventory Turn Over Report';
         ItemNoLbl: Label 'Item No.';
         ItemNameLbl: Label 'Item Description';

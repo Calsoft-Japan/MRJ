@@ -256,7 +256,7 @@ report 50000 "Inv. Turn Over Report"
 
         ItemLedgerEntry.Reset();
         ItemLedgerEntry.SetRange("Item No.", ItemNo);
-        ItemLedgerEntry.SetFilter("Posting Date", '%1..%2', StartDate, EndDate);
+        ItemLedgerEntry.SetRange("Posting Date", StartDate, EndDate);
         ItemLedgerEntry.SetLoadFields(Quantity);
         if ItemLedgerEntry.FindSet() then
             repeat
@@ -267,7 +267,7 @@ report 50000 "Inv. Turn Over Report"
 
     procedure GetCurrYearInventory(ItemNo: Code[20]): Decimal
     var
-        ItemLedgerEntry: Record "Item Ledger Entry";
+        ItemLedEntry: Record "Item Ledger Entry";
         StartDate: Date;
         EndDate: Date;
         Qty: Decimal;
@@ -277,14 +277,14 @@ report 50000 "Inv. Turn Over Report"
         EndDate := DMY2Date(31, 12, YearFilter);
         Qty := 0;
 
-        ItemLedgerEntry.Reset();
-        ItemLedgerEntry.SetRange("Item No.", ItemNo);
-        ItemLedgerEntry.SetFilter("Posting Date", '%1..%1', StartDate, EndDate);
-        ItemLedgerEntry.SetLoadFields(Quantity);
-        if ItemLedgerEntry.FindSet() then
+        ItemLedEntry.Reset();
+        ItemLedEntry.SetRange("Item No.", ItemNo);
+        ItemLedEntry.SetRange("Posting Date", StartDate, EndDate);
+        ItemLedEntry.SetLoadFields(Quantity);
+        if ItemLedEntry.FindSet() then
             repeat
-                Qty += ItemLedgerEntry.Quantity;
-            until ItemLedgerEntry.Next() = 0;
+                Qty += ItemLedEntry.Quantity;
+            until ItemLedEntry.Next() = 0;
         exit(Qty);
     end;
 
