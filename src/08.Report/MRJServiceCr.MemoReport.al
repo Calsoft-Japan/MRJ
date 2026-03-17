@@ -35,7 +35,7 @@ report 50024 "MRJ Service Cr Memo"
 
             column(CompanyName; CompanyAddr[1]) { }
             column(CompanyAddr2; CompanyAddr[2]) { }
-            column(CompanyAddr3; CompanyAddr[3]) { }
+            column(CompanyAddr3; CompanyInfo.Address) { }
             column(CompanyAddr4; CompanyAddr[4]) { }
             column(CompanyAddr5; CompanyAddr[5]) { }
             column(CompanyAddr6; CompanyAddr[6]) { }
@@ -280,11 +280,11 @@ report 50024 "MRJ Service Cr Memo"
             {
                 group(Options)
                 {
-                    Caption = 'オプション';
+                    Caption = 'Options';
                     field(SummarizeLinesField; SummarizeLines)
                     {
                         ApplicationArea = All;
-                        Caption = '明細纏め';
+                        Caption = 'Summarize Lines';
                     }
                 }
             }

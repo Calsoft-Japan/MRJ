@@ -70,24 +70,17 @@ report 50011 "MRJ Sales Quotation"
                                "Document No." = field("No.");
                 DataItemTableView = sorting("Document Type", "Document No.", "Line No.");
 
-                column(LineNo_; "No.") { }                   // 80.01X15-0682......
+                column(LineNo_; "No.") { }
                 column(LineDescription; Description) { }     // 品名
                 column(LineQuantity; Quantity) { }           // 数量
-                column(LineUOM; "Unit of Measure Code") { }  // 単位 (PC etc.)
+                column(LineUOM; "Unit of Measure Code") { }  // 単位
                 column(LineUnitPrice; "Unit Price") { }      // 単価
                 column(LineAmount; "Line Amount") { }        // 金額
-                column(Type_Line; Type) { }                  // (for internal use only)       
+                column(Type_Line; Type) { }
                 column(ShowOrderInfo; ShowOrderInfo) { }
-                column(TypeText; Format(Type)) { }          // "Item", "Resource", "Comment", ...
-                column(TypeInt; Type.AsInteger()) { }            // (for internal use only)
-                column(LineNoInt; "Line No.") { }        // (for internal use only)
-
-                trigger OnPreDataItem()
-                begin
-                    // Optional: ignore completely blank lines
-                    // (you can remove this filter if you want to show comments)
-                    // SetFilter(Quantity, '<>0');
-                end;
+                column(TypeText; Format(Type)) { }
+                column(TypeInt; Type.AsInteger()) { }
+                column(LineNoInt; "Line No.") { }
             }
 
             // ==== 摘要 ====
@@ -175,17 +168,12 @@ report 50011 "MRJ Sales Quotation"
                     field(ShowOrderInfo; ShowOrderInfo)
                     {
                         ApplicationArea = All;
-                        Caption = '注文書表示'; // Show Order Info (for next requirement)
+                        Caption = 'Show order information';
                     }
                 }
             }
         }
     }
-
-    trigger OnInitReport()
-    begin
-        // nothing special for now; CompanyInfo is loaded in OnAfterGetRecord
-    end;
 
     var
         CompanyInfo: Record "Company Information";

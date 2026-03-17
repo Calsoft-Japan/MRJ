@@ -194,7 +194,7 @@ report 50082 "MRJ Sales Credit Memo"
                     field(IssueDate; IssueDate)
                     {
                         ApplicationArea = All;
-                        Caption = '発行日';
+                        Caption = 'Issue Date';
                     }
                 }
             }

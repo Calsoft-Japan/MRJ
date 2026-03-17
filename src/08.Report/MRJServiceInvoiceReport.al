@@ -76,7 +76,7 @@ report 50023 "MRJ Service Invoice"
                 column(LineType; Type) { }
                 column(Description; Description) { }
                 column(Quantity; Quantity) { }
-                column(UOM; "Unit of Measure") { } // FIXED
+                column(UOM; "Unit of Measure") { }
                 column(LineDiscPercent; "Line Discount %") { }
                 column(Warranty; Warranty) { }
                 column(UnitPrice; "Unit Price") { }
@@ -109,7 +109,7 @@ report 50023 "MRJ Service Invoice"
             }
 
             // =========================
-            // VAT Summary (Qualified Invoice - 2.4.2)
+            // VAT Summary (Qualified Invoice)
             // =========================
             dataitem(VATSummary; Integer)
             {
@@ -246,7 +246,7 @@ report 50023 "MRJ Service Invoice"
                     field(ShowSeal; ShowSeal)
                     {
                         ApplicationArea = All;
-                        Caption = '角印の表示';
+                        Caption = 'Show Seal';
                     }
                 }
             }
@@ -339,8 +339,8 @@ report 50023 "MRJ Service Invoice"
         i: Integer;
     begin
         for i := 6 to 8 do begin
-            CustAddr[i] := CustAddr[i];       // keep TEL/FAX if you want; do not blank
-            CompanyAddr[i] := '';             // company extra lines cleared
+            CustAddr[i] := CustAddr[i];
+            CompanyAddr[i] := '';
         end;
     end;
 
@@ -351,12 +351,6 @@ report 50023 "MRJ Service Invoice"
     var
         CurrBase: Decimal;
     begin
-        // // Ensure VAT% appears even when base is 0 
-        // if not VatSummaryDict.ContainsKey(VatPct) then begin
-        //     VatSummaryDict.Add(VatPct, 0);
-        //     InsertSortedVatPct(VatPct);
-        // end;
-
         if VatBase = 0 then
             exit;
 

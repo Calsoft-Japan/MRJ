@@ -2543,51 +2543,61 @@
         </trans-unit>
         <trans-unit id="Report 1527990427 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>MRJ Sales Shipment (JP)</source>
+          <target>納品書</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Delivery Note - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2055647557 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>MRJ Purchase Order (JP)</source>
+          <target>発注書</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Purchase Order (JP) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2055647557 - Control 183988831 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>注文年月日</source>
+          <source>Order Date</source>
+          <target>発注日</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Purchase Order (JP) - Control OrderDateParam - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 994406390 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>MRJ Sales Credit Memo (JP)</source>
+          <target>クレジットメモ</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Sales Credit Memo - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 994406390 - Control 1215198615 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>発行日</source>
+          <target>Issue Date</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Sales Credit Memo - Control IssueDate - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2314668512 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>MRJ Sales Invoice</source>
+          <target>個別請求書/転記済売上請求</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Sales Invoice - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2314668512 - Control 1215198615 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>発行日</source>
+          <target>Issue Date</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Sales Invoice - Control IssueDate - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 1274742936 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Order Confirmation (JP)</source>
+          <target>受注確認書</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Sales Order Confirmation - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2001694441 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Quotation (JP)</source>
+          <target>見積書</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Sales Quotation - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2001694441 - Control 1631594125 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>注文書表示</source>
+          <source>Show order information</source>
+          <target>注文書表示</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Sales Quotation - Control ShowOrderInfo - Property Caption</note>
         </trans-unit>
@@ -4773,6 +4783,72 @@
           <target>現象</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Serv Item Cmt Type Ext - EnumValue Symptom - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4281141003 - Control 1827888220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Seal</source>
+          <target>角印の表示</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Invoice - Control ShowSeal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1045276378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Settlement Estimate</source>
+          <target>精算見積書</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Settlement Estimate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1045276378 - Control 143601472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Combin</source>
+          <target>明細纏め</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Settlement Estimate - Control SummarizeLinesField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4281141003 - Control 1827888220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Seal</source>
+          <target>角印の表示</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Invoice - Control ShowSeal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3753925064 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target>オプション</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Delivery Note - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1079270555 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target>オプション</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Order Confirmation - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1242599189 - Control 143601472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Summarize Lines</source>
+          <target>明細纏め</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Cr Memo - Control SummarizeLinesField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1045276378 - Control 143601472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Summarize Lines</source>
+          <target>明細纏め</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Settlement Estimate - Control SummarizeLinesField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3753925064 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target>オプション</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Delivery Note - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3753925064 - Control 143601472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Summarize Lines</source>
+          <target>明細纏め</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Delivery Note - Control SummarizeLinesField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2314668512 - Control 1215198615 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>発行日</source>
+          <target>Issue Date</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Sales Invoice - Control IssueDate - Property Caption</note>
         </trans-unit>
       </group>
     </body>

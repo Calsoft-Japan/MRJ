@@ -1,6 +1,6 @@
 report 50100 "MRJ Settlement Estimate"
 {
-    Caption = '精算見積書';
+    Caption = 'Settlement Estimate';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     Description = 'Report to estimate settlement amounts for MRJ.';
@@ -73,7 +73,6 @@ report 50100 "MRJ Settlement Estimate"
             // =========================
             dataitem(SvcShipItemLine; "Service Shipment Item Line")
             {
-                // ✅ "Document No." does NOT exist in your environment, so keep "No."
                 DataItemLink = "No." = field("No.");
                 DataItemLinkReference = SvcShipHdr;
                 DataItemTableView = sorting("No.", "Line No.");
@@ -262,7 +261,7 @@ report 50100 "MRJ Settlement Estimate"
                 LineVAT: Decimal;
             begin
                 if ShowOrderInfo then
-                    TitleTxt := '精算見積書';
+                    TitleTxt := 'Settlement Estimate';
 
                 CompanyInfo.CalcFields(Picture);
 
@@ -328,11 +327,11 @@ report 50100 "MRJ Settlement Estimate"
             {
                 group(Options)
                 {
-                    Caption = 'オプション';
+                    Caption = 'Options';
                     field(SummarizeLinesField; SummarizeLines)
                     {
                         ApplicationArea = All;
-                        Caption = '明細纏め';
+                        Caption = 'Summarize Lines';
                     }
                 }
             }
@@ -612,7 +611,7 @@ report 50100 "MRJ Settlement Estimate"
         if RegNo = '' then
             exit('');
 
-        exit('登録番号：' + RegNo);
+        exit('Registration No.: ' + RegNo);
     end;
 
     local procedure GetYesNo(ValueBool: Boolean): Text[3]

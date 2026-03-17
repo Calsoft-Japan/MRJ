@@ -236,7 +236,7 @@ report 50018 "MRJ Purchase Order (JP)"
                     field(OrderDateParam; OrderDateParam)
                     {
                         ApplicationArea = All;
-                        Caption = '注文年月日';
+                        Caption = 'Order Date';
                     }
                 }
             }
