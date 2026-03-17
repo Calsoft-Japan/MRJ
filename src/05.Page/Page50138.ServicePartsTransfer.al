@@ -600,6 +600,7 @@ page 50138 "Service Parts Transfer"
                 RecTransferLine.Validate("Unit of Measure Code", Rec."Unit of Measure Code");
                 RecTransferLine.Validate(Quantity, Rec."Qty. to Receive");
                 RecTransferLine.Validate("Qty. to Ship", Rec."Qty. to Receive");
+                RecTransferLine.Validate("Transfer-To Bin Code", RecTransferHeader."Service Order No.");
                 RecTransferLine.Modify(true);
             until Rec.Next() = 0;
     end;
@@ -646,6 +647,7 @@ page 50138 "Service Parts Transfer"
                 RecTransferLine.Validate("Unit of Measure Code", Rec."Unit of Measure Code");
                 RecTransferLine.Validate(Quantity, Rec."Qty. to Return");
                 RecTransferLine.Validate("Qty. to Ship", Rec."Qty. to Return");
+                RecTransferLine.Validate("Transfer-To Bin Code", RecTransferHeader."Service Order No.");
                 RecTransferLine.Modify(true);
             until Rec.Next() = 0;
     end;
