@@ -41,6 +41,7 @@ report 50075 "Service Work Report"
             column(HrsLbl; HrsLbl) { }
             column(CostOfRLbl; CostOfRLbl) { }
             column(AuthorizedLbl; AuthorizedLbl) { }
+            column(TiltLbl; TiltLbl) { }
             column(ConfirmLbl; ConfirmLbl) { }
             column(CreatedLbl; CreatedLbl) { }
             column(CompanyPicture; CompanyInfo.Picture) { }
@@ -314,49 +315,6 @@ report 50075 "Service Work Report"
         PageBreak := 10;
     end;
 
-    var
-
-        CompanyInfo: Record "Company Information";
-        RespCenter: Record "Responsibility Center";
-        FaultArea: Record "Fault Area";
-        Symptom: Record "Symptom Code";
-        Fault: Record "Fault Code";
-        Resolution: Record "Resolution Code";
-        RepairStatus: Record "Repair Status";
-        ServCommentLine: Record "Service Comment Line";
-        ReservEntry: Record "Reservation Entry";
-        Item: Record Item;
-        ItemTrackingCode: Record "Item Tracking Code";
-        LanguageRec: Codeunit Language;
-        PrintOption: Option ItemOnly,ItemAndLot,All;
-        OutputDate: Text[50];
-        CompanyAddr: array[8] of Text[50];
-        CustAddr: array[8] of Text[100];
-        FaultAreaComment: array[4] of Text[80];
-        SymptomComment: array[4] of Text[80];
-        FaultComment: array[4] of Text[80];
-        ResolutionComment: array[4] of Text[80];
-        InternalComment: array[4] of Text[80];
-        WarantyTxt: Text[10];
-        UOM: Text[50];
-        ServLineAmt: Decimal;
-        ServLineQty: Decimal;
-        ServLineLotNo: Code[20];
-        ReservCnt: Integer;
-        LineLoopCnt: Integer;
-        ServLineCnt: Integer;
-        GridLineCnt: Integer;
-        TotalText: Text[50];
-        TotalLineAmt: Decimal;
-        TotalLineAmtText: Text[50];
-        UnderLine: Text[100];
-        DisclaimerText: Text[50];
-        PageBreak: Integer;
-        CommentType: Enum "Service Comment Line Type";
-        TotalLbl: Label 'Total', Locked = true;
-        SubtotalLbl: Label 'Sub Total', Locked = true;
-        DisclaimerLbl: Label '※上記金額に、消費税は含まれておりません。';
-
     local procedure SetComment(var Comment: array[4] of Text[80]; CType: Enum "Service Comment Line Type")
     var
         i: Integer;
@@ -398,17 +356,6 @@ report 50075 "Service Work Report"
                           ServiceHeader.Address, ServiceHeader."Address 2",
                           ServiceHeader.City, ServiceHeader."Post Code", ServiceHeader.County, ServiceHeader."Country/Region Code",
                           ServiceHeader."Phone No.", ServiceHeader."Fax No.", '', '');
-    end;
-
-    procedure GetLanguageCode(var LanguageID: Integer) Code: Code[10]
-    var
-        LanguageRec: Record Language;
-    begin
-        LanguageRec.SetRange("Windows Language ID", LanguageID);
-        if LanguageRec.FindLast() then
-            exit(LanguageRec.Code)
-        else
-            exit('');
     end;
 
     procedure FormatAddrJPN(var AddrArray: array[8] of Text[90];
@@ -496,7 +443,39 @@ report 50075 "Service Work Report"
     end;
 
     var
-        LanguageCode: Code[10];
+        CompanyInfo: Record "Company Information";
+        FaultArea: Record "Fault Area";
+        Symptom: Record "Symptom Code";
+        Fault: Record "Fault Code";
+        Resolution: Record "Resolution Code";
+        RepairStatus: Record "Repair Status";
+        ServCommentLine: Record "Service Comment Line";
+        ReservEntry: Record "Reservation Entry";
+        PrintOption: Option ItemOnly,ItemAndLot,All;
+        OutputDate: Text[50];
+        CompanyAddr: array[8] of Text[50];
+        CustAddr: array[8] of Text[100];
+        FaultAreaComment: array[4] of Text[80];
+        SymptomComment: array[4] of Text[80];
+        FaultComment: array[4] of Text[80];
+        ResolutionComment: array[4] of Text[80];
+        InternalComment: array[4] of Text[80];
+        WarantyTxt: Text[10];
+        UOM: Text[50];
+        ServLineAmt: Decimal;
+        ServLineQty: Decimal;
+        ServLineLotNo: Code[20];
+        ReservCnt: Integer;
+        LineLoopCnt: Integer;
+        ServLineCnt: Integer;
+        GridLineCnt: Integer;
+        TotalText: Text[50];
+        TotalLineAmt: Decimal;
+        TotalLineAmtText: Text[50];
+        UnderLine: Text[100];
+        DisclaimerText: Text[50];
+        PageBreak: Integer;
+        CommentType: Enum "Service Comment Line Type";
         RepTitleLbl: Label 'Service Report';
         PageLbl: Label 'Page';
         DateLbl: Label 'Date -';
@@ -537,4 +516,7 @@ report 50075 "Service Work Report"
         AuthorizedLbl: Label 'Authorized';
         ConfirmLbl: Label 'Confirmed';
         CreatedLbl: Label 'Created';
+        TiltLbl: Label '~', Locked = true;
+        TotalLbl: Label 'Total', Locked = true;
+        DisclaimerLbl: Label '※上記金額に、消費税は含まれておりません。';
 }
