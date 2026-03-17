@@ -206,7 +206,7 @@ report 50014 "MRJ Sales Invoice"
                     field(IssueDate; IssueDate)
                     {
                         ApplicationArea = All;
-                        Caption = '発行日';
+                        Caption = 'Issue Date';
                     }
                 }
             }
@@ -224,9 +224,6 @@ report 50014 "MRJ Sales Invoice"
             CompanyInfo.Get();
     end;
 
-    // =========================
-    // Vars
-    // =========================
     var
         CompanyInfo: Record "Company Information";
         FormatAddress: Codeunit "Format Address";
@@ -254,29 +251,6 @@ report 50014 "MRJ Sales Invoice"
         VATDisplayTxt: Text[20];
         VATBaseAmount: Decimal;
         VATAmount: Decimal;
-
-    // =========================
-    // Helpers
-    // =========================
-    // local procedure SetReportLanguageFromDoc()
-    // var
-    //     LangId: Integer;
-    // begin
-    //     // Try to use document Language Code -> Language ID. Fallback to GlobalLanguage.
-    //     LangId := 0;
-
-    //     if SalesInvHdr."Language Code" <> '' then
-    //         LangId := Language.GetLanguageId(SalesInvHdr."Language Code");
-
-    //     if LangId <> 0 then
-    //         CurrReport.Language := LangId
-    //     else
-    //         CurrReport.Language := GlobalLanguage;
-
-    //     // If your environment does NOT have Codeunit "Language":
-    //     // 1) remove "Language: Codeunit "Language";"
-    //     // 2) replace this whole procedure with: CurrReport.Language := GlobalLanguage;
-    // end;
 
     local procedure FormatIssueDate(IssDate: Date; LangId: Integer): Text[50]
     begin

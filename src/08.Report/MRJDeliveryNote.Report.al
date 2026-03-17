@@ -142,7 +142,7 @@ report 50027 "MRJ Delivery Note"
                         if SalesShptLineTmp.Quantity = 0 then
                             continue;
 
-                        // ✅ calculate base from source Sales Order line
+                        //Calculate base from source Sales Order line
                         LineBase := CalcShptLineAmountFromSource(SalesShptLineTmp);
                         if LineBase = 0 then
                             continue;
@@ -209,7 +209,6 @@ report 50027 "MRJ Delivery Note"
         SrcSalesLine: Record "Sales Line";
         Amt: Decimal;
     begin
-        // Most environments: shipment amounts are 0; use source Sales Order line amount
         if (ShptLine."Order No." <> '') and (ShptLine."Order Line No." <> 0) then begin
             SrcSalesLine.Reset();
             SrcSalesLine.SetRange("Document Type", SrcSalesLine."Document Type"::Order);

@@ -143,10 +143,6 @@ report 50089 "MRJ Service Delivery Note"
                 column(FlatLineUOM; FlatUOM) { }
                 column(FlatUnitPrice; FlatPrice) { }
                 column(FlatLineAmount; FlatAmount) { }
-
-                // Keep these columns to avoid RDLC errors if layout references them.
-                // NOTE: Posted Shipment Lines usually do NOT have fault reason/discount,
-                // so these will be blank/0 in this report.
                 column(FlatFaultReasonCode; FlatFaultReasonCode) { }
                 column(FlatFaultReasonDisplay; FlatFaultReasonDisplay) { }
                 column(FlatLineDiscountAmt; FlatLineDiscountAmt) { }
@@ -262,15 +258,6 @@ report 50089 "MRJ Service Delivery Note"
 
                 CompanyInfo.CalcFields(Picture);
 
-                // Clear(CustomDeliveryNoteNo);
-
-                // // Find first line to get Service Item No.
-                // SvcShipLine.SetRange("Document No.", "No.");
-                // if SvcShipLine.FindFirst() then
-                //     ServiceItemNo := SvcShipLine."Service Item No.";
-
-                // // Build custom format
-                // CustomDeliveryNoteNo := 'SH-' + ServiceItemNo + "No.";
                 PostingDateTxt := Format("Posting Date", 0, '<Year4>年<Month,2>月<Day,2>日');
                 DocumentDateTxt := Format("Document Date", 0, '<Year4>年<Month,2>月<Day,2>日');
 
@@ -333,11 +320,11 @@ report 50089 "MRJ Service Delivery Note"
             {
                 group(Options)
                 {
-                    Caption = 'オプション';
+                    Caption = 'Options';
                     field(SummarizeLinesField; SummarizeLines)
                     {
                         ApplicationArea = All;
-                        Caption = '明細纏め';
+                        Caption = 'Summarize Lines';
                     }
                 }
             }
@@ -401,7 +388,6 @@ report 50089 "MRJ Service Delivery Note"
         FlatAmount: Decimal;
         FlatLineType: Text[20];
 
-        // Keep for RDLC compatibility (blank in this report unless you extend shipment lines)
         FlatFaultReasonCode: Text[100];
         FlatFaultReasonDisplay: Text[120];
         FlatLineDiscountAmt: Decimal;
@@ -412,10 +398,8 @@ report 50089 "MRJ Service Delivery Note"
         GrossAmt: Decimal;
 
     // -------------------------
-    // 明細纏め（Quotation-style）
-    // Resource: group by Resource Group Name (fallback: line description)
+    // 明細纏め    // Resource: group by Resource Group Name (fallback: line description)
     // Item: group by Item No. + UOM + Unit Price
-    // Others: keep unique by original line
     // -------------------------
     local procedure SummarizeShipmentLinesProc()
     var
@@ -635,7 +619,7 @@ report 50089 "MRJ Service Delivery Note"
         if RegNo = '' then
             exit('');
 
-        exit('登録番号：' + RegNo);
+        exit('Registration No.: ' + RegNo);
     end;
 
     local procedure GetYesNo(ValueBool: Boolean): Text[3]

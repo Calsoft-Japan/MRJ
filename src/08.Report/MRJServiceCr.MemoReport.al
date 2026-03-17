@@ -280,11 +280,11 @@ report 50024 "MRJ Service Cr Memo"
             {
                 group(Options)
                 {
-                    Caption = 'オプション';
+                    Caption = 'Options';
                     field(SummarizeLinesField; SummarizeLines)
                     {
                         ApplicationArea = All;
-                        Caption = '明細纏め';
+                        Caption = 'Summarize Lines';
                     }
                 }
             }

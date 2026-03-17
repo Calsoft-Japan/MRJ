@@ -23,7 +23,6 @@ report 50012 "MRJ Sales Order Confirmation"
             // 支払条件 / 支払方法 / 担当者名
             column(PaymentTermTxt; PaymentTermTxt) { }
             column(PaymentMethodTxt; PaymentMethodTxt) { }
-            //column(SalesPersonName; SalesPersonTxt) { }
 
             // Customer address (left)
             column(CustAddr1; CustAddr[1]) { }
@@ -86,7 +85,6 @@ report 50012 "MRJ Sales Order Confirmation"
                 SalesLineTmp: Record "Sales Line";
             begin
                 // ----- Date -----
-                // (you used Japanese format in 50011; keep same)
                 OrderDateTxt := Format("Document Date", 0, '<Year4>年<Month,2>月<Day,2>日');
 
                 // ----- Customer order no -----
@@ -112,12 +110,6 @@ report 50012 "MRJ Sales Order Confirmation"
                 end else
                     PaymentMethodTxt := '';
 
-                // ----- Salesperson (Header) -----
-                // SalesPersonTxt := '';
-                // if "Salesperson Code" <> '' then
-                //     if SalesPerson.Get("Salesperson Code") then
-                //         SalesPersonTxt := SalesPerson.Name;
-
                 // ----- Totals from lines (same pattern as 50011) -----
                 TotalExclVAT := 0;
                 TotalInclVAT := 0;
@@ -126,7 +118,7 @@ report 50012 "MRJ Sales Order Confirmation"
                 SalesLineTmp.Reset();
                 SalesLineTmp.SetRange("Document Type", "Document Type");
                 SalesLineTmp.SetRange("Document No.", "No.");
-                // Optionally exclude blank type lines
+
                 SalesLineTmp.SetFilter(Type, '<>%1', SalesLineTmp.Type::" ");
 
                 if SalesLineTmp.FindSet() then
@@ -151,12 +143,8 @@ report 50012 "MRJ Sales Order Confirmation"
 
         OrderDateTxt: Text[50];
         CustomerOrderNo: Text[50];
-
         PaymentTermTxt: Text[100];
         PaymentMethodTxt: Text[100];
-
-        //SalesPersonTxt: Text[100];
-        //SalesPerson: Record "Salesperson/Purchaser";
 
         TotalExclVAT: Decimal;
         TotalVAT: Decimal;
