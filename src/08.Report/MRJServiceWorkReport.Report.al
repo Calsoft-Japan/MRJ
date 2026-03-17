@@ -402,17 +402,6 @@ report 50075 "Service Work Report"
                           ServiceHeader."Phone No.", ServiceHeader."Fax No.", '', '');
     end;
 
-    procedure GetLanguageCode(var LanguageID: Integer) Code: Code[10]
-    var
-        LanguageRec: Record Language;
-    begin
-        LanguageRec.SetRange("Windows Language ID", LanguageID);
-        if LanguageRec.FindLast() then
-            exit(LanguageRec.Code)
-        else
-            exit('');
-    end;
-
     procedure FormatAddrJPN(var AddrArray: array[8] of Text[90];
                                 Name: Text[90]; Name2: Text[90]; Contact: Text[90];
                                 Addr: Text[50]; Addr2: Text[50];

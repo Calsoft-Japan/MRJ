@@ -3695,7 +3695,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>SrvLineUOM</rd:DefaultName>
@@ -3867,7 +3869,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>SrvLineLotNo</rd:DefaultName>
@@ -3969,7 +3973,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>SrvLineUOM</rd:DefaultName>
@@ -4141,7 +4147,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>SrvLineLotNo</rd:DefaultName>
@@ -4174,7 +4182,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>ResvSerialNo</rd:DefaultName>
@@ -4274,7 +4284,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>SrvLineUOM</rd:DefaultName>
@@ -5073,7 +5085,6 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0cm</Top>
               <Left>12.11474cm</Left>
               <Height>3.9352cm</Height>
               <Width>7.9433cm</Width>
@@ -5086,7 +5097,6 @@
             <Rectangle Name="Rectangle2">
               <ReportItems>
                 <Textbox Name="Textbox87">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5122,7 +5132,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox92">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5159,7 +5168,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox94">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5196,7 +5204,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox95">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5233,7 +5240,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox96">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5270,7 +5276,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox97">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5307,7 +5312,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox98">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5345,7 +5349,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox99">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5382,7 +5385,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox100">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5419,7 +5421,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox101">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5456,7 +5457,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox102">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5493,7 +5493,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox103">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5531,7 +5530,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox104">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5568,7 +5566,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox105">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5605,7 +5602,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox106">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5642,7 +5638,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox107">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5679,7 +5674,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox108">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5717,7 +5711,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox109">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5754,7 +5747,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox110">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5791,7 +5783,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox111">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5828,7 +5819,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox112">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5865,7 +5855,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox113">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5903,7 +5892,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox114">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5940,7 +5928,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox115">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5977,7 +5964,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox116">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6014,7 +6000,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox117">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6051,7 +6036,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox118">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6089,7 +6073,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox119">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6126,7 +6109,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox120">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6163,7 +6145,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox121">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6200,7 +6181,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox122">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6237,7 +6217,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox123">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6275,7 +6254,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox124">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6312,7 +6290,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox125">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6349,7 +6326,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox126">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6387,7 +6363,6 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0cm</Top>
               <Height>3.9352cm</Height>
               <Width>12.11474cm</Width>
               <ZIndex>1</ZIndex>
