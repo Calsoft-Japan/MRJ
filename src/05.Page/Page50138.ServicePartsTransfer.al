@@ -118,7 +118,6 @@ page 50138 "Service Parts Transfer"
                     begin
                         LocBin.Reset();
                         LocBin.SetRange("Location Code", FromLocationCode);
-
                         if Page.RunModal(Page::"Bin List", LocBin) = Action::LookupOK then begin
                             FromBinCode := LocBin.Code;
                             Text := FromBinCode;
@@ -142,7 +141,6 @@ page 50138 "Service Parts Transfer"
                         RecServiceHeader.Reset();
                         RecServiceHeader.SetRange("Document Type", RecServiceHeader."Document Type"::Order);
                         RecServiceHeader.SetRange("No.", Rec."Order No.");
-
                         if RecServiceHeader.FindFirst() then begin
                             Page.RunModal(Page::"Service Order", RecServiceHeader);
                             Refresh();
@@ -183,7 +181,6 @@ page 50138 "Service Parts Transfer"
                         RecServiceLine.SetRange("Document No.", Rec."Order No.");
                         RecServiceLine.SetRange(Type, RecServiceLine.Type::Item);
                         RecServiceLine.SetRange("No.", Rec."Item No.");
-
                         if RecServiceLine.Count > 0 then
                             Page.RunModal(Page::"Service Line List", RecServiceLine);
                     end;
@@ -214,7 +211,6 @@ page 50138 "Service Parts Transfer"
                         RecWarehouseEntry.SetRange("Bin Code", BinCode);
                         RecWarehouseEntry.SetFilter("Source No.", TransNoFilter);
                         RecWarehouseEntry.SetRange("Item No.", Rec."Item No.");
-
                         if RecWarehouseEntry.Count > 0 then
                             Page.RunModal(Page::"Warehouse Entries", RecWarehouseEntry);
                     end;
@@ -229,7 +225,11 @@ page 50138 "Service Parts Transfer"
                         AvailabilityDetail(Rec."Item No.");
                     end;
                 }
-
+                field("Qty. to Return"; Rec."Qty. to Return")
+                {
+                    ApplicationArea = All;
+                    Visible = false;
+                }
                 field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                     Caption = 'UOM';
@@ -630,7 +630,6 @@ page 50138 "Service Parts Transfer"
             else
                 InServiceHeader."Parts Return TO No. Filter" :=
                     InServiceHeader."Parts Return TO No. Filter" + '|' + RecTransferHeader."No.";
-
             InServiceHeader.Modify(true);
         end;
 
