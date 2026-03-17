@@ -4164,7 +4164,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -5084,8 +5083,9 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
+              <Top>0cm</Top>
               <Left>12.11474cm</Left>
-              <Height>3.9352cm</Height>
+              <Height>3.86464cm</Height>
               <Width>7.9433cm</Width>
               <Style>
                 <Border>
@@ -5096,7 +5096,6 @@
             <Rectangle Name="Rectangle2">
               <ReportItems>
                 <Textbox Name="Textbox87">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5116,7 +5115,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>0.2176cm</Top>
+                  <Top>0.14704cm</Top>
                   <Left>0.37369cm</Left>
                   <Height>0.5cm</Height>
                   <Width>2.36834cm</Width>
@@ -5132,7 +5131,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox92">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5152,8 +5150,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>0.2176cm</Top>
-                  <Left>2.74202cm</Left>
+                  <Top>0.14704cm</Top>
+                  <Left>2.74203cm</Left>
                   <Height>0.5cm</Height>
                   <Width>3.46982cm</Width>
                   <ZIndex>1</ZIndex>
@@ -5162,14 +5160,11 @@
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox94">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5189,10 +5184,10 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>0.2176cm</Top>
-                  <Left>6.21186cm</Left>
+                  <Top>0.14704cm</Top>
+                  <Left>6.21185cm</Left>
                   <Height>0.5cm</Height>
-                  <Width>1.90499cm</Width>
+                  <Width>1.61395cm</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
                     <Border>
@@ -5206,7 +5201,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox95">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5226,10 +5220,10 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>0.2176cm</Top>
-                  <Left>8.11686cm</Left>
+                  <Top>0.14704cm</Top>
+                  <Left>7.8258cm</Left>
                   <Height>0.5cm</Height>
-                  <Width>1.45491cm</Width>
+                  <Width>1.74596cm</Width>
                   <ZIndex>3</ZIndex>
                   <Style>
                     <Border>
@@ -5243,7 +5237,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox96">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5263,7 +5256,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>0.2176cm</Top>
+                  <Top>0.14704cm</Top>
                   <Left>9.57176cm</Left>
                   <Height>0.5cm</Height>
                   <Width>2.16928cm</Width>
@@ -5280,7 +5273,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox97">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5295,12 +5287,12 @@
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>0.7176cm</Top>
+                  <Top>0.64704cm</Top>
                   <Left>0.37369cm</Left>
                   <Height>0.5cm</Height>
                   <Width>2.36834cm</Width>
@@ -5310,6 +5302,7 @@
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -5317,13 +5310,12 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox98">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>~</Value>
+                          <Value>=Fields!TiltLbl.Value</Value>
                           <Style>
                             <FontFamily>MS UI Gothic</FontFamily>
                             <FontSize>9pt</FontSize>
@@ -5337,8 +5329,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>0.7176cm</Top>
-                  <Left>2.74202cm</Left>
+                  <Top>0.64704cm</Top>
+                  <Left>2.74203cm</Left>
                   <Height>0.5cm</Height>
                   <Width>3.46982cm</Width>
                   <ZIndex>6</ZIndex>
@@ -5355,7 +5347,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox99">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5375,16 +5366,17 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>0.7176cm</Top>
-                  <Left>6.21184cm</Left>
+                  <Top>0.64704cm</Top>
+                  <Left>6.21185cm</Left>
                   <Height>0.5cm</Height>
-                  <Width>1.90499cm</Width>
+                  <Width>1.61395cm</Width>
                   <ZIndex>7</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -5392,7 +5384,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox100">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5412,16 +5403,17 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>0.7176cm</Top>
-                  <Left>8.11684cm</Left>
+                  <Top>0.64704cm</Top>
+                  <Left>7.8258cm</Left>
                   <Height>0.5cm</Height>
-                  <Width>1.45491cm</Width>
+                  <Width>1.74596cm</Width>
                   <ZIndex>8</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -5429,7 +5421,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox101">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5444,12 +5435,12 @@
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>0.7176cm</Top>
+                  <Top>0.64704cm</Top>
                   <Left>9.57176cm</Left>
                   <Height>0.5cm</Height>
                   <Width>2.16928cm</Width>
@@ -5459,6 +5450,7 @@
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -5466,7 +5458,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox102">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5481,12 +5472,12 @@
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>1.2176cm</Top>
+                  <Top>1.14704cm</Top>
                   <Left>0.37369cm</Left>
                   <Height>0.5cm</Height>
                   <Width>2.36834cm</Width>
@@ -5496,6 +5487,7 @@
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -5503,13 +5495,12 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox103">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>~</Value>
+                          <Value>=Fields!TiltLbl.Value</Value>
                           <Style>
                             <FontFamily>MS UI Gothic</FontFamily>
                             <FontSize>9pt</FontSize>
@@ -5523,8 +5514,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>1.2176cm</Top>
-                  <Left>2.74202cm</Left>
+                  <Top>1.14704cm</Top>
+                  <Left>2.74203cm</Left>
                   <Height>0.5cm</Height>
                   <Width>3.46982cm</Width>
                   <ZIndex>11</ZIndex>
@@ -5541,7 +5532,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox104">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5561,16 +5551,17 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>1.2176cm</Top>
-                  <Left>6.21184cm</Left>
+                  <Top>1.14704cm</Top>
+                  <Left>6.21185cm</Left>
                   <Height>0.5cm</Height>
-                  <Width>1.90499cm</Width>
+                  <Width>1.61395cm</Width>
                   <ZIndex>12</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -5578,7 +5569,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox105">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5598,16 +5588,17 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>1.2176cm</Top>
-                  <Left>8.11684cm</Left>
+                  <Top>1.14704cm</Top>
+                  <Left>7.8258cm</Left>
                   <Height>0.5cm</Height>
-                  <Width>1.45491cm</Width>
+                  <Width>1.74596cm</Width>
                   <ZIndex>13</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -5615,7 +5606,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox106">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5630,12 +5620,12 @@
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>1.2176cm</Top>
+                  <Top>1.14704cm</Top>
                   <Left>9.57176cm</Left>
                   <Height>0.5cm</Height>
                   <Width>2.16928cm</Width>
@@ -5645,6 +5635,7 @@
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -5652,7 +5643,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox107">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5667,12 +5657,12 @@
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>1.7176cm</Top>
+                  <Top>1.64704cm</Top>
                   <Left>0.37369cm</Left>
                   <Height>0.5cm</Height>
                   <Width>2.36834cm</Width>
@@ -5682,6 +5672,7 @@
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -5689,13 +5680,12 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox108">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>~</Value>
+                          <Value>=Fields!TiltLbl.Value</Value>
                           <Style>
                             <FontFamily>MS UI Gothic</FontFamily>
                             <FontSize>9pt</FontSize>
@@ -5709,8 +5699,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>1.7176cm</Top>
-                  <Left>2.74204cm</Left>
+                  <Top>1.64704cm</Top>
+                  <Left>2.74203cm</Left>
                   <Height>0.5cm</Height>
                   <Width>3.46982cm</Width>
                   <ZIndex>16</ZIndex>
@@ -5727,7 +5717,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox109">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5747,16 +5736,17 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>1.7176cm</Top>
-                  <Left>6.21186cm</Left>
+                  <Top>1.64704cm</Top>
+                  <Left>6.21185cm</Left>
                   <Height>0.5cm</Height>
-                  <Width>1.90499cm</Width>
+                  <Width>1.61395cm</Width>
                   <ZIndex>17</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -5764,7 +5754,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox110">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5784,16 +5773,17 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>1.7176cm</Top>
-                  <Left>8.11686cm</Left>
+                  <Top>1.64704cm</Top>
+                  <Left>7.8258cm</Left>
                   <Height>0.5cm</Height>
-                  <Width>1.45491cm</Width>
+                  <Width>1.74596cm</Width>
                   <ZIndex>18</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -5801,7 +5791,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox111">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5816,13 +5805,13 @@
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>1.7176cm</Top>
-                  <Left>9.57177cm</Left>
+                  <Top>1.64704cm</Top>
+                  <Left>9.57176cm</Left>
                   <Height>0.5cm</Height>
                   <Width>2.16928cm</Width>
                   <ZIndex>19</ZIndex>
@@ -5831,6 +5820,7 @@
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -5838,7 +5828,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox112">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5853,12 +5842,12 @@
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>2.2176cm</Top>
+                  <Top>2.14704cm</Top>
                   <Left>0.37369cm</Left>
                   <Height>0.5cm</Height>
                   <Width>2.36834cm</Width>
@@ -5868,6 +5857,7 @@
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -5875,13 +5865,12 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox113">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>~</Value>
+                          <Value>=Fields!TiltLbl.Value</Value>
                           <Style>
                             <FontFamily>MS UI Gothic</FontFamily>
                             <FontSize>9pt</FontSize>
@@ -5895,8 +5884,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>2.2176cm</Top>
-                  <Left>2.74204cm</Left>
+                  <Top>2.14704cm</Top>
+                  <Left>2.74203cm</Left>
                   <Height>0.5cm</Height>
                   <Width>3.46982cm</Width>
                   <ZIndex>21</ZIndex>
@@ -5913,7 +5902,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox114">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5933,16 +5921,17 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>2.2176cm</Top>
-                  <Left>6.21186cm</Left>
+                  <Top>2.14704cm</Top>
+                  <Left>6.21185cm</Left>
                   <Height>0.5cm</Height>
-                  <Width>1.90499cm</Width>
+                  <Width>1.61395cm</Width>
                   <ZIndex>22</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -5950,7 +5939,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox115">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -5970,16 +5958,17 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>2.2176cm</Top>
-                  <Left>8.11686cm</Left>
+                  <Top>2.14704cm</Top>
+                  <Left>7.8258cm</Left>
                   <Height>0.5cm</Height>
-                  <Width>1.45491cm</Width>
+                  <Width>1.74596cm</Width>
                   <ZIndex>23</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -5987,7 +5976,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox116">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6002,13 +5990,13 @@
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>2.2176cm</Top>
-                  <Left>9.57177cm</Left>
+                  <Top>2.14704cm</Top>
+                  <Left>9.57176cm</Left>
                   <Height>0.5cm</Height>
                   <Width>2.16928cm</Width>
                   <ZIndex>24</ZIndex>
@@ -6017,6 +6005,7 @@
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -6024,7 +6013,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox117">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6039,12 +6027,12 @@
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>2.7176cm</Top>
+                  <Top>2.64704cm</Top>
                   <Left>0.37369cm</Left>
                   <Height>0.5cm</Height>
                   <Width>2.36834cm</Width>
@@ -6054,6 +6042,7 @@
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -6061,13 +6050,12 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox118">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>~</Value>
+                          <Value>=Fields!TiltLbl.Value</Value>
                           <Style>
                             <FontFamily>MS UI Gothic</FontFamily>
                             <FontSize>9pt</FontSize>
@@ -6081,8 +6069,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>2.7176cm</Top>
-                  <Left>2.74202cm</Left>
+                  <Top>2.64704cm</Top>
+                  <Left>2.74203cm</Left>
                   <Height>0.5cm</Height>
                   <Width>3.46982cm</Width>
                   <ZIndex>26</ZIndex>
@@ -6099,7 +6087,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox119">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6119,16 +6106,17 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>2.7176cm</Top>
-                  <Left>6.21184cm</Left>
+                  <Top>2.64704cm</Top>
+                  <Left>6.21185cm</Left>
                   <Height>0.5cm</Height>
-                  <Width>1.90499cm</Width>
+                  <Width>1.61395cm</Width>
                   <ZIndex>27</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -6136,7 +6124,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox120">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6156,16 +6143,17 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>2.7176cm</Top>
-                  <Left>8.11684cm</Left>
+                  <Top>2.64704cm</Top>
+                  <Left>7.8258cm</Left>
                   <Height>0.5cm</Height>
-                  <Width>1.45491cm</Width>
+                  <Width>1.74596cm</Width>
                   <ZIndex>28</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -6173,7 +6161,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox121">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6188,12 +6175,12 @@
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>2.7176cm</Top>
+                  <Top>2.64704cm</Top>
                   <Left>9.57176cm</Left>
                   <Height>0.5cm</Height>
                   <Width>2.16928cm</Width>
@@ -6203,6 +6190,7 @@
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -6210,7 +6198,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox122">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6225,12 +6212,12 @@
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>3.2176cm</Top>
+                  <Top>3.14704cm</Top>
                   <Left>0.37369cm</Left>
                   <Height>0.5cm</Height>
                   <Width>2.36834cm</Width>
@@ -6240,6 +6227,7 @@
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -6247,13 +6235,12 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox123">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>~</Value>
+                          <Value>=Fields!TiltLbl.Value</Value>
                           <Style>
                             <FontFamily>MS UI Gothic</FontFamily>
                             <FontSize>9pt</FontSize>
@@ -6267,8 +6254,8 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>3.2176cm</Top>
-                  <Left>2.74202cm</Left>
+                  <Top>3.14704cm</Top>
+                  <Left>2.74203cm</Left>
                   <Height>0.5cm</Height>
                   <Width>3.46982cm</Width>
                   <ZIndex>31</ZIndex>
@@ -6285,7 +6272,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox124">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6305,16 +6291,17 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>3.2176cm</Top>
-                  <Left>6.21184cm</Left>
+                  <Top>3.14704cm</Top>
+                  <Left>6.21185cm</Left>
                   <Height>0.5cm</Height>
-                  <Width>1.90499cm</Width>
+                  <Width>1.61395cm</Width>
                   <ZIndex>32</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -6322,7 +6309,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox125">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6342,16 +6328,17 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>3.2176cm</Top>
-                  <Left>8.11684cm</Left>
+                  <Top>3.14704cm</Top>
+                  <Left>7.8258cm</Left>
                   <Height>0.5cm</Height>
-                  <Width>1.45491cm</Width>
+                  <Width>1.74596cm</Width>
                   <ZIndex>33</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -6359,7 +6346,6 @@
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox126">
-                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
@@ -6374,12 +6360,12 @@
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <Top>3.2176cm</Top>
+                  <Top>3.14704cm</Top>
                   <Left>9.57176cm</Left>
                   <Height>0.5cm</Height>
                   <Width>2.16928cm</Width>
@@ -6389,6 +6375,7 @@
                       <Style>Solid</Style>
                       <Width>0.5pt</Width>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -6397,7 +6384,8 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Height>3.9352cm</Height>
+              <Top>0cm</Top>
+              <Height>3.86464cm</Height>
               <Width>12.11474cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
@@ -6598,6 +6586,9 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="AuthorizedLbl">
           <DataField>AuthorizedLbl</DataField>
+        </Field>
+        <Field Name="TiltLbl">
+          <DataField>TiltLbl</DataField>
         </Field>
         <Field Name="ConfirmLbl">
           <DataField>ConfirmLbl</DataField>

@@ -41,6 +41,7 @@ report 50075 "Service Work Report"
             column(HrsLbl; HrsLbl) { }
             column(CostOfRLbl; CostOfRLbl) { }
             column(AuthorizedLbl; AuthorizedLbl) { }
+            column(TiltLbl; TiltLbl) { }
             column(ConfirmLbl; ConfirmLbl) { }
             column(CreatedLbl; CreatedLbl) { }
             column(CompanyPicture; CompanyInfo.Picture) { }
@@ -353,6 +354,7 @@ report 50075 "Service Work Report"
         DisclaimerText: Text[50];
         PageBreak: Integer;
         CommentType: Enum "Service Comment Line Type";
+        TiltLbl: Label '~', Locked = true;
         TotalLbl: Label 'Total', Locked = true;
         SubtotalLbl: Label 'Sub Total', Locked = true;
         DisclaimerLbl: Label '※上記金額に、消費税は含まれておりません。';
