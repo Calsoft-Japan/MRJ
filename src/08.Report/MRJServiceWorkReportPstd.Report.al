@@ -304,51 +304,6 @@ report 50084 "Pstd. Service Work Report"
         PageBreak := 10;
     end;
 
-    var
-
-        CompanyInfo: Record "Company Information";
-        RespCenter: Record "Responsibility Center";
-        ItemLedgerEntry: Record "Item Ledger Entry";
-        FaultArea: Record "Fault Area";
-        Symptom: Record "Symptom Code";
-        Fault: Record "Fault Code";
-        Resolution: Record "Resolution Code";
-        RepairStatus: Record "Repair Status";
-        ServCommentLine: Record "Service Comment Line";
-        ReservEntry: Record "Reservation Entry";
-        Item: Record Item;
-        ItemTrackingCode: Record "Item Tracking Code";
-        LanguageRec: Codeunit Language;
-        PrintOption: Option ItemOnly,ItemAndLot,All;
-        OutputDate: Text[50];
-        CompanyAddr: array[8] of Text[50];
-        CustAddr: array[8] of Text[100];
-        FaultAreaComment: array[4] of Text[80];
-        SymptomComment: array[4] of Text[80];
-        FaultComment: array[4] of Text[80];
-        ResolutionComment: array[4] of Text[80];
-        InternalComment: array[4] of Text[80];
-        WarantyTxt: Text[10];
-        UOM: Text[50];
-        ItemLedgerCnt: Integer;
-        ServShptLineQty: Decimal;
-        ServShptLineAmt: Decimal;
-        ServShptLineLotNo: Code[20];
-        LineLoopCnt: Integer;
-        ServLineCnt: Integer;
-        GridLineCnt: Integer;
-        TotalText: Text[50];
-        TotalLineAmt: Decimal;
-        TotalLineAmtText: Text[50];
-        UnderLine: Text[100];
-        DisclaimerText: Text[50];
-        PageBreak: Integer;
-        CommentType: Enum "Service Comment Line Type";
-        TotalLbl: Label 'Total', Locked = true;
-        SubtotalLbl: Label 'Sub Total', Locked = true;
-        DisclaimerLbl: Label '※上記金額に、消費税は含まれておりません。';
-
-
     local procedure SetComment(var Comment: array[4] of Text[80]; CType: Enum "Service Comment Line Type")
     var
         LoopCnt: Integer;
@@ -477,7 +432,39 @@ report 50084 "Pstd. Service Work Report"
     end;
 
     var
-        LanguageCode: Code[10];
+        CompanyInfo: Record "Company Information";
+        ItemLedgerEntry: Record "Item Ledger Entry";
+        FaultArea: Record "Fault Area";
+        Symptom: Record "Symptom Code";
+        Fault: Record "Fault Code";
+        Resolution: Record "Resolution Code";
+        RepairStatus: Record "Repair Status";
+        ServCommentLine: Record "Service Comment Line";
+        PrintOption: Option ItemOnly,ItemAndLot,All;
+        OutputDate: Text[50];
+        CompanyAddr: array[8] of Text[50];
+        CustAddr: array[8] of Text[100];
+        FaultAreaComment: array[4] of Text[80];
+        SymptomComment: array[4] of Text[80];
+        FaultComment: array[4] of Text[80];
+        ResolutionComment: array[4] of Text[80];
+        InternalComment: array[4] of Text[80];
+        WarantyTxt: Text[10];
+        UOM: Text[50];
+        ItemLedgerCnt: Integer;
+        ServShptLineQty: Decimal;
+        ServShptLineAmt: Decimal;
+        ServShptLineLotNo: Code[20];
+        LineLoopCnt: Integer;
+        ServLineCnt: Integer;
+        GridLineCnt: Integer;
+        TotalText: Text[50];
+        TotalLineAmt: Decimal;
+        TotalLineAmtText: Text[50];
+        UnderLine: Text[100];
+        DisclaimerText: Text[50];
+        PageBreak: Integer;
+        CommentType: Enum "Service Comment Line Type";
         RepTitleLbl: Label 'Service Report';
         PageLbl: Label 'Page';
         DateLbl: Label 'Date -';
@@ -518,4 +505,6 @@ report 50084 "Pstd. Service Work Report"
         AuthorizedLbl: Label 'Authorized';
         ConfirmLbl: Label 'Confirmed';
         CreatedLbl: Label 'Created';
+        TotalLbl: Label 'Total', Locked = true;
+        DisclaimerLbl: Label '※上記金額に、消費税は含まれておりません。';
 }
