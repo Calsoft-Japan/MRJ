@@ -162,11 +162,12 @@ report 50071 "Parts Request Form"
                         BinDesc := Bin.Description;
                 end;
 
-                UserIDTxt := UserId();
-                if RecUser.Get(UserSecurityId()) then
+                UserIDTxt := LowerCase(UserId());
+                UserName := '';
+                /* if RecUser.Get(UserSecurityId()) then
                     UserName := RecUser."User Name"
                 else
-                    UserName := UserIDTxt;
+                    UserName := UserIDTxt; */
 
                 PartsTransferNo := "No.";
                 if "Parts Receive TO No. Filter" <> '' then begin
