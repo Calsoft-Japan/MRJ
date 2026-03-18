@@ -459,7 +459,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!QtyReceived.Value</Value>
+                                  <Value>=Code.BlankZero(Fields!QtyReceived.Value)</Value>
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
                                     <Format>=Fields!QtyReceivedFormat.Value</Format>
@@ -482,6 +482,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
