@@ -332,19 +332,22 @@ report 50084 "Pstd. Service Work Report"
     end;
 
     procedure ServiceShptSellToML(var AddrArray: array[8] of Text[50]; var ServiceShptHeader: Record "Service Shipment Header"; LanguageID: Integer)
+    var
+        Customer: Record Customer;
     begin
+        if Customer.Get("Service Shipment Header"."Customer No.") then;
         if LanguageID = 1041 then
             FormatAddrJPN(AddrArray,
                 ServiceShptHeader.Name, ServiceShptHeader."Name 2", ServiceShptHeader."Contact Name",
                 ServiceShptHeader.Address, ServiceShptHeader."Address 2", ServiceShptHeader.City,
                 ServiceShptHeader."Post Code", ServiceShptHeader.County, ServiceShptHeader."Country/Region Code",
-                ServiceShptHeader."Phone No.", ServiceShptHeader."Fax No.", '', '')
+                ServiceShptHeader."Phone No.", ServiceShptHeader."Fax No.", Customer.NameTitle, Customer.ContactTitle)
         else
             FormatAddrENU(AddrArray,
                 ServiceShptHeader.Name, ServiceShptHeader."Name 2", ServiceShptHeader."Contact Name",
                 ServiceShptHeader.Address, ServiceShptHeader."Address 2", ServiceShptHeader.City,
                 ServiceShptHeader."Post Code", ServiceShptHeader.County, ServiceShptHeader."Country/Region Code",
-                ServiceShptHeader."Phone No.", ServiceShptHeader."Fax No.", '', '');
+                ServiceShptHeader."Phone No.", ServiceShptHeader."Fax No.", Customer.NameTitle, Customer.ContactTitle);
     end;
 
     procedure FormatAddrJPN(var AddrArray: array[8] of Text[90];

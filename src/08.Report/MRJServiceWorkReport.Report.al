@@ -281,8 +281,7 @@ report 50075 "Service Work Report"
                 else
                     OutputDate := Format("Document Date", 0, '<Year4>/<Month,2>/<Day,2>');
 
-                CompanyML(CompanyAddr, CompanyInfo, CurrReport.Language);
-
+                CompanyML(CompanyAddr, CompanyInfo);
                 ServiceHeaderSellToML(CustAddr, "Service Header", CurrReport.Language);
             end;
         }
@@ -333,7 +332,7 @@ report 50075 "Service Work Report"
         end;
     end;
 
-    procedure CompanyML(var AddrArray: array[8] of Text[50]; var CompanyInfo: Record "Company Information"; LanguageID: Integer)
+    procedure CompanyML(var AddrArray: array[8] of Text[50]; var CompanyInfo: Record "Company Information")
     begin
         FormatAddrJPN(AddrArray,
                       CompanyInfo.Name, CompanyInfo."Name 2", '',
@@ -343,19 +342,22 @@ report 50075 "Service Work Report"
     end;
 
     procedure ServiceHeaderSellToML(var AddrArray: array[8] of Text[50]; var ServiceHeader: Record "Service Header"; LanguageID: Integer)
+    var
+        Customer: Record Customer;
     begin
+        if Customer.Get("Service Header"."Customer No.") then;
         if LanguageID = 1041 then
             FormatAddrJPN(AddrArray,
                           ServiceHeader.Name, ServiceHeader."Name 2", ServiceHeader."Contact Name",
                           ServiceHeader.Address, ServiceHeader."Address 2",
                           ServiceHeader.City, ServiceHeader."Post Code", ServiceHeader.County, ServiceHeader."Country/Region Code",
-                          ServiceHeader."Phone No.", ServiceHeader."Fax No.", '', '')
+                          ServiceHeader."Phone No.", ServiceHeader."Fax No.", Customer.NameTitle, Customer.ContactTitle)
         else
             FormatAddrENU(AddrArray,
                           ServiceHeader.Name, ServiceHeader."Name 2", ServiceHeader."Contact Name",
                           ServiceHeader.Address, ServiceHeader."Address 2",
                           ServiceHeader.City, ServiceHeader."Post Code", ServiceHeader.County, ServiceHeader."Country/Region Code",
-                          ServiceHeader."Phone No.", ServiceHeader."Fax No.", '', '');
+                          ServiceHeader."Phone No.", ServiceHeader."Fax No.", Customer.NameTitle, Customer.ContactTitle);
     end;
 
     procedure FormatAddrJPN(var AddrArray: array[8] of Text[90];
