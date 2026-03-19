@@ -244,7 +244,6 @@ page 50138 "Service Parts Transfer"
                     begin
                         RecTransferHeader.Reset();
                         RecTransferHeader.SetRange("No.", Rec."Receive Transfer");
-
                         if RecTransferHeader.FindFirst() then begin
                             Page.RunModal(Page::"Transfer Order", RecTransferHeader);
                             Refresh();
@@ -262,7 +261,6 @@ page 50138 "Service Parts Transfer"
                     begin
                         RecTransferHeader.Reset();
                         RecTransferHeader.SetRange("No.", Rec."Return Transfer");
-
                         if RecTransferHeader.FindFirst() then begin
                             Page.RunModal(Page::"Transfer Order", RecTransferHeader);
                             Refresh();
@@ -413,7 +411,6 @@ page 50138 "Service Parts Transfer"
         RecServiceLine: Record "Service Line";
         RecWarehouseEntry: Record "Warehouse Entry";
         RecTransferHeader: Record "Transfer Header";
-        RecTransferLine: Record "Transfer Line";
         LocationCode: Code[10];
         BinCode: Code[20];
         OrderNoFilter: Text[250];
@@ -546,7 +543,6 @@ page 50138 "Service Parts Transfer"
         RecServiceHeader.SetRange("Location Code", LocationCode);
         RecServiceHeader.SetRange("Bin Code", BinCode);
         RecServiceHeader.SetFilter("No.", OrderNoFilter);
-
         if RecServiceHeader.FindSet() then
             repeat
                 if ServiceOrderNoFilter = '' then
@@ -558,7 +554,10 @@ page 50138 "Service Parts Transfer"
         CurrPage.Update(false);
     end;
 
-    local procedure CreateReceiveTO(var InServiceHeader: Record 5900)
+    local procedure CreateReceiveTO(var InServiceHeader: Record "Service Header")
+    var
+        TransHdr: Record "Transfer Header";
+        TransLine: Record "Transfer Line";
     begin
         Rec.Reset();
         Rec.SetRange("Order No.", InServiceHeader."No.");
@@ -566,46 +565,49 @@ page 50138 "Service Parts Transfer"
         if not Rec.FindFirst() then
             exit;
 
-        RecTransferHeader.Reset();
-        if RecTransferHeader.Get(Rec."Receive Transfer") then begin
-            RecTransferLine.Reset();
-            RecTransferLine.SetRange("Document No.", RecTransferHeader."No.");
-            RecTransferLine.DeleteAll(true);
+        TransHdr.Reset();
+        if TransHdr.Get(Rec."Receive Transfer") then begin
+            TransLine.Reset();
+            TransLine.SetRange("Document No.", TransHdr."No.");
+            TransLine.DeleteAll(true);
         end else begin
-            RecTransferHeader."Service Order No." := Rec."Order No.";
-            RecTransferHeader."Parts Trans. Archived Ver. No." := RecTransferHeader.GetPartsTransArchVerNo();
-            RecTransferHeader.Insert(true);
+            TransHdr."Service Order No." := Rec."Order No.";
+            TransHdr."Parts Trans. Archived Ver. No." := TransHdr.GetPartsTransArchVerNo();
+            TransHdr.Insert(true);
 
-            RecTransferHeader.Validate("Transfer-from Code", FromLocationCode);
-            RecTransferHeader.Validate("Transfer-to Code", LocationCode);
-            RecTransferHeader.Modify(true);
+            TransHdr.Validate("Transfer-from Code", FromLocationCode);
+            TransHdr.Validate("Transfer-to Code", LocationCode);
+            TransHdr.Modify(true);
             if InServiceHeader."Parts Receive TO No. Filter" = '' then
-                InServiceHeader."Parts Receive TO No. Filter" := RecTransferHeader."No."
+                InServiceHeader."Parts Receive TO No. Filter" := TransHdr."No."
             else
                 InServiceHeader."Parts Receive TO No. Filter" :=
-                    InServiceHeader."Parts Receive TO No. Filter" + '|' + RecTransferHeader."No.";
+                    InServiceHeader."Parts Receive TO No. Filter" + '|' + TransHdr."No.";
             InServiceHeader.Modify(true);
         end;
 
         LineNoTmp := 0;
         if Rec.FindSet() then
             repeat
-                RecTransferLine.Init();
-                RecTransferLine."Document No." := RecTransferHeader."No.";
+                TransLine.Init();
+                TransLine."Document No." := TransHdr."No.";
                 LineNoTmp += 10000;
-                RecTransferLine."Line No." := LineNoTmp;
-                RecTransferLine.Insert(true);
+                TransLine."Line No." := LineNoTmp;
+                TransLine.Insert(true);
 
-                RecTransferLine.Validate("Item No.", Rec."Item No.");
-                RecTransferLine.Validate("Unit of Measure Code", Rec."Unit of Measure Code");
-                RecTransferLine.Validate(Quantity, Rec."Qty. to Receive");
-                RecTransferLine.Validate("Qty. to Ship", Rec."Qty. to Receive");
-                RecTransferLine.Validate("Transfer-To Bin Code", RecTransferHeader."Service Order No.");
-                RecTransferLine.Modify(true);
+                TransLine.Validate("Item No.", Rec."Item No.");
+                TransLine.Validate("Unit of Measure Code", Rec."Unit of Measure Code");
+                TransLine.Validate(Quantity, Rec."Qty. to Receive");
+                TransLine.Validate("Qty. to Ship", Rec."Qty. to Receive");
+                TransLine.Validate("Transfer-To Bin Code", TransHdr."Service Order No.");
+                TransLine.Modify(true);
             until Rec.Next() = 0;
     end;
 
-    local procedure CreateReturnTO(var InServiceHeader: Record 5900)
+    local procedure CreateReturnTO(var InServiceHeader: Record "Service Header")
+    var
+        RetTransHdr: Record "Transfer Header";
+        RetTransLine: Record "Transfer Line";
     begin
         Rec.Reset();
         Rec.SetRange("Order No.", InServiceHeader."No.");
@@ -613,41 +615,41 @@ page 50138 "Service Parts Transfer"
         if not Rec.FindFirst() then
             exit;
 
-        RecTransferHeader.Reset();
-        if RecTransferHeader.Get(Rec."Return Transfer") then begin
-            RecTransferLine.Reset();
-            RecTransferLine.SetRange("Document No.", RecTransferHeader."No.");
-            RecTransferLine.DeleteAll(true);
+        RetTransHdr.Reset();
+        if RetTransHdr.Get(Rec."Return Transfer") then begin
+            RetTransLine.Reset();
+            RetTransLine.SetRange("Document No.", RetTransHdr."No.");
+            RetTransLine.DeleteAll(true);
         end else begin
-            RecTransferHeader.Insert(true);
+            RetTransHdr.Insert(true);
 
-            RecTransferHeader.Validate("Transfer-from Code", LocationCode);
-            RecTransferHeader.Validate("Transfer-to Code", FromLocationCode);
-            RecTransferHeader.Modify(true);
+            RetTransHdr.Validate("Transfer-from Code", LocationCode);
+            RetTransHdr.Validate("Transfer-to Code", FromLocationCode);
+            RetTransHdr.Modify(true);
 
             if InServiceHeader."Parts Return TO No. Filter" = '' then
-                InServiceHeader."Parts Return TO No. Filter" := RecTransferHeader."No."
+                InServiceHeader."Parts Return TO No. Filter" := RetTransHdr."No."
             else
                 InServiceHeader."Parts Return TO No. Filter" :=
-                    InServiceHeader."Parts Return TO No. Filter" + '|' + RecTransferHeader."No.";
+                    InServiceHeader."Parts Return TO No. Filter" + '|' + RetTransHdr."No.";
             InServiceHeader.Modify(true);
         end;
 
         LineNoTmp := 0;
         if Rec.FindSet() then
             repeat
-                RecTransferLine.Init();
-                RecTransferLine."Document No." := RecTransferHeader."No.";
+                RetTransLine.Init();
+                RetTransLine."Document No." := RetTransHdr."No.";
                 LineNoTmp += 10000;
-                RecTransferLine."Line No." := LineNoTmp;
-                RecTransferLine.Insert(true);
+                RetTransLine."Line No." := LineNoTmp;
+                RetTransLine.Insert(true);
 
-                RecTransferLine.Validate("Item No.", Rec."Item No.");
-                RecTransferLine.Validate("Unit of Measure Code", Rec."Unit of Measure Code");
-                RecTransferLine.Validate(Quantity, Rec."Qty. to Return");
-                RecTransferLine.Validate("Qty. to Ship", Rec."Qty. to Return");
-                RecTransferLine.Validate("Transfer-To Bin Code", RecTransferHeader."Service Order No.");
-                RecTransferLine.Modify(true);
+                RetTransLine.Validate("Item No.", Rec."Item No.");
+                RetTransLine.Validate("Unit of Measure Code", Rec."Unit of Measure Code");
+                RetTransLine.Validate(Quantity, Rec."Qty. to Return");
+                RetTransLine.Validate("Qty. to Ship", Rec."Qty. to Return");
+                RetTransLine.Validate("Transfer-To Bin Code", RetTransHdr."Service Order No.");
+                RetTransLine.Modify(true);
             until Rec.Next() = 0;
     end;
 
