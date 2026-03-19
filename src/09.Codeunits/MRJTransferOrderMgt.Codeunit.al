@@ -1,11 +1,9 @@
-/* codeunit 50002 MRJTransferOrderMgt
+codeunit 50002 MRJTransferOrderMgt
 {
-    [EventSubscriber(ObjectType::Table, Database::"Transfer Line", 'OnAfterGetDefaultBin', '', true, true)]
-    procedure OnAfterGetDefaultBin(var TransferLine: Record "Transfer Line");
-    var
-        TransHeader: Record "Transfer Header";
+    [EventSubscriber(ObjectType::Table, Database::"Transfer Shipment Header", 'OnAfterCopyFromTransferHeader', '', true, true)]
+    procedure OnAfterGetDefaultBin(var TransferShipmentHeader: Record "Transfer Shipment Header"; TransferHeader: Record "Transfer Header");
     begin
-        TransHeader := TransferLine.GetTransferHeader();
-        if TransHeader."Default Bin Code (To)" <> '' then
-            TransferLine."Transfer-To Bin Code" := TransHeader."Default Bin Code (To)";
-    end; */
+        TransferShipmentHeader."Service Order No." := TransferHeader."Service Order No.";
+        TransferShipmentHeader."Parts Trans. Archived Ver. No." := TransferHeader."Parts Trans. Archived Ver. No.";
+    end;
+}
