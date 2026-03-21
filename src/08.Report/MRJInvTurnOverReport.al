@@ -9,7 +9,6 @@ report 50001 "Inv. Turn Over Report"
         dataitem(Item; Item)
         {
             DataItemTableView = where(Blocked = const(false));
-            RequestFilterFields = "No.";
             column(ItemNo; "No.") { }
             column(ItemName; Description) { }
             trigger OnAfterGetRecord()
@@ -22,10 +21,8 @@ report 50001 "Inv. Turn Over Report"
                 CurrYearQty := GetCurrYearInventory("No.");
                 CurrYearAvgQty := CurrYearQty / 12;
 
-                if CurrYearAvgQty > 0 then
-                    CurrYearTurnOver := CurrYearQty / CurrYearAvgQty
-                else
-                    CurrYearTurnOver := 0;
+                if CurrYearAvgQty <> 0 then
+                    CurrYearTurnOver := CurrYearQty / CurrYearAvgQty;
 
                 CalcMonthlyInventory("No.");
                 MakeExcelDataBody();
@@ -175,7 +172,22 @@ report 50001 "Inv. Turn Over Report"
                 end;
             until ItemLedEntry.Next() = 0;
 
-        if PrevYearQty > 0 then
+        if PrevYearQty <> 0 then begin
+            JanAvgQty := JanQty / PrevYearQty;
+            FebAvgQty := FebQty / PrevYearQty;
+            MarAvgQty := MarQty / PrevYearQty;
+            AprAvgQty := AprQty / PrevYearQty;
+            MayAvgQty := MayQty / PrevYearQty;
+            JunAvgQty := JunQty / PrevYearQty;
+            JulAvgQty := JulQty / PrevYearQty;
+            AugAvgQty := AugQty / PrevYearQty;
+            SepAvgQty := SepQty / PrevYearQty;
+            OctAvgQty := OctQty / PrevYearQty;
+            NovAvgQty := NovQty / PrevYearQty;
+            DecAvgQty := DecQty / PrevYearQty;
+        end;
+
+        /* if PrevYearQty > 0 then
             JanAvgQty := JanQty / PrevYearQty
         else
             JanAvgQty := 0;
@@ -233,7 +245,7 @@ report 50001 "Inv. Turn Over Report"
         if PrevYearQty > 0 then
             DecAvgQty := DecQty / PrevYearQty
         else
-            DecAvgQty := 0;
+            DecAvgQty := 0; */
     end;
 
     local procedure MakeExcelDataHeader()
@@ -333,8 +345,8 @@ report 50001 "Inv. Turn Over Report"
         TempExcelBuffer.AddColumn(Round(NovAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
         TempExcelBuffer.AddColumn(Round(DecQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
         TempExcelBuffer.AddColumn(Round(DecAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(CurrYearQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
         TempExcelBuffer.AddColumn(Round(CurrYearAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(CurrYearQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
         TempExcelBuffer.AddColumn(Round(CurrYearTurnOver, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
     end;
 
