@@ -2873,7 +2873,7 @@
         </trans-unit>
         <trans-unit id="Report 21210417 - NamedType 1341770390" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contact</source>
-          <target>担当者</target>
+          <target>連絡先</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Pstd. Service Work Report - NamedType ContactLbl</note>
         </trans-unit>
@@ -3143,7 +3143,7 @@
         </trans-unit>
         <trans-unit id="Report 1293106958 - NamedType 1341770390" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contact</source>
-          <target>担当者</target>
+          <target>連絡先</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType ContactLbl</note>
         </trans-unit>
@@ -4808,7 +4808,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Vendor Ext - Field NameTitle - Property Caption</note>
         </trans-unit>
-        
         <trans-unit id="TableExtension 398329876 - Field 3190251065 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1535614531">
           <source>For Loan Shipment</source>
           <target>貸出出荷用</target>
