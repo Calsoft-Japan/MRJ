@@ -70,7 +70,6 @@ report 50021 "MRJ Service Quotation"
             column(FaxNo_ServHeader; "Fax No.") { }
             column(EMail_ServHeader; "E-Mail") { }
             column(CustNo_ServHeader; "Customer No.") { }
-            //column(CustName; "Name") { }
             column(InvoicetoCaption; '請求先') { }
             column(AppliestoDocType_ServHeaderCaption; ServiceHeader.FieldCaption("Applies-to Doc. Type")) { }
             column(AppliestoDocNo_ServHeaderCaption; ServiceHeader.FieldCaption("Applies-to Doc. No.")) { }
