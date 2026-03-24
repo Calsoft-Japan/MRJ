@@ -71,7 +71,7 @@ report 50021 "MRJ Service Quotation"
             column(EMail_ServHeader; "E-Mail") { }
             column(CustNo_ServHeader; "Customer No.") { }
             column(CustName; "Name") { }
-            column(InvoicetoCaption; '請求先') { } // 直接テキスト、または見出し変数
+            column(InvoicetoCaption; '請求先') { }
             column(AppliestoDocType_ServHeaderCaption; ServiceHeader.FieldCaption("Applies-to Doc. Type")) { }
             column(AppliestoDocNo_ServHeaderCaption; ServiceHeader.FieldCaption("Applies-to Doc. No.")) { }
             column(ServiceOrderNo_ServHeaderCaption; 'サービス注文番号') { }
@@ -132,7 +132,7 @@ report 50021 "MRJ Service Quotation"
 
 
                     column(LineNo_ServLine; "Line No.") { }
-                    column(Type_ServLine; Type) { } // ★追加
+                    column(Type_ServLine; Type) { }
                     column(Description_ServLine; Description) { }
                     column(Quantity_ServLine; Quantity) { }
                     column(UnitPrice_ServLine; "Unit Price") { }
@@ -295,6 +295,9 @@ report 50021 "MRJ Service Quotation"
         FlatLineDiscountAmt: Decimal;
         Qty, Amt, GrossAmt, TotalAmt, TotalGrossAmt : Decimal;
         ContactName: Text[150];
+        Cust: Record Customer;
+        NameTitleText: Text[50];
+        ContactTitleText: Text[50];
 
     local procedure UpdateHeaderInfo()
     var
@@ -320,17 +323,36 @@ report 50021 "MRJ Service Quotation"
             PaymentMethodDesc := PaymentMethod.Description;
 
         CompanyInfo.Get();
-        if CompanyInfo.Picture.HasValue then CompanyInfo.CalcFields(Picture); // 画像が必要なら追加
+        if CompanyInfo.Picture.HasValue then CompanyInfo.CalcFields(Picture);
 
-        // 住所取得
+        // 1. Customer情報の取得
+        Clear(NameTitleText);
+        Clear(ContactTitleText);
+        if Cust.Get(ServiceHeader."Customer No.") then begin
+            NameTitleText := Cust.NameTitle;
+            ContactTitleText := Cust.ContactTitle;
+        end;
+
+        // 2. 住所取得（標準の並び順で取得）
         ServiceFormatAddr.ServiceHeaderSellTo(CustAddr, ServiceHeader);
         FormatAddr.Company(CompanyAddr, CompanyInfo);
 
-        // ★追加：担当者名を抜き出し、配列を掃除する
+        // 3. 担当者名 (ContactName) の加工
         ContactName := '';
         if ServiceHeader."Contact Name" <> '' then begin
             ContactName := ServiceHeader."Contact Name";
+
+            // 役職・敬称を結合
+            if ContactTitleText <> '' then
+                ContactName := ContactName + ' ' + ContactTitleText;
+
             CleanUpContactInAddress(CustAddr, ServiceHeader."Contact Name");
+        end;
+
+        // 4. 客先名 (CustAddr[1]) に敬称を付与
+        if (CustAddr[1] <> '') and (NameTitleText <> '') then begin
+            if StrPos(CustAddr[1], NameTitleText) = 0 then
+                CustAddr[1] := CustAddr[1] + ' ' + NameTitleText;
         end;
 
         TotalExclVAT := 0;
@@ -351,7 +373,7 @@ report 50021 "MRJ Service Quotation"
         Res: Record Resource;
         ResGrp: Record "Resource Group";
         ServiceMgtSetup: Record "Service Mgt. Setup";
-        TempSortBuffer: Record "Service Line" temporary; // 並び替え用の一時変数
+        TempSortBuffer: Record "Service Line" temporary;
         NextLineNo: Integer;
         CurrentResGrp: Code[20];
         TargetResGrp: Code[20];
@@ -420,7 +442,7 @@ report 50021 "MRJ Service Quotation"
                     TempServiceLine."Fault Reason Code" := '';
 
                     TempServiceLine.Quantity := ServiceLineRec.Quantity;
-                    TempServiceLine."Line Amount" := LineBaseAmount; // 値引前の金額を入れる
+                    TempServiceLine."Line Amount" := LineBaseAmount;
                     TempServiceLine."Resource Group No." := TargetResGrp;
                     if (ServiceLineRec.Type = ServiceLineRec.Type::Resource) and (TargetResGrp <> '') then
                         if ResGrp.Get(TargetResGrp) then TempServiceLine.Description := ResGrp.Name;
@@ -433,25 +455,24 @@ report 50021 "MRJ Service Quotation"
                     if FaultReasonCodeMst.Get(ServiceLineRec."Fault Reason Code") then
                         FaultReasonName := FaultReasonCodeMst.Description;
 
-                    // 一時テーブル内で「今回の原因コード」の値引専用行(Cost)が既にあるか探す
+
                     TempServiceLine.Reset();
                     TempServiceLine.SetRange(Type, TempServiceLine.Type::Cost);
                     TempServiceLine.SetRange("Fault Reason Code", ServiceLineRec."Fault Reason Code");
 
                     if TempServiceLine.FindFirst() then begin
-                        // 既にあれば金額を加算（マイナスを引く）
+                        // 既にあれば金額を加算
                         TempServiceLine."Line Amount" -= ServiceLineRec."Line Discount Amount";
                         TempServiceLine.Modify();
                     end else begin
-                        // なければ「値引用レコード」として新規作成
                         TempServiceLine.Reset();
                         TempServiceLine.Init();
                         TempServiceLine."Document Type" := ServiceLineRec."Document Type";
                         TempServiceLine."Document No." := ServiceLineRec."Document No.";
-                        TempServiceLine."Line No." := TempLineNo; // -1, -2...
+                        TempServiceLine."Line No." := TempLineNo;
                         TempLineNo -= 1;
 
-                        TempServiceLine.Type := TempServiceLine.Type::Cost; // ★ここでCostを付与
+                        TempServiceLine.Type := TempServiceLine.Type::Cost;
                         TempServiceLine."Fault Reason Code" := ServiceLineRec."Fault Reason Code";
 
                         if FaultReasonName <> '' then
@@ -475,7 +496,7 @@ report 50021 "MRJ Service Quotation"
         TempServiceLine.Reset();
         TempServiceLine.SetRange(Type, TempServiceLine.Type::Resource);
 
-        // ★修正ポイント：リソースグループ番号でソートをかける
+        // リソースグループ番号でソート
         TempServiceLine.SetCurrentKey("Resource Group No.");
 
         if TempServiceLine.FindSet() then
@@ -542,7 +563,7 @@ report 50021 "MRJ Service Quotation"
             end;
         end;
 
-        // 3. 【修正ポイント】1要素ずつ元の配列に書き戻す
+        // 3. 1要素ずつ元の配列に書き戻す
         for i := 1 to 8 do begin
             AddrArray[i] := TempArray[i];
         end;
