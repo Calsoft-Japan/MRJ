@@ -10,4 +10,19 @@ codeunit 50001 MRJServiceOrderInvoiceMgt
                 ServiceCommentLine.SetRange(Type, ServiceCommentLine.Type::Symptom);
         end;
     end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Serv-Documents Mgt.", 'OnBeforeServShptLineInsert', '', true, true)]
+    procedure OnBeforeServShptLineInsert(var ServiceShipmentLine: Record "Service Shipment Line"; ServiceLine: Record "Service Line");
+    var
+        ServLine: Record "Service Line";
+    begin
+        if ServLine.Get(ServiceLine."Document Type", ServiceLine."Document No.", ServiceLine."Line No.") then begin
+            ServiceShipmentLine.Amount := ServLine.Amount;
+            ServiceShipmentLine."Amount Including VAT" := ServLine."Amount Including VAT";
+            ServiceShipmentLine."Shipment Line Discount Amount" := ServLine."Line Discount Amount";
+            ServiceShipmentLine."Shipment Amount" := ServLine.Amount;
+            ServiceShipmentLine."Shipment Line Amount" := ServLine."Line Amount";
+            ServiceShipmentLine."Shipment Inv. Disc. Amount" := ServLine."Inv. Discount Amount";
+        end;
+    end;
 }
