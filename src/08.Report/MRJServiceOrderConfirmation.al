@@ -181,16 +181,34 @@ report 50022 "MRJ Service Order Confirmation"
                 txtDate := Format("Document Date", 0, '<Year4>年<Month,2>月<Day,2>日');
                 if CompanyInfo.Get() then CompanyInfo.CalcFields(Picture);
 
-                // 1. 住所配列を生成（この時、内部で Contact Name が配列に混ざる）
-                //FormatAddr.ServiceOrderSellto(CustAddr, Header); //Absolute Procedure
+                // 1. Customer情報の取得
+                Clear(NameTitle);
+                Clear(ContactTitle);
+                if Cust.Get(Header."Customer No.") then begin
+                    NameTitle := Cust.NameTitle;
+                    ContactTitle := Cust.ContactTitle;
+                end;
+
+                // 2. 住所配列を生成
                 SrvFormatAddr.ServiceOrderSellto(CustAddr, Header);
 
-                // 2. 担当者名を抜き出し、配列整理
+                // 3. 担当者名の取得と加工
                 ContactName := '';
                 if Header."Contact Name" <> '' then begin
+                    // 担当者名 + ContactTitle
                     ContactName := Header."Contact Name";
+                    if ContactTitle <> '' then
+                        ContactName := ContactName + ' ' + ContactTitle;
+
                     CleanUpContactInAddress(CustAddr, Header."Contact Name");
                 end;
+
+                // 4. 客先名（CustAddr[1]）に NameTitle を付与
+                if (CustAddr[1] <> '') and (NameTitle <> '') then begin
+                    if StrPos(CustAddr[1], NameTitle) = 0 then
+                        CustAddr[1] := CustAddr[1] + ' ' + NameTitle;
+                end;
+
                 FormatAddr.Company(CompanyAddr, CompanyInfo);
 
                 if PaymentTerms.Get("Payment Terms Code") then PaymentTermsDesc := PaymentTerms.Description;
@@ -250,6 +268,9 @@ report 50022 "MRJ Service Order Confirmation"
         CustAddr, CompanyAddr : array[8] of Text[100];
         PaymentTermsDesc, PaymentMethodDesc : Text[100];
         ContactName: Text[150];
+        Cust: Record Customer;
+        NameTitle: Text[30];
+        ContactTitle: Text[30];
 
     local procedure CalculateAmounts(var RecLine: Record "Service Line")
     begin
