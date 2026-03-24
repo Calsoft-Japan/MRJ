@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-01-30T08:01:59.9028226Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-24T00:54:00.3389293Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -38,7 +38,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!CustAddr1.Value+ "  " + "御中"</Value>
+                        <Value>=Fields!CustAddr1.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -49,9 +49,9 @@
                     <Style />
                   </Paragraph>
                 </Paragraphs>
-                <Top>0.44163cm</Top>
+                <Top>0.35895cm</Top>
                 <Left>1.04475cm</Left>
-                <Height>0.43772cm</Height>
+                <Height>0.5204cm</Height>
                 <Width>7.7285cm</Width>
                 <Style>
                   <Border>
@@ -108,7 +108,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!Sell_to_Contact.Value + " " + "様"</Value>
+                        <Value>=Fields!SellToContactTxt.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -2724,8 +2724,8 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="SalesPersonName">
           <DataField>SalesPersonName</DataField>
         </Field>
-        <Field Name="Sell_to_Contact">
-          <DataField>Sell_to_Contact</DataField>
+        <Field Name="SellToContactTxt">
+          <DataField>SellToContactTxt</DataField>
         </Field>
         <Field Name="TotalExclVAT">
           <DataField>TotalExclVAT</DataField>
