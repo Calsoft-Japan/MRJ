@@ -132,7 +132,8 @@ report 50084 "Pstd. Service Work Report"
                         column(TotalText; TotalText) { }
                         column(TotalLineAmtText; TotalLineAmtText) { }
                         column(DisclaimerText; DisclaimerText) { }
-                        column(ResvSerialNo; ItemLedgerEntry."Serial No.") { }
+                        column(ILELotNo; ItemLedgerEntry."Lot No.") { }
+                        column(ILESerialNo; ItemLedgerEntry."Serial No.") { }
                         trigger OnPreDataItem() //ServShptLinesInteger DataItem
                         begin
                             SetRange(Number, 1, ItemLedgerCnt);

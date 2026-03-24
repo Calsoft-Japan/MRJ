@@ -3757,7 +3757,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!SrvLineCalcAmt.Value</Value>
+                                  <Value>=Code.BlankZero(Fields!SrvLineCalcAmt.Value)</Value>
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -4035,7 +4035,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!SrvLineCalcAmt.Value</Value>
+                                  <Value>=Code.BlankZero(Fields!SrvLineCalcAmt.Value)</Value>
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -4140,7 +4140,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!SrvLineLotNo.Value</Value>
+                                  <Value>=Fields!ILELotNo.Value</Value>
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -4168,14 +4168,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="ResvSerialNo">
+                        <Textbox Name="ILESerialNo">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ResvSerialNo.Value</Value>
+                                  <Value>=Fields!ILESerialNo.Value</Value>
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -4346,7 +4346,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!SrvLineCalcAmt.Value</Value>
+                                  <Value>=Code.BlankZero(Fields!SrvLineCalcAmt.Value)</Value>
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -4369,6 +4369,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -5085,7 +5086,6 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0cm</Top>
               <Left>12.11474cm</Left>
               <Height>3.9352cm</Height>
               <Width>7.9433cm</Width>
@@ -6364,7 +6364,6 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0cm</Top>
               <Height>3.9352cm</Height>
               <Width>12.11474cm</Width>
               <ZIndex>1</ZIndex>
@@ -6813,8 +6812,11 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="DisclaimerText">
           <DataField>DisclaimerText</DataField>
         </Field>
-        <Field Name="ResvSerialNo">
-          <DataField>ResvSerialNo</DataField>
+        <Field Name="ILELotNo">
+          <DataField>ILELotNo</DataField>
+        </Field>
+        <Field Name="ILESerialNo">
+          <DataField>ILESerialNo</DataField>
         </Field>
       </Fields>
       <Query>
