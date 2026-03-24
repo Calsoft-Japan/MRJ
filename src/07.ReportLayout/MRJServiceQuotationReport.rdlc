@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-03-24T01:59:09.0587315Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-24T02:18:43.5014480Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -3440,7 +3440,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!CustName.Value</Value>
+                        <Value>=Fields!CustAddr1.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontWeight>Bold</FontWeight>
@@ -4594,9 +4594,6 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="CustNo_ServHeader">
           <DataField>CustNo_ServHeader</DataField>
-        </Field>
-        <Field Name="CustName">
-          <DataField>CustName</DataField>
         </Field>
         <Field Name="InvoicetoCaption">
           <DataField>InvoicetoCaption</DataField>
