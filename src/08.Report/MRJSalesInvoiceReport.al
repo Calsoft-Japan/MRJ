@@ -20,13 +20,14 @@ report 50014 "MRJ Sales Invoice"
 
             // ---- Identifiers ----
             column(BillToCustomerNo; "Bill-to Customer No.") { }  // 請求先得意先番号
-            column(OrderNo; "Order No.") { }                      // 受注番号（必要に応じて）
+            column(OrderNo; "Order No.") { }                      // 受注番号
 
             // ---- Customer (Left header block) ----
-            column(CustName; CustAddr[1]) { }
+            column(CustName; CustNameTxt) { }
             column(CustAddr2; "Ship-to Post Code") { }
             column(CustAddr3; "Ship-to Address") { }
             column(CustAddr4; "Ship-to Address 2") { }
+            column(CustAddr5; BillToContactTxt) { }
 
             // ---- Company (Right header block) ----
             column(CompanyName; CompanyAddr[1]) { }
@@ -71,15 +72,7 @@ report 50014 "MRJ Sales Invoice"
                 // Recommended for invoice: use posted base amount field
                 column(LineAmountExclVAT; "VAT Base Amount") { } // 税抜金額（課税標準額）
                 column(LineVATPct; "VAT %") { }                  // 税率
-
-                // If your RDLC needs a “clean” amount instead of VAT Base Amount,
-                // you can also expose Line Amount. (Uncomment if needed.)
                 column(LineAmount; "VAT Base Amount") { }
-
-                trigger OnAfterGetRecord()
-                begin
-                    // Keep dataset lightweight; invoice math uses posted fields.
-                end;
             }
 
             // =========================
@@ -159,6 +152,17 @@ report 50014 "MRJ Sales Invoice"
                 Clear(CustAddr);
                 FormatAddress.SalesInvBillTo(CustAddr, SalesInvHdr);
 
+                CustNameTxt := CustAddr[1];
+                BillToContactTxt := "Bill-to Contact";
+
+                if Customer.Get("Bill-to Customer No.") then begin
+                    if Customer."NameTitle" <> '' then
+                        CustNameTxt := CustNameTxt + ' ' + Customer."NameTitle";
+
+                    if (BillToContactTxt <> '') and (Customer."ContactTitle" <> '') then
+                        BillToContactTxt := BillToContactTxt + ' ' + Customer."ContactTitle";
+                end;
+
                 // 5) Registration line: "登録番号：{Company Information.Registration No.}"
                 CompanyRegistrationLine := BuildRegistrationLine();
 
@@ -225,6 +229,9 @@ report 50014 "MRJ Sales Invoice"
     end;
 
     var
+        Customer: Record Customer;
+        CustNameTxt: Text[100];
+        BillToContactTxt: Text[100];
         CompanyInfo: Record "Company Information";
         FormatAddress: Codeunit "Format Address";
         //Language: Codeunit "Language"; // If missing in your app, see fallback note below

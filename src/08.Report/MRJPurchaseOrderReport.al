@@ -170,6 +170,14 @@ report 50018 "MRJ Purchase Order (JP)"
                     VendAddr[1] := "Buy-from Vendor Name";
                     VendAddr[2] := "Buy-from Address";
                     VendAddr[3] := "Buy-from Address 2";
+
+                    // add NameTitle to vendor/company name
+                    if VendorRec."NameTitle" <> '' then
+                        VendAddr[1] := VendAddr[1] + ' ' + VendorRec."NameTitle";
+
+                    // add ContactTitle to contact name
+                    if (VendorContactTxt <> '') and (VendorRec."ContactTitle" <> '') then
+                        VendorContactTxt := VendorContactTxt + ' ' + VendorRec."ContactTitle";
                 end;
 
                 // Purchaser

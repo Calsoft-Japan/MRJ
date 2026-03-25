@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-02-04T00:27:51.1254369Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-24T08:59:36.2118724Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -36,7 +36,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!CustName.Value + "  " + "御中"</Value>
+                    <Value>=Fields!CustName.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -73,7 +73,10 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!CustAddr3.Value</Value>
+                    <Value>=Fields!CustAddr3.Value 
+ &amp; IIF(IsNothing(Fields!CustAddr4.Value) OR Trim(Fields!CustAddr4.Value) = "",
+       "",
+       vbCrLf &amp; Fields!CustAddr4.Value)</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1176,7 +1179,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!CustAddr4.Value</Value>
+                    <Value>=Fields!CustAddr5.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -2216,6 +2219,9 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="CustAddr4">
           <DataField>CustAddr4</DataField>
+        </Field>
+        <Field Name="CustAddr5">
+          <DataField>CustAddr5</DataField>
         </Field>
         <Field Name="CompanyName">
           <DataField>CompanyName</DataField>
