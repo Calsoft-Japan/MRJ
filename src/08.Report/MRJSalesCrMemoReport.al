@@ -21,12 +21,12 @@ report 50082 "MRJ Sales Credit Memo"
             column(PaymentMethodTxt; PaymentMethodTxt) { }
 
             // Customer address
-            column(CustAddr1; CustAddr[1]) { }
+            column(CustAddr1; CustNameTxt) { }
             column(CustAddr2; "Bill-to Customer No.") { }
             column(CustAddr3; "Bill-to Address") { }
             column(CustAddr4; "Bill-to Address 2") { }
             column(CustAddr5; "Bill-to Post Code") { }
-            column(CustAddr6; "Bill-to Contact") { }
+            column(CustAddr6; BillToContactTxt) { }
 
             // Company address
             column(CompanyAddr1; CompanyAddr[1]) { }
@@ -123,9 +123,16 @@ report 50082 "MRJ Sales Credit Memo"
                 BaseAmt: Decimal;
             begin
                 // Customer address
-                Clear(CustAddr);
-                if Customer.Get("Bill-to Customer No.") then
-                    FormatAddr.Customer(CustAddr, Customer);
+                CustNameTxt := "Bill-to Name";
+                BillToContactTxt := "Bill-to Contact";
+
+                if Customer.Get("Bill-to Customer No.") then begin
+                    if Customer."NameTitle" <> '' then
+                        CustNameTxt := CustNameTxt + ' ' + Customer."NameTitle";
+
+                    if (BillToContactTxt <> '') and (Customer."ContactTitle" <> '') then
+                        BillToContactTxt := BillToContactTxt + ' ' + Customer."ContactTitle";
+                end;
 
                 // Company information
                 CompanyInfo.Get();
@@ -207,6 +214,8 @@ report 50082 "MRJ Sales Credit Memo"
     }
 
     var
+        CustNameTxt: Text[100];
+        BillToContactTxt: Text[100];
         CompanyInfo: Record "Company Information";
         PaymentTerms: Record "Payment Terms";
         PaymentMethod: Record "Payment Method";
