@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-03-02T03:52:46.7704719Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-25T08:19:57.5909708Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -75,7 +75,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!CustName.Value+ "  " + "御中"</Value>
+                    <Value>=Fields!CustName.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -2335,11 +2335,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=IIF(
-    Len(Trim(Fields!CustAddr6.Value &amp; "")) = 0,
-    Nothing,
-    Fields!CustAddr6.Value &amp; " 様"
-)</Value>
+                    <Value>=Fields!Contact_Name.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -2354,74 +2350,6 @@
             <Height>0.50952cm</Height>
             <Width>5.97133cm</Width>
             <ZIndex>23</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox38">
-            <rd:DefaultName>Textbox12</rd:DefaultName>
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=IIF(Len(Trim(Fields!CustAddr7.Value &amp; "")) = 0, Nothing, Fields!CustAddr7.Value)</Value>
-                    <Style>
-                      <FontFamily>MS UI Gothic</FontFamily>
-                      <FontSize>9pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <Top>2.82144cm</Top>
-            <Left>0.83411cm</Left>
-            <Height>0.50952cm</Height>
-            <Width>5.97133cm</Width>
-            <ZIndex>24</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox45">
-            <rd:DefaultName>Textbox12</rd:DefaultName>
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=IIF(Len(Trim(Fields!CustAddr8.Value &amp; "")) = 0, Nothing, Fields!CustAddr8.Value)</Value>
-                    <Style>
-                      <FontFamily>MS UI Gothic</FontFamily>
-                      <FontSize>9pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <Top>3.33096cm</Top>
-            <Left>0.83411cm</Left>
-            <Height>0.50952cm</Height>
-            <Width>5.97133cm</Width>
-            <ZIndex>25</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2459,7 +2387,7 @@
             <Left>16.38027cm</Left>
             <Height>2.08649cm</Height>
             <Width>2.10038cm</Width>
-            <ZIndex>26</ZIndex>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2580,7 +2508,7 @@
             <Left>0.276cm</Left>
             <Height>1.09204cm</Height>
             <Width>10.70412cm</Width>
-            <ZIndex>27</ZIndex>
+            <ZIndex>25</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2782,7 +2710,7 @@
             <Left>4.97021cm</Left>
             <Height>0.49517cm</Height>
             <Width>7.30739cm</Width>
-            <ZIndex>28</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3512,6 +3440,9 @@ UGYVmaw820QP94rNGjZn+xwHtwsdiVGs9OW7TKaMM8OOcjP98PCeFSkgcNNGLDce5kpjwbI9oJ9h3u0+
         </Field>
         <Field Name="CustAddr8">
           <DataField>CustAddr8</DataField>
+        </Field>
+        <Field Name="Contact_Name">
+          <DataField>Contact_Name</DataField>
         </Field>
         <Field Name="CompanyName">
           <DataField>CompanyName</DataField>
