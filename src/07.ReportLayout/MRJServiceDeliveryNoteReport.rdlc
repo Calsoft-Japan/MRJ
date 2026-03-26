@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-03-02T02:18:52.1859237Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-26T09:19:17.6383771Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -70,7 +70,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!CustName.Value+ "  " + "御中"</Value>
+                    <Value>=Fields!CustName.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -886,11 +886,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=IIF(
-    Len(Trim(Fields!CustAddr2.Value &amp; "")) = 0,
-    Nothing,
-    Fields!CustAddr2.Value &amp; " 様"
-)</Value>
+                    <Value>=Fields!CustAddr2.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>

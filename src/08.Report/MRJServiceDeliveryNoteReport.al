@@ -32,8 +32,8 @@ report 50089 "MRJ Service Delivery Note"
             column(DeliveryNoteNo; "No.") { }  // 納品書番号
 
             // ---- Customer (Left header block) ----
-            column(CustName; CustAddr[1]) { }
-            column(CustAddr2; "Ship-to Contact") { }
+            column(CustName; CustNameTxt) { }
+            column(CustAddr2; ShipToContactTxt) { }
             column(CustAddr3; "Ship-to Address") { }
             column(CustAddr4; "Ship-to Address 2") { }
             column(CustAddr5; CustAddr[5]) { }
@@ -272,6 +272,17 @@ report 50089 "MRJ Service Delivery Note"
                 Clear(CustAddr);
                 FillServiceShipTo(CustAddr, SvcShipHdr);
 
+                CustNameTxt := CustAddr[1];
+                ShipToContactTxt := "Ship-to Contact";
+
+                if Customer.Get("Customer No.") then begin
+                    if Customer."NameTitle" <> '' then
+                        CustNameTxt := CustNameTxt + ' ' + Customer."NameTitle";
+
+                    if (ShipToContactTxt <> '') and (Customer."ContactTitle" <> '') then
+                        ShipToContactTxt := ShipToContactTxt + ' ' + Customer."ContactTitle";
+                end;
+
                 CompanyRegistrationLine := BuildRegistrationLine();
 
                 Clear(PaymentTermText);
@@ -338,6 +349,9 @@ report 50089 "MRJ Service Delivery Note"
     end;
 
     var
+        Customer: Record Customer;
+        CustNameTxt: Text[100];
+        ShipToContactTxt: Text[100];
         CompanyInfo: Record "Company Information";
         FormatAddress: Codeunit "Format Address";
 

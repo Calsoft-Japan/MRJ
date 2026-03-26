@@ -23,7 +23,7 @@ report 50024 "MRJ Service Cr Memo"
             column(CustomerNo; "Customer No.") { }
             column(CrMemoNo; "No.") { }
 
-            column(CustName; CustAddr[1]) { }
+            column(CustName; CustNameTxt) { }
             column(CustAddr2; CustAddr[2]) { }
             column(CustAddr3; CustAddr[3]) { }
             column(CustAddr4; CustAddr[4]) { }
@@ -31,7 +31,7 @@ report 50024 "MRJ Service Cr Memo"
             column(CustAddr6; CustAddr[6]) { }
             column(CustAddr7; CustAddr[7]) { }
             column(CustAddr8; CustAddr[8]) { }
-            column(CustAddrP; "Bill-to Contact") { }
+            column(CustAddrP; BillToContactTxt) { }
 
             column(CompanyName; CompanyAddr[1]) { }
             column(CompanyAddr2; CompanyAddr[2]) { }
@@ -229,6 +229,17 @@ report 50024 "MRJ Service Cr Memo"
                 FillPaymentBankFromCompanyInfo();
                 FillServiceCrMemoBillTo(CustAddr, SvcCrMemoHdr);
 
+                CustNameTxt := CustAddr[1];
+                BillToContactTxt := "Bill-to Contact";
+
+                if CustomerRec.Get("Customer No.") then begin
+                    if CustomerRec."NameTitle" <> '' then
+                        CustNameTxt := CustNameTxt + '  ' + CustomerRec."NameTitle";
+
+                    if (BillToContactTxt <> '') and (CustomerRec."ContactTitle" <> '') then
+                        BillToContactTxt := BillToContactTxt + '  ' + CustomerRec."ContactTitle";
+                end;
+
                 CompanyRegistrationLine := BuildRegistrationLine();
 
                 Clear(PaymentTermText);
@@ -297,6 +308,9 @@ report 50024 "MRJ Service Cr Memo"
     end;
 
     var
+        CustomerRec: Record Customer;
+        CustNameTxt: Text[100];
+        BillToContactTxt: Text[100];
         CompanyInfo: Record "Company Information";
         FormatAddress: Codeunit "Format Address";
         PaymentTerms: Record "Payment Terms";
