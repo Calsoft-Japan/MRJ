@@ -48,6 +48,8 @@ report 50089 "MRJ Service Delivery Note"
             column(CompanyAddr4; CompanyAddr[4]) { }
             column(CompanyAddr5; CompanyAddr[5]) { }
             column(CompanyAddr0; CompanyInfo."Post Code") { }
+            column(CompanyAddr6; CompanyInfo."Phone No.") { }
+            column(CompanyAddr7; CompanyInfo."Fax No.") { }
 
             // ---- Registration No. ----
             column(CompanyRegistrationLine; CompanyRegistrationLine) { }
@@ -248,7 +250,6 @@ report 50089 "MRJ Service Delivery Note"
 
             trigger OnAfterGetRecord()
             var
-                RespCenter: Record "Responsibility Center";
                 ShipLineTmp: Record "Service Shipment Line";
                 LineBase: Decimal;
                 LineVAT: Decimal;
@@ -262,10 +263,7 @@ report 50089 "MRJ Service Delivery Note"
                 DocumentDateTxt := Format("Document Date", 0, '<Year4>年<Month,2>月<Day,2>日');
 
                 Clear(CompanyAddr);
-                if ("Responsibility Center" <> '') and RespCenter.Get("Responsibility Center") then
-                    FormatAddress.RespCenter(CompanyAddr, RespCenter)
-                else
-                    FormatAddress.Company(CompanyAddr, CompanyInfo);
+                FormatAddress.Company(CompanyAddr, CompanyInfo);
 
                 FillPaymentBankFromCompanyInfo();
 

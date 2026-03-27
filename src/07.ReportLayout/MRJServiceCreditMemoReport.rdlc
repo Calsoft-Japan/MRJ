@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-03-26T09:41:52.3412914Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-27T00:33:09.5828328Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -362,7 +362,7 @@
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <Top>4.47811cm</Top>
+            <Top>4.58394cm</Top>
             <Left>10.6318cm</Left>
             <Height>14.44309pt</Height>
             <Width>7.39384cm</Width>
@@ -1939,12 +1939,15 @@
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
+                  <Visibility>
+                    <Hidden>=IIF(IsNothing(Fields!CommentText.Value) OR Trim(Fields!CommentText.Value) = "", TRUE, FALSE)</Hidden>
+                  </Visibility>
                   <KeepWithGroup>After</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
                   <Group Name="Details4" />
                   <Visibility>
-                    <Hidden>=IsNothing(Fields!CommentText.Value)</Hidden>
+                    <Hidden>=IIF(IsNothing(Fields!CommentText.Value) OR Trim(Fields!CommentText.Value) = "", TRUE, FALSE)</Hidden>
                   </Visibility>
                 </TablixMember>
               </TablixMembers>
