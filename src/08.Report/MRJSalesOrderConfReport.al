@@ -28,7 +28,7 @@ report 50012 "MRJ Sales Order Confirmation"
             column(CustAddr1; CustAddr[1]) { }
             column(CustAddr2; CustAddr[2]) { }
             column(CustAddr3; "Sell-to Address") { }
-            column(CustAddr4; "Sell-to Contact") { }
+            column(CustAddr4; SellToContactTxt) { }
             column(CustPostCode; "Sell-to Post Code") { }    // 顧客郵便番号
             column(CustNo; "Sell-to Customer No.") { }    // 顧客コード    
 
@@ -90,11 +90,25 @@ report 50012 "MRJ Sales Order Confirmation"
                 // ----- Customer order no -----
                 CustomerOrderNo := "External Document No.";
 
-                // ----- Addresses -----
-                FormatAddr.SalesHeaderSellTo(CustAddr, SalesHeader);
+                Clear(CustAddr);
+                Clear(CompanyAddr);
+                Clear(SellToContactTxt);
 
+                FormatAddr.SalesHeaderSellTo(CustAddr, SalesHeader);
                 CompanyInfo.Get();
                 FormatAddr.Company(CompanyAddr, CompanyInfo);
+
+                if Customer.Get("Sell-to Customer No.") then begin
+                    // Company name line
+                    if Customer."NameTitle" <> '' then
+                        CustAddr[1] := CustAddr[1] + ' ' + Customer."NameTitle";
+
+                    // Contact name line
+                    SellToContactTxt := "Sell-to Contact";
+                    if (SellToContactTxt <> '') and (Customer."ContactTitle" <> '') then
+                        SellToContactTxt := SellToContactTxt + ' ' + Customer."ContactTitle";
+                end else
+                    SellToContactTxt := "Sell-to Contact";
 
                 // ----- Payment terms -----
                 if "Payment Terms Code" <> '' then begin
@@ -140,11 +154,12 @@ report 50012 "MRJ Sales Order Confirmation"
 
         CustAddr: array[8] of Text[100];
         CompanyAddr: array[8] of Text[100];
-
+        Customer: Record Customer;
         OrderDateTxt: Text[50];
         CustomerOrderNo: Text[50];
         PaymentTermTxt: Text[100];
         PaymentMethodTxt: Text[100];
+        SellToContactTxt: Text[100];
 
         TotalExclVAT: Decimal;
         TotalVAT: Decimal;

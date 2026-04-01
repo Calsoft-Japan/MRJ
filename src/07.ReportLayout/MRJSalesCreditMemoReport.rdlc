@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-03-10T03:42:48.0542206Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-25T05:19:36.0706465Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -45,7 +45,7 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>6.8552cm</Top>
+            <Top>5.30914cm</Top>
             <Left>13.38137cm</Left>
             <Height>1.03919cm</Height>
             <Width>1.6496cm</Width>
@@ -94,7 +94,7 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>6.8552cm</Top>
+            <Top>5.30914cm</Top>
             <Left>15.32729cm</Left>
             <Height>1.03919cm</Height>
             <Width>1.69015cm</Width>
@@ -149,7 +149,7 @@
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <Top>6.34107cm</Top>
+            <Top>4.79501cm</Top>
             <Left>13.38137cm</Left>
             <Height>0.51412cm</Height>
             <Width>1.6496cm</Width>
@@ -205,7 +205,7 @@
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <Top>6.34106cm</Top>
+            <Top>4.795cm</Top>
             <Left>15.32729cm</Left>
             <Height>0.51412cm</Height>
             <Width>1.69015cm</Width>
@@ -432,7 +432,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Top>10.08465cm</Top>
+            <Top>8.53859cm</Top>
             <Left>5.19415cm</Left>
             <Height>0.49517cm</Height>
             <Width>6.33322cm</Width>
@@ -464,7 +464,7 @@
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <Top>10.08465cm</Top>
+            <Top>8.53859cm</Top>
             <Left>14.69383cm</Left>
             <Height>0.49417cm</Height>
             <Width>2.32361cm</Width>
@@ -499,7 +499,7 @@
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <Top>10.64936cm</Top>
+            <Top>9.1033cm</Top>
             <Left>14.69383cm</Left>
             <Height>0.45183cm</Height>
             <Width>2.32361cm</Width>
@@ -535,7 +535,7 @@
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <Top>11.17175cm</Top>
+            <Top>9.62569cm</Top>
             <Left>14.69383cm</Left>
             <Height>0.49417cm</Height>
             <Width>2.32361cm</Width>
@@ -571,7 +571,7 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>10.08465cm</Top>
+            <Top>8.53859cm</Top>
             <Left>12.38433cm</Left>
             <Height>0.49417cm</Height>
             <Width>2.27422cm</Width>
@@ -607,7 +607,7 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>10.64936cm</Top>
+            <Top>9.1033cm</Top>
             <Left>12.38433cm</Left>
             <Height>0.45183cm</Height>
             <Width>2.27422cm</Width>
@@ -643,7 +643,7 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>11.17175cm</Top>
+            <Top>9.62569cm</Top>
             <Left>12.38433cm</Left>
             <Height>0.49417cm</Height>
             <Width>2.27422cm</Width>
@@ -1385,7 +1385,7 @@
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
             <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>DataSet_Result</DataSetName>
-            <Top>8.30292cm</Top>
+            <Top>6.75686cm</Top>
             <Left>0.34525cm</Left>
             <Height>1.25221cm</Height>
             <Width>16.67219cm</Width>
@@ -1441,7 +1441,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!CustAddr1.Value + "  " + "御中"</Value>
+                        <Value>=Fields!CustAddr1.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -1556,11 +1556,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=IIF(
-    Len(Trim(Fields!CustAddr6.Value &amp; "")) = 0,
-    Nothing,
-    Fields!CustAddr6.Value &amp; " 様"
-)</Value>
+                        <Value>=Fields!CustAddr6.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -1740,11 +1736,7 @@ IIF(IsNothing(Fields!CompanyAddrEN.Value) OR Fields!CompanyAddrEN.Value = "",
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!CompanyAddr1.Value &amp;
-IIF(IsNothing(Fields!CompanyNameEN.Value) OR Fields!CompanyNameEN.Value = "",
-    "",
-    vbCrLf &amp; Fields!CompanyNameEN.Value
-)</Value>
+                    <Value>=Fields!CompanyAddr2.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>

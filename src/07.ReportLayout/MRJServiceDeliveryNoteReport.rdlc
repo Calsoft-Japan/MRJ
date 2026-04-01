@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-03-02T02:18:52.1859237Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-27T01:10:27.2079394Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -70,7 +70,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!CustName.Value+ "  " + "御中"</Value>
+                    <Value>=Fields!CustName.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -886,11 +886,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=IIF(
-    Len(Trim(Fields!CustAddr2.Value &amp; "")) = 0,
-    Nothing,
-    Fields!CustAddr2.Value &amp; " 様"
-)</Value>
+                    <Value>=Fields!CustAddr2.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -2820,7 +2816,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Tel.  ｻｰﾋﾞｽ 050-2018-7306 ﾊﾟｰﾂ 050-2018-7307</Value>
+                    <Value>="Tel." + " " +Fields!CompanyAddr6.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -2850,7 +2846,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Fax.  ｻｰﾋﾞｽ 050-2018-7322 ﾊﾟｰﾂ 050-2018-7323</Value>
+                    <Value>="Fax." + " " + Fields!CompanyAddr7.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -4619,6 +4615,12 @@ UGYVmaw820QP94rNGjZn+xwHtwsdiVGs9OW7TKaMM8OOcjP98PCeFSkgcNNGLDce5kpjwbI9oJ9h3u0+
         </Field>
         <Field Name="CompanyAddr0">
           <DataField>CompanyAddr0</DataField>
+        </Field>
+        <Field Name="CompanyAddr6">
+          <DataField>CompanyAddr6</DataField>
+        </Field>
+        <Field Name="CompanyAddr7">
+          <DataField>CompanyAddr7</DataField>
         </Field>
         <Field Name="CompanyRegistrationLine">
           <DataField>CompanyRegistrationLine</DataField>

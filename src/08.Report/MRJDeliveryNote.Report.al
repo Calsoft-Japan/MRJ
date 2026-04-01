@@ -31,11 +31,12 @@ report 50027 "MRJ Delivery Note"
             column(CompanyAddr5; CompanyInfo."Phone No.") { }
 
             // Ship-to (left)
-            column(CustName; "Ship-to Name") { }
+            column(CustName; ShipToNameTxt) { }
             column(CustAddr1; "Ship-to Post Code") { }
             column(CustAddr2; "Ship-to Address") { }
             column(CustAddr3; "Ship-to Address 2") { }
-            column(CustAddr4; "Ship-to Contact") { }
+            column(CustAddr4; ShipToContactTxt) { }
+
 
             // Qualified invoice requirement
             column(CompanyRegistrationNo; CompanyInfo."VAT Registration No.") { }
@@ -121,6 +122,17 @@ report 50027 "MRJ Delivery Note"
                     SalesHeader.SetRange("No.", "Order No.");
                     if SalesHeader.FindFirst() then
                         CustomerOrderNo := SalesHeader."External Document No.";
+                end;
+
+                ShipToNameTxt := "Ship-to Name";
+                ShipToContactTxt := "Ship-to Contact";
+
+                if Customer.Get("Sell-to Customer No.") then begin
+                    if Customer."NameTitle" <> '' then
+                        ShipToNameTxt := ShipToNameTxt + '  ' + Customer."NameTitle";
+
+                    if (ShipToContactTxt <> '') and (Customer."ContactTitle" <> '') then
+                        ShipToContactTxt := ShipToContactTxt + ' ' + Customer."ContactTitle";
                 end;
 
                 TotalExclVAT := 0;
@@ -231,6 +243,10 @@ report 50027 "MRJ Delivery Note"
         PostingDateTxt: Text[50];
         ShipmentDateTxt: Text[50];
         CustomerOrderNo: Text[50];
+
+        Customer: Record Customer;
+        ShipToNameTxt: Text[100];
+        ShipToContactTxt: Text[100];
 
         LineBase: Decimal;
         LineAmtExclVAT: Decimal;

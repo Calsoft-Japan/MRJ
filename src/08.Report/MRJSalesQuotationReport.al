@@ -55,7 +55,7 @@ report 50011 "MRJ Sales Quotation"
             column(CompanyFaxNo; CompanyInfo."Fax No.") { }   // 会社FAX番号
             column(CompanyPhoneNo; CompanyInfo."Phone No.") { } // 会社電話番号
             column(SalesPersonName; SalesPersonTxt) { }        // 担当者名
-            column(Sell_to_Contact; "Sell-to Contact") { }         // 請求先担当者
+            column(SellToContactTxt; SellToContactTxt) { }         // 請求先担当者
 
             // Totals for bottom-right
             column(TotalExclVAT; TotalExclVAT) { }             // 消費税抜合計
@@ -119,9 +119,22 @@ report 50011 "MRJ Sales Quotation"
                     ExpirationDateTxt := '';
 
                 // ----- Addresses -----
+                Clear(CustAddr);
+                Clear(CompanyAddr);
+
                 FormatAddr.SalesHeaderSellTo(CustAddr, SalesHeader);
                 CompanyInfo.Get();
                 FormatAddr.Company(CompanyAddr, CompanyInfo);
+
+                if Customer.Get("Sell-to Customer No.") then begin
+                    if Customer."NameTitle" <> '' then
+                        CustAddr[1] := CustAddr[1] + ' ' + Customer."NameTitle";
+
+                    SellToContactTxt := "Sell-to Contact";
+                    if (SellToContactTxt <> '') and (Customer."ContactTitle" <> '') then
+                        SellToContactTxt := SellToContactTxt + ' ' + Customer."ContactTitle";
+                end else
+                    SellToContactTxt := "Sell-to Contact";
 
                 // ----- Salesperson -----
                 if "Salesperson Code" <> '' then begin
@@ -183,6 +196,8 @@ report 50011 "MRJ Sales Quotation"
 
         CustAddr: array[8] of Text[100];
         CompanyAddr: array[8] of Text[100];
+        Customer: Record Customer;
+        SellToContactTxt: Text[20];
 
         TitleTxt: Text[50];
         QuoteDateTxt: Text[50];

@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-03-11T01:59:59.6507117Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-25T07:00:15.6459639Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -1604,7 +1604,7 @@ vbCrLf &amp; Fields!ShipToAddr4.Value)</Value>
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!VendorAddr1.Value+ "  " + "御中"</Value>
+                        <Value>=Fields!VendorAddr1.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -1650,7 +1650,7 @@ vbCrLf &amp; Fields!ShipToAddr4.Value)</Value>
                     <Style />
                   </Paragraph>
                 </Paragraphs>
-                <Top>2.18243cm</Top>
+                <Top>2.01375cm</Top>
                 <Left>0cm</Left>
                 <Height>0.48708cm</Height>
                 <Width>6.9083cm</Width>
@@ -1681,7 +1681,7 @@ vbCrLf &amp; Fields!ShipToAddr4.Value)</Value>
                     <Style />
                   </Paragraph>
                 </Paragraphs>
-                <Top>2.74006cm</Top>
+                <Top>2.57138cm</Top>
                 <Left>0cm</Left>
                 <Height>0.42806cm</Height>
                 <Width>6.9083cm</Width>
@@ -1777,12 +1777,7 @@ vbCrLf &amp; Fields!ShipToAddr4.Value)</Value>
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=IIF(
-    IsNothing(Fields!VendorContact.Value) OR 
-    Trim(Fields!VendorContact.Value) = "",
-    "",
-    Fields!VendorContact.Value &amp; " 様"
-)</Value>
+                        <Value>=Fields!VendorContact.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>8pt</FontSize>
@@ -1792,9 +1787,9 @@ vbCrLf &amp; Fields!ShipToAddr4.Value)</Value>
                     <Style />
                   </Paragraph>
                 </Paragraphs>
-                <Top>3.34451cm</Top>
+                <Top>3.10527cm</Top>
                 <Left>0cm</Left>
-                <Height>0.42806cm</Height>
+                <Height>0.49862cm</Height>
                 <Width>6.9083cm</Width>
                 <ZIndex>5</ZIndex>
                 <Style>

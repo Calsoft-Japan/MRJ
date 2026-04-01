@@ -32,8 +32,8 @@ report 50089 "MRJ Service Delivery Note"
             column(DeliveryNoteNo; "No.") { }  // 納品書番号
 
             // ---- Customer (Left header block) ----
-            column(CustName; CustAddr[1]) { }
-            column(CustAddr2; "Ship-to Contact") { }
+            column(CustName; CustNameTxt) { }
+            column(CustAddr2; ShipToContactTxt) { }
             column(CustAddr3; "Ship-to Address") { }
             column(CustAddr4; "Ship-to Address 2") { }
             column(CustAddr5; CustAddr[5]) { }
@@ -48,6 +48,8 @@ report 50089 "MRJ Service Delivery Note"
             column(CompanyAddr4; CompanyAddr[4]) { }
             column(CompanyAddr5; CompanyAddr[5]) { }
             column(CompanyAddr0; CompanyInfo."Post Code") { }
+            column(CompanyAddr6; CompanyInfo."Phone No.") { }
+            column(CompanyAddr7; CompanyInfo."Fax No.") { }
 
             // ---- Registration No. ----
             column(CompanyRegistrationLine; CompanyRegistrationLine) { }
@@ -248,7 +250,6 @@ report 50089 "MRJ Service Delivery Note"
 
             trigger OnAfterGetRecord()
             var
-                RespCenter: Record "Responsibility Center";
                 ShipLineTmp: Record "Service Shipment Line";
                 LineBase: Decimal;
                 LineVAT: Decimal;
@@ -262,15 +263,23 @@ report 50089 "MRJ Service Delivery Note"
                 DocumentDateTxt := Format("Document Date", 0, '<Year4>年<Month,2>月<Day,2>日');
 
                 Clear(CompanyAddr);
-                if ("Responsibility Center" <> '') and RespCenter.Get("Responsibility Center") then
-                    FormatAddress.RespCenter(CompanyAddr, RespCenter)
-                else
-                    FormatAddress.Company(CompanyAddr, CompanyInfo);
+                FormatAddress.Company(CompanyAddr, CompanyInfo);
 
                 FillPaymentBankFromCompanyInfo();
 
                 Clear(CustAddr);
                 FillServiceShipTo(CustAddr, SvcShipHdr);
+
+                CustNameTxt := CustAddr[1];
+                ShipToContactTxt := "Ship-to Contact";
+
+                if Customer.Get("Customer No.") then begin
+                    if Customer."NameTitle" <> '' then
+                        CustNameTxt := CustNameTxt + ' ' + Customer."NameTitle";
+
+                    if (ShipToContactTxt <> '') and (Customer."ContactTitle" <> '') then
+                        ShipToContactTxt := ShipToContactTxt + ' ' + Customer."ContactTitle";
+                end;
 
                 CompanyRegistrationLine := BuildRegistrationLine();
 
@@ -338,6 +347,9 @@ report 50089 "MRJ Service Delivery Note"
     end;
 
     var
+        Customer: Record Customer;
+        CustNameTxt: Text[100];
+        ShipToContactTxt: Text[100];
         CompanyInfo: Record "Company Information";
         FormatAddress: Codeunit "Format Address";
 

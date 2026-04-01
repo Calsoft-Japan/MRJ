@@ -27,7 +27,7 @@ report 50023 "MRJ Service Invoice"
             column(InvNo; "No.") { }
 
             // ---- Customer (Left header block) ----
-            column(CustName; CustAddr[1]) { }
+            column(CustName; CustNameTxt) { }
             column(CustAddr2; CustAddr[2]) { }
             column(CustAddr3; CustAddr[3]) { }
             column(CustAddr4; CustAddr[4]) { }
@@ -35,6 +35,7 @@ report 50023 "MRJ Service Invoice"
             column(CustAddr6; CustAddr[6]) { }
             column(CustAddr7; CustAddr[7]) { } // TEL
             column(CustAddr8; CustAddr[8]) { } // FAX
+            column(Contact_Name; BillToContactTxt) { }
 
             // ---- Company (Right header block) ----
             column(CompanyName; CompanyAddr[1]) { }
@@ -178,6 +179,17 @@ report 50023 "MRJ Service Invoice"
                 Clear(CustAddr);
                 FillServiceInvBillTo(CustAddr, SvcInvHdr);
 
+                CustNameTxt := CustAddr[1];
+                BillToContactTxt := "Contact Name";
+
+                if Customer.Get(SvcInvHdr."Customer No.") then begin
+                    if Customer."NameTitle" <> '' then
+                        CustNameTxt := CustNameTxt + '  ' + Customer."NameTitle";
+
+                    if (BillToContactTxt <> '') and (Customer."ContactTitle" <> '') then
+                        BillToContactTxt := BillToContactTxt + '  ' + Customer."ContactTitle";
+                end;
+
                 // Registration line
                 CompanyRegistrationLine := BuildRegistrationLine();
 
@@ -274,6 +286,9 @@ report 50023 "MRJ Service Invoice"
         TotalExclVAT: Decimal;
         TotalVAT: Decimal;
         TotalInclVAT: Decimal;
+        Customer: Record Customer;
+        CustNameTxt: Text[100];
+        BillToContactTxt: Text[100];
 
         VatSummaryDict: Dictionary of [Decimal, Decimal];
         VatPctList: List of [Decimal];
