@@ -136,10 +136,8 @@ report 50071 "Parts Request Form"
                 begin
                     ShowLineCnt := 1;
                     Qty := ("Qty. to Use" - "Qty. Received");
-                    if Qty < 1 then begin
+                    if Qty < 1 then
                         CurrReport.Skip();
-                        exit;
-                    end;
 
                     if Item.Get("Item No.") then begin
                         if ItemTrackingCode.Get(Item."Item Tracking Code") then
@@ -163,11 +161,6 @@ report 50071 "Parts Request Form"
                 end;
 
                 UserIDTxt := LowerCase(UserId());
-                UserName := '';
-                /* if RecUser.Get(UserSecurityId()) then
-                    UserName := RecUser."User Name"
-                else
-                    UserName := UserIDTxt; */
 
                 PartsTransferNo := "No.";
                 if "Parts Receive TO No. Filter" <> '' then begin

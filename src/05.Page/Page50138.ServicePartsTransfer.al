@@ -256,7 +256,6 @@ page 50138 "Service Parts Transfer"
                 field("Return Transfer"; Rec."Return Transfer")
                 {
                     ApplicationArea = All;
-
                     trigger OnLookup(var Text: Text): Boolean
                     begin
                         RecTransferHeader.Reset();
@@ -265,7 +264,6 @@ page 50138 "Service Parts Transfer"
                             Page.RunModal(Page::"Transfer Order", RecTransferHeader);
                             Refresh();
                         end;
-
                         exit(true);
                     end;
                 }
@@ -341,45 +339,6 @@ page 50138 "Service Parts Transfer"
                 end;
             }
         }
-
-        area(reporting)
-        {
-            /* action(PrintServiceReport)
-            {
-                Caption = 'Service Report';
-                ApplicationArea = All;
-
-                trigger OnAction()
-                begin
-                    if ServiceOrderNoFilter = '' then
-                        exit;
-
-                    RecServiceHeader.Reset();
-                    RecServiceHeader.SetRange("Document Type", RecServiceHeader."Document Type"::Order);
-                    RecServiceHeader.SetFilter("No.", ServiceOrderNoFilter);
-
-                    Report.Run(Report::"Service Work Report", true, false, RecServiceHeader);
-                end;
-            }
-
-            action(PrintPartsRequest)
-            {
-                Caption = 'Parts Request';
-                ApplicationArea = All;
-
-                trigger OnAction()
-                begin
-                    if ServiceOrderNoFilter = '' then
-                        exit;
-
-                    RecServiceHeader.Reset();
-                    RecServiceHeader.SetRange("Document Type", RecServiceHeader."Document Type"::Order);
-                    RecServiceHeader.SetFilter("No.", ServiceOrderNoFilter);
-
-                    Report.Run(Report::"Parts Request Form", true, false, RecServiceHeader);
-                end;
-            } */
-        }
     }
 
     trigger OnOpenPage()
@@ -419,7 +378,6 @@ page 50138 "Service Parts Transfer"
         FromLocationCode: Code[10];
         FromBinCode: Code[20];
         TransNoFilter: Text[1024];
-        ServiceOrderNoFilter: Text[1024];
         GFromLocationCode: Code[10];
         GFromBinCode: Code[20];
         LineNoTmp: Integer;
@@ -489,7 +447,6 @@ page 50138 "Service Parts Transfer"
                     RecWarehouseEntry.SetRange("Location Code", LocationCode);
                     RecWarehouseEntry.SetRange("Bin Code", BinCode);
                     RecWarehouseEntry.SetFilter("Source No.", TransNoFilter);
-
                     if RecWarehouseEntry.FindSet() then
                         repeat
                             if Rec.Get(RecServiceHeader."No.", RecWarehouseEntry."Item No.") then begin
@@ -527,16 +484,18 @@ page 50138 "Service Parts Transfer"
                 end;
 
                 if (Rec."Qty. to Return" > 0) and (Rec."Return TO No. Filter" <> '') then begin
-                    RecTransferHeader.Reset();
+                    Clear(RecTransferHeader);
                     RecTransferHeader.SetFilter("No.", Rec."Return TO No. Filter");
                     if RecTransferHeader.FindLast() then
                         Rec."Return Transfer" := RecTransferHeader."No.";
                 end;
-
                 Rec.Modify();
             until Rec.Next() = 0;
 
-        // ServiceOrderNoFilter
+        Rec.Reset();
+        //CurrPage.Update(false);
+
+        /* // ServiceOrderNoFilter
         ServiceOrderNoFilter := '';
         RecServiceHeader.Reset();
         RecServiceHeader.SetRange("Document Type", RecServiceHeader."Document Type"::Order);
@@ -549,9 +508,7 @@ page 50138 "Service Parts Transfer"
                     ServiceOrderNoFilter := RecServiceHeader."No."
                 else
                     ServiceOrderNoFilter := ServiceOrderNoFilter + '|' + RecServiceHeader."No.";
-            until RecServiceHeader.Next() = 0;
-
-        CurrPage.Update(false);
+            until RecServiceHeader.Next() = 0; */
     end;
 
     local procedure CreateReceiveTO(var InServiceHeader: Record "Service Header")
