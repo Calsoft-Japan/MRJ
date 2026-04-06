@@ -578,6 +578,8 @@ page 50138 "Service Parts Transfer"
             RetTransLine.SetRange("Document No.", RetTransHdr."No.");
             RetTransLine.DeleteAll(true);
         end else begin
+            RetTransHdr."Service Order No." := Rec."Order No.";
+            RetTransHdr."Parts Trans. Archived Ver. No." := RetTransHdr.GetPartsTransArchVerNo();
             RetTransHdr.Insert(true);
 
             RetTransHdr.Validate("Transfer-from Code", LocationCode);
@@ -605,7 +607,7 @@ page 50138 "Service Parts Transfer"
                 RetTransLine.Validate("Unit of Measure Code", Rec."Unit of Measure Code");
                 RetTransLine.Validate(Quantity, Rec."Qty. to Return");
                 RetTransLine.Validate("Qty. to Ship", Rec."Qty. to Return");
-                RetTransLine.Validate("Transfer-To Bin Code", RetTransHdr."Service Order No.");
+                RetTransLine.Validate("Transfer-From Bin Code", RetTransHdr."Service Order No.");
                 RetTransLine.Modify(true);
             until Rec.Next() = 0;
     end;
