@@ -83,11 +83,12 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet"
     }
     local procedure CreatePurchOrder(IsOutsource: Boolean)
     var
-        ServMgtSetup: Record "Service Mgt. Setup";
         Vendor: Record Vendor;
+        ServMgtSetup: Record "Service Mgt. Setup";
         PurchHeader: Record "Purchase Header";
         PurchLine: Record "Purchase Line";
         ServLine: Record "Service Line";
+        MRJDimLinkMgt: Codeunit MRJDimensionLinkMgt;
         VendorNo: Code[20];
     begin
         Clear(Vendor);
@@ -106,11 +107,10 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet"
         PurchHeader."Responsibility Center" := Rec."Responsibility Center";
         PurchHeader."Shortcut Dimension 1 Code" := Rec."Shortcut Dimension 1 Code";
         PurchHeader."Shortcut Dimension 2 Code" := Rec."Shortcut Dimension 2 Code";
-        //PurchHeader."Dimension Set ID" := Rec."Dimension Set ID";
         PurchHeader.Modify(true);
 
         if Rec."Document Type" = Rec."Document Type"::Order then
-            CpySVIDocDim2POPI(PurchHeader);
+            MRJDimLinkMgt.CpySVIDocDim2POPI(PurchHeader);
 
         if IsOutsource then begin
             ServMgtSetup.Get();
@@ -149,182 +149,6 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet"
             Commit();
             Page.RunModal(Page::"Purchase Order", PurchHeader);
         end;
-    end;
-
-    procedure CpySVIDocDim2POPI(var PurchHeader: Record "Purchase Header")
-    var
-        SrvMgtSetup: Record "Service Mgt. Setup";
-        TempDimSetEntry: Record "Dimension Set Entry" temporary;
-        FromDimSetEntry: Record "Dimension Set Entry";
-        ServHeader: Record "Service Header";
-        ServItemLine: Record "Service Item Line";
-        DimMgt: Codeunit DimensionManagement;
-        DimSetID: Integer;
-        DimCode: Code[20];
-        iLoop: Integer;
-        Found: Boolean;
-    begin
-        if (PurchHeader."Document Type" <> PurchHeader."Document Type"::Order) and
-           (PurchHeader."Document Type" <> PurchHeader."Document Type"::Invoice)
-        then
-            exit;
-
-        if PurchHeader."No." = '' then
-            exit;
-
-        SrvMgtSetup.Get();
-
-        if not SrvMgtSetup."Enable Dimension Link" then
-            exit;
-        SrvMgtSetup.TestField("Sales Order Dim Code");
-        SrvMgtSetup.TestField("Service Order Dim Code");
-        SrvMgtSetup.TestField("Service Order Type Dim Code");
-        SrvMgtSetup.TestField("Cost Center Dim Code");
-
-        DimMgt.GetDimensionSet(TempDimSetEntry, PurchHeader."Dimension Set ID");
-
-        for iLoop := 1 to 5 do begin
-            case iLoop of
-                1:
-                    DimCode := SrvMgtSetup."Sales Order Dim Code";
-                2:
-                    DimCode := SrvMgtSetup."Service Order Dim Code";
-                3:
-                    DimCode := SrvMgtSetup."Service Order Type Dim Code";
-                4:
-                    DimCode := SrvMgtSetup."Cost Center Dim Code";
-                5:
-                    DimCode := SrvMgtSetup."Proserv Dim Code";
-            end;
-
-            if (iLoop <> 1) or SrvMgtSetup."Enable SO Dim Code Copy" then begin
-                Found := false;
-                // From Service Header
-                if ServHeader.Get(ServHeader."Document Type"::Order, PurchHeader."Service Order No.") then begin
-                    FromDimSetEntry.SetRange("Dimension Set ID", ServHeader."Dimension Set ID");
-                    FromDimSetEntry.SetRange("Dimension Code", DimCode);
-                    if FromDimSetEntry.FindFirst() then begin
-                        ReplaceDim(TempDimSetEntry, DimCode, FromDimSetEntry."Dimension Value Code");
-                        Found := true;
-                    end;
-                end;
-
-                //From Service Item Line (override)
-                if ServItemLine.Get(ServItemLine."Document Type"::Order, PurchHeader."Service Order No.",
-                                    PurchHeader."Service Item Line No.") then begin
-                    FromDimSetEntry.Reset();
-                    FromDimSetEntry.SetRange("Dimension Set ID", ServItemLine."Dimension Set ID");
-                    FromDimSetEntry.SetRange("Dimension Code", DimCode);
-                    if FromDimSetEntry.FindFirst() then begin
-                        ReplaceDim(TempDimSetEntry, DimCode, FromDimSetEntry."Dimension Value Code");
-                        Found := true;
-                    end;
-                end;
-
-                if not Found then begin
-                    if iLoop <> 5 then
-                        Error('Dimension %1 not found.', DimCode);
-                end;
-            end;
-        end;
-
-        //Create new Dimension Set ID
-        DimSetID := DimMgt.GetDimensionSetID(TempDimSetEntry);
-
-        PurchHeader."Dimension Set ID" := DimSetID;
-        PurchHeader.Modify(true);
-
-        // Optional backup logic
-        BakPOPIDocDim(PurchHeader);
-    end;
-
-    local procedure ReplaceDim(var TempDimSetEntry: Record "Dimension Set Entry" temporary; DimCode: Code[20]; DimValue: Code[20])
-    begin
-        TempDimSetEntry.SetRange("Dimension Code", DimCode);
-        if TempDimSetEntry.FindFirst() then
-            TempDimSetEntry.DeleteAll();
-
-        TempDimSetEntry.Reset();
-
-        TempDimSetEntry.Init();
-        TempDimSetEntry."Dimension Code" := DimCode;
-        TempDimSetEntry."Dimension Value Code" := DimValue;
-        TempDimSetEntry.Insert(true);
-    end;
-
-    local procedure InsertTempDim(var TempDimSetEntry: Record "Dimension Set Entry" temporary; DimCode: Code[20]; DimValue: Code[20])
-    begin
-        TempDimSetEntry.Init();
-        TempDimSetEntry."Dimension Code" := DimCode;
-        TempDimSetEntry."Dimension Value Code" := DimValue;
-        if not TempDimSetEntry.Insert(true) then
-            TempDimSetEntry.Modify();
-    end;
-
-    procedure BakPOPIDocDim(var PurchHeader: Record "Purchase Header")
-    var
-        SrvMgtSetup: Record "Service Mgt. Setup";
-        DimSetEntry: Record "Dimension Set Entry";
-        DimCode: Code[20];
-    begin
-        if (PurchHeader."Document Type" <> PurchHeader."Document Type"::Order) and
-           (PurchHeader."Document Type" <> PurchHeader."Document Type"::Invoice) and
-           (PurchHeader."Document Type" <> PurchHeader."Document Type"::"Credit Memo")
-        then
-            exit;
-
-        if PurchHeader."No." = '' then
-            exit;
-
-        SrvMgtSetup.Get();
-
-        if not SrvMgtSetup."Enable Dimension Link" then
-            exit;
-
-        //Clear custom fields
-        PurchHeader."Sales Order Dim Code" := '';
-        PurchHeader."Service Order Dim Code" := '';
-        PurchHeader."Service Order Type Dim Code" := '';
-        PurchHeader."Cost Center Dim Code" := '';
-        PurchHeader."Proserv Dim Code" := '';
-
-        //Sales Order Dimension
-        DimCode := SrvMgtSetup."Sales Order Dim Code";
-        PurchHeader."Sales Order Dim Code" := GetDimValue(PurchHeader."Dimension Set ID", DimCode);
-
-        //Service Order Dimension
-        DimCode := SrvMgtSetup."Service Order Dim Code";
-        PurchHeader."Service Order Dim Code" := GetDimValue(PurchHeader."Dimension Set ID", DimCode);
-
-        //Service Order Type Dimension
-        DimCode := SrvMgtSetup."Service Order Type Dim Code";
-        PurchHeader."Service Order Type Dim Code" := GetDimValue(PurchHeader."Dimension Set ID", DimCode);
-
-        //Cost Center Dimension
-        DimCode := SrvMgtSetup."Cost Center Dim Code";
-        PurchHeader."Cost Center Dim Code" := GetDimValue(PurchHeader."Dimension Set ID", DimCode);
-
-        //Proserv Dimension
-        DimCode := SrvMgtSetup."Proserv Dim Code";
-        PurchHeader."Proserv Dim Code" := GetDimValue(PurchHeader."Dimension Set ID", DimCode);
-
-        PurchHeader.Modify();
-    end;
-
-    local procedure GetDimValue(DimSetID: Integer; DimCode: Code[20]): Code[20]
-    var
-        DimSetEntry: Record "Dimension Set Entry";
-    begin
-        if DimSetID = 0 then
-            exit('');
-
-        DimSetEntry.SetRange("Dimension Set ID", DimSetID);
-        DimSetEntry.SetRange("Dimension Code", DimCode);
-
-        if DimSetEntry.FindFirst() then
-            exit(DimSetEntry."Dimension Value Code");
-
-        exit('');
     end;
 
     var
