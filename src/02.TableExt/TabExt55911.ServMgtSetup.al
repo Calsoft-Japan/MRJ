@@ -4,12 +4,12 @@ tableextension 55911 "Serv. Mgt. Setup Ext" extends "Service Mgt. Setup"
     {
         field(50100; "Resource Group Filter"; Text[250])
         {
-            Caption = '作業費リソースグループフィルター';
+            Caption = 'Resource Group Filter';  //作業費リソースグループフィルター
             DataClassification = CustomerContent;
         }
         field(50101; "Resource Group for Sort"; Code[20])
         {
-            Caption = 'ソード優先リソースグループ';
+            Caption = 'Resource Group for Sort';  //ソード優先リソースグループ
             DataClassification = CustomerContent;
             TableRelation = "Resource Group";
         }
@@ -30,6 +30,39 @@ tableextension 55911 "Serv. Mgt. Setup Ext" extends "Service Mgt. Setup"
         field(90020; "Warning Date Range 2"; DateFormula)
         {
             Caption = 'Warning Date Range 2';
+        }
+        field(90029; "Enable Dimension Link"; Boolean)
+        {
+            Caption = 'Enable Dimension Link';
+        }
+        field(90030; "Sales Order Dim Code"; Code[20])
+        {
+            Caption = 'Sales Order Dim Code';
+            TableRelation = Dimension.Code;
+        }
+        field(90031; "Enable SO Dim Code Copy"; Boolean)
+        {
+            Caption = 'Enable SO Dim Code Copy';
+        }
+        field(90032; "Service Order Dim Code"; Code[20])
+        {
+            Caption = 'Service Order Dim Code';
+            TableRelation = Dimension.Code;
+        }
+        field(90033; "Service Order Type Dim Code"; Code[20])
+        {
+            Caption = 'Service Order Type Dim Code';
+            TableRelation = Dimension.Code;
+        }
+        field(90034; "Cost Center Dim Code"; Code[20])
+        {
+            Caption = 'Cost Center Dim Code';
+            TableRelation = Dimension.Code;
+        }
+        field(90041; "Proserv Dim Code"; Code[20])
+        {
+            Caption = 'Proserv Dim Code';
+            TableRelation = Dimension.Code;
         }
     }
 }

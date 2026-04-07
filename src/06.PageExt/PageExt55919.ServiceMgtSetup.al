@@ -4,17 +4,18 @@ pageextension 55919 "Service Mgt. Setup Ext" extends "Service Mgt. Setup"
     {
         addlast(General)
         {
-            field("Resource Group Filter"; Rec."Resource Group Filter")
+            field("Resource Group Filter"; Rec."Resource Group Filter") { ApplicationArea = All; }
+            field("Resource Group for Sort"; Rec."Resource Group for Sort") { ApplicationArea = All; }
+            field("G/L Account for Repair"; Rec."G/L Account for Repair") { ApplicationArea = All; }
+            field("Serv Ord Reservation Location"; Rec."Serv Ord Reservation Location") { ApplicationArea = All; }
+            group(Dimensions)
             {
-                ApplicationArea = All;
-            }
-            field("Resource Group for Sort"; Rec."Resource Group for Sort")
-            {
-                ApplicationArea = All;
-            }
-            field("G/L Account for Repair"; Rec."G/L Account for Repair")
-            {
-                ApplicationArea = All;
+                field("Enable Dimension Link"; Rec."Enable Dimension Link") { ApplicationArea = All; }
+                field("Sales Order Dim Code"; Rec."Sales Order Dim Code") { ApplicationArea = All; }
+                field("Service Order Dim Code"; Rec."Service Order Dim Code") { ApplicationArea = All; }
+                field("Service Order Type Dim Code"; Rec."Service Order Type Dim Code") { ApplicationArea = All; }
+                field("Cost Center Dim Code"; Rec."Cost Center Dim Code") { ApplicationArea = All; }
+                field("Proserv Dim Code"; Rec."Proserv Dim Code") { ApplicationArea = All; }
             }
         }
     }
