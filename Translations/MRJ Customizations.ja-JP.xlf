@@ -3549,6 +3549,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv. Order Subform Ext - Action Symtom - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2071728749 - Control 2173385693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 297536702">
+          <source>Dimensions</source>
+          <target>分析項目</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Mgt. Setup Ext - Control Dimensions - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3390929214 - Action 148278340 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2145436509">
           <source>Create Parts Transfer</source>
           <target>パーツ移動指示</target>
@@ -4350,19 +4356,19 @@
         </trans-unit>
         <trans-unit id="TableExtension 1360054054 - Field 1965797751 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
           <source>Cost Center Dim Code</source>
-          <target>Cost Center Dim Code</target>
+          <target>コストセンター分析項目コード</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Cost Center Dim Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1360054054 - Field 2421399835 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
           <source>Enable Dimension Link</source>
-          <target>Enable Dimension Link</target>
+          <target>分析項目リンク</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Enable Dimension Link - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1360054054 - Field 1650987807 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
           <source>Enable SO Dim Code Copy</source>
-          <target>Enable SO Dim Code Copy</target>
+          <target>受注分析項目リンク</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Enable SO Dim Code Copy - Property Caption</note>
         </trans-unit>
@@ -4374,7 +4380,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 1360054054 - Field 2847115846 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
           <source>Proserv Dim Code</source>
-          <target>Proserv Dim Code</target>
+          <target>Proserv分析項目コード</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Proserv Dim Code - Property Caption</note>
         </trans-unit>
@@ -4392,7 +4398,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 1360054054 - Field 2260457661 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
           <source>Sales Order Dim Code</source>
-          <target>Sales Order Dim Code</target>
+          <target>受注分析項目コード</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Sales Order Dim Code - Property Caption</note>
         </trans-unit>
@@ -4404,13 +4410,13 @@
         </trans-unit>
         <trans-unit id="TableExtension 1360054054 - Field 1471628154 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
           <source>Service Order Dim Code</source>
-          <target>Service Order Dim Code</target>
+          <target>サービス受注分析項目コード</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Service Order Dim Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1360054054 - Field 209802034 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
           <source>Service Order Type Dim Code</source>
-          <target>Service Order Type Dim Code</target>
+          <target>サービス受注タイプ分析項目コード</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Service Order Type Dim Code - Property Caption</note>
         </trans-unit>

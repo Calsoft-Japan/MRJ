@@ -10,6 +10,7 @@ pageextension 55919 "Service Mgt. Setup Ext" extends "Service Mgt. Setup"
             field("Serv Ord Reservation Location"; Rec."Serv Ord Reservation Location") { ApplicationArea = All; }
             group(Dimensions)
             {
+                Caption = 'Dimensions';
                 field("Enable Dimension Link"; Rec."Enable Dimension Link") { ApplicationArea = All; }
                 field("Sales Order Dim Code"; Rec."Sales Order Dim Code") { ApplicationArea = All; }
                 field("Enable SO Dim Code Copy"; Rec."Enable SO Dim Code Copy") { ApplicationArea = All; }

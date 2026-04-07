@@ -2988,6 +2988,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Serv. Order Subform Ext - Action Symtom - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2071728749 - Control 2173385693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 297536702">
+          <source>Dimensions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Mgt. Setup Ext - Control Dimensions - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3390929214 - Action 148278340 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2145436509">
           <source>Create Parts Transfer</source>
           <note from="Developer" annotates="general" priority="2"></note>
