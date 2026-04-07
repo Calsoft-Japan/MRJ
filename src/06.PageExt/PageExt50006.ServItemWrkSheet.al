@@ -106,7 +106,7 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet"
         PurchHeader."Responsibility Center" := Rec."Responsibility Center";
         PurchHeader."Shortcut Dimension 1 Code" := Rec."Shortcut Dimension 1 Code";
         PurchHeader."Shortcut Dimension 2 Code" := Rec."Shortcut Dimension 2 Code";
-        PurchHeader."Dimension Set ID" := Rec."Dimension Set ID";
+        //PurchHeader."Dimension Set ID" := Rec."Dimension Set ID";
         PurchHeader.Modify(true);
 
         if Rec."Document Type" = Rec."Document Type"::Order then
@@ -176,8 +176,12 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet"
 
         if not SrvMgtSetup."Enable Dimension Link" then
             exit;
+        SrvMgtSetup.TestField("Sales Order Dim Code");
+        SrvMgtSetup.TestField("Service Order Dim Code");
+        SrvMgtSetup.TestField("Service Order Type Dim Code");
+        SrvMgtSetup.TestField("Cost Center Dim Code");
 
-        TempDimSetEntry.DeleteAll();
+        DimMgt.GetDimensionSet(TempDimSetEntry, PurchHeader."Dimension Set ID");
 
         for iLoop := 1 to 5 do begin
             case iLoop of
@@ -195,26 +199,24 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet"
 
             if (iLoop <> 1) or SrvMgtSetup."Enable SO Dim Code Copy" then begin
                 Found := false;
-
-                //From Service Header
+                // From Service Header
                 if ServHeader.Get(ServHeader."Document Type"::Order, PurchHeader."Service Order No.") then begin
                     FromDimSetEntry.SetRange("Dimension Set ID", ServHeader."Dimension Set ID");
                     FromDimSetEntry.SetRange("Dimension Code", DimCode);
                     if FromDimSetEntry.FindFirst() then begin
-                        InsertTempDim(TempDimSetEntry, DimCode, FromDimSetEntry."Dimension Value Code");
+                        ReplaceDim(TempDimSetEntry, DimCode, FromDimSetEntry."Dimension Value Code");
                         Found := true;
                     end;
                 end;
 
                 //From Service Item Line (override)
-                if ServItemLine.Get(ServItemLine."Document Type"::Order,
-                                    PurchHeader."Service Order No.",
+                if ServItemLine.Get(ServItemLine."Document Type"::Order, PurchHeader."Service Order No.",
                                     PurchHeader."Service Item Line No.") then begin
                     FromDimSetEntry.Reset();
                     FromDimSetEntry.SetRange("Dimension Set ID", ServItemLine."Dimension Set ID");
                     FromDimSetEntry.SetRange("Dimension Code", DimCode);
                     if FromDimSetEntry.FindFirst() then begin
-                        InsertTempDim(TempDimSetEntry, DimCode, FromDimSetEntry."Dimension Value Code");
+                        ReplaceDim(TempDimSetEntry, DimCode, FromDimSetEntry."Dimension Value Code");
                         Found := true;
                     end;
                 end;
@@ -226,15 +228,28 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet"
             end;
         end;
 
-        //Create Dimension Set ID
+        //Create new Dimension Set ID
         DimSetID := DimMgt.GetDimensionSetID(TempDimSetEntry);
 
-        //Assign to Purchase Header
         PurchHeader."Dimension Set ID" := DimSetID;
-        PurchHeader.Modify();
+        PurchHeader.Modify(true);
 
         // Optional backup logic
         BakPOPIDocDim(PurchHeader);
+    end;
+
+    local procedure ReplaceDim(var TempDimSetEntry: Record "Dimension Set Entry" temporary; DimCode: Code[20]; DimValue: Code[20])
+    begin
+        TempDimSetEntry.SetRange("Dimension Code", DimCode);
+        if TempDimSetEntry.FindFirst() then
+            TempDimSetEntry.DeleteAll();
+
+        TempDimSetEntry.Reset();
+
+        TempDimSetEntry.Init();
+        TempDimSetEntry."Dimension Code" := DimCode;
+        TempDimSetEntry."Dimension Value Code" := DimValue;
+        TempDimSetEntry.Insert(true);
     end;
 
     local procedure InsertTempDim(var TempDimSetEntry: Record "Dimension Set Entry" temporary; DimCode: Code[20]; DimValue: Code[20])
@@ -242,7 +257,8 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet"
         TempDimSetEntry.Init();
         TempDimSetEntry."Dimension Code" := DimCode;
         TempDimSetEntry."Dimension Value Code" := DimValue;
-        TempDimSetEntry.Insert();
+        if not TempDimSetEntry.Insert(true) then
+            TempDimSetEntry.Modify();
     end;
 
     procedure BakPOPIDocDim(var PurchHeader: Record "Purchase Header")

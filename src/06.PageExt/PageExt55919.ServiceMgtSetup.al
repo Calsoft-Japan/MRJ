@@ -12,6 +12,7 @@ pageextension 55919 "Service Mgt. Setup Ext" extends "Service Mgt. Setup"
             {
                 field("Enable Dimension Link"; Rec."Enable Dimension Link") { ApplicationArea = All; }
                 field("Sales Order Dim Code"; Rec."Sales Order Dim Code") { ApplicationArea = All; }
+                field("Enable SO Dim Code Copy"; Rec."Enable SO Dim Code Copy") { ApplicationArea = All; }
                 field("Service Order Dim Code"; Rec."Service Order Dim Code") { ApplicationArea = All; }
                 field("Service Order Type Dim Code"; Rec."Service Order Type Dim Code") { ApplicationArea = All; }
                 field("Cost Center Dim Code"; Rec."Cost Center Dim Code") { ApplicationArea = All; }
