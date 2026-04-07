@@ -81,6 +81,7 @@ codeunit 50015 MRJDimensionLinkMgt
         DimCode: Code[20];
         iLoop: Integer;
         Found: Boolean;
+        DimErr: Label 'Dimension %1 not found.';
     begin
         if (PurchHeader."Document Type" <> PurchHeader."Document Type"::Order) and
            (PurchHeader."Document Type" <> PurchHeader."Document Type"::Invoice)
@@ -141,7 +142,7 @@ codeunit 50015 MRJDimensionLinkMgt
 
                 if not Found then begin
                     if iLoop <> 5 then
-                        Error('Dimension %1 not found.', DimCode);
+                        Error(DimErr, DimCode);
                 end;
             end;
         end;

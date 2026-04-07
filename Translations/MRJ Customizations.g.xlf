@@ -853,6 +853,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Service Inquiry Line - Field Work Type Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2874612005 - Method 2653077974 - NamedType 3959952671" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimension %1 not found.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit MRJDimensionLinkMgt - Method CpySVIDocDim2POPI - NamedType DimErr</note>
+        </trans-unit>
         <trans-unit id="Page 595152638 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
