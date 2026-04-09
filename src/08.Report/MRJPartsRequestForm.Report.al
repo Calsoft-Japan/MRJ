@@ -47,7 +47,7 @@ report 50071 "Parts Request Form"
                 trigger OnAfterGetRecord() //ServiceLine DataItem
                 begin
                     if PartsTransBuf.Get("Service Header"."No.", "Service Line"."No.") then begin
-                        PartsTransBuf."Qty. to Use" += "Quantity (Base)";
+                        PartsTransBuf."Qty. to Use" += "Service Line"."Quantity (Base)";
                         PartsTransBuf.Modify();
                     end else begin
                         PartsTransBuf.Init();
@@ -55,7 +55,7 @@ report 50071 "Parts Request Form"
                         PartsTransBuf."Item No." := "Service Line"."No.";
                         if Item.Get("Service Line"."No.") then;
                         PartsTransBuf."Unit of Measure Code" := Item."Base Unit of Measure";
-                        PartsTransBuf."Qty. to Use" := "Quantity (Base)";
+                        PartsTransBuf."Qty. to Use" := "Service Line"."Quantity (Base)";
                         PartsTransBuf."Qty. Received" := 0;
                         PartsTransBuf."To Location Code" := "Location Code";
                         PartsTransBuf."To Bin Code" := "Bin Code";
@@ -78,7 +78,7 @@ report 50071 "Parts Request Form"
                         TransNoFilter := "Service Header"."Parts Receive TO No. Filter";
                     if "Service Header"."Parts Return TO No. Filter" <> '' then begin
                         if TransNoFilter <> '' then
-                            TransNoFilter += '';
+                            TransNoFilter += '|';
                         TransNoFilter += "Service Header"."Parts Return TO No. Filter";
                     end;
                     if TransNoFilter = '' then
@@ -90,15 +90,15 @@ report 50071 "Parts Request Form"
                 trigger OnAfterGetRecord() //WarehouseEntry DataItem
                 begin
                     if PartsTransBuf.Get("Service Header"."No.", "Warehouse Entry"."Item No.") then begin
-                        PartsTransBuf."Qty. Received" += Quantity;
+                        PartsTransBuf."Qty. Received" += "Warehouse Entry".Quantity;
                         PartsTransBuf.Modify();
                     end else begin
                         PartsTransBuf.Init();
                         PartsTransBuf."Order No." := "Service Header"."No.";
                         PartsTransBuf."Item No." := "Warehouse Entry"."Item No.";
-                        PartsTransBuf."Unit of Measure Code" := "Unit of Measure Code";
+                        PartsTransBuf."Unit of Measure Code" := "Warehouse Entry"."Unit of Measure Code";
                         PartsTransBuf."Qty. to Use" := 0;
-                        PartsTransBuf."Qty. Received" := Quantity;
+                        PartsTransBuf."Qty. Received" := "Warehouse Entry".Quantity;
                         PartsTransBuf."To Location Code" := "Location Code";
                         PartsTransBuf."To Bin Code" := "Bin Code";
                         PartsTransBuf.Availability := 0;
