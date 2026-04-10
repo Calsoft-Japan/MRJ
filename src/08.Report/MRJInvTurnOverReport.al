@@ -108,6 +108,7 @@ report 50001 "Inv. Turn Over Report"
         ItemLedEntry.SetCurrentKey("Item No.", "Posting Date");
         ItemLedEntry.SetRange("Item No.", ItemNo);
         ItemLedEntry.SetRange("Posting Date", CurrYrStartDate, CurrYrEndDate);
+        ItemLedEntry.SetRange("Document Type", ItemLedEntry."Document Type"::"Sales Shipment");
         ItemLedEntry.SetLoadFields(Quantity);
         if ItemLedEntry.FindSet() then
             repeat
@@ -125,6 +126,7 @@ report 50001 "Inv. Turn Over Report"
         ItemLedEntry.SetCurrentKey("Item No.", "Posting Date");
         ItemLedEntry.SetRange("Item No.", ItemNo);
         ItemLedEntry.SetRange("Posting Date", PrevYrStartDate, PrevYrEndDate);
+        ItemLedEntry.SetRange("Document Type", ItemLedEntry."Document Type"::"Sales Shipment");
         ItemLedEntry.SetLoadFields(Quantity);
         if ItemLedEntry.FindSet() then
             repeat
@@ -141,6 +143,7 @@ report 50001 "Inv. Turn Over Report"
         ItemLedEntry.SetRange("Item No.", ItemNo);
         ItemLedEntry.SetCurrentKey("Item No.", "Posting Date");
         ItemLedEntry.SetRange("Posting Date", CurrYrStartDate, CurrYrEndDate);
+        ItemLedEntry.SetRange("Document Type", ItemLedEntry."Document Type"::"Sales Shipment");
         ItemLedEntry.SetLoadFields(Quantity);
         if ItemLedEntry.FindSet() then
             repeat
@@ -186,66 +189,6 @@ report 50001 "Inv. Turn Over Report"
             NovAvgQty := NovQty / PrevYearQty;
             DecAvgQty := DecQty / PrevYearQty;
         end;
-
-        /* if PrevYearQty > 0 then
-            JanAvgQty := JanQty / PrevYearQty
-        else
-            JanAvgQty := 0;
-
-        if PrevYearQty > 0 then
-            FebAvgQty := FebQty / PrevYearQty
-        else
-            FebAvgQty := 0;
-
-        if PrevYearQty > 0 then
-            MarAvgQty := MarQty / PrevYearQty
-        else
-            MarAvgQty := 0;
-
-        if PrevYearQty > 0 then
-            AprAvgQty := AprQty / PrevYearQty
-        else
-            AprAvgQty := 0;
-
-        if PrevYearQty > 0 then
-            MayAvgQty := MayQty / PrevYearQty
-        else
-            MayAvgQty := 0;
-
-        if PrevYearQty > 0 then
-            JunAvgQty := JunQty / PrevYearQty
-        else
-            JunAvgQty := 0;
-
-        if PrevYearQty > 0 then
-            JulAvgQty := JulQty / PrevYearQty
-        else
-            JulAvgQty := 0;
-
-        if PrevYearQty > 0 then
-            AugAvgQty := AugQty / PrevYearQty
-        else
-            AugAvgQty := 0;
-
-        if PrevYearQty > 0 then
-            SepAvgQty := SepQty / PrevYearQty
-        else
-            SepAvgQty := 0;
-
-        if PrevYearQty > 0 then
-            OctAvgQty := OctQty / PrevYearQty
-        else
-            OctAvgQty := 0;
-
-        if PrevYearQty > 0 then
-            NovAvgQty := NovQty / PrevYearQty
-        else
-            NovAvgQty := 0;
-
-        if PrevYearQty > 0 then
-            DecAvgQty := DecQty / PrevYearQty
-        else
-            DecAvgQty := 0; */
     end;
 
     local procedure MakeExcelDataHeader()
@@ -320,34 +263,34 @@ report 50001 "Inv. Turn Over Report"
         TempExcelBuffer.NewRow();
         TempExcelBuffer.AddColumn(Item."No.", false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
         TempExcelBuffer.AddColumn(Item.Description, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
-        TempExcelBuffer.AddColumn(Round(PrevYearAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(JanQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(JanAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(FebQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(FebAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(MarQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(MarAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(AprQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(AprAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(MayQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(MayAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(JunQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(JunAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(JulQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(JulAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(AugQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(AugAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(SepQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(SepAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(OctQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(OctAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(NovQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(NovAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(DecQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(DecAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(CurrYearAvgQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(CurrYearQty, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
-        TempExcelBuffer.AddColumn(Round(CurrYearTurnOver, 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(PrevYearAvgQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(JanQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(JanAvgQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(FebQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(FebAvgQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(MarQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(MarAvgQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(AprQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(AprAvgQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(MayQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(MayAvgQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(JunQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(JunAvgQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(JulQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(JulAvgQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(AugQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(AugAvgQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(SepQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(SepAvgQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(OctQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(OctAvgQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(NovQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(NovAvgQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(DecQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(DecAvgQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(CurrYearAvgQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(CurrYearQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Round(Abs(CurrYearTurnOver), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
     end;
 
     procedure CreateExcelBook()
