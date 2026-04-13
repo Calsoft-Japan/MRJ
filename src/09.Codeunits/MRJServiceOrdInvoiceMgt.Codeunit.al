@@ -28,8 +28,6 @@ codeunit 50001 MRJServiceOrderInvoiceMgt
 
     [EventSubscriber(ObjectType::Table, Database::"Service Line", 'OnBeforeGetDefaultBin', '', true, true)]
     procedure OnBeforeGetDefaultBin(var ServiceLine: Record "Service Line"; var IsHandled: Boolean);
-    var
-        ServiceHeader: Record "Service Header";
     begin
         ServiceLine."Bin Code" := ServiceLine."Document No.";
         IsHandled := true;
