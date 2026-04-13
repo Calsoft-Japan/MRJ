@@ -7,6 +7,7 @@ report 50011 "MRJ Sales Quotation"
     RDLCLayout = 'src\07.ReportLayout\MRJSalesQuotationReport.rdlc';
     dataset
     {
+
         dataitem(SalesHeader; "Sales Header")
         {
             DataItemTableView = sorting("Document Type", "No.")
@@ -113,8 +114,8 @@ report 50011 "MRJ Sales Quotation"
 
                 QuoteDateTxt := Format("Document Date", 0, '<Year4>年<Month,2>月<Day,2>日');
 
-                if "Expiration Date" <> 0D then
-                    ExpirationDateTxt := Format("Expiration Date", 0, '<Year4>年<Month,2>月<Day,2>日')
+                if "Quote Valid Until Date" <> 0D then
+                    ExpirationDateTxt := Format("Quote Valid Until Date", 0, '<Year4>年<Month,2>月<Day,2>日')
                 else
                     ExpirationDateTxt := '';
 
