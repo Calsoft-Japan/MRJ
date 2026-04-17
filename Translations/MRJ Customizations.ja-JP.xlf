@@ -4944,31 +4944,31 @@
         </trans-unit>
         <trans-unit id="PageExtension 3926397906 - Control 2757549774 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2187133665">
           <source>Shelf No. (Fukuoka)</source>
-          <target>棚番（福岡）</target>
+          <target>棚番（福岡</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Phys. Inventory Journal Ext - Control Shelf No. (Fukuoka) - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3926397906 - Control 2647033295 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2187133665">
           <source>Shelf No. (Nagoya)</source>
-          <target> 棚番（名古屋）</target>
+          <target>棚番（名古屋</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Phys. Inventory Journal Ext - Control Shelf No. (Nagoya) - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3926397906 - Control 2857199697 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2187133665">
           <source>Shelf No. (Niigata)</source>
-          <target> 棚番（新潟）</target>
+          <target>棚番（新潟</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Phys. Inventory Journal Ext - Control Shelf No. (Niigata) - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3926397906 - Control 2706142887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2187133665">
           <source>Shelf No. (Osaka)</source>
-          <target>棚番（大阪）</target>
+          <target>棚番（大阪</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Phys. Inventory Journal Ext - Control Shelf No. (Osaka) - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3926397906 - Control 1462658874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2187133665">
           <source>Shelf No. (Sendai)</source>
-          <target>棚番（仙台）</target>
+          <target>棚番（仙台</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Phys. Inventory Journal Ext - Control Shelf No. (Sendai) - Property Caption</note>
         </trans-unit>
