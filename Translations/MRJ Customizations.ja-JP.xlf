@@ -4432,6 +4432,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Warning Date Range 2 - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1360054054 - Field 2323538857 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
+          <source>Work Exp. Res. Group Filter</source>
+          <target>作業費リソースグループフィルター</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Work Exp. Res. Group Filter - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2426476168 - Field 3720664786 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2662845818">
           <source>Fault Area Comment</source>
           <target>故障箇所コメント</target>
@@ -4563,6 +4569,12 @@
           <target>Proserv分析項目コード</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Service Header Ext - Field Proserv Dim Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3726983789 - Field 1782342821 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3610197182">
+          <source>Quote Valid to Date</source>
+          <target>見積有効期限日</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Service Header Ext - Field Quote Valid to Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3726983789 - Field 2260457661 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3610197182">
           <source>Sales Order Dimension Code</source>
