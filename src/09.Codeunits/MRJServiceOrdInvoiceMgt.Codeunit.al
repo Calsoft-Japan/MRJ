@@ -36,6 +36,7 @@ codeunit 50001 MRJServiceOrderInvoiceMgt
     begin
         MRJDimLinkMgt.SetSVODocDim(Rec);
 
+        SrvMgtSetup.Get();
         if Rec."Customer No." <> '' then
             if SrvMgtSetup."Serv Ord Reservation Location" <> '' then
                 if NewBin.Get(Rec."Location Code", Rec."No.") then begin
@@ -43,6 +44,21 @@ codeunit 50001 MRJServiceOrderInvoiceMgt
                     NewBin.Description := Rec."No.";
                     NewBin.Modify(true);
                 end;
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Service Header", OnAfterCopyCustomerFields, '', true, true)]
+    procedure OnAfterCopyCustomerFields(var ServiceHeader: Record "Service Header"; Customer: Record Customer);
+    var
+        SrvMgtSetup: Record "Service Mgt. Setup";
+        UserMgt: Codeunit "User Setup Management";
+    begin
+        SrvMgtSetup.Get();
+        if ServiceHeader."Document Type" = ServiceHeader."Document Type"::Order then begin
+            if SrvMgtSetup."Serv Ord Reservation Location" <> '' then
+                ServiceHeader.Validate("Location Code", SrvMgtSetup."Serv Ord Reservation Location")
+            else
+                ServiceHeader.Validate("Location Code", UserMgt.GetLocation(2, Customer."Location Code", ServiceHeader."Responsibility Center"));
+        end;
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Service Item Line", 'OnShowCommentsOnCaseElse', '', true, true)]
