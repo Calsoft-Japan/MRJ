@@ -53,12 +53,9 @@ codeunit 50001 MRJServiceOrderInvoiceMgt
         UserMgt: Codeunit "User Setup Management";
     begin
         SrvMgtSetup.Get();
-        if ServiceHeader."Document Type" = ServiceHeader."Document Type"::Order then begin
+        if ServiceHeader."Document Type" = ServiceHeader."Document Type"::Order then
             if SrvMgtSetup."Serv Ord Reservation Location" <> '' then
                 ServiceHeader.Validate("Location Code", SrvMgtSetup."Serv Ord Reservation Location")
-            else
-                ServiceHeader.Validate("Location Code", UserMgt.GetLocation(2, Customer."Location Code", ServiceHeader."Responsibility Center"));
-        end;
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Service Item Line", 'OnShowCommentsOnCaseElse', '', true, true)]
