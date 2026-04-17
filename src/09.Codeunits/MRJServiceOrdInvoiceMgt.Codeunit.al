@@ -44,6 +44,7 @@ codeunit 50001 MRJServiceOrderInvoiceMgt
                     NewBin.Description := Rec."No.";
                     NewBin.Modify(true);
                 end;
+        Rec.Validate("Bin Code", Rec."No.");
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Service Header", OnAfterCopyCustomerFields, '', true, true)]
