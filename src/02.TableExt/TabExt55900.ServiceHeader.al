@@ -50,6 +50,10 @@ tableextension 55900 "Service Header Ext" extends "Service Header"
             Caption = 'Proserv Dim Code';
             TableRelation = Dimension;
         }
+        field(90042; "Quote Valid to Date"; Date)
+        {
+            Caption = 'Quote Valid to Date';
+        }
     }
 }
 
