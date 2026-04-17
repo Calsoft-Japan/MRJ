@@ -35,6 +35,7 @@ report 50021 "MRJ Service Quotation"
             column(PaymentTermTxt; PaymentTermDesc) { }
             column(PaymentMethodTxt; PaymentMethodDesc) { }
             column(DueDate; "Due Date") { }
+            column(QuoteValidToDate; "Quote Valid To Date") { }
             column(EmailCaption; CompanyInfo.FieldCaption("E-Mail")) { }
             column(HomePageCaption; CompanyInfo.FieldCaption("Home Page")) { }
             column(PhoneNoCaption; CompanyInfo.FieldCaption("Phone No.")) { }
