@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-03-24T02:18:43.5014480Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-04-17T01:25:24.5530681Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -3657,7 +3657,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>="有効期限 :" &amp; " " &amp; Format(CDate(Fields!DueDate.Value), "yyyy年MM月dd日")</Value>
+                        <Value>="有効期限 :" &amp; " " &amp; Format(CDate(Fields!QuoteValidToDate.Value), "yyyy年MM月dd日")</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -4489,6 +4489,9 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="DueDate">
           <DataField>DueDate</DataField>
+        </Field>
+        <Field Name="QuoteValidToDate">
+          <DataField>QuoteValidToDate</DataField>
         </Field>
         <Field Name="EmailCaption">
           <DataField>EmailCaption</DataField>
