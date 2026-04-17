@@ -69,6 +69,125 @@ codeunit 50015 MRJDimensionLinkMgt
         end;
     end;
 
+    procedure SetSVODocDim(var ServHeader: Record "Service Header")
+    var
+        SrvMgtSetup: Record "Service Mgt. Setup";
+        DimMgt: Codeunit DimensionManagement;
+        TempDimSetEntry: Record "Dimension Set Entry" temporary;
+        DimValue: Record "Dimension Value";
+        ServItemLine: Record "Service Item Line";
+        DimCode: Code[20];
+        DimValueCode: Code[20];
+        DimSetID: Integer;
+        iLoop: Integer;
+    begin
+        if (ServHeader."Document Type" <> ServHeader."Document Type"::Order) and
+           (ServHeader."Document Type" <> ServHeader."Document Type"::"Credit Memo") and
+           (ServHeader."Document Type" <> ServHeader."Document Type"::Quote) then
+            exit;
+
+        if ServHeader."No." = '' then
+            exit;
+
+        SrvMgtSetup.Get();
+        if not SrvMgtSetup."Enable Dimension Link" then
+            exit;
+
+        SrvMgtSetup.TestField("Sales Order Dim Code");
+        SrvMgtSetup.TestField("Service Order Dim Code");
+        SrvMgtSetup.TestField("Service Order Type Dim Code");
+        SrvMgtSetup.TestField("Cost Center Dim Code");
+
+        //Ensure Dimension Value exists (same as NAV logic)
+        if ServHeader."Document Type" = ServHeader."Document Type"::Order then begin
+            if not DimValue.Get(SrvMgtSetup."Service Order Dim Code", ServHeader."No.") then begin
+                DimValue.Init();
+                DimValue."Dimension Code" := SrvMgtSetup."Service Order Dim Code";
+                DimValue.Code := ServHeader."No.";
+                DimValue."Dimension Value Type" := DimValue."Dimension Value Type"::Standard;
+                DimValue.Insert(true);
+            end;
+        end;
+
+        DimMgt.GetDimensionSet(TempDimSetEntry, ServHeader."Dimension Set ID");
+
+        for iLoop := 1 to 5 do begin
+            case iLoop of
+                1:
+                    begin
+                        DimCode := SrvMgtSetup."Sales Order Dim Code";
+                        DimValueCode := ServHeader."Sales Order Dim Code";
+                    end;
+                2:
+                    begin
+                        DimCode := SrvMgtSetup."Service Order Dim Code";
+                        if ServHeader."Document Type" = ServHeader."Document Type"::Order then
+                            DimValueCode := ServHeader."No."
+                        else
+                            DimValueCode := ServHeader."Service Order Dim Code";
+                    end;
+                3:
+                    begin
+                        DimCode := SrvMgtSetup."Service Order Type Dim Code";
+                        DimValueCode := ServHeader."Service Order Type Dim Code";
+                    end;
+                4:
+                    begin
+                        DimCode := SrvMgtSetup."Cost Center Dim Code";
+                        DimValueCode := ServHeader."Cost Center Dim Code";
+                    end;
+                5:
+                    begin
+                        DimCode := SrvMgtSetup."Proserv Dim Code";
+                        DimValueCode := ServHeader."Proserv Dim Code";
+                    end;
+            end;
+
+            if DimValueCode <> '' then
+                ReplaceDim(TempDimSetEntry, DimCode, DimValueCode);
+        end;
+
+        DimSetID := DimMgt.GetDimensionSetID(TempDimSetEntry);
+
+        ServHeader."Dimension Set ID" := DimSetID;
+        ServHeader.Modify(true);
+
+        ServItemLine.Reset();
+        ServItemLine.SetRange("Document Type", ServHeader."Document Type");
+        ServItemLine.SetRange("Document No.", ServHeader."No.");
+        if ServItemLine.FindSet() then
+            repeat
+                DimMgt.GetDimensionSet(TempDimSetEntry, ServItemLine."Dimension Set ID");
+
+                for iLoop := 1 to 2 do begin
+                    case iLoop of
+                        1:
+                            begin
+                                DimCode := SrvMgtSetup."Sales Order Dim Code";
+                                DimValueCode := ServItemLine."Sales Order Dim Code";
+                            end;
+                        2:
+                            begin
+                                DimCode := SrvMgtSetup."Service Order Dim Code";
+                                if ServItemLine."Document Type" = ServItemLine."Document Type"::Order then
+                                    DimValueCode := ServHeader."No."
+                                else
+                                    DimValueCode := ServItemLine."Service Order Dim Code";
+                            end;
+                    end;
+
+                    if DimValueCode <> '' then
+                        ReplaceDim(TempDimSetEntry, DimCode, DimValueCode);
+                end;
+
+                DimSetID := DimMgt.GetDimensionSetID(TempDimSetEntry);
+
+                ServItemLine."Dimension Set ID" := DimSetID;
+                ServItemLine.Modify(true);
+
+            until ServItemLine.Next() = 0;
+    end;
+
     procedure CpySVIDocDim2POPI(var PurchHeader: Record "Purchase Header")
     var
         SrvMgtSetup: Record "Service Mgt. Setup";
@@ -95,6 +214,7 @@ codeunit 50015 MRJDimensionLinkMgt
 
         if not SrvMgtSetup."Enable Dimension Link" then
             exit;
+
         SrvMgtSetup.TestField("Sales Order Dim Code");
         SrvMgtSetup.TestField("Service Order Dim Code");
         SrvMgtSetup.TestField("Service Order Type Dim Code");
@@ -179,8 +299,7 @@ codeunit 50015 MRJDimensionLinkMgt
     begin
         if (PurchHeader."Document Type" <> PurchHeader."Document Type"::Order) and
            (PurchHeader."Document Type" <> PurchHeader."Document Type"::Invoice) and
-           (PurchHeader."Document Type" <> PurchHeader."Document Type"::"Credit Memo")
-        then
+           (PurchHeader."Document Type" <> PurchHeader."Document Type"::"Credit Memo") then
             exit;
 
         if PurchHeader."No." = '' then

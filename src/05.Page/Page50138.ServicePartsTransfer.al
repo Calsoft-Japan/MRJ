@@ -360,8 +360,6 @@ page 50138 "Service Parts Transfer"
     end;
 
     var
-
-
         RecBin: Record Bin;
         LocBin: Record Bin;
         RecItem: Record Item;
@@ -493,22 +491,6 @@ page 50138 "Service Parts Transfer"
             until Rec.Next() = 0;
 
         Rec.Reset();
-        //CurrPage.Update(false);
-
-        /* // ServiceOrderNoFilter
-        ServiceOrderNoFilter := '';
-        RecServiceHeader.Reset();
-        RecServiceHeader.SetRange("Document Type", RecServiceHeader."Document Type"::Order);
-        RecServiceHeader.SetRange("Location Code", LocationCode);
-        RecServiceHeader.SetRange("Bin Code", BinCode);
-        RecServiceHeader.SetFilter("No.", OrderNoFilter);
-        if RecServiceHeader.FindSet() then
-            repeat
-                if ServiceOrderNoFilter = '' then
-                    ServiceOrderNoFilter := RecServiceHeader."No."
-                else
-                    ServiceOrderNoFilter := ServiceOrderNoFilter + '|' + RecServiceHeader."No.";
-            until RecServiceHeader.Next() = 0; */
     end;
 
     local procedure CreateReceiveTO(var InServiceHeader: Record "Service Header")

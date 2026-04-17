@@ -1,5 +1,50 @@
 codeunit 50001 MRJServiceOrderInvoiceMgt
 {
+    [EventSubscriber(ObjectType::Table, Database::"Service Header", OnAfterInsertEvent, '', true, true)]
+    procedure SrvHeaderOnAfterInsertEvent(var Rec: Record "Service Header");
+    var
+        SrvMgtSetup: Record "Service Mgt. Setup";
+        NewBin: Record Bin;
+    begin
+        if Rec."Document Type" <> Rec."Document Type"::Order then
+            exit;
+
+        if Rec."No." = '' then
+            exit;
+
+        SrvMgtSetup.Get();
+        if SrvMgtSetup."Serv Ord Reservation Location" = '' then
+            exit;
+
+        // Create Bin if not exists
+        if not NewBin.Get(SrvMgtSetup."Serv Ord Reservation Location", Rec."No.") then begin
+            NewBin.Init();
+            NewBin.Validate("Location Code", SrvMgtSetup."Serv Ord Reservation Location");
+            NewBin.Validate(Code, Rec."No.");
+            NewBin.Validate("Customer No.", Rec."Customer No.");
+            NewBin.Description := Rec."No.";
+            NewBin.Insert(true);
+        end;
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Service Header", OnAfterValidateEvent, "Customer No.", true, true)]
+    procedure CustNoOnAfterValidateEvent(var Rec: Record "Service Header");
+    var
+        SrvMgtSetup: Record "Service Mgt. Setup";
+        NewBin: Record Bin;
+        MRJDimLinkMgt: Codeunit MRJDimensionLinkMgt;
+    begin
+        MRJDimLinkMgt.SetSVODocDim(Rec);
+
+        if Rec."Customer No." <> '' then
+            if SrvMgtSetup."Serv Ord Reservation Location" <> '' then
+                if NewBin.Get(Rec."Location Code", Rec."No.") then begin
+                    NewBin.Validate("Customer No.", Rec."Customer No.");
+                    NewBin.Description := Rec."No.";
+                    NewBin.Modify(true);
+                end;
+    end;
+
     [EventSubscriber(ObjectType::Table, Database::"Service Item Line", 'OnShowCommentsOnCaseElse', '', true, true)]
     procedure SetVendorDefDim(var ServiceCommentLine: Record "Service Comment Line"; ServiceCommentLineType: Enum "Service Comment Line Type");
     begin
