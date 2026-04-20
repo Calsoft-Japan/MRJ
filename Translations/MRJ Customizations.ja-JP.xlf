@@ -4392,7 +4392,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 1360054054 - Field 4143185416 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
           <source>Resource Group for Sort</source>
-          <target>作業費リソースグループフィルター</target>
+          <target>ソード優先リソースグループ</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Resource Group for Sort - Property Caption</note>
         </trans-unit>
