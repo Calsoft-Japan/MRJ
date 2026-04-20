@@ -3758,11 +3758,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Warning Date Range 2 - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 1360054054 - Field 2323538857 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
-          <source>Work Exp. Res. Group Filter</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Work Exp. Res. Group Filter - Property Caption</note>
-        </trans-unit>
         <trans-unit id="TableExtension 2426476168 - Field 3720664786 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2662845818">
           <source>Fault Area Comment</source>
           <note from="Developer" annotates="general" priority="2"></note>

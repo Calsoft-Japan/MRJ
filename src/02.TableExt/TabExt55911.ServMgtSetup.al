@@ -2,11 +2,11 @@ tableextension 55911 "Serv. Mgt. Setup Ext" extends "Service Mgt. Setup"
 {
     fields
     {
-        field(50000; "Work Exp. Res. Group Filter"; Text[250])
+        /* field(50000; "Work Exp. Res. Group Filter"; Text[250])
         {
             Caption = 'Work Exp. Res. Group Filter';
             DataClassification = CustomerContent;
-        }
+        }*/
         field(50100; "Resource Group Filter"; Text[250])
         {
             Caption = 'Resource Group Filter';
