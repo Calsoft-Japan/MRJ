@@ -5,7 +5,7 @@ page 50001 "Sales Inquiry Subform"
     DeleteAllowed = false;
     InsertAllowed = false;
     ModifyAllowed = false;
-    PaGetype = ListPart;
+    Pagetype = ListPart;
     SourceTable = "Sales Inquiry Line";
     SourceTableTemporary = true;
     Permissions = tabledata "Item Ledger Entry" = D;
