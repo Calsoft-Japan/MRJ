@@ -8,7 +8,6 @@ page 50001 "Sales Inquiry Subform"
     Pagetype = ListPart;
     SourceTable = "Sales Inquiry Line";
     SourceTableTemporary = true;
-    Permissions = tabledata "Item Ledger Entry" = D;
     layout
     {
         area(content)
@@ -631,7 +630,7 @@ page 50001 "Sales Inquiry Subform"
     begin
         if RecDate <> 0D then
             exit(RecDate)
-        ELSE
+        else
             exit(WorkDate());
     end;
 
@@ -863,7 +862,7 @@ page 50001 "Sales Inquiry Subform"
                                                         EnterCell(RowNo, 81, Format(ReservEntry."Lot No."), false, false, false, '@');
                                                     if ReservEntry."Expiration Date" <> 0D then
                                                         EnterCell(RowNo, 82, Format(ReservEntry."Expiration Date"), false, false, false, '')
-                                                    ELSE begin
+                                                    else begin
                                                         ItemLedgerEntry.Reset();
                                                         ItemLedgerEntry.SetRange("Item No.", ReservEntry."Item No.");
                                                         ItemLedgerEntry.SetRange("Variant Code", ReservEntry."Variant Code");
@@ -891,7 +890,7 @@ page 50001 "Sales Inquiry Subform"
                                            DATABASE::"Sales Shipment Line", 0, ShipmentLine."Document No.", '', 0, ShipmentLine."Line No.");
                                             if TempItemLedgEntry.FindSet() then
                                                 repeat
-                                                    if (TempItemLedgEntry."Serial No." <> '') OR (TempItemLedgEntry."Lot No." <> '') then begin
+                                                    if (TempItemLedgEntry."Serial No." <> '') or (TempItemLedgEntry."Lot No." <> '') then begin
                                                         RowNo += 1;
                                                         if TempItemLedgEntry."Serial No." <> '' then
                                                             EnterCell(RowNo, 80, Format(TempItemLedgEntry."Serial No."), false, false, false, '@');
@@ -899,7 +898,7 @@ page 50001 "Sales Inquiry Subform"
                                                             EnterCell(RowNo, 81, Format(TempItemLedgEntry."Lot No."), false, false, false, '@');
                                                         if TempItemLedgEntry."Expiration Date" <> 0D then
                                                             EnterCell(RowNo, 82, Format(TempItemLedgEntry."Expiration Date"), false, false, false, '')
-                                                        ELSE begin
+                                                        else begin
                                                             ItemLedgerEntry.Reset();
                                                             ItemLedgerEntry.SetRange("Item No.", TempItemLedgEntry."Item No.");
                                                             ItemLedgerEntry.SetRange("Variant Code", TempItemLedgEntry."Variant Code");
@@ -925,7 +924,7 @@ page 50001 "Sales Inquiry Subform"
                                     RetrieveILEFromPostedInv(TempItemLedgEntry, SalesInvLine.RowID1);
                                     if TempItemLedgEntry.FindSet() then
                                         repeat
-                                            if (TempItemLedgEntry."Serial No." <> '') OR (TempItemLedgEntry."Lot No." <> '') then begin
+                                            if (TempItemLedgEntry."Serial No." <> '') or (TempItemLedgEntry."Lot No." <> '') then begin
                                                 RowNo += 1;
                                                 if TempItemLedgEntry."Serial No." <> '' then
                                                     EnterCell(RowNo, 80, Format(TempItemLedgEntry."Serial No."), false, false, false, '@');
@@ -933,7 +932,7 @@ page 50001 "Sales Inquiry Subform"
                                                     EnterCell(RowNo, 81, Format(TempItemLedgEntry."Lot No."), false, false, false, '@');
                                                 if TempItemLedgEntry."Expiration Date" <> 0D then
                                                     EnterCell(RowNo, 82, Format(TempItemLedgEntry."Expiration Date"), false, false, false, '')
-                                                ELSE begin
+                                                else begin
                                                     ItemLedgerEntry.Reset();
                                                     ItemLedgerEntry.SetRange("Item No.", TempItemLedgEntry."Item No.");
                                                     ItemLedgerEntry.SetRange("Variant Code", TempItemLedgEntry."Variant Code");
@@ -958,7 +957,7 @@ page 50001 "Sales Inquiry Subform"
                                     RetrieveILEFromPostedInv(TempItemLedgEntry, SalesCrMemoLine.RowID1);
                                     if TempItemLedgEntry.FindSet() then
                                         repeat
-                                            if (TempItemLedgEntry."Serial No." <> '') OR (TempItemLedgEntry."Lot No." <> '') then begin
+                                            if (TempItemLedgEntry."Serial No." <> '') or (TempItemLedgEntry."Lot No." <> '') then begin
                                                 RowNo += 1;
                                                 if TempItemLedgEntry."Serial No." <> '' then
                                                     EnterCell(RowNo, 80, Format(TempItemLedgEntry."Serial No."), false, false, false, '@');
@@ -966,7 +965,7 @@ page 50001 "Sales Inquiry Subform"
                                                     EnterCell(RowNo, 81, Format(TempItemLedgEntry."Lot No."), false, false, false, '@');
                                                 if TempItemLedgEntry."Expiration Date" <> 0D then
                                                     EnterCell(RowNo, 82, Format(TempItemLedgEntry."Expiration Date"), false, false, false, '')
-                                                ELSE begin
+                                                else begin
                                                     ItemLedgerEntry.Reset();
                                                     ItemLedgerEntry.SetRange("Item No.", TempItemLedgEntry."Item No.");
                                                     ItemLedgerEntry.SetRange("Variant Code", TempItemLedgEntry."Variant Code");
