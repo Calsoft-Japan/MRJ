@@ -4,7 +4,7 @@ pageextension 55919 "Service Mgt. Setup Ext" extends "Service Mgt. Setup"
     {
         addlast(General)
         {
-            field("Work Exp. Res. Group Filter"; Rec."Work Exp. Res. Group Filter") { ApplicationArea = All; }
+            //field("Work Exp. Res. Group Filter"; Rec."Work Exp. Res. Group Filter") { ApplicationArea = All; }
             field("Resource Group Filter"; Rec."Resource Group Filter") { ApplicationArea = All; }
             field("Resource Group for Sort"; Rec."Resource Group for Sort") { ApplicationArea = All; }
             field("G/L Account for Repair"; Rec."G/L Account for Repair") { ApplicationArea = All; }
