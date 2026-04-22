@@ -36,6 +36,9 @@ codeunit 50001 MRJServiceOrderInvoiceMgt
     begin
         MRJDimLinkMgt.SetSVODocDim(Rec);
 
+        if Rec."Document Type" <> Rec."Document Type"::Order then
+            exit;
+
         SrvMgtSetup.Get();
         if Rec."Customer No." <> '' then
             if SrvMgtSetup."Serv Ord Reservation Location" <> '' then
