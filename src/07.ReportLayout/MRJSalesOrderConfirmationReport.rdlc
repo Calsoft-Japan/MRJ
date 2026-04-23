@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-03-24T05:40:31.5834758Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-04-23T09:50:20.3894307Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -123,6 +123,9 @@
                 <Height>0.50952cm</Height>
                 <Width>6.04482cm</Width>
                 <ZIndex>2</ZIndex>
+                <Visibility>
+                  <Hidden>=IsNothing(Fields!CustPostCode.Value) OR Fields!CustPostCode.Value = ""</Hidden>
+                </Visibility>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -210,7 +213,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Fields!CompanyAddr2.Value</Value>
+                        <Value>=Fields!CompanyAddr3.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -244,7 +247,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>="〒" + Fields!CompanyAddr3.Value</Value>
+                        <Value>=Fields!CompanyAddr2.Value</Value>
                         <Style>
                           <FontFamily>MS UI Gothic</FontFamily>
                           <FontSize>9pt</FontSize>
@@ -1762,7 +1765,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>受注確認書</Value>
+                      <Value>=Fields!TitleTxt.Value</Value>
                       <Style>
                         <FontStyle>Normal</FontStyle>
                         <FontFamily>MS UI Gothic</FontFamily>
@@ -2040,6 +2043,12 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Fields>
+        <Field Name="TitleTxt">
+          <DataField>TitleTxt</DataField>
+        </Field>
+        <Field Name="IsCRE">
+          <DataField>IsCRE</DataField>
+        </Field>
         <Field Name="OrderNo">
           <DataField>OrderNo</DataField>
         </Field>
