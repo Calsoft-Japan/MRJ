@@ -4,8 +4,8 @@ tableextension 50079 "Company Info Ext" extends "Company Information"
     {
         field(50002; Stamp; BLOB)
         {
-            DataClassification = ToBeClassified;
-            Description = 'UPG';
+            Caption = 'Stamp';
+            SubType = Bitmap;
         }
     }
 }
