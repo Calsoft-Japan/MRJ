@@ -125,7 +125,10 @@ report 50011 "MRJ Sales Quotation"
 
                 FormatAddr.SalesHeaderSellTo(CustAddr, SalesHeader);
                 CompanyInfo.Get();
-                FormatAddr.Company(CompanyAddr, CompanyInfo);
+                CompanyAddr[1] := CompanyInfo.Name;
+                CompanyAddr[2] := '〒 ' + CompanyInfo."Post Code";
+                CompanyAddr[3] := CompanyInfo.Address;
+                CompanyAddr[4] := CompanyInfo."Address 2";
 
                 if Customer.Get("Sell-to Customer No.") then begin
                     if Customer."NameTitle" <> '' then
