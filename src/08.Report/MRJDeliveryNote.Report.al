@@ -39,7 +39,7 @@ report 50027 "MRJ Delivery Note"
 
 
             // Qualified invoice requirement
-            column(CompanyRegistrationNo; CompanyInfo."VAT Registration No.") { }
+            column(CompanyRegistrationNo; CompanyInfo."Registration No.") { }
 
             // Totals (for header)
             column(TotalExclVAT; TotalExclVAT) { }

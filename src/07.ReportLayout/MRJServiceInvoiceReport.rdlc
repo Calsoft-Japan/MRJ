@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-04-23T05:47:05.0494262Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-04-24T09:17:30.1868004Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -2361,39 +2361,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Rectangle Name="Rectangle1">
-            <ReportItems>
-              <Image Name="Image2">
-                <Source>Embedded</Source>
-                <Value>stamp1</Value>
-                <MIMEType>image/png</MIMEType>
-                <Sizing>FitProportional</Sizing>
-                <Top>0cm</Top>
-                <Left>0cm</Left>
-                <Height>2.08649cm</Height>
-                <Width>2.10038cm</Width>
-                <Visibility>
-                  <Hidden>=NOT Fields!ShowSeal.Value</Hidden>
-                </Visibility>
-                <Style>
-                  <Border>
-                    <Style>None</Style>
-                  </Border>
-                </Style>
-              </Image>
-            </ReportItems>
-            <KeepTogether>true</KeepTogether>
-            <Top>0.20391cm</Top>
-            <Left>16.38027cm</Left>
-            <Height>2.08649cm</Height>
-            <Width>2.10038cm</Width>
-            <ZIndex>24</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Rectangle>
           <Tablix Name="Tablix18">
             <TablixBody>
               <TablixColumns>
@@ -2407,6 +2374,7 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
+                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Textbox303">
                           <rd:DefaultName>Textbox302</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -2498,7 +2466,7 @@
                 <TablixMember>
                   <Group Name="Details4" />
                   <Visibility>
-                    <Hidden>=IsNothing(Fields!CommentText.Value) OrElse (Trim(Fields!CommentText.Value) = "")</Hidden>
+                    <Hidden>=IsNothing(Fields!CommentText.Value)</Hidden>
                   </Visibility>
                 </TablixMember>
               </TablixMembers>
@@ -2508,7 +2476,7 @@
             <Left>0.276cm</Left>
             <Height>1.09204cm</Height>
             <Width>10.70412cm</Width>
-            <ZIndex>25</ZIndex>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2710,13 +2678,32 @@
             <Left>4.97021cm</Left>
             <Height>0.49517cm</Height>
             <Width>7.30739cm</Width>
-            <ZIndex>26</ZIndex>
+            <ZIndex>25</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
             </Style>
           </Tablix>
+          <Image Name="Image3">
+            <Source>Database</Source>
+            <Value>=Fields!CompanyStamp.Value</Value>
+            <MIMEType>image/png</MIMEType>
+            <Sizing>FitProportional</Sizing>
+            <Top>0.17639cm</Top>
+            <Left>16.4066cm</Left>
+            <Height>1.94705cm</Height>
+            <Width>2.06505cm</Width>
+            <ZIndex>26</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(Fields!ShowSeal.Value = True AND NOT IsNothing(Fields!CompanyStamp.Value), False, True)</Hidden>
+            </Visibility>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
         </ReportItems>
         <Height>18.48898cm</Height>
         <Style />
