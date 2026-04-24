@@ -2161,6 +2161,12 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="Type_Line">
           <DataField>Type_Line</DataField>
         </Field>
+        <Field Name="Planned_Delivery_Date">
+          <DataField>Planned_Delivery_Date</DataField>
+        </Field>
+        <Field Name="Shipment_Date">
+          <DataField>Shipment_Date</DataField>
+        </Field>
         <Field Name="CommentText">
           <DataField>CommentText</DataField>
         </Field>
