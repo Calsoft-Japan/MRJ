@@ -1,5 +1,6 @@
 codeunit 50001 MRJServiceOrderInvoiceMgt
 {
+
     [EventSubscriber(ObjectType::Table, Database::"Service Header", OnAfterInsertEvent, '', true, true)]
     procedure SrvHeaderOnAfterInsertEvent(var Rec: Record "Service Header");
     var
@@ -17,18 +18,11 @@ codeunit 50001 MRJServiceOrderInvoiceMgt
             exit;
 
         // Create Bin if not exists
-        if not NewBin.Get(SrvMgtSetup."Serv Ord Reservation Location", Rec."No.") then begin
-            NewBin.Init();
-            NewBin.Validate("Location Code", SrvMgtSetup."Serv Ord Reservation Location");
-            NewBin.Validate(Code, Rec."No.");
-            NewBin.Validate("Customer No.", Rec."Customer No.");
-            NewBin.Description := Rec."No.";
-            NewBin.Insert(true);
-        end;
+        CreateNewBin(Rec);
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Service Header", OnAfterValidateEvent, "Customer No.", true, true)]
-    procedure CustNoOnAfterValidateEvent(var Rec: Record "Service Header");
+    procedure CustNoOnAfterValidateEvent(var Rec: Record "Service Header"; var xRec: Record "Service Header");
     var
         SrvMgtSetup: Record "Service Mgt. Setup";
         NewBin: Record Bin;
@@ -42,12 +36,34 @@ codeunit 50001 MRJServiceOrderInvoiceMgt
         SrvMgtSetup.Get();
         if Rec."Customer No." <> '' then
             if SrvMgtSetup."Serv Ord Reservation Location" <> '' then
-                if NewBin.Get(Rec."Location Code", Rec."No.") then begin
-                    NewBin.Validate("Customer No.", Rec."Customer No.");
-                    NewBin.Description := Rec."No.";
-                    NewBin.Modify(true);
-                end;
+                if not NewBin.Get(Rec."Location Code", Rec."No.") then
+                    CreateNewBin(Rec)
+                else
+                    ModifyBinInfo(Rec, NewBin);
         Rec.Validate("Bin Code", Rec."No.");
+    end;
+
+    local procedure CreateNewBin(var Rec: Record "Service Header")
+    var
+        SrvMgtSetup: Record "Service Mgt. Setup";
+        NewBin: Record Bin;
+    begin
+        SrvMgtSetup.Get();
+        if not NewBin.Get(SrvMgtSetup."Serv Ord Reservation Location", Rec."No.") then begin
+            NewBin.Init();
+            NewBin.Validate("Location Code", SrvMgtSetup."Serv Ord Reservation Location");
+            NewBin.Validate(Code, Rec."No.");
+            NewBin.Validate("Customer No.", Rec."Customer No.");
+            NewBin.Description := Rec."No.";
+            NewBin.Insert(true);
+        end;
+    end;
+
+    local procedure ModifyBinInfo(var Rec: Record "Service Header"; var NewBin: Record Bin)
+    begin
+        NewBin.Validate("Customer No.", Rec."Customer No.");
+        NewBin.Description := Rec."No.";
+        NewBin.Modify(true);
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Service Header", OnAfterValidateEvent, "Service Order Type", true, true)]
