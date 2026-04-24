@@ -50,6 +50,22 @@ codeunit 50001 MRJServiceOrderInvoiceMgt
         Rec.Validate("Bin Code", Rec."No.");
     end;
 
+    [EventSubscriber(ObjectType::Table, Database::"Service Header", OnAfterValidateEvent, "Service Order Type", true, true)]
+    procedure ServOrdTypeOnAfterValidateEvent(var Rec: Record "Service Header");
+    var
+        MRJDimLinkMgt: Codeunit MRJDimensionLinkMgt;
+    begin
+        MRJDimLinkMgt.SetSVODocDim(Rec);
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Service Header", OnAfterValidateEvent, "Salesperson Code", true, true)]
+    procedure SalesPersonOnAfterValidateEvent(var Rec: Record "Service Header");
+    var
+        MRJDimLinkMgt: Codeunit MRJDimensionLinkMgt;
+    begin
+        MRJDimLinkMgt.SetSVODocDim(Rec);
+    end;
+
     [EventSubscriber(ObjectType::Table, Database::"Service Header", OnAfterCopyCustomerFields, '', true, true)]
     procedure OnAfterCopyCustomerFields(var ServiceHeader: Record "Service Header"; Customer: Record Customer);
     var
