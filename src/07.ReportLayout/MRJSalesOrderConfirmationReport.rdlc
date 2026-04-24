@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-04-23T09:50:20.3894307Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-04-23T23:47:32.0717100Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -1407,6 +1407,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="LineAmount_Line2">
                           <rd:DefaultName>LineAmount_Line</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -1418,7 +1419,7 @@
                                   <Value>=IIF(
     IsNothing(Fields!LineAmount.Value) OR Fields!LineAmount.Value = 0,
     Nothing,
-    Fields!LineAmount.Value
+    Format(Fields!LineAmount.Value, "#,##0")
 )</Value>
                                   <Style>
                                     <FontFamily>MS UI Gothic</FontFamily>
@@ -1765,11 +1766,11 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!TitleTxt.Value</Value>
+                      <Value>受注確認書</Value>
                       <Style>
                         <FontStyle>Normal</FontStyle>
                         <FontFamily>MS UI Gothic</FontFamily>
-                        <FontSize>16pt</FontSize>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                         <TextDecoration>None</TextDecoration>
                       </Style>
@@ -2043,12 +2044,6 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Fields>
-        <Field Name="TitleTxt">
-          <DataField>TitleTxt</DataField>
-        </Field>
-        <Field Name="IsCRE">
-          <DataField>IsCRE</DataField>
-        </Field>
         <Field Name="OrderNo">
           <DataField>OrderNo</DataField>
         </Field>

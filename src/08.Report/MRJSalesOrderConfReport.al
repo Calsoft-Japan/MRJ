@@ -15,8 +15,6 @@ report 50012 "MRJ Sales Order Confirmation"
             RequestFilterFields = "No.", "Sell-to Customer No.";
 
             // ==== Header fields (align with sample) ====
-            column(TitleTxt; TitleTxt) { }
-            column(IsCRE; "Shipping Agent Service Code" = 'CRE') { }
             column(OrderNo; "No.") { }                          // 受注番号
             column(OrderDateTxt; OrderDateTxt) { }              // 2018年06月25日
             column(CustomerOrderNo; CustomerOrderNo) { }        // 御注文番号 (External Document No.)
@@ -68,8 +66,6 @@ report 50012 "MRJ Sales Order Confirmation"
                 column(LineUnitPrice; "Unit Price") { }         // 単価
                 column(LineAmount; "Line Amount") { }           // 金額
                 column(Type_Line; Type) { }                     // for RDLC conditions if needed 
-                column(Planned_Delivery_Date; "Planned Delivery Date") { }
-                column(Shipment_Date; "Shipment Date") { }
             }
 
             // ==== 摘要 / コメント ====
@@ -88,11 +84,6 @@ report 50012 "MRJ Sales Order Confirmation"
             var
                 SalesLineTmp: Record "Sales Line";
             begin
-                // ----- Title logic -----
-                if "Shipping Agent Service Code" = 'CRE' then
-                    TitleTxt := '価格訂正書'
-                else
-                    TitleTxt := '受注確認書'; // default title
                 // ----- Date -----
                 OrderDateTxt := Format("Document Date", 0, '<Year4>年<Month,2>月<Day,2>日');
 
