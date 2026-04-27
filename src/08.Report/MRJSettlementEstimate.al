@@ -52,7 +52,7 @@ report 50100 "MRJ Settlement Estimate"
 
             // ---- Registration No. ----
             column(CompanyRegistrationLine; CompanyRegistrationLine) { }
-            column(CompanyRegistrationNo; CompanyInfo."VAT Registration No.") { }
+            column(CompanyRegistrationNo; CompanyInfo."Registration No.") { }
 
             // ---- Bank (Company Info only) ----
             column(PaymentBank1; PaymentBank[1]) { }
@@ -611,7 +611,7 @@ report 50100 "MRJ Settlement Estimate"
         if RegNo = '' then
             exit('');
 
-        exit('Registration No.: ' + RegNo);
+        exit('登録番号: ' + RegNo);
     end;
 
     local procedure GetYesNo(ValueBool: Boolean): Text[3]

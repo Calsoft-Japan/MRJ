@@ -631,7 +631,7 @@ report 50089 "MRJ Service Delivery Note"
         if RegNo = '' then
             exit('');
 
-        exit('Registration No.: ' + RegNo);
+        exit('登録番号: ' + RegNo);
     end;
 
     local procedure GetYesNo(ValueBool: Boolean): Text[3]
