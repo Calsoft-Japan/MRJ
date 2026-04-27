@@ -15,16 +15,12 @@ report 50001 "Inv. Turn Over Report"
             begin
                 ClearVariables();
 
-                PrevYearQty := GetPrevYearInventory("No.");
-                PrevYearAvgQty := PrevYearQty / 12;
-
-                CurrYearQty := GetCurrYearInventory("No.");
-                CurrYearAvgQty := CurrYearQty / 12;
-
+                PrevYearAvgQty := CalPrevYearAvgInv("No.");
+                CurrYearAvgQty := CalCurrYearAvgInv("No.");
+                CalcMonthlyInventory("No.");
                 if CurrYearAvgQty <> 0 then
                     CurrYearTurnOver := CurrYearQty / CurrYearAvgQty;
 
-                CalcMonthlyInventory("No.");
                 MakeExcelDataBody();
             end;
         }
@@ -68,7 +64,6 @@ report 50001 "Inv. Turn Over Report"
 
     local procedure ClearVariables()
     begin
-        PrevYearQty := 0;
         PrevYearAvgQty := 0;
         JanQty := 0;
         FebQty := 0;
@@ -99,40 +94,92 @@ report 50001 "Inv. Turn Over Report"
         CurrYearTurnOver := 0;
     end;
 
-    procedure GetCurrYearInventory(ItemNo: Code[20]): Decimal
+    procedure CalPrevYearAvgInv(ItemNo: Code[20]): Decimal
     var
+        Item: Record Item;
+        OBItemLedEntry: Record "Item Ledger Entry";
         ItemLedEntry: Record "Item Ledger Entry";
-        Qty: Decimal;
+        MonthStartDate: Date;
+        MonthEndDate: Date;
+        PrevYrInv: Decimal;
+        TotPrevYrInv: Decimal;
+        i: Integer;
     begin
-        ItemLedEntry.Reset();
-        ItemLedEntry.SetCurrentKey("Item No.", "Posting Date");
-        ItemLedEntry.SetRange("Item No.", ItemNo);
-        ItemLedEntry.SetRange("Posting Date", CurrYrStartDate, CurrYrEndDate);
-        ItemLedEntry.SetRange("Document Type", ItemLedEntry."Document Type"::"Sales Shipment");
-        ItemLedEntry.SetLoadFields(Quantity);
-        if ItemLedEntry.FindSet() then
+        TotPrevYrInv := 0;
+
+        OBItemLedEntry.Reset();
+        OBItemLedEntry.SetCurrentKey("Item No.", "Posting Date");
+        OBItemLedEntry.SetRange("Item No.", ItemNo);
+        OBItemLedEntry.SetFilter("Posting Date", '..%1', CalcDate('<-1D>', PrevYrStartDate));
+        OBItemLedEntry.SetLoadFields(Quantity);
+        if OBItemLedEntry.FindSet() then
             repeat
-                Qty += ItemLedEntry.Quantity;
-            until ItemLedEntry.Next() = 0;
-        exit(Qty);
+                PrevYrInv += OBItemLedEntry.Quantity;
+            until OBItemLedEntry.Next() = 0;
+
+        MonthStartDate := PrevYrStartDate;
+
+        for i := 1 to 12 do begin
+            MonthEndDate := CalcDate('<CM>', MonthStartDate);
+            ItemLedEntry.Reset();
+            ItemLedEntry.SetCurrentKey("Item No.", "Posting Date");
+            ItemLedEntry.SetRange("Item No.", ItemNo);
+            ItemLedEntry.SetRange("Posting Date", MonthStartDate, MonthEndDate);
+            ItemLedEntry.SetLoadFields(Quantity);
+            if ItemLedEntry.FindSet() then
+                repeat
+                    PrevYrInv += ItemLedEntry.Quantity;
+                until ItemLedEntry.Next() = 0;
+
+            TotPrevYrInv += PrevYrInv;
+            MonthStartDate := CalcDate('<1M>', MonthStartDate);
+        end;
+
+        exit(TotPrevYrInv / 12);
     end;
 
-    procedure GetPrevYearInventory(ItemNo: Code[20]): Decimal
+    procedure CalCurrYearAvgInv(ItemNo: Code[20]): Decimal
     var
+        Item: Record Item;
+        OBItemLedEntry: Record "Item Ledger Entry";
         ItemLedEntry: Record "Item Ledger Entry";
-        Qty: Decimal;
+        MonthStartDate: Date;
+        MonthEndDate: Date;
+        CurrYrInv: Decimal;
+        TotCurrYrInv: Decimal;
+        i: Integer;
     begin
-        ItemLedEntry.Reset();
-        ItemLedEntry.SetCurrentKey("Item No.", "Posting Date");
-        ItemLedEntry.SetRange("Item No.", ItemNo);
-        ItemLedEntry.SetRange("Posting Date", PrevYrStartDate, PrevYrEndDate);
-        ItemLedEntry.SetRange("Document Type", ItemLedEntry."Document Type"::"Sales Shipment");
-        ItemLedEntry.SetLoadFields(Quantity);
-        if ItemLedEntry.FindSet() then
+        TotCurrYrInv := 0;
+
+        OBItemLedEntry.Reset();
+        OBItemLedEntry.SetCurrentKey("Item No.", "Posting Date");
+        OBItemLedEntry.SetRange("Item No.", ItemNo);
+        OBItemLedEntry.SetFilter("Posting Date", '..%1', CalcDate('<-1D>', CurrYrStartDate));
+        OBItemLedEntry.SetLoadFields(Quantity);
+        if OBItemLedEntry.FindSet() then
             repeat
-                Qty += ItemLedEntry.Quantity;
-            until ItemLedEntry.Next() = 0;
-        exit(Qty);
+                CurrYrInv += OBItemLedEntry.Quantity;
+            until OBItemLedEntry.Next() = 0;
+
+        MonthStartDate := CurrYrStartDate;
+
+        for i := 1 to 12 do begin
+            MonthEndDate := CalcDate('<CM>', MonthStartDate);
+            ItemLedEntry.Reset();
+            ItemLedEntry.SetCurrentKey("Item No.", "Posting Date");
+            ItemLedEntry.SetRange("Item No.", ItemNo);
+            ItemLedEntry.SetRange("Posting Date", MonthStartDate, MonthEndDate);
+            ItemLedEntry.SetLoadFields(Quantity);
+            if ItemLedEntry.FindSet() then
+                repeat
+                    CurrYrInv += ItemLedEntry.Quantity;
+                until ItemLedEntry.Next() = 0;
+
+            TotCurrYrInv += CurrYrInv;
+            MonthStartDate := CalcDate('<1M>', MonthStartDate);
+        end;
+
+        exit(TotCurrYrInv / 12);
     end;
 
     local procedure CalcMonthlyInventory(ItemNo: Code[20])
@@ -140,10 +187,14 @@ report 50001 "Inv. Turn Over Report"
         ItemLedEntry: Record "Item Ledger Entry";
     begin
         ItemLedEntry.Reset();
+        ItemLedEntry.SetCurrentKey("Document Type", "Item No.", "Posting Date");
+        ItemLedEntry.SetFilter("Document Type", '%1|%2|%3|%4',
+                               ItemLedEntry."Document Type"::"Sales Shipment",
+                               ItemLedEntry."Document Type"::"Service Shipment",
+                               ItemLedEntry."Document Type"::"Sales Credit Memo",
+                               ItemLedEntry."Document Type"::"Service Credit Memo");
         ItemLedEntry.SetRange("Item No.", ItemNo);
-        ItemLedEntry.SetCurrentKey("Item No.", "Posting Date");
         ItemLedEntry.SetRange("Posting Date", CurrYrStartDate, CurrYrEndDate);
-        ItemLedEntry.SetRange("Document Type", ItemLedEntry."Document Type"::"Sales Shipment");
         ItemLedEntry.SetLoadFields(Quantity);
         if ItemLedEntry.FindSet() then
             repeat
@@ -175,20 +226,23 @@ report 50001 "Inv. Turn Over Report"
                 end;
             until ItemLedEntry.Next() = 0;
 
-        if PrevYearQty <> 0 then begin
-            JanAvgQty := JanQty / PrevYearQty;
-            FebAvgQty := FebQty / PrevYearQty;
-            MarAvgQty := MarQty / PrevYearQty;
-            AprAvgQty := AprQty / PrevYearQty;
-            MayAvgQty := MayQty / PrevYearQty;
-            JunAvgQty := JunQty / PrevYearQty;
-            JulAvgQty := JulQty / PrevYearQty;
-            AugAvgQty := AugQty / PrevYearQty;
-            SepAvgQty := SepQty / PrevYearQty;
-            OctAvgQty := OctQty / PrevYearQty;
-            NovAvgQty := NovQty / PrevYearQty;
-            DecAvgQty := DecQty / PrevYearQty;
+        if PrevYearAvgQty <> 0 then begin
+            JanAvgQty := JanQty / PrevYearAvgQty;
+            FebAvgQty := FebQty / PrevYearAvgQty;
+            MarAvgQty := MarQty / PrevYearAvgQty;
+            AprAvgQty := AprQty / PrevYearAvgQty;
+            MayAvgQty := MayQty / PrevYearAvgQty;
+            JunAvgQty := JunQty / PrevYearAvgQty;
+            JulAvgQty := JulQty / PrevYearAvgQty;
+            AugAvgQty := AugQty / PrevYearAvgQty;
+            SepAvgQty := SepQty / PrevYearAvgQty;
+            OctAvgQty := OctQty / PrevYearAvgQty;
+            NovAvgQty := NovQty / PrevYearAvgQty;
+            DecAvgQty := DecQty / PrevYearAvgQty;
         end;
+
+        CurrYearQty := (JanQty + FebQty + MarQty + AprQty + MayQty + JunQty +
+                        JulQty + AugQty + SepQty + OctQty + NovQty + DecQty);
     end;
 
     local procedure MakeExcelDataHeader()
@@ -329,7 +383,6 @@ report 50001 "Inv. Turn Over Report"
         OctAvgQty: Decimal;
         NovAvgQty: Decimal;
         DecAvgQty: Decimal;
-        PrevYearQty: Decimal;
         PrevYearAvgQty: Decimal;
         CurrYearQty: Decimal;
         CurrYearAvgQty: Decimal;
