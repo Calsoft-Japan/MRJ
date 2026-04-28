@@ -2411,7 +2411,7 @@
         </trans-unit>
         <trans-unit id="Report 60501374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inventory Turn Over Report</source>
-          <target>Inventory Turn Over Report</target>
+          <target>在庫回転レポート</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report - Property Caption</note>
         </trans-unit>
@@ -2519,7 +2519,7 @@
         </trans-unit>
         <trans-unit id="Report 60501374 - NamedType 1798547016" size-unit="char" translate="yes" xml:space="preserve">
           <source>Qty. Shipped (Monthly)</source>
-          <target>出庫数（月次）</target>
+          <target>売上出庫数（月次）</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report - NamedType QtyShipMonthLbl</note>
         </trans-unit>
@@ -2537,7 +2537,7 @@
         </trans-unit>
         <trans-unit id="Report 60501374 - NamedType 3417773150" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inventory Turn Over Report</source>
-          <target>Inventory Turn Over Report</target>
+          <target>在庫回転レポート</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report - NamedType SheetNameLbl</note>
         </trans-unit>
