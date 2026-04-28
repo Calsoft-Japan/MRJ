@@ -135,7 +135,7 @@ report 50001 "Inv. Turn Over Report"
             MonthStartDate := CalcDate('<1M>', MonthStartDate);
         end;
 
-        exit(TotPrevYrInv / 12);
+        exit(Round((TotPrevYrInv / 12), 0.01));
     end;
 
     procedure CalCurrYearAvgInv(ItemNo: Code[20]): Decimal
@@ -179,7 +179,7 @@ report 50001 "Inv. Turn Over Report"
             MonthStartDate := CalcDate('<1M>', MonthStartDate);
         end;
 
-        exit(TotCurrYrInv / 12);
+        exit(Round((TotCurrYrInv / 12), 0.01));
     end;
 
     local procedure CalcMonthlyInventory(ItemNo: Code[20])
@@ -317,7 +317,7 @@ report 50001 "Inv. Turn Over Report"
         TempExcelBuffer.NewRow();
         TempExcelBuffer.AddColumn(Item."No.", false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
         TempExcelBuffer.AddColumn(Item.Description, false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Text);
-        TempExcelBuffer.AddColumn(Round(Abs(PrevYearAvgQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
+        TempExcelBuffer.AddColumn(Abs(PrevYearAvgQty), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
         TempExcelBuffer.AddColumn(Round(Abs(JanQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
         TempExcelBuffer.AddColumn(Round(Abs(JanAvgQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
         TempExcelBuffer.AddColumn(Round(Abs(FebQty), 0.01), false, '', false, false, false, '', TempExcelBuffer."Cell Type"::Number);
