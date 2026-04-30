@@ -3846,7 +3846,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 2480387432 - Field 2757549774 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>Shelf No. (Fukuoka)</source>
-          <target>棚番号 (福岡)</target> 
+          <target>カテゴリー</target> 
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Ext - Field Shelf No. (Fukuoka) - Property Caption</note>
         </trans-unit>
