@@ -4168,6 +4168,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">EnumExtension Serv Item Cmt Type Ext - EnumValue Symptom - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PermissionSet 3581005603 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MRJ Customizations</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet MRJ-PTE - Property Caption</note>
+        </trans-unit>
       </group>
     </body>
   </file>
