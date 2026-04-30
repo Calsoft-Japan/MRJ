@@ -45,12 +45,15 @@ report 50018 "MRJ Purchase Order (JP)"
             column(CompanyAddr6; CompanyAddr[6]) { }
             column(CompanyAddr7; CompanyAddr[7]) { }
             column(CompanyAddr8; CompanyAddr[8]) { }
-            column(CompanyNameEN; CompanyNameEN) { }
-            column(CompanyAddrEN; CompanyAddrEN) { }
 
             column(CompanyPhoneNo; CompanyInfo."Phone No.") { }
             column(CompanyFaxNo; CompanyInfo."Fax No.") { }
             column(CompanyPostCode; CompanyInfo."Post Code") { }
+
+            // ---- English Company Info ----//
+            column(CompanyNameEN; CompanyInfo."English Name TJP") { }
+            column(CompanyAddrEN2; CompanyInfo."English Address TJP") { }
+            column(CompanyAddrEN3; CompanyInfo."English Address 2 TJP") { }
 
             column(CompanyTelLine; CompanyTelTxt) { }
             column(CompanyFaxLine; CompanyFaxTxt) { }
@@ -136,8 +139,7 @@ report 50018 "MRJ Purchase Order (JP)"
                 Clear(CompanyAddr);
                 FormatAddr.Company(CompanyAddr, CompanyInfo);
 
-                CompanyNameEN := CompanyInfo."Name 2";
-                CompanyAddrEN := CompanyInfo."Address 2";
+
 
                 // Vendor
                 Clear(VendAddr);

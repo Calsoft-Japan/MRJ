@@ -10,7 +10,14 @@
   "help": "",
   "url": "",
   "logo": "",
-  "dependencies": [],
+  "dependencies": [
+    {
+    "id": "ffec2944-8ef2-408c-a5b2-f526b1ba96c1",
+    "name": "Japanese Localization (Japan)",
+    "publisher": "Tectura Japan K.K.",
+    "version": "27.5.10002.10000"
+  }
+  ],
   "screenshots": [],
   "platform": "1.0.0.0",
   "application": "26.0.0.0",

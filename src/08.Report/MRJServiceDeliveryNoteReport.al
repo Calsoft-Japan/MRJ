@@ -47,9 +47,15 @@ report 50089 "MRJ Service Delivery Note"
             column(CompanyAddr3; CompanyAddr[3]) { }
             column(CompanyAddr4; CompanyAddr[4]) { }
             column(CompanyAddr5; CompanyAddr[5]) { }
-            column(CompanyAddr0; CompanyInfo."Post Code") { }
             column(CompanyAddr6; CompanyInfo."Phone No.") { }
             column(CompanyAddr7; CompanyInfo."Fax No.") { }
+
+            // ---- English Company Info ----//
+            column(CompanyAddrEN1; CompanyAddrEN[1]) { }
+            column(CompanyAddrEN2; CompanyAddrEN[2]) { }
+            column(CompanyAddrEN3; CompanyAddrEN[3]) { }
+            column(CompanyAddrEN4; CompanyAddrEN[4]) { }
+            column(CompanyAddrEN5; CompanyAddrEN[5]) { }
 
             // ---- Registration No. ----
             column(CompanyRegistrationLine; CompanyRegistrationLine) { }
@@ -265,6 +271,9 @@ report 50089 "MRJ Service Delivery Note"
                 Clear(CompanyAddr);
                 FormatAddress.Company(CompanyAddr, CompanyInfo);
 
+                if CompanyAddr[4] <> '' then
+                    CompanyAddr[4] := '〒  ' + CompanyAddr[4];
+
                 FillPaymentBankFromCompanyInfo();
 
                 Clear(CustAddr);
@@ -360,6 +369,8 @@ report 50089 "MRJ Service Delivery Note"
         PaymentBank: array[3] of Text[50];
         CustAddr: array[8] of Text[90];
         CompanyAddr: array[8] of Text[90];
+        CompanyAddrEN: array[8] of Text[100];
+        CompanyNameEN: Text[100];
 
         CompanyRegistrationLine: Text[100];
         PostingDateTxt: Text[50];
