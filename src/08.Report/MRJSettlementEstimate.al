@@ -48,6 +48,8 @@ report 50100 "MRJ Settlement Estimate"
             column(CompanyAddr3; CompanyAddr[3]) { }
             column(CompanyAddr4; CompanyAddr[4]) { }
             column(CompanyAddr5; CompanyAddr[5]) { }
+            column(CompanyAddr6; CompanyInfo."Phone No.") { }
+            column(CompanyAddr7; CompanyInfo."Fax No.") { }
             column(CompanyAddr0; CompanyInfo."Post Code") { }
 
             // ---- Registration No. ----
