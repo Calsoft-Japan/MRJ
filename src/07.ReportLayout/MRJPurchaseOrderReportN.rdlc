@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-03-25T07:00:15.6459639Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-04-28T09:14:39.7671590Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -1945,7 +1945,7 @@ vbCrLf &amp; Fields!ShipToAddr4.Value)</Value>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>2.18627cm</Top>
+            <Top>3.33634cm</Top>
             <Left>10.12064cm</Left>
             <Height>0.49683cm</Height>
             <Width>6.45086cm</Width>
@@ -1968,7 +1968,7 @@ vbCrLf &amp; Fields!ShipToAddr4.Value)</Value>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!CompanyAddr2.Value &amp; IIF(IsNothing(Fields!CompanyAddrEN.Value) Or Fields!CompanyAddrEN.Value = "", "", Microsoft.VisualBasic.Constants.vbCrLf &amp; Fields!CompanyAddrEN.Value)</Value>
+                    <Value>=Fields!CompanyAddr2.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1978,7 +1978,7 @@ vbCrLf &amp; Fields!ShipToAddr4.Value)</Value>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>1.21259cm</Top>
+            <Top>1.73577cm</Top>
             <Left>10.12064cm</Left>
             <Height>0.52318cm</Height>
             <Width>6.45086cm</Width>
@@ -2011,7 +2011,7 @@ vbCrLf &amp; Fields!ShipToAddr4.Value)</Value>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>0.69313cm</Top>
+            <Top>1.21631cm</Top>
             <Left>10.12064cm</Left>
             <Height>0.48418cm</Height>
             <Width>6.45086cm</Width>
@@ -2034,7 +2034,7 @@ vbCrLf &amp; Fields!ShipToAddr4.Value)</Value>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Fields!CompanyAddr1.Value &amp; IIF(IsNothing(Fields!CompanyNameEN.Value) Or Fields!CompanyNameEN.Value = "", "", Microsoft.VisualBasic.Constants.vbCrLf &amp; Fields!CompanyNameEN.Value)</Value>
+                    <Value>=Fields!CompanyAddr1.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -2045,7 +2045,7 @@ vbCrLf &amp; Fields!ShipToAddr4.Value)</Value>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>0.18299cm</Top>
+            <Top>0.14771cm</Top>
             <Left>10.12064cm</Left>
             <Height>0.51014cm</Height>
             <Width>6.45086cm</Width>
@@ -2083,11 +2083,77 @@ vbCrLf &amp; Fields!ShipToAddr4.Value)</Value>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>1.73577cm</Top>
+            <Top>2.81529cm</Top>
             <Left>10.12064cm</Left>
-            <Height>0.4505cm</Height>
+            <Height>0.48578cm</Height>
             <Width>6.45086cm</Width>
             <ZIndex>21</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox33">
+            <rd:DefaultName>Textbox12</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!CompanyNameEN.Value</Value>
+                    <Style>
+                      <FontFamily>MS UI Gothic</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>0.72841cm</Top>
+            <Left>10.12064cm</Left>
+            <Height>0.48418cm</Height>
+            <Width>6.45086cm</Width>
+            <ZIndex>22</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox36">
+            <rd:DefaultName>Textbox12</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!CompanyAddrEN2.Value</Value>
+                    <Style>
+                      <FontFamily>MS UI Gothic</FontFamily>
+                      <FontSize>9pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>2.29423cm</Top>
+            <Left>10.12064cm</Left>
+            <Height>0.48578cm</Height>
+            <Width>6.45086cm</Width>
+            <ZIndex>23</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2633,12 +2699,6 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         <Field Name="CompanyAddr8">
           <DataField>CompanyAddr8</DataField>
         </Field>
-        <Field Name="CompanyNameEN">
-          <DataField>CompanyNameEN</DataField>
-        </Field>
-        <Field Name="CompanyAddrEN">
-          <DataField>CompanyAddrEN</DataField>
-        </Field>
         <Field Name="CompanyPhoneNo">
           <DataField>CompanyPhoneNo</DataField>
         </Field>
@@ -2647,6 +2707,15 @@ qJyRp5mNn5OHn5KHr6OY7+3r4t3Zt6ygn5KHmY2BlYh9lop/m46CpJiO8vDu////////////////3c64
         </Field>
         <Field Name="CompanyPostCode">
           <DataField>CompanyPostCode</DataField>
+        </Field>
+        <Field Name="CompanyNameEN">
+          <DataField>CompanyNameEN</DataField>
+        </Field>
+        <Field Name="CompanyAddrEN2">
+          <DataField>CompanyAddrEN2</DataField>
+        </Field>
+        <Field Name="CompanyAddrEN3">
+          <DataField>CompanyAddrEN3</DataField>
         </Field>
         <Field Name="CompanyTelLine">
           <DataField>CompanyTelLine</DataField>

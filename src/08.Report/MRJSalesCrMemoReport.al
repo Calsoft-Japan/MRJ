@@ -38,16 +38,19 @@ report 50082 "MRJ Sales Credit Memo"
             column(CompanyAddr7; CompanyAddr[7]) { }
             column(CompanyAddr8; CompanyAddr[8]) { }
 
+            // ---- English Company Info ----//
+            column(CompanyNameEN; CompanyAddrEN[1]) { }
+            column(CompanyAddrEN2; CompanyAddrEN[2]) { }
+            column(CompanyAddrEN3; CompanyAddrEN[3]) { }
+            column(CompanyAddrEN4; CompanyAddrEN[4]) { }
+            column(CompanyAddrEN5; CompanyAddrEN[5]) { }
+
             column(CompanyPhoneNo; CompanyInfo."Phone No.") { }
             column(CompanyFaxNo; CompanyInfo."Fax No.") { }
             column(CompanyPostCode; CompanyInfo."Post Code") { }
 
             column(TelLine; CompanyTelTxt) { }
             column(FaxLine; CompanyFaxTxt) { }
-
-            // Company EN
-            column(CompanyNameEN; CompanyNameEN) { }
-            column(CompanyAddrEN; CompanyAddrEN) { }
 
             column(CompanyRegistrationLine; CompanyRegistrationLine) { }
 
@@ -139,11 +142,17 @@ report 50082 "MRJ Sales Credit Memo"
                 Clear(CompanyAddr);
                 FormatAddr.Company(CompanyAddr, CompanyInfo);
 
+                Clear(CompanyAddrEN);
+
+                CompanyAddrEN[1] := CompanyInfo."English Name TJP";
+                CompanyAddrEN[2] := CompanyInfo."English Address TJP";
+                CompanyAddrEN[3] := CompanyInfo."English Address 2 TJP";
+                CompanyAddrEN[4] := CompanyInfo."English Post Code TJP";
+                CompanyAddrEN[5] := CompanyInfo."English City TJP";
+                CompanyAddrEN[6] := CompanyInfo."Country/Region Code";
+
                 CompanyTelTxt := 'TEL : ' + CompanyInfo."Phone No.";
                 CompanyFaxTxt := 'FAX : ' + CompanyInfo."Fax No.";
-
-                CompanyNameEN := CompanyInfo."Name 2";
-                CompanyAddrEN := CompanyInfo."Address 2";
 
                 // Payment terms
                 Clear(PaymentTermTxt);
@@ -226,7 +235,7 @@ report 50082 "MRJ Sales Credit Memo"
         CompanyAddr: array[8] of Text[100];
 
         CompanyNameEN: Text[100];
-        CompanyAddrEN: Text[100];
+        CompanyAddrEN: array[8] of Text[100];
         CompanyTelTxt: Text[100];
         CompanyFaxTxt: Text[100];
 
