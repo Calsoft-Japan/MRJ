@@ -108,9 +108,11 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet"
         PurchHeader.Validate("Responsibility Center", Rec."Responsibility Center");
         PurchHeader.Validate("Shortcut Dimension 1 Code", Rec."Shortcut Dimension 1 Code");
         PurchHeader.Validate("Shortcut Dimension 2 Code", Rec."Shortcut Dimension 2 Code");
-        if ServiceHeader.Get(Rec."Document Type"::Order, Rec."Document No.") then
-            ServiceHeader.TestField("Parts From Location Code");
-        PurchHeader.Validate("Location Code", ServiceHeader."Parts From Location Code");
+        if IsOutsource then begin
+            if ServiceHeader.Get(Rec."Document Type"::Order, Rec."Document No.") then
+                ServiceHeader.TestField("Parts From Location Code");
+            PurchHeader.Validate("Location Code", ServiceHeader."Parts From Location Code");
+        end;
         PurchHeader.Modify(true);
 
         if Rec."Document Type" = Rec."Document Type"::Order then
