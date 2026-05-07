@@ -188,6 +188,43 @@ codeunit 50015 MRJDimensionLinkMgt
             until ServItemLine.Next() = 0;
     end;
 
+    local procedure ReplaceDim(var TempDimSetEntry: Record "Dimension Set Entry" temporary; DimCode: Code[20]; DimValue: Code[20])
+    var
+        Existing: Boolean;
+    begin
+        Existing := false;
+        TempDimSetEntry.SetRange("Dimension Code", DimCode);
+        if TempDimSetEntry.FindFirst() then begin
+            Existing := true;
+            if TempDimSetEntry."Dimension Value Code" <> DimValue then begin
+                TempDimSetEntry."Dimension Value Code" := DimValue;
+                TempDimSetEntry.Modify();
+            end;
+        end;
+
+        if not Existing then begin
+            TempDimSetEntry.Reset();
+            TempDimSetEntry.Init();
+            TempDimSetEntry."Dimension Code" := DimCode;
+            TempDimSetEntry."Dimension Value Code" := DimValue;
+            TempDimSetEntry.Insert(true);
+        end;
+    end;
+
+    /* local procedure ReplaceDim(var TempDimSetEntry: Record "Dimension Set Entry" temporary; DimCode: Code[20]; DimValue: Code[20])
+    begin
+        TempDimSetEntry.SetRange("Dimension Code", DimCode);
+        if TempDimSetEntry.FindFirst() then
+            TempDimSetEntry.DeleteAll();
+
+        TempDimSetEntry.Reset();
+
+        TempDimSetEntry.Init();
+        TempDimSetEntry."Dimension Code" := DimCode;
+        TempDimSetEntry."Dimension Value Code" := DimValue;
+        TempDimSetEntry.Insert(true);
+    end; */
+
     procedure CpySVIDocDim2POPI(var PurchHeader: Record "Purchase Header")
     var
         SrvMgtSetup: Record "Service Mgt. Setup";
@@ -275,20 +312,6 @@ codeunit 50015 MRJDimensionLinkMgt
 
         // Optional backup logic
         BakPOPIDocDim(PurchHeader);
-    end;
-
-    local procedure ReplaceDim(var TempDimSetEntry: Record "Dimension Set Entry" temporary; DimCode: Code[20]; DimValue: Code[20])
-    begin
-        TempDimSetEntry.SetRange("Dimension Code", DimCode);
-        if TempDimSetEntry.FindFirst() then
-            TempDimSetEntry.DeleteAll();
-
-        TempDimSetEntry.Reset();
-
-        TempDimSetEntry.Init();
-        TempDimSetEntry."Dimension Code" := DimCode;
-        TempDimSetEntry."Dimension Value Code" := DimValue;
-        TempDimSetEntry.Insert(true);
     end;
 
     procedure BakPOPIDocDim(var PurchHeader: Record "Purchase Header")

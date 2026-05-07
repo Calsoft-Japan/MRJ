@@ -5,7 +5,9 @@ page 50133 "Serv. Item Line Subform"
     PageType = ListPart;
     SourceTable = "Service Item Line";
     ApplicationArea = All;
-    Editable = false;
+    InsertAllowed = false;
+    ModifyAllowed = false;
+    DeleteAllowed = false;
 
     layout
     {
@@ -17,7 +19,19 @@ page 50133 "Serv. Item Line Subform"
                 {
                     ApplicationArea = All;
                     Caption = 'No.';
-                    trigger OnLookup(var Text: Text): Boolean
+                    DrillDown = true;
+                    trigger OnDrillDown()
+                    var
+                        ServHeader: Record "Service Header";
+                    begin
+                        ServHeader.Reset();
+                        ServHeader.SetRange("Document Type", Rec."Document Type");
+                        ServHeader.SetRange("No.", Rec."Document No.");
+                        if ServHeader.FindFirst() then
+                            Page.RunModal(Page::"Service Order", ServHeader);
+                    end;
+
+                    /* trigger OnLookup(var Text: Text): Boolean
                     var
                         OpenServHeader: Record 5900; // Service Header
                     begin
@@ -25,13 +39,22 @@ page 50133 "Serv. Item Line Subform"
                         OpenServHeader.SetRange("Document Type", Rec."Document Type");
                         OpenServHeader.SetRange("No.", Rec."Document No.");
                         Page.RunModal(Page::"Service Order", OpenServHeader);
-                        exit(true);
-                    end;
+                        //exit(true);
+                    end; */
                 }
                 field("Service Item No."; Rec."Service Item No.")
                 {
                     ApplicationArea = All;
-                    trigger OnLookup(var Text: Text): Boolean
+                    DrillDown = true;
+                    trigger OnDrillDown()
+                    var
+                        ServItem: Record "Service Item";
+                    begin
+                        ServItem.Get(Rec."Service Item No.");
+                        Page.RunModal(Page::"Service Item Card", ServItem);
+                    end;
+
+                    /* trigger OnLookup(var Text: Text): Boolean
                     var
                         RecServItem: Record 5940;
                     begin
@@ -40,7 +63,7 @@ page 50133 "Serv. Item Line Subform"
                         if RecServItem.FindFirst() then
                             Page.RunModal(Page::"Service Item Card", RecServItem);
                         exit(true);
-                    end;
+                    end; */
                 }
                 field(Description; Rec.Description) { ApplicationArea = All; }
                 field(Warranty; Rec.Warranty)
@@ -50,9 +73,20 @@ page 50133 "Serv. Item Line Subform"
                 field("Contract No."; Rec."Contract No.")
                 {
                     ApplicationArea = All;
-                    trigger OnLookup(var Text: Text): Boolean
+                    DrillDown = true;
+                    trigger OnDrillDown()
                     var
-                        RecServContractHeader: Record 5965;
+                        ServContractHdr: Record "Service Contract Header";
+                    begin
+                        ServContractHdr.Reset();
+                        ServContractHdr.SetRange("Contract Type", ServContractHdr."Contract Type"::Contract);
+                        ServContractHdr.SetRange("Contract No.", Rec."Contract No.");
+                        if ServContractHdr.FindFirst() then
+                            Page.RunModal(Page::"Service Contract", ServContractHdr);
+                    end;
+                    /* trigger OnLookup(var Text: Text): Boolean
+                    var
+                        RecServContractHeader: Record "Service Contract Header";
                     begin
                         Clear(RecServContractHeader);
                         RecServContractHeader.SetRange("Contract Type", RecServContractHeader."Contract Type"::Contract);
@@ -60,7 +94,7 @@ page 50133 "Serv. Item Line Subform"
                         if RecServContractHeader.FindFirst() then
                             Page.RunModal(Page::"Service Contract", RecServContractHeader);
                         exit(true);
-                    end;
+                    end; */
                 }
                 field("Fault Area Code"; Rec."Fault Area Code")
                 {
@@ -84,7 +118,6 @@ page 50133 "Serv. Item Line Subform"
                     ApplicationArea = All;
                     Editable = false;
                     Caption = 'Fault Comment';
-                    Visible = false;
                     trigger OnLookup(var Text: Text): Boolean
                     begin
                         if Rec."Document No." = '' then
@@ -99,7 +132,6 @@ page 50133 "Serv. Item Line Subform"
                     ApplicationArea = All;
                     Editable = false;
                     Caption = 'Resolution Comment';
-                    Visible = false;
                     trigger OnLookup(var Text: Text): Boolean
                     begin
                         if Rec."Document No." = '' then
@@ -114,7 +146,6 @@ page 50133 "Serv. Item Line Subform"
                     ApplicationArea = All;
                     Editable = false;
                     Caption = 'Fault Area Comment';
-                    Visible = false;
                     trigger OnLookup(var Text: Text): Boolean
                     begin
                         if Rec."Document No." = '' then
@@ -129,7 +160,6 @@ page 50133 "Serv. Item Line Subform"
                     ApplicationArea = All;
                     Editable = false;
                     Caption = 'Symptom Comment';
-                    Visible = false;
                     trigger OnLookup(var Text: Text): Boolean
                     begin
                         if Rec."Document No." = '' then

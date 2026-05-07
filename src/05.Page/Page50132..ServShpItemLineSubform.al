@@ -5,7 +5,9 @@ page 50132 "Serv. Shpt. Item Line Subform"
     PageType = ListPart;
     SourceTable = "Service Shipment Item Line";
     ApplicationArea = All;
-    Editable = false;
+    InsertAllowed = false;
+    ModifyAllowed = false;
+    DelayedInsert = false;
 
     layout
     {
@@ -16,20 +18,36 @@ page 50132 "Serv. Shpt. Item Line Subform"
                 field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
-                    trigger OnLookup(var Text: Text): Boolean
+                    DrillDown = true;
+                    trigger OnDrillDown()
+                    var
+                        ServShipHeader: Record "Service Shipment Header";
+                    begin
+                        ServShipHeader.Get(Rec."No.");
+                        Page.RunModal(Page::"Posted Service Shipment", ServShipHeader);
+                    end;
+                    /* trigger OnLookup(var Text: Text): Boolean
                     var
                         OpenServShipHeader: Record 5990; // Service Shipment Header
                     begin
                         Clear(OpenServShipHeader);
                         OpenServShipHeader.SetRange("No.", Rec."No.");
                         Page.RunModal(Page::"Posted Service Shipment", OpenServShipHeader);
-                        exit(true);
-                    end;
+                        //exit(true);
+                    end; */
                 }
                 field("Service Item No."; Rec."Service Item No.")
                 {
                     ApplicationArea = All;
-                    trigger OnLookup(var Text: Text): Boolean
+                    DrillDown = true;
+                    trigger OnDrillDown()
+                    var
+                        ServItem: Record 5940; // Service Item
+                    begin
+                        ServItem.Get(Rec."Service Item No.");
+                        Page.RunModal(Page::"Service Item Card", ServItem);
+                    end;
+                    /* trigger OnLookup(var Text: Text): Boolean
                     var
                         RecServItem: Record 5940; // Service Item
                     begin
@@ -38,7 +56,7 @@ page 50132 "Serv. Shpt. Item Line Subform"
                         if RecServItem.FindFirst() then
                             Page.RunModal(Page::"Service Item Card", RecServItem);
                         exit(true);
-                    end;
+                    end; */
                 }
                 field(Description; Rec.Description) { ApplicationArea = All; }
                 field(Warranty; Rec.Warranty)
@@ -48,7 +66,18 @@ page 50132 "Serv. Shpt. Item Line Subform"
                 field("Contract No."; Rec."Contract No.")
                 {
                     ApplicationArea = All;
-                    trigger OnLookup(var Text: Text): Boolean
+                    DrillDown = true;
+                    trigger OnDrillDown()
+                    var
+                        ServContractHdr: Record "Service Contract Header";
+                    begin
+                        ServContractHdr.Reset();
+                        ServContractHdr.SetRange("Contract Type", ServContractHdr."Contract Type"::Contract);
+                        ServContractHdr.SetRange("Contract No.", Rec."Contract No.");
+                        if ServContractHdr.FindFirst() then
+                            Page.RunModal(Page::"Service Contract", ServContractHdr);
+                    end;
+                    /* trigger OnLookup(var Text: Text): Boolean
                     var
                         RecServContractHeader: Record 5965; // Service Contract Header
                     begin
@@ -58,7 +87,7 @@ page 50132 "Serv. Shpt. Item Line Subform"
                         if RecServContractHeader.FindFirst() then
                             Page.RunModal(Page::"Service Contract", RecServContractHeader);
                         exit(true);
-                    end;
+                    end; */
                 }
                 field("Fault Area Code"; Rec."Fault Area Code")
                 {

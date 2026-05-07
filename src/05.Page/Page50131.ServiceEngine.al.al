@@ -8,7 +8,6 @@ page 50131 "Service Engine"
     InsertAllowed = false;
     DeleteAllowed = false;
     ModifyAllowed = false;
-    Editable = true;
     Caption = 'Service Engine';
 
     layout
@@ -67,14 +66,13 @@ page 50131 "Service Engine"
                 {
                     ApplicationArea = All;
                     Caption = 'Service Item No.';
-                    trigger OnLookup(var Text: Text): Boolean
+                    DrillDown = true;
+                    trigger OnDrillDown()
                     var
-                        OpenServItem: Record "Service Item";
+                        ServiceItem: Record "Service Item";
                     begin
-                        OpenServItem.Reset();
-                        OpenServItem.SetRange("No.", Rec."No.");
-                        if OpenServItem.FindFirst() then
-                            Page.RunModal(Page::"Service Item Card", OpenServItem);
+                        ServiceItem.Get(Rec."No.");
+                        Page.RunModal(Page::"Service Item Card", ServiceItem);
                     end;
                 }
                 field("Service Item Type"; Rec."Service Item Type")
@@ -89,9 +87,10 @@ page 50131 "Service Engine"
                 field("Item No."; Rec."Item No.")
                 {
                     ApplicationArea = All;
-                    trigger OnLookup(var Text: Text): Boolean
+                    DrillDown = true;
+                    trigger OnDrillDown()
                     var
-                        RecItem: Record 27;
+                        RecItem: Record Item;
                     begin
                         Clear(RecItem);
                         RecItem.SetRange("No.", Rec."Item No.");
