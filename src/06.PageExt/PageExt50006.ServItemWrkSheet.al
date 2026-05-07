@@ -84,6 +84,7 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet"
     local procedure CreatePurchOrder(IsOutsource: Boolean)
     var
         Vendor: Record Vendor;
+        ServiceHeader: Record "Service Header";
         ServMgtSetup: Record "Service Mgt. Setup";
         PurchHeader: Record "Purchase Header";
         PurchLine: Record "Purchase Line";
@@ -104,9 +105,12 @@ pageextension 50006 "Serv Item WorkSheet Ext" extends "Service Item Worksheet"
         PurchHeader.Validate("Buy-from Vendor No.", VendorNo);
         PurchHeader."Service Order No." := Rec."Document No.";
         PurchHeader."Service Item Line No." := Rec."Line No.";
-        PurchHeader."Responsibility Center" := Rec."Responsibility Center";
-        PurchHeader."Shortcut Dimension 1 Code" := Rec."Shortcut Dimension 1 Code";
-        PurchHeader."Shortcut Dimension 2 Code" := Rec."Shortcut Dimension 2 Code";
+        PurchHeader.Validate("Responsibility Center", Rec."Responsibility Center");
+        PurchHeader.Validate("Shortcut Dimension 1 Code", Rec."Shortcut Dimension 1 Code");
+        PurchHeader.Validate("Shortcut Dimension 2 Code", Rec."Shortcut Dimension 2 Code");
+        if ServiceHeader.Get(Rec."Document Type"::Order, Rec."Document No.") then
+            ServiceHeader.TestField("Parts From Location Code");
+        PurchHeader.Validate("Location Code", ServiceHeader."Parts From Location Code");
         PurchHeader.Modify(true);
 
         if Rec."Document Type" = Rec."Document Type"::Order then
