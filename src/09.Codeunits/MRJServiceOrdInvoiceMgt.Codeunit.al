@@ -34,13 +34,15 @@ codeunit 50001 MRJServiceOrderInvoiceMgt
             exit;
 
         SrvMgtSetup.Get();
-        if Rec."Customer No." <> '' then
+        if Rec."Customer No." <> '' then begin
             if SrvMgtSetup."Serv Ord Reservation Location" <> '' then
                 if not NewBin.Get(Rec."Location Code", Rec."No.") then
                     CreateNewBin(Rec)
                 else
                     ModifyBinInfo(Rec, NewBin);
-        Rec.Validate("Bin Code", Rec."No.");
+            Rec.Validate("Bin Code", Rec."No.");
+        end else
+            Rec.Validate("Bin Code", '');
     end;
 
     local procedure CreateNewBin(var Rec: Record "Service Header")
