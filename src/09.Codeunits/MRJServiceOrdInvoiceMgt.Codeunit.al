@@ -33,16 +33,40 @@ codeunit 50001 MRJServiceOrderInvoiceMgt
         if Rec."Document Type" <> Rec."Document Type"::Order then
             exit;
 
+        if Rec."Customer No." = '' then begin
+            Rec.Validate("Bin Code", '');
+            exit;
+        end;
+
         SrvMgtSetup.Get();
-        if Rec."Customer No." <> '' then begin
-            if SrvMgtSetup."Serv Ord Reservation Location" <> '' then
+        SrvMgtSetup.TestField("Serv Ord Reservation Location");
+        if SrvMgtSetup."Serv Ord Reservation Location" = '' then begin
+            if Rec."Bin Code" <> '' then
+                Rec.Validate("Bin Code", '');
+            exit;
+        end;
+
+        if not NewBin.Get(Rec."Location Code", Rec."No.") then
+            CreateNewBin(Rec)
+        else
+            ModifyBinInfo(Rec, NewBin);
+
+        if Rec."Bin Code" <> Rec."No." then
+            Rec.Validate("Bin Code", Rec."No.");
+
+        /* if Rec."Customer No." <> '' then begin
+            SrvMgtSetup.Get();
+            SrvMgtSetup.TestField("Serv Ord Reservation Location");
+            if SrvMgtSetup."Serv Ord Reservation Location" <> '' then begin
                 if not NewBin.Get(Rec."Location Code", Rec."No.") then
                     CreateNewBin(Rec)
                 else
                     ModifyBinInfo(Rec, NewBin);
-            Rec.Validate("Bin Code", Rec."No.");
+                Rec.Validate("Bin Code", Rec."No.");
+            end else
+                Rec.Validate("Bin Code", '');
         end else
-            Rec.Validate("Bin Code", '');
+            Rec.Validate("Bin Code", ''); */
     end;
 
     local procedure CreateNewBin(var Rec: Record "Service Header")
