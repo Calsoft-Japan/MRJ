@@ -18,9 +18,23 @@ pageextension 50451 ItemCardExt extends "Item Card"
             field("No. 2 "; Rec."No. 2") { ApplicationArea = All; }
         }
 
-        addbefore("Shelf No.")
+        // addbefore("Shelf No.")
+        // {
+        //     field("Is Enabled"; Rec."Is Enabled") { ApplicationArea = All; }
+        // }
+        modify(Inventory)
         {
-            field("Is Enabled"; Rec."Is Enabled") { ApplicationArea = All; }
+            ToolTip = '保管場所別フィルターを使用している場合は全倉庫の在庫数ではありません。';
+        }
+
+        addafter(Inventory)
+        {
+            field("Inventory 01TOKYO"; Rec."Inventory 01TOKYO")
+            {
+                ApplicationArea = All;
+                Caption = 'Inventory 01TOKYO';
+                ToolTip = '01TOKYO location inventory quantity.';
+            }
         }
     }
 }

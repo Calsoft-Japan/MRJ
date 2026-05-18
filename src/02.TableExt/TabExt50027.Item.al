@@ -110,6 +110,15 @@ tableextension 50027 "Item Ext" extends Item
             OptionCaption = ' ,Overseas,Domestic';
             OptionMembers = " ",Overseas,Domestic;
         }
+        field(50459; "Inventory 01TOKYO"; Decimal)
+        {
+            Caption = '01TOKYO 在庫数';
+            FieldClass = FlowField;
+            CalcFormula = Sum("Item Ledger Entry".Quantity
+                              WHERE("Item No." = FIELD("No."),
+                                    "Location Code" = CONST('01TOKYO')));
+            Editable = false;
+        }
         field(90000; "FA Template Code"; Code[10])
         {
             Caption = 'FA Template Code';
