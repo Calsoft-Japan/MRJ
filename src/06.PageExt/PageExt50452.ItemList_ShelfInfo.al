@@ -18,9 +18,19 @@ pageextension 50452 ItemListExt extends "Item List"
             field("No. 2 "; Rec."No. 2") { ApplicationArea = All; }
         }
 
-        addbefore("Shelf No.")
+        // addbefore("Shelf No.")
+        // {
+        //     field("Is Enabled"; Rec."Is Enabled") { ApplicationArea = All; }
+        // }
+        addafter(InventoryField)
         {
-            field("Is Enabled"; Rec."Is Enabled") { ApplicationArea = All; }
+            field("Inventory 01TOKYO"; Rec."Inventory 01TOKYO")
+            {
+                ApplicationArea = All;
+                Caption = 'Inventory 01TOKYO';
+                ToolTip = '01TOKYO location inventory quantity.';
+            }
         }
+
     }
 }
