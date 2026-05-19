@@ -211,20 +211,6 @@ codeunit 50015 MRJDimensionLinkMgt
         end;
     end;
 
-    /* local procedure ReplaceDim(var TempDimSetEntry: Record "Dimension Set Entry" temporary; DimCode: Code[20]; DimValue: Code[20])
-    begin
-        TempDimSetEntry.SetRange("Dimension Code", DimCode);
-        if TempDimSetEntry.FindFirst() then
-            TempDimSetEntry.DeleteAll();
-
-        TempDimSetEntry.Reset();
-
-        TempDimSetEntry.Init();
-        TempDimSetEntry."Dimension Code" := DimCode;
-        TempDimSetEntry."Dimension Value Code" := DimValue;
-        TempDimSetEntry.Insert(true);
-    end; */
-
     procedure CpySVIDocDim2POPI(var PurchHeader: Record "Purchase Header")
     var
         SrvMgtSetup: Record "Service Mgt. Setup";

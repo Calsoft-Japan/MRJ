@@ -21,6 +21,14 @@ codeunit 50001 MRJServiceOrderInvoiceMgt
         CreateNewBin(Rec);
     end;
 
+    /* [EventSubscriber(ObjectType::Table, Database::"Service Header", OnAfterModifyEvent, '', true, true)]
+    procedure SrvHeaderOnAfterModifyEvent(var Rec: Record "Service Header");
+    var
+        MRJDimLinkMgt: Codeunit MRJDimensionLinkMgt;
+    begin
+        MRJDimLinkMgt.SetSVODocDim(Rec);
+    end; */
+
     [EventSubscriber(ObjectType::Table, Database::"Service Header", OnAfterValidateEvent, "Customer No.", true, true)]
     procedure CustNoOnAfterValidateEvent(var Rec: Record "Service Header"; var xRec: Record "Service Header");
     var
@@ -53,20 +61,6 @@ codeunit 50001 MRJServiceOrderInvoiceMgt
 
         if Rec."Bin Code" <> Rec."No." then
             Rec.Validate("Bin Code", Rec."No.");
-
-        /* if Rec."Customer No." <> '' then begin
-            SrvMgtSetup.Get();
-            SrvMgtSetup.TestField("Serv Ord Reservation Location");
-            if SrvMgtSetup."Serv Ord Reservation Location" <> '' then begin
-                if not NewBin.Get(Rec."Location Code", Rec."No.") then
-                    CreateNewBin(Rec)
-                else
-                    ModifyBinInfo(Rec, NewBin);
-                Rec.Validate("Bin Code", Rec."No.");
-            end else
-                Rec.Validate("Bin Code", '');
-        end else
-            Rec.Validate("Bin Code", ''); */
     end;
 
     local procedure CreateNewBin(var Rec: Record "Service Header")
