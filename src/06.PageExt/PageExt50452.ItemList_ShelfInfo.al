@@ -27,7 +27,7 @@ pageextension 50452 ItemListExt extends "Item List"
             field("Inventory 01TOKYO"; Rec."Inventory 01TOKYO")
             {
                 ApplicationArea = All;
-                Caption = '01TOKYO在庫数';
+                Caption = 'Inventory (01TOKYO)';
                 ToolTip = '01TOKYO location inventory quantity.';
             }
         }

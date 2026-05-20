@@ -3412,7 +3412,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCardExt - Control InventoryMRJ - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3456710516 - Control 299464487 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
-          <source>01TOKYO在庫数</source>
+          <source>Inventory (01TOKYO)</source>
           <target>01TOKYO在庫数</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCardExt - Control Inventory 01TOKYO - Property Caption</note>
@@ -3424,7 +3424,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemListExt - Control Inventory 01TOKYO - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 1301162578 - Control 299464487 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
-          <source>01TOKYO在庫数</source>
+          <source>Inventory (01TOKYO)</source>
           <target>01TOKYO在庫数</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemListExt - Control Inventory 01TOKYO - Property Caption</note>
