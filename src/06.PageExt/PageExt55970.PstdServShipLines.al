@@ -8,6 +8,11 @@ pageextension 55970 "Pstd. Serv. Shipment Lines Ext" extends "Posted Service Shi
             {
                 ApplicationArea = All;
             }
+            field("Unit Price"; Rec."Unit Price")
+            {
+                ApplicationArea = All;
+            }
+
 
         }
 
