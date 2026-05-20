@@ -2853,18 +2853,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Inv Setup Ext - Control MRJCustomization - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3456710516 - Control 299464487 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
-          <source>01TOKYO location inventory quantity.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCardExt - Control Inventory 01TOKYO - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 3456710516 - Control 299464487 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Inventory 01TOKYO</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCardExt - Control Inventory 01TOKYO - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3456710516 - Change 2105307182 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
-          <source>保管場所別フィルターを使用している場合は全倉庫の在庫数ではありません。</source>
+          <source>If you are using the “Storage Location” filter, this does not represent the total stock across all warehouses.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCardExt - Change Inventory - Property ToolTip</note>
         </trans-unit>

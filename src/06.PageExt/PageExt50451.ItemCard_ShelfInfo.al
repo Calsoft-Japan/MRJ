@@ -24,7 +24,7 @@ pageextension 50451 ItemCardExt extends "Item Card"
         // }
         modify(Inventory)
         {
-            ToolTip = '保管場所別フィルターを使用している場合は全倉庫の在庫数ではありません。';
+            ToolTip = 'If you are using the “Storage Location” filter, this does not represent the total stock across all warehouses.';
         }
 
         addafter(Inventory)
@@ -33,7 +33,6 @@ pageextension 50451 ItemCardExt extends "Item Card"
             {
                 ApplicationArea = All;
                 Caption = 'Inventory 01TOKYO';
-                ToolTip = '01TOKYO location inventory quantity.';
             }
         }
     }
