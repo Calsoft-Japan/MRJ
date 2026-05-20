@@ -1,5 +1,17 @@
 pageextension 55970 "Pstd. Serv. Shipment Lines Ext" extends "Posted Service Shipment Lines"
 {
+    layout
+    {
+        addbefore("Quantity")
+        {
+            field("Amount"; Rec."Amount")
+            {
+                ApplicationArea = All;
+            }
+
+        }
+
+    }
     actions
     {
         addafter("&Navigate_Promoted")
