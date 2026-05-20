@@ -4,14 +4,15 @@ pageextension 55970 "Pstd. Serv. Shipment Lines Ext" extends "Posted Service Shi
     {
         addbefore("Quantity")
         {
-            field("Amount"; Rec."Amount")
-            {
-                ApplicationArea = All;
-            }
             field("Unit Price"; Rec."Unit Price")
             {
                 ApplicationArea = All;
             }
+            field("Amount"; Rec."Amount")
+            {
+                ApplicationArea = All;
+            }
+
 
 
         }
