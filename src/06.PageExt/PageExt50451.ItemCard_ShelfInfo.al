@@ -32,7 +32,7 @@ pageextension 50451 ItemCardExt extends "Item Card"
             field("Inventory 01TOKYO"; Rec."Inventory 01TOKYO")
             {
                 ApplicationArea = All;
-                Caption = 'Inventory 01TOKYO';
+                Caption = '01TOKYO在庫数';
             }
         }
     }
