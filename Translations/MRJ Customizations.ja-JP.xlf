@@ -3399,17 +3399,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Inv Setup Ext - Control MRJCustomization - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3456710516 - Control 1248813113 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>If you are using the “Storage Location” filter, this does not represent the total stock across all warehouses.</source>
+          <target>保管場所別フィルターを使用している場合は全倉庫の在庫数ではありません。</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCardExt - Control InventoryMRJ - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3456710516 - Control 1248813113 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>Inventory</source>
+          <target>在庫</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCardExt - Control InventoryMRJ - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3456710516 - Control 299464487 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>01TOKYO在庫数</source>
           <target>01TOKYO在庫数</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCardExt - Control Inventory 01TOKYO - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3456710516 - Change 2105307182 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
-          <source>If you are using the “Storage Location” filter, this does not represent the total stock across all warehouses.</source>
-          <target>保管場所別フィルターを使用している場合は全倉庫の在庫数ではありません。</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCardExt - Change Inventory - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 1301162578 - Control 299464487 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
           <source>01TOKYO location inventory quantity.</source>
@@ -4959,18 +4965,6 @@
           <target>MRJ Customizations</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet MRJ-PTE - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1301162578 - Control 299464487 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
-          <source>Inventory 01TOKYO</source>
-          <target>01TOKYO 在庫数</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemListExt - Control Inventory 01TOKYO - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 3456710516 - Change 2105307182 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
-          <source>If you are using the “Storage Location” filter, this does not represent the total stock across all warehouses.</source>
-          <target>保管場所別フィルターを使用している場合は全倉庫の在庫数ではありません。</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension ItemCardExt - Change Inventory - Property ToolTip</note>
         </trans-unit>
       </group>
     </body>
