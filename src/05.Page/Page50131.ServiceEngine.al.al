@@ -222,6 +222,7 @@ page 50131 "Service Engine"
         ServItemLineInst: Record "Service Item Line";
         ServLineInst: Record "Service Line";
         ServShptLine: Record "Service Shipment Line";
+        MRJDimLinkMgt: Codeunit MRJDimensionLinkMgt;
     begin
         SrvMgtSetup.Get();
         if not Dialog.Confirm(TEST0002, true) then
@@ -244,7 +245,10 @@ page 50131 "Service Engine"
             end;
             ServHeaderInst.Validate("Shortcut Dimension 1 Code", ServShptHeader."Shortcut Dimension 1 Code");
             ServHeaderInst.Validate("Shortcut Dimension 2 Code", ServShptHeader."Shortcut Dimension 2 Code");
+            ServHeaderInst."Cost Center Dim Code" := ServShptHeader."Shortcut Dimension 1 Code";
+            ServHeaderInst."Sales Order Dim Code" := ServShptHeader."Shortcut Dimension 2 Code";
             ServHeaderInst.Modify(true);
+            MRJDimLinkMgt.SetSVODocDim(ServHeaderInst);
 
             Clear(ServItemLineInst);
             ServItemLineInst.Init();
