@@ -69,6 +69,22 @@ report 50027 "MRJ Delivery Note"
                     LineAmtExclVAT := CalcShptLineAmountFromSource("Sales Shipment Line");
                 end;
             }
+            // ==== 摘要 ====
+            dataitem(SalesCommentLine; "Sales Comment Line")
+            {
+                DataItemLinkReference = "Sales Shipment Header";
+                DataItemLink = "No." = field("No.");
+                DataItemTableView = sorting("Document Type", "No.", "Line No.")
+                        where("Document Line No." = const(0));
+
+                column(CommentText; Comment) { }
+                column(CommentNo; "No.") { } // debug (optional)
+
+                trigger OnPreDataItem()
+                begin
+                    SetRange("Document Type", "Document Type"::Shipment);
+                end;
+            }
 
             // ==== VAT Summary (dynamic via Integer) ====
             dataitem(VATSummary; Integer)

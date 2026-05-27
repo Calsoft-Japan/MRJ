@@ -147,12 +147,22 @@ report 50011 "MRJ Sales Quotation"
                 end else
                     SalesPersonTxt := '';
 
-                // ----- Payment terms -----
+                // ----- Payment terms / Payment method -----
+                Clear(PaymentTermTxt);
+
                 if "Payment Terms Code" <> '' then begin
                     PaymentTerms.Get("Payment Terms Code");
                     PaymentTermTxt := PaymentTerms.Description;
-                end else
-                    PaymentTermTxt := '';
+                end;
+
+                if "Payment Method Code" <> '' then begin
+                    PaymentMethod.Get("Payment Method Code");
+
+                    if PaymentTermTxt <> '' then
+                        PaymentTermTxt += ' / ' + PaymentMethod.Description
+                    else
+                        PaymentTermTxt := PaymentMethod.Description;
+                end;
 
                 // ----- Totals from lines -----
                 TotalExclVAT := 0;
@@ -176,6 +186,8 @@ report 50011 "MRJ Sales Quotation"
 
     requestpage
     {
+        SaveValues = true;
+
         layout
         {
             area(content)
@@ -208,6 +220,7 @@ report 50011 "MRJ Sales Quotation"
         ExpirationDateTxt: Text[50];
         SalesPersonTxt: Text[50];
         PaymentTermTxt: Text[100];
+        PaymentMethod: Record "Payment Method";
 
         TotalExclVAT: Decimal;
         TotalVAT: Decimal;

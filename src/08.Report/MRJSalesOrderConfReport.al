@@ -68,16 +68,21 @@ report 50012 "MRJ Sales Order Confirmation"
                 column(Type_Line; Type) { }                     // for RDLC conditions if needed 
             }
 
-            // ==== 摘要 / コメント ====
+            // ==== 摘要 ====
             dataitem(SalesCommentLine; "Sales Comment Line")
             {
                 DataItemLinkReference = SalesHeader;
-                DataItemTableView = sorting("Document Type", "No.", "Document Line No.", "Line No.")
-                                    where("Document Type" = const(Quote), "Document Line No." = const(0));
-                DataItemLink = "No." = field("No."),
-                               "Document Type" = field("Document Type");
+                DataItemLink = "No." = field("No.");
+                DataItemTableView = sorting("Document Type", "No.", "Line No.")
+                        where("Document Line No." = const(0));
 
                 column(CommentText; Comment) { }
+                column(CommentNo; "No.") { } // debug (optional)
+
+                trigger OnPreDataItem()
+                begin
+                    SetRange("Document Type", "Document Type"::Order);
+                end;
             }
 
             trigger OnAfterGetRecord()
