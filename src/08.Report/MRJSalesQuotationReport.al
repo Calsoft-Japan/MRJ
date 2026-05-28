@@ -5,6 +5,9 @@ report 50011 "MRJ Sales Quotation"
     Caption = 'Sales Quotation (JP)';
     DefaultLayout = RDLC;
     RDLCLayout = 'src\07.ReportLayout\MRJSalesQuotationReport.rdlc';
+
+    //AllowScheduling = true;
+
     dataset
     {
 
@@ -203,6 +206,11 @@ report 50011 "MRJ Sales Quotation"
             }
         }
     }
+    trigger OnInitReport()
+    begin
+        ShowOrderInfo := true;
+    end;
+
 
     var
         CompanyInfo: Record "Company Information";
