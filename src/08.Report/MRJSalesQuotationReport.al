@@ -213,23 +213,20 @@ report 50011 "MRJ Sales Quotation"
 
 
     var
+        Customer: Record Customer;
         CompanyInfo: Record "Company Information";
         SalesPerson: Record "Salesperson/Purchaser";
         PaymentTerms: Record "Payment Terms";
+        PaymentMethod: Record "Payment Method";
         FormatAddr: Codeunit "Format Address";
-
         CustAddr: array[8] of Text[100];
         CompanyAddr: array[8] of Text[100];
-        Customer: Record Customer;
         SellToContactTxt: Text[20];
-
         TitleTxt: Text[50];
         QuoteDateTxt: Text[50];
         ExpirationDateTxt: Text[50];
         SalesPersonTxt: Text[50];
         PaymentTermTxt: Text[100];
-        PaymentMethod: Record "Payment Method";
-
         TotalExclVAT: Decimal;
         TotalVAT: Decimal;
         TotalInclVAT: Decimal;
