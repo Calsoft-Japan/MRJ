@@ -6,8 +6,6 @@ report 50011 "MRJ Sales Quotation"
     DefaultLayout = RDLC;
     RDLCLayout = 'src\07.ReportLayout\MRJSalesQuotationReport.rdlc';
 
-    //AllowScheduling = true;
-
     dataset
     {
 
