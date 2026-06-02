@@ -30,7 +30,7 @@ pageextension 50451 ItemCardExt extends "Item Card"
                 ToolTip = 'If you are using the “Storage Location” filter, this does not represent the total stock across all warehouses.';
             }
         }
-        addafter(Inventory)
+        addafter(InventoryMRJ)
         {
             field("Inventory 01TOKYO"; Rec."Inventory 01TOKYO")
             {
