@@ -71,6 +71,15 @@ page 50141 "Service Inquiry Subform"
                 field("Contract No."; Rec."Contract No.") { ApplicationArea = All; }
                 field("Warranty Disc. %"; Rec."Warranty Disc. %") { ApplicationArea = All; }
                 field("Fault Reason Code"; Rec."Fault Reason Code") { ApplicationArea = All; }
+                field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code") { ApplicationArea = All; }
+                field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code") { ApplicationArea = All; }
+                field("Shortcut Dimension 3 Code"; Rec."Shortcut Dimension 3 Code") { ApplicationArea = All; }
+                field("Shortcut Dimension 4 Code"; Rec."Shortcut Dimension 4 Code") { ApplicationArea = All; }
+                field("Shortcut Dimension 5 Code"; Rec."Shortcut Dimension 5 Code") { ApplicationArea = All; }
+                field("Shortcut Dimension 6 Code"; Rec."Shortcut Dimension 6 Code") { ApplicationArea = All; }
+                field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code") { ApplicationArea = All; }
+                field("Shortcut Dimension 8 Code"; Rec."Shortcut Dimension 8 Code") { ApplicationArea = All; }
+                field("Total Unit Cost (LCY)"; Rec."Total Unit Cost (LCY)") { ApplicationArea = All; }
             }
         }
     }
@@ -109,6 +118,8 @@ page 50141 "Service Inquiry Subform"
     procedure RefreshData(pPostDateFilter: Text)
     var
         ItemCategory: Record "Item Category";
+        DimMgt: Codeunit DimensionManagement;
+        ShortcutDimCode: array[8] of Code[20];
     begin
         GLSetup.Get();
         RecFilter := Rec.GetView();
@@ -145,6 +156,16 @@ page 50141 "Service Inquiry Subform"
                             end;
                             DecTotalAmt += TotalAmt;
                             DecTotalAmtVAT += TotalAmtVAT;
+
+                            DimMgt.GetShortcutDimensions(ServInvLine."Dimension Set ID", ShortcutDimCode);
+                            Rec."Shortcut Dimension 3 Code" := ShortcutDimCode[3];
+                            Rec."Shortcut Dimension 4 Code" := ShortcutDimCode[4];
+                            Rec."Shortcut Dimension 5 Code" := ShortcutDimCode[5];
+                            Rec."Shortcut Dimension 6 Code" := ShortcutDimCode[6];
+                            Rec."Shortcut Dimension 7 Code" := ShortcutDimCode[7];
+                            Rec."Shortcut Dimension 8 Code" := ShortcutDimCode[8];
+                            Rec."Total Unit Cost (LCY)" := ServInvLine."Unit Cost (LCY)";
+
                             Rec."Service Order Type" := ServInvHdr."Service Order Type";
                             Rec."Customer Name" := ServInvHdr.Name;
                             Rec."Posting Date" := ServInvHdr."Posting Date";
@@ -156,6 +177,7 @@ page 50141 "Service Inquiry Subform"
                             end;
                             if Rec.Type = Rec.Type::Resource then
                                 Rec."Item Category Code" := '';
+                            Rec."Total Unit Cost (LCY)" := Rec.Quantity * Rec."Unit Cost (LCY)";
                             Rec.Insert();
                         until (ServInvLine.Next() = 0);
                 until (ServInvHdr.Next() = 0);
@@ -190,6 +212,16 @@ page 50141 "Service Inquiry Subform"
                             end;
                             DecTotalAmt += TotalAmt;
                             DecTotalAmtVAT += TotalAmtVAT;
+
+                            DimMgt.GetShortcutDimensions(ServCrMemoLine."Dimension Set ID", ShortcutDimCode);
+                            Rec."Shortcut Dimension 3 Code" := ShortcutDimCode[3];
+                            Rec."Shortcut Dimension 4 Code" := ShortcutDimCode[4];
+                            Rec."Shortcut Dimension 5 Code" := ShortcutDimCode[5];
+                            Rec."Shortcut Dimension 6 Code" := ShortcutDimCode[6];
+                            Rec."Shortcut Dimension 7 Code" := ShortcutDimCode[7];
+                            Rec."Shortcut Dimension 8 Code" := ShortcutDimCode[8];
+                            Rec."Total Unit Cost (LCY)" := ServCrMemoLine."Unit Cost (LCY)";
+
                             Rec."Service Order Type" := ServCrMemoHdr."Service Order Type";
                             Rec."Customer Name" := ServCrMemoHdr.Name;
                             Rec."Posting Date" := ServCrMemoHdr."Posting Date";
@@ -200,6 +232,7 @@ page 50141 "Service Inquiry Subform"
                             end;
                             if Rec.Type = Rec.Type::Resource then
                                 Rec."Item Category Code" := '';
+                            Rec."Total Unit Cost (LCY)" := Rec.Quantity * Rec."Unit Cost (LCY)";
                             Rec.Insert();
                         until (ServCrMemoLine.Next() = 0);
                 until (ServCrMemoHdr.Next() = 0);

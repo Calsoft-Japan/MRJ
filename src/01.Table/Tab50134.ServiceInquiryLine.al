@@ -64,7 +64,6 @@ table 50134 "Service Inquiry Line"
             Caption = 'Unit Cost (LCY)';
             AutoFormatType = 2;
         }
-
         field(29; Amount; Decimal)
         {
             Caption = 'Amount';
@@ -78,6 +77,21 @@ table 50134 "Service Inquiry Line"
             Editable = false;
             AutoFormatType = 1;
             //AutoFormatExpression = "Currency Code";
+        }
+        field(40; "Shortcut Dimension 1 Code"; Code[20])
+        {
+            Caption = 'Shortcut Dimension 1 Code';
+            CaptionClass = '1,2,1';
+            Editable = false;
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(1));
+        }
+
+        field(41; "Shortcut Dimension 2 Code"; Code[20])
+        {
+            Caption = 'Shortcut Dimension 2 Code';
+            Editable = false;
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2));
+            CaptionClass = '1,2,2';
         }
         field(52; "Work Type Code"; Code[10])
         {
@@ -205,10 +219,51 @@ table 50134 "Service Inquiry Line"
             if ("Document Type" = filter(Quote | Order | Invoice | "Credit Memo"))
                     "Service Header"."No." where("Document Type" = field("Document Type"), "No." = field("Document No."));
         }
+        field(50313; "Shortcut Dimension 3 Code"; Code[20])
+        {
+            Caption = 'Shortcut Dimension 3 Code';
+            Editable = false;
+            CaptionClass = '1,2,3';
+        }
+        field(50314; "Shortcut Dimension 4 Code"; Code[20])
+        {
+            Caption = 'Shortcut Dimension 4 Code';
+            Editable = false;
+            CaptionClass = '1,2,4';
+        }
+        field(50315; "Shortcut Dimension 5 Code"; Code[20])
+        {
+            Caption = 'Shortcut Dimension 5 Code';
+            Editable = false;
+            CaptionClass = '1,2,5';
+        }
+        field(50316; "Shortcut Dimension 6 Code"; Code[20])
+        {
+            Caption = 'Shortcut Dimension 6 Code';
+            Editable = false;
+            CaptionClass = '1,2,6';
+        }
+        field(50317; "Shortcut Dimension 7 Code"; Code[20])
+        {
+            Caption = 'Shortcut Dimension 7 Code';
+            Editable = false;
+            CaptionClass = '1,2,7';
+        }
+        field(50318; "Shortcut Dimension 8 Code"; Code[20])
+        {
+            Caption = 'Shortcut Dimension 8 Code';
+            Editable = false;
+            CaptionClass = '1,2,8';
+        }
         field(50330; "Service Order Type"; Code[10])
         {
             Caption = 'Service Order Type';
             TableRelation = "Service Order Type";
+        }
+        field(50340; "Total Unit Cost (LCY)"; Decimal)
+        {
+            Caption = 'Total Unit Cost (LCY)';
+            AutoFormatType = 2;
         }
     }
 

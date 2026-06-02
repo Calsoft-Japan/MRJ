@@ -69,6 +69,11 @@ tableextension 55911 "Serv. Mgt. Setup Ext" extends "Service Mgt. Setup"
             Caption = 'Proserv Dim Code';
             TableRelation = Dimension.Code;
         }
+        field(90042; "Employee Dim Code"; Code[20])
+        {
+            Caption = 'Employee Dim Code';
+            TableRelation = Dimension.Code;
+        }
     }
 }
 

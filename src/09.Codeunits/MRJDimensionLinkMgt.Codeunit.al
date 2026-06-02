@@ -69,6 +69,109 @@ codeunit 50015 MRJDimensionLinkMgt
         end;
     end;
 
+    procedure SetSVOSrvOrdTypeDim(var ServHeader: Record "Service Header"; PrevDimSet: Integer)
+    var
+        SrvMgtSetup: Record "Service Mgt. Setup";
+        DimMgt: Codeunit DimensionManagement;
+        TempDimSetEntry: Record "Dimension Set Entry" temporary;
+        DimValue: Record "Dimension Value";
+        ServItemLine: Record "Service Item Line";
+        DimCode: Code[20];
+        DimValueCode: Code[20];
+        DimSetID: Integer;
+        iLoop: Integer;
+    begin
+        DimMgt.GetDimensionSet(TempDimSetEntry, PrevDimSet);
+
+        SrvMgtSetup.Get();
+        SrvMgtSetup.TestField("Service Order Type Dim Code");
+
+        DimCode := SrvMgtSetup."Service Order Type Dim Code";
+        DimValueCode := ServHeader."Service Order Type";
+
+        if DimValueCode <> '' then
+            ReplaceDim(TempDimSetEntry, DimCode, DimValueCode)
+        else
+            DeleteDim(TempDimSetEntry, DimCode);
+
+        DimSetID := DimMgt.GetDimensionSetID(TempDimSetEntry);
+
+        ServHeader."Dimension Set ID" := DimSetID;
+        ServHeader.Modify(true);
+    end;
+
+    procedure SetSVOSalesPerDim(var ServHeader: Record "Service Header"; PrevDimSet: Integer)
+    var
+        SrvMgtSetup: Record "Service Mgt. Setup";
+        DimMgt: Codeunit DimensionManagement;
+        TempDimSetEntry: Record "Dimension Set Entry" temporary;
+        ServItemLine: Record "Service Item Line";
+        DimCode: Code[20];
+        DimValueCode: Code[20];
+        DimSetID: Integer;
+    begin
+        DimMgt.GetDimensionSet(TempDimSetEntry, PrevDimSet);
+
+        SrvMgtSetup.Get();
+        SrvMgtSetup.TestField("Employee Dim Code");
+
+        DimCode := SrvMgtSetup."Employee Dim Code";
+        DimValueCode := ServHeader."Salesperson Code";
+
+        if DimValueCode <> '' then
+            ReplaceDim(TempDimSetEntry, DimCode, DimValueCode)
+        else
+            DeleteDim(TempDimSetEntry, DimCode);
+
+        DimSetID := DimMgt.GetDimensionSetID(TempDimSetEntry);
+
+        ServHeader."Dimension Set ID" := DimSetID;
+        ServHeader.Modify(true);
+    end;
+
+    procedure SetSrvOrdTypeSalesPerDim(var ServHeader: Record "Service Header"; PrevDimSet: Integer)
+    var
+        SrvMgtSetup: Record "Service Mgt. Setup";
+        DimMgt: Codeunit DimensionManagement;
+        TempDimSetEntry: Record "Dimension Set Entry" temporary;
+        DimValue: Record "Dimension Value";
+        ServItemLine: Record "Service Item Line";
+        DimCode: Code[20];
+        DimValueCode: Code[20];
+        DimSetID: Integer;
+        iLoop: Integer;
+    begin
+        DimMgt.GetDimensionSet(TempDimSetEntry, PrevDimSet);
+
+        SrvMgtSetup.Get();
+        SrvMgtSetup.TestField("Service Order Type Dim Code");
+        SrvMgtSetup.TestField("Employee Dim Code");
+        for iLoop := 1 to 2 do begin
+            case iLoop of
+                1:
+                    begin
+                        DimCode := SrvMgtSetup."Service Order Type Dim Code";
+                        DimValueCode := ServHeader."Service Order Type";
+                    end;
+                2:
+                    begin
+                        DimCode := SrvMgtSetup."Employee Dim Code";
+                        DimValueCode := ServHeader."Salesperson Code";
+                    end;
+            end;
+
+            if DimValueCode <> '' then
+                ReplaceDim(TempDimSetEntry, DimCode, DimValueCode)
+            else
+                DeleteDim(TempDimSetEntry, DimCode);
+        end;
+
+        DimSetID := DimMgt.GetDimensionSetID(TempDimSetEntry);
+
+        ServHeader."Dimension Set ID" := DimSetID;
+        ServHeader.Modify(true);
+    end;
+
     procedure SetSVODocDim(var ServHeader: Record "Service Header")
     var
         SrvMgtSetup: Record "Service Mgt. Setup";
@@ -193,12 +296,13 @@ codeunit 50015 MRJDimensionLinkMgt
         Existing: Boolean;
     begin
         Existing := false;
+        TempDimSetEntry.Reset();
         TempDimSetEntry.SetRange("Dimension Code", DimCode);
         if TempDimSetEntry.FindFirst() then begin
             Existing := true;
             if TempDimSetEntry."Dimension Value Code" <> DimValue then begin
-                TempDimSetEntry."Dimension Value Code" := DimValue;
-                TempDimSetEntry.Modify();
+                TempDimSetEntry.Validate("Dimension Value Code", DimValue);
+                TempDimSetEntry.Modify(true);
             end;
         end;
 
@@ -209,6 +313,14 @@ codeunit 50015 MRJDimensionLinkMgt
             TempDimSetEntry."Dimension Value Code" := DimValue;
             TempDimSetEntry.Insert(true);
         end;
+    end;
+
+    local procedure DeleteDim(var TempDimSetEntry: Record "Dimension Set Entry" temporary; DimCode: Code[20])
+    begin
+        TempDimSetEntry.Reset();
+        TempDimSetEntry.SetRange("Dimension Code", DimCode);
+        TempDimSetEntry.DeleteAll();
+        TempDimSetEntry.Reset();
     end;
 
     procedure CpySVIDocDim2POPI(var PurchHeader: Record "Purchase Header")

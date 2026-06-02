@@ -25,6 +25,18 @@ pageextension 50005 "Service Order Ext" extends "Service Order"
             }
 
         }
+        /* modify("Salesperson Code")
+        {
+            trigger OnBeforeValidate()
+            var
+                MRJDimLinkMgt: Codeunit MRJDimensionLinkMgt;
+                PrevSetID: Integer;
+                AfterSetID: Integer;
+            begin
+                PrevSetID := xRec."Dimension Set ID";
+                MRJDimLinkMgt.SetSVODocDim(Rec);
+            end;
+        } */
     }
     actions
     {

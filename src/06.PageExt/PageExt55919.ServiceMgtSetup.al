@@ -17,6 +17,7 @@ pageextension 55919 "Service Mgt. Setup Ext" extends "Service Mgt. Setup"
                 field("Enable SO Dim Code Copy"; Rec."Enable SO Dim Code Copy") { ApplicationArea = All; }
                 field("Service Order Dim Code"; Rec."Service Order Dim Code") { ApplicationArea = All; }
                 field("Service Order Type Dim Code"; Rec."Service Order Type Dim Code") { ApplicationArea = All; }
+                field("Employee Dim Code"; Rec."Employee Dim Code") { ApplicationArea = All; }
                 field("Cost Center Dim Code"; Rec."Cost Center Dim Code") { ApplicationArea = All; }
                 field("Proserv Dim Code"; Rec."Proserv Dim Code") { ApplicationArea = All; }
             }

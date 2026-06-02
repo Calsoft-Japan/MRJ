@@ -87,19 +87,19 @@ codeunit 50001 MRJServiceOrderInvoiceMgt
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Service Header", OnAfterValidateEvent, "Service Order Type", true, true)]
-    procedure ServOrdTypeOnAfterValidateEvent(var Rec: Record "Service Header");
+    procedure ServOrdTypeOnAfterValidateEvent(var Rec: Record "Service Header"; xRec: Record "Service Header");
     var
         MRJDimLinkMgt: Codeunit MRJDimensionLinkMgt;
     begin
-        MRJDimLinkMgt.SetSVODocDim(Rec);
+        MRJDimLinkMgt.SetSVOSrvOrdTypeDim(Rec, xRec."Dimension Set ID");
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Service Header", OnAfterValidateEvent, "Salesperson Code", true, true)]
-    procedure SalesPersonOnAfterValidateEvent(var Rec: Record "Service Header");
+    procedure SalesPersonOnAfterValidateEvent(var Rec: Record "Service Header"; xRec: Record "Service Header");
     var
         MRJDimLinkMgt: Codeunit MRJDimensionLinkMgt;
     begin
-        MRJDimLinkMgt.SetSVODocDim(Rec);
+        MRJDimLinkMgt.SetSVOSalesPerDim(Rec, xRec."Dimension Set ID");
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Service Header", OnAfterCopyCustomerFields, '', true, true)]
