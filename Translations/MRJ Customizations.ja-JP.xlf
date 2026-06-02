@@ -4530,7 +4530,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 1360054054 - Field 514463825 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
           <source>Employee Dim Code</source>
-          <target>Employee Dim Code</target>
+          <target>Employee分析項目コード</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Employee Dim Code - Property Caption</note>
         </trans-unit>
