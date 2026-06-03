@@ -47,6 +47,7 @@ page 50141 "Service Inquiry Subform"
                 field(Quantity; Rec.Quantity) { ApplicationArea = All; }
                 field("Unit Price"; Rec."Unit Price") { ApplicationArea = All; }
                 field("Unit Cost (LCY)"; Rec."Unit Cost (LCY)") { ApplicationArea = All; }
+                field("Total Unit Cost (LCY)"; Rec."Total Unit Cost (LCY)") { ApplicationArea = All; }
                 field(Amount; Rec.Amount) { ApplicationArea = All; }
                 field("Amount Including VAT"; Rec."Amount Including VAT") { ApplicationArea = All; }
                 field("Work Type Code"; Rec."Work Type Code") { ApplicationArea = All; }
@@ -79,7 +80,6 @@ page 50141 "Service Inquiry Subform"
                 field("Shortcut Dimension 6 Code"; Rec."Shortcut Dimension 6 Code") { ApplicationArea = All; }
                 field("Shortcut Dimension 7 Code"; Rec."Shortcut Dimension 7 Code") { ApplicationArea = All; }
                 field("Shortcut Dimension 8 Code"; Rec."Shortcut Dimension 8 Code") { ApplicationArea = All; }
-                field("Total Unit Cost (LCY)"; Rec."Total Unit Cost (LCY)") { ApplicationArea = All; }
             }
         }
     }
