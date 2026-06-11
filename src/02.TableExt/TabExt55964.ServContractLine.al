@@ -7,7 +7,6 @@ tableextension 55964 "Serv. Contract Line Ext" extends "Service Contract Line"
             AutoFormatType = 1;
             BlankZero = true;
             Caption = 'Contract Line Value';
-
             trigger OnValidate()
             begin
                 GetServContractHeader();
