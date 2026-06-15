@@ -128,11 +128,11 @@ report 50089 "MRJ Service Delivery Note"
 
                 trigger OnAfterGetRecord()
                 begin
-                    // same rule as you used
-                    if Quantity <> 0 then
-                        LineAmountCalc := Round("Unit Price" * Quantity, 1)
-                    else
-                        LineAmountCalc := Round("Unit Price", 1);
+                    // DEV NOTE:
+                    // Use the posted line Amount instead of recalculating Unit Price * Quantity.
+                    // Posted amounts already include Business Central rounding/discount calculation,
+                    // so this keeps the new report aligned with the old/posted report values.
+                    LineAmountCalc := Amount;
                 end;
             }
 
@@ -183,7 +183,12 @@ report 50089 "MRJ Service Delivery Note"
                     FlatQty := TempShipLine.Quantity;
                     FlatUOM := TempShipLine."Unit of Measure";
                     FlatPrice := TempShipLine."Unit Price";
-                    FlatAmount := Round(FlatPrice * FlatQty, 1);
+
+                    // DEV NOTE:
+                    // Do not recalculate summarized amount by Unit Price * summarized Quantity.
+                    // In summarized mode, Quantity can be accumulated while Unit Price is only from one line.
+                    // TempShipLine.Amount is accumulated from the actual posted shipment line amounts.
+                    FlatAmount := TempShipLine.Amount;
 
                     case TempShipLine.Type of
                         TempShipLine.Type::Item:
@@ -314,15 +319,19 @@ report 50089 "MRJ Service Delivery Note"
 
                 if ShipLineTmp.FindSet() then
                     repeat
-                        LineBase := ShipLineTmp."Unit Price" * ShipLineTmp.Quantity;
+                        // DEV NOTE:
+                        // Use posted Amount fields for totals. Do not calculate from Unit Price * Quantity,
+                        // because posted rounding/discount logic can differ from manual recalculation.
+                        LineBase := ShipLineTmp.Amount;
                         if LineBase = 0 then
                             continue;
 
                         TotalExclVAT += LineBase;
 
-                        LineVAT := Round(LineBase * ShipLineTmp."VAT %" / 100, 0.1);
+                        // VAT is derived from posted Amount Including VAT to match posted report values.
+                        LineVAT := ShipLineTmp."Amount Including VAT" - ShipLineTmp.Amount;
                         TotalVAT += LineVAT;
-                        TotalInclVAT += LineBase + LineVAT;
+                        TotalInclVAT += ShipLineTmp."Amount Including VAT";
 
                         AddOrUpdateVatSummary(ShipLineTmp."VAT %", LineBase);
                     until ShipLineTmp.Next() = 0;
@@ -450,9 +459,11 @@ report 50089 "MRJ Service Delivery Note"
         ShipLineRec.SetRange("Document No.", SvcShipHdr."No."); // Posted shipment lines link by Document No.
         if ShipLineRec.FindSet() then
             repeat
-                // totals (optional, you already calculate elsewhere too)
-                Amt := ShipLineRec.Quantity * ShipLineRec."Unit Price";
-                GrossAmt := Amt + Round(Amt * ShipLineRec."VAT %" / 100, 0.1);
+                // DEV NOTE:
+                // Use actual posted values from Service Shipment Line.
+                // Do not calculate amount again using Unit Price * Quantity.
+                Amt := ShipLineRec.Amount;
+                GrossAmt := ShipLineRec."Amount Including VAT";
                 TotalAmt += Amt;
                 TotalGrossAmt += GrossAmt;
 
@@ -483,7 +494,14 @@ report 50089 "MRJ Service Delivery Note"
 
                         if TempShipLine.FindFirst() then begin
                             TempShipLine.Quantity += ShipLineRec.Quantity;
-                            // No "Line Amount" field on shipment line -> we compute later in Integer dataitem
+
+                            // DEV NOTE:
+                            // Keep existing grouping behavior, but accumulate actual posted amounts.
+                            // Old logic only added Quantity and later recalculated amount using one Unit Price,
+                            // which caused old/new report total mismatch.
+                            TempShipLine.Amount += ShipLineRec.Amount;
+                            TempShipLine."Amount Including VAT" += ShipLineRec."Amount Including VAT";
+
                             TempShipLine.Modify();
                             boolFound := true;
                         end;
