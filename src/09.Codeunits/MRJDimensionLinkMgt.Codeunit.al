@@ -96,7 +96,8 @@ codeunit 50015 MRJDimensionLinkMgt
 
         DimSetID := DimMgt.GetDimensionSetID(TempDimSetEntry);
 
-        ServHeader."Dimension Set ID" := DimSetID;
+        //ServHeader."Dimension Set ID" := DimSetID;
+        ServHeader.Validate("Dimension Set ID", DimSetID);
         ServHeader.Modify(true);
     end;
 
@@ -125,7 +126,8 @@ codeunit 50015 MRJDimensionLinkMgt
 
         DimSetID := DimMgt.GetDimensionSetID(TempDimSetEntry);
 
-        ServHeader."Dimension Set ID" := DimSetID;
+        //ServHeader."Dimension Set ID" := DimSetID;
+        ServHeader.Validate("Dimension Set ID", DimSetID);
         ServHeader.Modify(true);
     end;
 
