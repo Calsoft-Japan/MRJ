@@ -23,8 +23,8 @@ tableextension 55964 "Serv. Contract Line Ext" extends "Service Contract Line"
                         Validate("Line Value", "Contract Line Value");
                     ServContractHeader."Contract Period"::None:
                         Validate("Line Value", 0);
-                    ServContractHeader."Contract Period"::Free:
-                        Validate("Line Value", ("Contract Line Value" / ServContractHeader."Contract Free Period") * 12);
+                //ServContractHeader."Contract Period"::Free:
+                //Validate("Line Value", ("Contract Line Value" / ServContractHeader."Contract Free Period") * 12);
                 end;
             end;
         }

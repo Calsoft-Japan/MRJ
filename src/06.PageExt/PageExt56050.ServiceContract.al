@@ -8,8 +8,6 @@ pageextension 56050 "Service Contract Ext" extends "Service Contract"
             {
                 ApplicationArea = All;
             }
-
         }
-
     }
 }
