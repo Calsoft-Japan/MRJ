@@ -2893,6 +2893,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - Control PrintOption - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1966024475 - Action 2173385693 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3359566796">
+          <source>View or edit the single set of dimensions that are set up for the selected record.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Fault Reason Codes Ext - Action Dimensions - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1966024475 - Action 2173385693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3359566796">
+          <source>Dimensions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Fault Reason Codes Ext - Action Dimensions - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 836936761 - Control 54496332 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1180040559">
           <source>MRJ Customization</source>
           <note from="Developer" annotates="general" priority="2"></note>
