@@ -1,5 +1,32 @@
 codeunit 50015 MRJDimensionLinkMgt
 {
+    // This event created to all Fault Reason Code table as default dimenion
+    [EventSubscriber(ObjectType::Table, Database::"Default Dimension", 'OnBeforeValidateTableID', '', false, false)]
+    local procedure OnBeforeValidateTableID(var RecDefaultDimension: Record "Default Dimension"; var IsHandled: Boolean)
+    begin
+        if RecDefaultDimension."Table ID" = Database::"Fault Reason Code" then
+            IsHandled := true;
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Service Line", 'OnAfterValidateEvent', "Fault Reason Code", false, false)]
+    local procedure UpdateFaultReasonDimensions(var Rec: Record "Service Line")
+    var
+        GLSetup: Record "General Ledger Setup";
+        DefDim: Record "Default Dimension";
+        TempDimSetEntry: Record "Dimension Set Entry" temporary;
+        DimMgt: Codeunit DimensionManagement;
+    begin
+        DimMgt.GetDimensionSet(TempDimSetEntry, Rec."Dimension Set ID");
+        DefDim.SetRange("Table ID", Database::"Fault Reason Code");
+        DefDim.SetRange("No.", Rec."Fault Reason Code");
+        if DefDim.FindSet() then
+            repeat
+                ReplaceDim(TempDimSetEntry, DefDim."Dimension Code", DefDim."Dimension Value Code");
+            until DefDim.Next() = 0;
+
+        Rec.Validate("Dimension Set ID", DimMgt.GetDimensionSetID(TempDimSetEntry));
+    end;
+
     [EventSubscriber(ObjectType::Table, Database::"Vendor", 'OnAfterInsertEvent', '', true, true)]
     procedure SetVendorDefDim(var Rec: Record Vendor);
     var
