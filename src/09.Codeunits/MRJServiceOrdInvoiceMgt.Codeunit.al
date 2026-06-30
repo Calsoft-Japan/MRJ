@@ -146,4 +146,20 @@ codeunit 50001 MRJServiceOrderInvoiceMgt
         ServiceLine."Bin Code" := ServiceLine."Document No.";
         IsHandled := true;
     end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Service Line", 'OnAfterValidateEvent', "No.", true, true)]
+    procedure ServiceLineNoOnAfterValidateEvent(var Rec: Record "Service Line");
+    var
+        SrvMgtSetup: Record "Service Mgt. Setup";
+    begin
+        SrvMgtSetup.Get();
+        if Rec.Warranty and SrvMgtSetup."Enable Warranty for FRC" then begin
+            SrvMgtSetup.TestField("Def. Warranty for FRC");
+            Rec.Validate("Fault Reason Code", SrvMgtSetup."Def. Warranty for FRC");
+        end;
+        if (not Rec.Warranty) and SrvMgtSetup."Enable Excl Warranty for FRC" then begin
+            SrvMgtSetup.TestField("Def. Excl Warranty for FRC");
+            Rec.Validate("Fault Reason Code", SrvMgtSetup."Def. Excl Warranty for FRC");
+        end;
+    end;
 }

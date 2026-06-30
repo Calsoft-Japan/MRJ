@@ -20,6 +20,10 @@ pageextension 55919 "Service Mgt. Setup Ext" extends "Service Mgt. Setup"
                 field("Employee Dim Code"; Rec."Employee Dim Code") { ApplicationArea = All; }
                 field("Cost Center Dim Code"; Rec."Cost Center Dim Code") { ApplicationArea = All; }
                 field("Proserv Dim Code"; Rec."Proserv Dim Code") { ApplicationArea = All; }
+                field("Enable Warranty for FRC"; Rec."Enable Warranty for FRC") { ApplicationArea = All; }
+                field("Enable Excl Warranty for FRC"; Rec."Enable Excl Warranty for FRC") { ApplicationArea = All; }
+                field("Def. Warranty for FRC"; Rec."Def. Warranty for FRC") { ApplicationArea = All; }
+                field("Def. Excl Warranty for FRC"; Rec."Def. Excl Warranty for FRC") { ApplicationArea = All; }
             }
         }
     }

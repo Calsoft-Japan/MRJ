@@ -28,6 +28,15 @@ tableextension 55911 "Serv. Mgt. Setup Ext" extends "Service Mgt. Setup"
             Caption = 'Serv Ord Reservation Location';
             TableRelation = Location;
         }
+        field(90017; "Def. Warranty for FRC"; Code[10])
+        {
+            Caption = 'Def. Warranty for FRC';
+        }
+
+        field(90018; "Def. Excl Warranty for FRC"; Code[10])
+        {
+            Caption = 'Def. Excl Warranty for FRC';
+        }
         field(90019; "Warning Date Range 1"; DateFormula)
         {
             Caption = 'Warning Date Range 1';
@@ -35,6 +44,15 @@ tableextension 55911 "Serv. Mgt. Setup Ext" extends "Service Mgt. Setup"
         field(90020; "Warning Date Range 2"; DateFormula)
         {
             Caption = 'Warning Date Range 2';
+        }
+        field(90027; "Enable Warranty for FRC"; Boolean)
+        {
+            Caption = 'Enable Warranty for FRC';
+        }
+
+        field(90028; "Enable Excl Warranty for FRC"; Boolean)
+        {
+            Caption = 'Enable Excl Warranty for FRC';
         }
         field(90029; "Enable Dimension Link"; Boolean)
         {
