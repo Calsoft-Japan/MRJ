@@ -123,9 +123,10 @@ codeunit 50015 MRJDimensionLinkMgt
 
         DimSetID := DimMgt.GetDimensionSetID(TempDimSetEntry);
 
-        //ServHeader."Dimension Set ID" := DimSetID;
         ServHeader.Validate("Dimension Set ID", DimSetID);
         ServHeader.Modify(true);
+
+        UpdSrvItemLineDim(ServHeader);
     end;
 
     procedure SetSVOSalesPerDim(var ServHeader: Record "Service Header"; PrevDimSet: Integer)
@@ -153,9 +154,25 @@ codeunit 50015 MRJDimensionLinkMgt
 
         DimSetID := DimMgt.GetDimensionSetID(TempDimSetEntry);
 
-        //ServHeader."Dimension Set ID" := DimSetID;
         ServHeader.Validate("Dimension Set ID", DimSetID);
         ServHeader.Modify(true);
+
+        UpdSrvItemLineDim(ServHeader);
+    end;
+
+    local procedure UpdSrvItemLineDim(ServHeader: Record "Service Header")
+    var
+        ServItemLine: Record "Service Item Line";
+    begin
+        ServItemLine.SetRange("Document Type", ServHeader."Document Type");
+        ServItemLine.SetRange("Document No.", ServHeader."No.");
+        if ServItemLine.FindSet(true) then
+            repeat
+                if ServItemLine."Dimension Set ID" <> ServHeader."Dimension Set ID" then begin
+                    ServItemLine.Validate("Dimension Set ID", ServHeader."Dimension Set ID");
+                    ServItemLine.Modify(true);
+                end;
+            until ServItemLine.Next() = 0;
     end;
 
     procedure SetSrvOrdTypeSalesPerDim(var ServHeader: Record "Service Header"; PrevDimSet: Integer)
