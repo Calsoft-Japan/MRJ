@@ -30,17 +30,6 @@ page 50133 "Serv. Item Line Subform"
                         if ServHeader.FindFirst() then
                             Page.RunModal(Page::"Service Order", ServHeader);
                     end;
-
-                    /* trigger OnLookup(var Text: Text): Boolean
-                    var
-                        OpenServHeader: Record 5900; // Service Header
-                    begin
-                        Clear(OpenServHeader);
-                        OpenServHeader.SetRange("Document Type", Rec."Document Type");
-                        OpenServHeader.SetRange("No.", Rec."Document No.");
-                        Page.RunModal(Page::"Service Order", OpenServHeader);
-                        //exit(true);
-                    end; */
                 }
                 field("Service Item No."; Rec."Service Item No.")
                 {
@@ -53,17 +42,6 @@ page 50133 "Serv. Item Line Subform"
                         ServItem.Get(Rec."Service Item No.");
                         Page.RunModal(Page::"Service Item Card", ServItem);
                     end;
-
-                    /* trigger OnLookup(var Text: Text): Boolean
-                    var
-                        RecServItem: Record 5940;
-                    begin
-                        Clear(RecServItem);
-                        RecServItem.SetRange("No.", Rec."Service Item No.");
-                        if RecServItem.FindFirst() then
-                            Page.RunModal(Page::"Service Item Card", RecServItem);
-                        exit(true);
-                    end; */
                 }
                 field(Description; Rec.Description) { ApplicationArea = All; }
                 field(Warranty; Rec.Warranty)
@@ -84,17 +62,6 @@ page 50133 "Serv. Item Line Subform"
                         if ServContractHdr.FindFirst() then
                             Page.RunModal(Page::"Service Contract", ServContractHdr);
                     end;
-                    /* trigger OnLookup(var Text: Text): Boolean
-                    var
-                        RecServContractHeader: Record "Service Contract Header";
-                    begin
-                        Clear(RecServContractHeader);
-                        RecServContractHeader.SetRange("Contract Type", RecServContractHeader."Contract Type"::Contract);
-                        RecServContractHeader.SetRange("Contract No.", Rec."Contract No.");
-                        if RecServContractHeader.FindFirst() then
-                            Page.RunModal(Page::"Service Contract", RecServContractHeader);
-                        exit(true);
-                    end; */
                 }
                 field("Fault Area Code"; Rec."Fault Area Code")
                 {

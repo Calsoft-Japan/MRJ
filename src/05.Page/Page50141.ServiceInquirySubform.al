@@ -130,13 +130,14 @@ page 50141 "Service Inquiry Subform"
         Rec.SetView(RecFilter);
 
         if SrvOrder then begin
-            Clear(ServHdr);
+            ServHdr.Reset();
+            ServHdr.SetRange("Document Type", ServHdr."Document Type"::Order);
             if pPostDateFilter <> '' then
-                ServHdr.SetFilter("Posting Date", PostingDateFilter);
+                ServHdr.SetFilter("Posting Date", pPostDateFilter);
             if ServHdr.FindSet() then
                 repeat
                     Clear(ServLine);
-                    ServLine.SetRange("Document Type", ServHdr."Document Type");
+                    ServLine.SetRange("Document Type", ServHdr."Document Type"::Order);
                     ServLine.SetRange("Document No.", ServHdr."No.");
                     ServLine.SetFilter(Type, '<>%1', ServInvLine.Type::" ");
                     if ServLine.FindSet() then
@@ -300,7 +301,6 @@ page 50141 "Service Inquiry Subform"
     begin
         Rec.Reset();
         Rec.DeleteAll();
-        PostingDateFilter := '';
     end;
 
     procedure CreateServiceCrMemo()
