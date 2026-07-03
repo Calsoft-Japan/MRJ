@@ -346,10 +346,7 @@ page 50141 "Service Inquiry Subform"
         ServHeaderInst.Modify(true);
 
         case Rec."Document Type" of
-            Rec."Document Type"::Quote,
-            Rec."Document Type"::Order,
-            Rec."Document Type"::Invoice,
-            Rec."Document Type"::"Credit Memo":
+            Rec."Document Type"::Order:
                 begin
                     ServLineSrch.Reset();
                     ServLineSrch.SetRange("Document Type", Rec."Document Type");
@@ -411,7 +408,6 @@ page 50141 "Service Inquiry Subform"
                             SetItemTrackingLine(ServInvLineSrch, ServLineInst);
                         until ServInvLineSrch.Next() = 0;
                 end;
-
             Rec."Document Type"::"Posted Credit Memo":
                 begin
                     ServCrMemoLineSrch.Reset();
@@ -436,28 +432,64 @@ page 50141 "Service Inquiry Subform"
                                 ServLineInst.Validate(Quantity, ServCrMemoLineSrch.Quantity);
                                 ServLineInst.Validate("Service Item No.", Rec."Service Item No.");
                             end;
-
                             ServLineInst.Modify(true);
                         until ServCrMemoLineSrch.Next() = 0;
                 end;
         end;
-
         Commit();
-
         if not Dialog.Confirm(StrSubstNo(Text003, ServHeaderInst."No."), true) then
             exit;
-
         Page.RunModal(Page::"Service Credit Memo", ServHeaderInst);
     end;
 
-    local procedure SetItemTrackingLine(var ServInvLine: Record "Service Invoice Line"; var ServLine: Record "Service Line")
+    local procedure SetItemTrackingLine(ServInvLine: Record "Service Invoice Line"; ServLine: Record "Service Line")
+    var
+        ItemTrackingDocMgt: Codeunit "Item Tracking Doc. Management";
+        CreateReservEntry: Codeunit "Create Reserv. Entry";
+        TempILE: Record "Item Ledger Entry" temporary;
+        TempReservEntry: Record "Reservation Entry";
+        ReservationStatus: Enum "Reservation Status";
+    begin
+        TempILE.DeleteAll();
+        ItemTrackingDocMgt.RetrieveEntriesFromPostedInvoice(TempILE, ServInvLine.RowID1);
+        if not TempILE.FindSet() then
+            exit;
+        repeat
+            Clear(TempReservEntry);
+            TempReservEntry.Init();
+            TempReservEntry.CopyTrackingFromItemLedgEntry(TempILE);
+            CreateReservEntry.CreateReservEntryFor(
+                Database::"Service Line",
+                ServLine."Document Type".AsInteger(),
+                ServLine."Document No.",
+                '',
+                0,
+                ServLine."Line No.",
+                ServLine."Qty. per Unit of Measure",
+                TempILE.Quantity,
+                TempILE.Quantity,  //TempILE."Quantity (Base)",
+                TempReservEntry);
+
+            CreateReservEntry.CreateEntry(
+                ServLine."No.",
+                ServLine."Variant Code",
+                ServLine."Location Code",
+                ServLine.Description,
+                0D,
+                ServLine."Posting Date",
+                0,
+                ReservationStatus::Prospect);
+        until TempILE.Next() = 0;
+    end;
+
+    /* local procedure SetItemTrackingLine(var ServInvLine: Record "Service Invoice Line"; var ServLine: Record "Service Line")
     var
         ItemLedgEntryTmp: Record "Item Ledger Entry" temporary;
         ItemTrackingMgt: Codeunit "Item Tracking Management";
         CreateReservEntry: Codeunit "Create Reserv. Entry";
         ReservationEntry: Record "Reservation Entry";
     begin
-        /* Clear(ItemLedgEntryTmp);
+        Clear(ItemLedgEntryTmp);
         ItemTrackingMgt.RetrieveILEFromPostedInv(ItemLedgEntryTmp, ServInvLine.RowID1);
         if ItemLedgEntryTmp.FindSet() then
             repeat
@@ -482,6 +514,6 @@ page 50141 "Service Inquiry Subform"
                     ServLine."Posting Date",
                     0,
                     ReservationEntry."Reservation Status"::Prospect);
-            until ItemLedgEntryTmp.Next() = 0; */
-    end;
+            until ItemLedgEntryTmp.Next() = 0;
+    end; */
 }
