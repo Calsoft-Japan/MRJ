@@ -149,7 +149,12 @@ table 50134 "Service Inquiry Line"
             Caption = 'VAT Difference';
             Editable = false;
             AutoFormatType = 1;
-            //AutoFormatExpression = "Currency Code";
+        }
+        field(480; "Dimension Set ID"; Integer)
+        {
+            Caption = 'Dimension Set ID', Locked = true;
+            Editable = false;
+            TableRelation = "Dimension Set Entry";
         }
         field(5407; "Unit of Measure Code"; Code[10])
         {
@@ -168,6 +173,10 @@ table 50134 "Service Inquiry Line"
         {
             Caption = 'Service Item No.';
             TableRelation = "Service Item"."No.";
+        }
+        field(5904; "Service Item Line No."; Integer)
+        {
+            Caption = 'Service Item Line No.';
         }
         field(5905; "Service Item Serial No."; Code[20])
         {

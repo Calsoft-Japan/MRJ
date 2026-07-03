@@ -127,6 +127,7 @@ codeunit 50015 MRJDimensionLinkMgt
         ServHeader.Modify(true);
 
         UpdSrvItemLineDim(ServHeader);
+        UpdServiceLineDim(ServHeader);
     end;
 
     procedure SetSVOSalesPerDim(var ServHeader: Record "Service Header"; PrevDimSet: Integer)
@@ -158,6 +159,7 @@ codeunit 50015 MRJDimensionLinkMgt
         ServHeader.Modify(true);
 
         UpdSrvItemLineDim(ServHeader);
+        UpdServiceLineDim(ServHeader);
     end;
 
     local procedure UpdSrvItemLineDim(ServHeader: Record "Service Header")
@@ -173,6 +175,34 @@ codeunit 50015 MRJDimensionLinkMgt
                     ServItemLine.Modify(true);
                 end;
             until ServItemLine.Next() = 0;
+    end;
+
+    local procedure UpdServiceLineDim(ServHeader: Record "Service Header")
+    var
+        ServiceLine: Record "Service Line";
+        HdrDimSetEntry: Record "Dimension Set Entry" temporary;
+        LineDimSetEntry: Record "Dimension Set Entry" temporary;
+        DimMgt: Codeunit DimensionManagement;
+        NewDimSetID: Integer;
+    begin
+        ServiceLine.SetRange("Document Type", ServHeader."Document Type");
+        ServiceLine.SetRange("Document No.", ServHeader."No.");
+        if ServiceLine.FindSet(true) then
+            repeat
+                HdrDimSetEntry.DeleteAll();
+                LineDimSetEntry.DeleteAll();
+                DimMgt.GetDimensionSet(HdrDimSetEntry, ServHeader."Dimension Set ID");
+                DimMgt.GetDimensionSet(LineDimSetEntry, ServiceLine."Dimension Set ID");
+                if HdrDimSetEntry.FindSet() then
+                    repeat
+                        ReplaceDim(LineDimSetEntry, HdrDimSetEntry."Dimension Code", HdrDimSetEntry."Dimension Value Code");
+                    until HdrDimSetEntry.Next() = 0;
+                NewDimSetID := DimMgt.GetDimensionSetID(LineDimSetEntry);
+                if NewDimSetID <> ServiceLine."Dimension Set ID" then begin
+                    ServiceLine.Validate("Dimension Set ID", NewDimSetID);
+                    ServiceLine.Modify(true);
+                end;
+            until ServiceLine.Next() = 0;
     end;
 
     procedure SetSrvOrdTypeSalesPerDim(var ServHeader: Record "Service Header"; PrevDimSet: Integer)

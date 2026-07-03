@@ -23,6 +23,10 @@ page 50140 "Service Inquiry Card"
                         PostingDateFilter := ServInqLine.GetFilter("Posting Date");
                     end;
                 }
+                field(SrvOrder; SrvOrder)
+                {
+                    Caption = 'Service Order';
+                }
                 field(ServicePostedInvoice; ServicePostedInvoice)
                 {
                     Caption = 'Service Posted Invoice';
@@ -53,7 +57,7 @@ page 50140 "Service Inquiry Card"
                     trigger OnAction();
                     begin
                         Window.Open(WinUpdTxt);
-                        CurrPage.ServInquiryLines.Page.SetIncludeFilter(ServicePostedInvoice, ServicePostedCrMemo);
+                        CurrPage.ServInquiryLines.Page.SetIncludeFilter(SrvOrder, ServicePostedInvoice, ServicePostedCrMemo);
                         CurrPage.ServInquiryLines.Page.RefreshData(PostingDateFilter);
                         Window.Close();
                         CurrPage.Update(false);
@@ -75,6 +79,19 @@ page 50140 "Service Inquiry Card"
                         CurrPage.Update(false);
                     end;
                 }
+                Action(CreateSrvCrMemo)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Create Service Credit Memo';
+                    Image = Create;
+                    Promoted = true;
+                    PromotedIsBig = true;
+                    PromotedCategory = Process;
+                    trigger OnAction();
+                    begin
+                        CurrPage.ServInquiryLines.Page.CreateServiceCrMemo();
+                    end;
+                }
             }
         }
     }
@@ -83,6 +100,7 @@ page 50140 "Service Inquiry Card"
         ApplMgt: Codeunit "Filter Tokens";
         PostingDateFilter: Text;
         Window: Dialog;
+        SrvOrder: Boolean;
         ServicePostedInvoice: Boolean;
         ServicePostedCrMemo: Boolean;
         WinUpdTxt: Label 'Now updating.\Please wait ...';

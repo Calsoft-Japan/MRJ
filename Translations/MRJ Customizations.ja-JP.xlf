@@ -2289,11 +2289,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Card - Control ServicePostedInvoice - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3646928396 - Control 958536867 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Order</source>
+          <target>サービス受注</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Card - Control SrvOrder - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3646928396 - Action 1758329763 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Clear Data</source>
           <target>データ消去</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Card - Action ClearData - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3646928396 - Action 255253068 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Service Credit Memo</source>
+           <target>サービスクレジットメモ作成</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Card - Action CreateSrvCrMemo - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3646928396 - Action 88470173 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Show Data</source>

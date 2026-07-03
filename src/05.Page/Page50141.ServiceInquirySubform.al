@@ -86,22 +86,23 @@ page 50141 "Service Inquiry Subform"
 
     trigger OnInit()
     begin
+        SrvOrder := true;
         PostedInvoice := true;
         PostedCrMemo := true;
     end;
 
     var
         GLSetup: Record "General Ledger Setup";
+        ServHdr: Record "Service Header";
+        ServLine: Record "Service Line";
         ServInvHdr: Record "Service Invoice Header";
         ServInvLine: Record "Service Invoice Line";
         ServCrMemoHdr: Record "Service Cr.Memo Header";
         ServCrMemoLine: Record "Service Cr.Memo Line";
         CurrExchRate: Record "Currency Exchange Rate";
-        ServItemFilter: Text[250];
-        SerialFilter: Text[250];
         PostingDateFilter: Text[250];
         RecFilter: Text[250];
-        TypeFilter: Text[250];
+        SrvOrder: Boolean;
         PostedInvoice: Boolean;
         PostedCrMemo: Boolean;
         TotalAmt: Decimal;
@@ -109,8 +110,9 @@ page 50141 "Service Inquiry Subform"
         DecTotalAmt: Decimal;
         DecTotalAmtVAT: Decimal;
 
-    procedure SetIncludeFilter(pPSInv: Boolean; pPCrMemo: Boolean);
+    procedure SetIncludeFilter(pOrder: Boolean; pPSInv: Boolean; pPCrMemo: Boolean);
     begin
+        SrvOrder := pOrder;
         PostedInvoice := pPSInv;
         PostedCrMemo := pPCrMemo;
     end;
@@ -126,6 +128,50 @@ page 50141 "Service Inquiry Subform"
         Rec.Reset();
         Rec.DeleteAll();
         Rec.SetView(RecFilter);
+
+        if SrvOrder then begin
+            Clear(ServHdr);
+            if pPostDateFilter <> '' then
+                ServHdr.SetFilter("Posting Date", PostingDateFilter);
+            if ServHdr.FindSet() then
+                repeat
+                    Clear(ServLine);
+                    ServLine.SetRange("Document Type", ServHdr."Document Type");
+                    ServLine.SetRange("Document No.", ServHdr."No.");
+                    ServLine.SetFilter(Type, '<>%1', ServInvLine.Type::" ");
+                    if ServLine.FindSet() then
+                        repeat
+                            Rec.Init();
+                            Rec.TransferFields(ServLine);
+                            Rec."Customer No." := ServHdr."Customer No.";
+                            Rec."Original Order No." := Rec."Document No.";
+                            TotalAmt := Rec.Amount;
+                            TotalAmtVAT := Rec."Amount Including VAT";
+                            if Rec."Currency Code" <> '' then begin
+                                TotalAmt := Round(CurrExchRate.ExchangeAmtFCYToLCY(GetDate(Rec."Posting Date"),
+                                                 Rec."Currency Code", TotalAmt, ServHdr."Currency Factor"),
+                                                 GLSetup."Amount Rounding Precision");
+
+                                TotalAmtVAT := Round(CurrExchRate.ExchangeAmtFCYToLCY(GetDate(Rec."Posting Date"),
+                                               Rec."Currency Code", TotalAmtVAT, ServHdr."Currency Factor"),
+                                               GLSetup."Amount Rounding Precision");
+                            end;
+                            DecTotalAmt += TotalAmt;
+                            DecTotalAmtVAT += TotalAmtVAT;
+                            DimMgt.GetShortcutDimensions(ServLine."Dimension Set ID", ShortcutDimCode);
+                            Rec."Shortcut Dimension 3 Code" := ShortcutDimCode[3];
+                            Rec."Shortcut Dimension 4 Code" := ShortcutDimCode[4];
+                            Rec."Shortcut Dimension 5 Code" := ShortcutDimCode[5];
+                            Rec."Shortcut Dimension 6 Code" := ShortcutDimCode[6];
+                            Rec."Shortcut Dimension 7 Code" := ShortcutDimCode[7];
+                            Rec."Shortcut Dimension 8 Code" := ShortcutDimCode[8];
+                            Rec."Service Order Type" := ServHdr."Service Order Type";
+                            Rec."Customer Name" := ServHdr.Name;
+                            Rec."Total Unit Cost (LCY)" := Rec.Quantity * Rec."Unit Cost (LCY)";
+                            Rec.Insert();
+                        until ServLine.Next() = 0;
+                until ServHdr.Next() = 0;
+        end;
 
         if PostedInvoice then begin
             Clear(ServInvHdr);
@@ -255,5 +301,187 @@ page 50141 "Service Inquiry Subform"
         Rec.Reset();
         Rec.DeleteAll();
         PostingDateFilter := '';
+    end;
+
+    procedure CreateServiceCrMemo()
+    var
+        ServHeaderInst: Record "Service Header";
+        ServLineInst: Record "Service Line";
+        ServLineSrch: Record "Service Line";
+        ServShipLineSrch: Record "Service Shipment Line";
+        ServInvLineSrch: Record "Service Invoice Line";
+        ServCrMemoLineSrch: Record "Service Cr.Memo Line";
+        ServInvHeaderSrch: Record "Service Invoice Header";
+        Text001: Label '';
+        Text002: Label 'Do you want to create Service Credit Memo by copy from the selected document?\Document Type : %1\Document No. : %2\Service Item No. : %3';
+        Text003: Label 'Service Credit Memo ''%1'' created successfully, do you want to open?';
+        Text008: Label 'Invoice No. %1';
+    begin
+        if Rec."Document No." = '' then
+            exit;
+
+        if not Dialog.Confirm(
+            StrSubstNo(Text002, Rec."Document Type", Rec."Document No.", Rec."Service Item No."),
+            false)
+        then
+            exit;
+
+        ServHeaderInst.Init();
+        ServHeaderInst.Validate("Document Type", ServHeaderInst."Document Type"::"Credit Memo");
+        ServHeaderInst.Insert(true);
+        ServHeaderInst.Validate("Customer No.", Rec."Customer No.");
+        if Rec."Document Type" = Rec."Document Type"::"Posted Invoice" then begin
+            ServInvHeaderSrch.Get(Rec."Document No.");
+            ServHeaderInst."Applies-to Doc. Type" := ServHeaderInst."Applies-to Doc. Type"::Invoice;
+            ServHeaderInst."Applies-to Doc. No." := Rec."Document No.";
+            ServHeaderInst."Prices Including VAT" := ServInvHeaderSrch."Prices Including VAT";
+            ServHeaderInst."Currency Code" := ServInvHeaderSrch."Currency Code";
+            ServHeaderInst."Currency Factor" := ServInvHeaderSrch."Currency Factor";
+        end;
+
+        ServHeaderInst.Validate("Bill-to Customer No.", ServInvHeaderSrch."Bill-to Customer No.");
+        ServHeaderInst.Validate("Shortcut Dimension 1 Code", Rec."Shortcut Dimension 1 Code");
+        ServHeaderInst.Validate("Shortcut Dimension 2 Code", Rec."Shortcut Dimension 2 Code");
+        ServHeaderInst.Validate("Dimension Set ID", Rec."Dimension Set ID");
+        ServHeaderInst.Modify(true);
+
+        case Rec."Document Type" of
+            Rec."Document Type"::Quote,
+            Rec."Document Type"::Order,
+            Rec."Document Type"::Invoice,
+            Rec."Document Type"::"Credit Memo":
+                begin
+                    ServLineSrch.Reset();
+                    ServLineSrch.SetRange("Document Type", Rec."Document Type");
+                    ServLineSrch.SetRange("Document No.", Rec."Document No.");
+                    ServLineSrch.SetRange("Service Item Line No.", Rec."Service Item Line No.");
+                    if ServLineSrch.FindSet() then
+                        repeat
+                            ServLineInst.Init();
+                            ServLineInst."Document Type" := ServLineInst."Document Type"::"Credit Memo";
+                            ServLineInst."Document No." := ServHeaderInst."No.";
+                            ServLineInst."Line No." += 10000;
+                            ServLineInst.Insert(true);
+
+                            ServLineInst.Validate(Type, ServLineSrch.Type);
+                            ServLineInst.Validate("No.", ServLineSrch."No.");
+                            if (ServLineSrch.Type <> ServLineSrch.Type::" ") and
+                               (ServLineSrch."No." <> '')
+                            then begin
+                                ServLineInst.Validate("Variant Code", ServLineSrch."Variant Code");
+                                ServLineInst.Validate("Unit of Measure Code", ServLineSrch."Unit of Measure Code");
+                                ServLineInst.Validate(Quantity, ServLineSrch.Quantity);
+                                ServLineInst.Validate("Service Item No.", Rec."Service Item No.");
+                            end;
+                            ServLineInst.Modify(true);
+                        until ServLineSrch.Next() = 0;
+                end;
+            Rec."Document Type"::"Posted Invoice":
+                begin
+                    ServLineInst.Init();
+                    ServLineInst."Document Type" := ServLineInst."Document Type"::"Credit Memo";
+                    ServLineInst."Document No." := ServHeaderInst."No.";
+                    ServLineInst."Line No." := 10000;
+                    ServLineInst.Insert(true);
+                    ServLineInst.Validate(Type, ServLineInst.Type::" ");
+                    ServLineInst.Validate(Description, StrSubstNo(Text008, Rec."Document No."));
+                    ServLineInst.Modify(true);
+
+                    ServInvLineSrch.Reset();
+                    ServInvLineSrch.SetRange("Document No.", Rec."Document No.");
+                    if ServInvLineSrch.FindSet() then
+                        repeat
+                            ServLineInst.Init();
+                            ServLineInst.TransferFields(ServInvLineSrch);
+                            ServLineInst."Document Type" := ServLineInst."Document Type"::"Credit Memo";
+                            ServLineInst."Document No." := ServHeaderInst."No.";
+                            ServLineInst."Line No." += 10000;
+                            if (ServInvLineSrch.Type <> ServInvLineSrch.Type::" ") and
+                               (ServInvLineSrch."No." <> '')
+                            then begin
+                                ServLineInst."Appl.-to Service Entry" := 0;
+                                ServLineInst."Contract No." := '';
+                                ServLineInst.Validate("Contract No.", ServInvLineSrch."Contract No.");
+                                ServLineInst."Outstanding Quantity" := 0;
+                                ServLineInst.Validate("Outstanding Quantity", ServInvLineSrch.Quantity);
+                                ServLineInst."Qty. to Invoice" := 0;
+                                ServLineInst.Validate("Qty. to Invoice", ServInvLineSrch.Quantity);
+                            end;
+                            ServLineInst.Insert(true);
+                            SetItemTrackingLine(ServInvLineSrch, ServLineInst);
+                        until ServInvLineSrch.Next() = 0;
+                end;
+
+            Rec."Document Type"::"Posted Credit Memo":
+                begin
+                    ServCrMemoLineSrch.Reset();
+                    ServCrMemoLineSrch.SetRange("Document No.", Rec."Document No.");
+
+                    if ServCrMemoLineSrch.FindSet() then
+                        repeat
+                            ServLineInst.Init();
+                            ServLineInst."Document Type" := ServLineInst."Document Type"::"Credit Memo";
+                            ServLineInst."Document No." := ServHeaderInst."No.";
+                            ServLineInst."Line No." += 10000;
+                            ServLineInst.Insert(true);
+
+                            ServLineInst.Validate(Type, ServCrMemoLineSrch.Type);
+                            ServLineInst.Validate("No.", ServCrMemoLineSrch."No.");
+
+                            if (ServCrMemoLineSrch.Type <> ServCrMemoLineSrch.Type::" ") and
+                               (ServCrMemoLineSrch."No." <> '')
+                            then begin
+                                ServLineInst.Validate("Variant Code", ServCrMemoLineSrch."Variant Code");
+                                ServLineInst.Validate("Unit of Measure Code", ServCrMemoLineSrch."Unit of Measure Code");
+                                ServLineInst.Validate(Quantity, ServCrMemoLineSrch.Quantity);
+                                ServLineInst.Validate("Service Item No.", Rec."Service Item No.");
+                            end;
+
+                            ServLineInst.Modify(true);
+                        until ServCrMemoLineSrch.Next() = 0;
+                end;
+        end;
+
+        Commit();
+
+        if not Dialog.Confirm(StrSubstNo(Text003, ServHeaderInst."No."), true) then
+            exit;
+
+        Page.RunModal(Page::"Service Credit Memo", ServHeaderInst);
+    end;
+
+    local procedure SetItemTrackingLine(var ServInvLine: Record "Service Invoice Line"; var ServLine: Record "Service Line")
+    var
+        ItemLedgEntryTmp: Record "Item Ledger Entry" temporary;
+        ItemTrackingMgt: Codeunit "Item Tracking Management";
+        CreateReservEntry: Codeunit "Create Reserv. Entry";
+        ReservationEntry: Record "Reservation Entry";
+    begin
+        /* Clear(ItemLedgEntryTmp);
+        ItemTrackingMgt.RetrieveILEFromPostedInv(ItemLedgEntryTmp, ServInvLine.RowID1);
+        if ItemLedgEntryTmp.FindSet() then
+            repeat
+                CreateReservEntry.CreateReservEntryFor(
+                    Database::"Service Line",
+                    ServLine."Document Type"::"Credit Memo",
+                    ServLine."Document No.",
+                    '',
+                    0,
+                    ServLine."Line No.",
+                    ItemLedgEntryTmp.Quantity,
+                    ServLine."Qty. per Unit of Measure",
+                    ItemLedgEntryTmp."Serial No.",
+                    ItemLedgEntryTmp."Lot No.");
+
+                CreateReservEntry.CreateEntry(
+                    ServLine."No.",
+                    ServLine."Variant Code",
+                    ServLine."Location Code",
+                    '',
+                    0D,
+                    ServLine."Posting Date",
+                    0,
+                    ReservationEntry."Reservation Status"::Prospect);
+            until ItemLedgEntryTmp.Next() = 0; */
     end;
 }

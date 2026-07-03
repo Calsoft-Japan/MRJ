@@ -788,6 +788,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Service Inquiry Line - Field Quantity - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1566533854 - Field 3472755819 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Item Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Service Inquiry Line - Field Service Item Line No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1566533854 - Field 126195929 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Item No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1908,10 +1913,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Card - Control ServicePostedInvoice - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3646928396 - Control 958536867 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Card - Control SrvOrder - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3646928396 - Action 1758329763 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Clear Data</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Card - Action ClearData - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3646928396 - Action 255253068 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Service Credit Memo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Card - Action CreateSrvCrMemo - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3646928396 - Action 88470173 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Show Data</source>
@@ -1922,6 +1937,26 @@
           <source>Service Inquiry</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Subform - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2930097090 - Method 1354630678 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Subform - Method CreateServiceCrMemo - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Page 2930097090 - Method 1354630678 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to create Service Credit Memo by copy from the selected document?\Document Type : %1\Document No. : %2\Service Item No. : %3</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Subform - Method CreateServiceCrMemo - NamedType Text002</note>
+        </trans-unit>
+        <trans-unit id="Page 2930097090 - Method 1354630678 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Credit Memo '%1' created successfully, do you want to open?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Subform - Method CreateServiceCrMemo - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Page 2930097090 - Method 1354630678 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice No. %1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Subform - Method CreateServiceCrMemo - NamedType Text008</note>
         </trans-unit>
         <trans-unit id="Page 3219992670 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Parts Transfer</source>
