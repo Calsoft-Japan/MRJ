@@ -312,7 +312,6 @@ page 50141 "Service Inquiry Subform"
         ServInvLineSrch: Record "Service Invoice Line";
         ServCrMemoLineSrch: Record "Service Cr.Memo Line";
         ServInvHeaderSrch: Record "Service Invoice Header";
-        Text001: Label '';
         Text002: Label 'Do you want to create Service Credit Memo by copy from the selected document?\Document Type : %1\Document No. : %2\Service Item No. : %3';
         Text003: Label 'Service Credit Memo ''%1'' created successfully, do you want to open?';
         Text008: Label 'Invoice No. %1';

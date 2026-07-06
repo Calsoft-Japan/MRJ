@@ -2319,6 +2319,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Subform - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2930097090 - Method 1354630678 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to create Service Credit Memo by copy from the selected document?\Document Type : %1\Document No. : %2\Service Item No. : %3</source>
+          <target>下記文書からコピーしてサービスクレジットメモを作成しますか？\文書タイプ: %1\文書番号: %2\サービス品目: %3;</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Subform - Method CreateServiceCrMemo - NamedType Text002</note>
+        </trans-unit>
+        <trans-unit id="Page 2930097090 - Method 1354630678 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Credit Memo '%1' created successfully, do you want to open?</source>
+          <target>サービスクレジットメモ ''%1'' が作成されました。新規クレジットメモを開きますか？</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Subform - Method CreateServiceCrMemo - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Page 2930097090 - Method 1354630678 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice No. %1</source>
+          <target>請求番号 %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Subform - Method CreateServiceCrMemo - NamedType Text008</note>
+        </trans-unit>
         <trans-unit id="Page 3219992670 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Parts Transfer</source>
           <target>サービスパーツ移動</target>

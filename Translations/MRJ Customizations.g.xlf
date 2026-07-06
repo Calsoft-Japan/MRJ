@@ -788,11 +788,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Service Inquiry Line - Field Quantity - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 1566533854 - Field 3472755819 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Item Line No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Service Inquiry Line - Field Service Item Line No. - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 1566533854 - Field 126195929 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Item No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1937,11 +1932,6 @@
           <source>Service Inquiry</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Subform - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2930097090 - Method 1354630678 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Subform - Method CreateServiceCrMemo - NamedType Text001</note>
         </trans-unit>
         <trans-unit id="Page 2930097090 - Method 1354630678 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to create Service Credit Memo by copy from the selected document?\Document Type : %1\Document No. : %2\Service Item No. : %3</source>

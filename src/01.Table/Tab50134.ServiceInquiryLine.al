@@ -176,7 +176,7 @@ table 50134 "Service Inquiry Line"
         }
         field(5904; "Service Item Line No."; Integer)
         {
-            Caption = 'Service Item Line No.';
+            Caption = 'Service Item Line No.', Locked = true;
         }
         field(5905; "Service Item Serial No."; Code[20])
         {
