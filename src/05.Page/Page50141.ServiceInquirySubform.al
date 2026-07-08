@@ -244,6 +244,16 @@ page 50141 "Service Inquiry Subform"
                         repeat
                             Rec.Init();
                             Rec.TransferFields(ServCrMemoLine);
+
+                            // Assign negative sign
+                            Rec.Quantity := -Rec.Quantity;
+                            Rec."Unit Price" := -Rec."Unit Price";
+                            Rec."Unit Cost (LCY)" := -Rec."Unit Cost (LCY)";
+                            Rec."Total Unit Cost (LCY)" := -Rec."Total Unit Cost (LCY)";
+                            Rec.Amount := -Rec.Amount;
+                            Rec."Amount Including VAT" := -Rec."Amount Including VAT";
+                            Rec."Inv. Discount Amount" := -Rec."Inv. Discount Amount";
+
                             Rec."Customer No." := ServCrMemoHdr."Customer No.";
                             Rec."Document Type" := Rec."Document Type"::"Posted Credit Memo";
                             Rec."Original Order No." := ServCrMemoHdr."Pre-Assigned No.";
@@ -428,7 +438,7 @@ page 50141 "Service Inquiry Subform"
                             then begin
                                 ServLineInst.Validate("Variant Code", ServCrMemoLineSrch."Variant Code");
                                 ServLineInst.Validate("Unit of Measure Code", ServCrMemoLineSrch."Unit of Measure Code");
-                                ServLineInst.Validate(Quantity, ServCrMemoLineSrch.Quantity);
+                                ServLineInst.Validate(Quantity, Abs(ServCrMemoLineSrch.Quantity));
                                 ServLineInst.Validate("Service Item No.", Rec."Service Item No.");
                             end;
                             ServLineInst.Modify(true);
