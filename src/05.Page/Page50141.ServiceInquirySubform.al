@@ -289,7 +289,7 @@ page 50141 "Service Inquiry Subform"
                             end;
                             if Rec.Type = Rec.Type::Resource then
                                 Rec."Item Category Code" := '';
-                            Rec."Total Unit Cost (LCY)" := Rec.Quantity * Rec."Unit Cost (LCY)";
+                            Rec."Total Unit Cost (LCY)" := -(Rec.Quantity * Rec."Unit Cost (LCY)");
                             Rec.Insert();
                         until (ServCrMemoLine.Next() = 0);
                 until (ServCrMemoHdr.Next() = 0);
