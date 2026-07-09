@@ -189,8 +189,8 @@ codeunit 50015 MRJDimensionLinkMgt
         ServiceLine.SetRange("Document No.", ServHeader."No.");
         if ServiceLine.FindSet(true) then
             repeat
-                HdrDimSetEntry.DeleteAll();
-                LineDimSetEntry.DeleteAll();
+                Clear(HdrDimSetEntry);
+                Clear(LineDimSetEntry);
                 DimMgt.GetDimensionSet(HdrDimSetEntry, ServHeader."Dimension Set ID");
                 DimMgt.GetDimensionSet(LineDimSetEntry, ServiceLine."Dimension Set ID");
                 if HdrDimSetEntry.FindSet() then
@@ -389,6 +389,7 @@ codeunit 50015 MRJDimensionLinkMgt
             TempDimSetEntry."Dimension Value Code" := DimValue;
             TempDimSetEntry.Insert(true);
         end;
+        TempDimSetEntry.Reset();
     end;
 
     local procedure DeleteDim(var TempDimSetEntry: Record "Dimension Set Entry" temporary; DimCode: Code[20])
