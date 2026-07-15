@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-05-28T10:57:18.2985107Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-07-15T04:55:45.1634728Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -1657,7 +1657,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="TEL." + Fields!CompanyAddr4.Value</Value>
+                    <Value>="TEL." + Fields!CompanyAddr5.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1791,7 +1791,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="FAX." + Fields!CompanyAddr5.Value</Value>
+                    <Value>="FAX." + Fields!CompanyAddr4.Value</Value>
                     <Style>
                       <FontFamily>MS UI Gothic</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1981,7 +1981,6 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Textbox302">
                           <rd:DefaultName>Textbox302</rd:DefaultName>
                           <CanGrow>true</CanGrow>
