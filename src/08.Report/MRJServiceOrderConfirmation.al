@@ -228,6 +228,8 @@ report 50022 "MRJ Service Order Confirmation"
 
     requestpage
     {
+        SaveValues = true;
+
         layout
         {
             area(content)
