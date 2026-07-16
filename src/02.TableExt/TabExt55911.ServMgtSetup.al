@@ -18,6 +18,11 @@ tableextension 55911 "Serv. Mgt. Setup Ext" extends "Service Mgt. Setup"
             DataClassification = CustomerContent;
             TableRelation = "Resource Group";
         }
+        field(50102; "Resource Group UOM"; Code[20])
+        {
+            Caption = 'Resource Group UOM';
+            TableRelation = "Unit of Measure";
+        }
         field(90016; "G/L Account for Repair"; Code[20])
         {
             Caption = 'G/L Account for Repair';

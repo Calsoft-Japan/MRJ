@@ -3863,6 +3863,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Resource Group for Sort - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1360054054 - Field 3085629230 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
+          <source>Resource Group UOM</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Resource Group UOM - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1360054054 - Field 2260457661 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
           <source>Sales Order Dim Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
