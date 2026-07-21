@@ -445,6 +445,8 @@ report 50089 "MRJ Service Delivery Note"
         TargetResGrp: Code[20];
         LineBaseAmount: Decimal;
         boolFound: Boolean;
+        bIsSetUnit: Boolean;
+        PreResGrp: Code[20];
     begin
         // Use TempShipLine as the one true summarized buffer
         TempShipLine.Reset();
@@ -519,6 +521,48 @@ report 50089 "MRJ Service Delivery Note"
                             TempShipLine.Description := ResGrp.Name;
 
                     TempShipLine.Insert();
+                end;
+
+            until ShipLineRec.Next() = 0;
+
+        // When both "02 SERVICE" and "03 OUTSOURCE-L" line items are included
+        PreResGrp := '';
+        ShipLineRec.Reset();
+        ShipLineRec.SetRange("Document No.", SvcShipHdr."No."); // Posted shipment lines link by Document No.
+        if ShipLineRec.FindSet() then
+            repeat
+                // DEV NOTE:
+                // Use actual posted values from Service Shipment Line.
+                Amt := ShipLineRec.Amount;
+                GrossAmt := ShipLineRec."Amount Including VAT";
+
+                LineBaseAmount := Amt;
+                if LineBaseAmount = 0 then
+                    continue;
+
+                // Resource group logic (if shipment line type supports Resource)
+                CurrentResGrp := '';
+
+                if ShipLineRec.Type = ShipLineRec.Type::Resource then begin
+                    if Res.Get(ShipLineRec."No.") then begin
+                        CurrentResGrp := Res."Resource Group No.";
+
+                        if (ServiceMgtSetup."Resource Group Filter" <> '') and
+                           (StrPos(ServiceMgtSetup."Resource Group Filter", CurrentResGrp) > 0) then begin
+                            // Compare with the Previous value
+                            if (PreResGrp <> '') and (CurrentResGrp <> PreResGrp) then begin
+
+                                TempShipLine.Reset();
+                                TempShipLine.SetRange("Resource Group No.", ServiceMgtSetup."Resource Group for Sort");
+                                if TempShipLine.FindFirst() then begin
+                                    TempShipLine."Unit of Measure" := 'SET';
+                                    TempShipLine.Quantity := 1;
+                                    TempShipLine.Modify();
+                                end;
+                            end;
+                            PreResGrp := CurrentResGrp;
+                        end;
+                    end;
                 end;
 
             until ShipLineRec.Next() = 0;
