@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en-US" target-language="ja-JP" original="MRJ Customizations">
+  <file datatype="xml" source-language="en-US" target-language="ja-JP" original="MRJ Customizations.g.xlf">
     <body>
       <group id="body">
         <trans-unit id="Table 3242325881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -227,7 +227,7 @@
         </trans-unit>
         <trans-unit id="Table 3898327129 - Field 580412389 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Date</source>
-          <target>文書日</target> 
+          <target>文書日</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Document Date - Property Caption</note>
         </trans-unit>
@@ -239,7 +239,7 @@
         </trans-unit>
         <trans-unit id="Table 3898327129 - Field 2363328873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Type</source>
-          <target>文書タイプ</target> 
+          <target>文書タイプ</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Document Type - Property Caption</note>
         </trans-unit>
@@ -317,7 +317,7 @@
         </trans-unit>
         <trans-unit id="Table 3898327129 - Field 3739702555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice Memo 2</source>
-          <target>Invoice Memo 2</target> 
+          <target>Invoice Memo 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Invoice Memo 2 - Property Caption</note>
         </trans-unit>
@@ -545,7 +545,7 @@
         </trans-unit>
         <trans-unit id="Table 3898327129 - Field 1908046867 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reason Code</source>
-          <target>理由コード</target> 
+          <target>理由コード</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Reason Code - Property Caption</note>
         </trans-unit>
@@ -557,7 +557,7 @@
         </trans-unit>
         <trans-unit id="Table 3898327129 - Field 2562415929 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reserved Quantity</source>
-          <target>予約済数量</target> 
+          <target>予約済数量</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Reserved Quantity - Property Caption</note>
         </trans-unit>
@@ -641,7 +641,7 @@
         </trans-unit>
         <trans-unit id="Table 3898327129 - Field 2500592867 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipping Instruction Memo 1</source>
-          <target>Shipping Instruction Memo 1</target>  
+          <target>Shipping Instruction Memo 1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shipping Instruction Memo 1 - Property Caption</note>
         </trans-unit>
@@ -653,7 +653,7 @@
         </trans-unit>
         <trans-unit id="Table 3898327129 - Field 118715422 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipping Instruction Memo 2</source>
-          <target>Shipping Instruction Memo 2</target> 
+          <target>Shipping Instruction Memo 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shipping Instruction Memo 2 - Property Caption</note>
         </trans-unit>
@@ -671,7 +671,7 @@
         </trans-unit>
         <trans-unit id="Table 3898327129 - Field 4244773695 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipping Instruction Memo 5</source>
-          <target>Shipping Instruction Memo 5</target> 
+          <target>Shipping Instruction Memo 5</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field Shipping Instruction Memo 5 - Property Caption</note>
         </trans-unit>
@@ -749,7 +749,7 @@
         </trans-unit>
         <trans-unit id="Table 3898327129 - Field 725055695 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>TotalAmountInclVAT</source>
-          <target>税込合計金額 (基本通貨)</target> 
+          <target>税込合計金額 (基本通貨)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Sales Inquiry Line - Field TotalAmountInclVAT - Property Caption</note>
         </trans-unit>
@@ -1007,7 +1007,7 @@
         </trans-unit>
         <trans-unit id="Table 1566533854 - Field 785667711 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shortcut Dimension 8 Code</source>
-          <target>ショートカット分析コード 8</target> 
+          <target>ショートカット分析コード 8</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Service Inquiry Line - Field Shortcut Dimension 8 Code - Property Caption</note>
         </trans-unit>
@@ -1403,7 +1403,7 @@
         </trans-unit>
         <trans-unit id="Page 2175147097 - NamedType 692525026" size-unit="char" translate="yes" xml:space="preserve">
           <source>The order is posted as number %1 and moved to the Posted Purchase Invoices window.\\Do you want to open the posted invoice?</source>
-          <target>注文は番号 %1 として転記され、「転記済購買請求」ウィンドウに移動されました。\\転記済請求を開きますか？</target> 
+          <target>注文は番号 %1 として転記され、「転記済購買請求」ウィンドウに移動されました。\\転記済請求を開きますか？</target>
           <note from="Developer" annotates="general" priority="2">%1 = posted document number</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Closed Purchase Order - NamedType OpenPostedPurchaseOrderQst</note>
         </trans-unit>
@@ -1499,7 +1499,7 @@
         </trans-unit>
         <trans-unit id="Page 2175147097 - Control 3183194544 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Vendor Name 2</source>
-          <target>仕入先名 2</target> 
+          <target>仕入先名 2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Closed Purchase Order - Control Buy-from Vendor Name 2 - Property Caption</note>
         </trans-unit>
@@ -1565,7 +1565,7 @@
         </trans-unit>
         <trans-unit id="Page 2175147097 - Control 4079742056 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region</source>
-          <target>国/地域</target> 
+          <target>国/地域</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Closed Purchase Order - Control Pay-to Country/Region Code - Property Caption</note>
         </trans-unit>
@@ -1739,7 +1739,7 @@
         </trans-unit>
         <trans-unit id="Page 2175147097 - Action 3324780168 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Documents</source>
-          <target>伝票</target> 
+          <target>伝票</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Closed Purchase Order - Action Documents - Property Caption</note>
         </trans-unit>
@@ -1781,7 +1781,7 @@
         </trans-unit>
         <trans-unit id="Page 2175147097 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;mments</source>
-          <target>注釈 </target> 
+          <target>注釈 </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Closed Purchase Order - Action Co&amp;mments - Property Caption</note>
         </trans-unit>
@@ -1979,7 +1979,7 @@
         </trans-unit>
         <trans-unit id="Page 4165833255 - Control 1932774032 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Return Order</source>
-          <target>売上返品</target> 
+          <target>売上返品</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Sales Inquiry Card - Control SalesReturnOrder - Property Caption</note>
         </trans-unit>
@@ -2177,7 +2177,7 @@
         </trans-unit>
         <trans-unit id="Page 812732725 - Control 3171492862 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inspection In-Charge (Person)</source>
-          <target>検収責任者</target> 
+          <target>検収責任者</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Engine - Control Inspection In-Charge (Person) - Property Caption</note>
         </trans-unit>
@@ -2303,7 +2303,7 @@
         </trans-unit>
         <trans-unit id="Page 3646928396 - Action 255253068 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Service Credit Memo</source>
-           <target>サービスクレジットメモ作成</target>
+          <target>サービスクレジットメモ作成</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Inquiry Card - Action CreateSrvCrMemo - Property Caption</note>
         </trans-unit>
@@ -2399,7 +2399,7 @@
         </trans-unit>
         <trans-unit id="Page 3219992670 - Control 2385270358 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>UOM</source>
-          <target>単位</target> 
+          <target>単位</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Parts Transfer - Control Unit of Measure Code - Property Caption</note>
         </trans-unit>
@@ -2411,7 +2411,7 @@
         </trans-unit>
         <trans-unit id="Page 3219992670 - Action 2119485253 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Return Transfer Order</source>
-          <target>戻し移動指示書作成</target> 
+          <target>戻し移動指示書作成</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Parts Transfer - Action CreateReturnTOAction - Property Caption</note>
         </trans-unit>
@@ -2464,7 +2464,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Calculate Charge Outs - Control DateTo - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2499531685 - Control 848977936 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Ignore VAT Setup</source> 
+          <source>Ignore VAT Setup</source>
           <target>消費税設定なし</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Calculate Charge Outs - Control IgnoreVATSetup - Property Caption</note>
@@ -2543,7 +2543,7 @@
         </trans-unit>
         <trans-unit id="Report 60501374 - NamedType 1020727465" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inv. Turn Over (Yearly)</source>
-          <target>回転率（年間）</target> 
+          <target>回転率（年間）</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Inv. Turn Over Report - NamedType InvTurnOverYearLbl</note>
         </trans-unit>
@@ -2717,13 +2717,19 @@
         </trans-unit>
         <trans-unit id="Report 3753925064 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>MRJ Service Delivery Note</source>
-          <target>MRJ Service Delivery Note</target> 
+          <target>MRJ Service Delivery Note</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Delivery Note - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3753925064 - Method 2489514524 - NamedType 136984654" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1（値引）</source>
+          <target>%1（値引）</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Fault Reason Description</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Delivery Note - Method SummarizeShipmentLinesProc - NamedType Text50020</note>
+        </trans-unit>
         <trans-unit id="Report 3753925064 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Options</source>
-          <target>オプション</target>   
+          <target>オプション</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Delivery Note - Control Options - Property Caption</note>
         </trans-unit>
@@ -2735,7 +2741,7 @@
         </trans-unit>
         <trans-unit id="Report 4281141003 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>MRJ Service Invoice</source>
-          <target>MRJ Service Invoice</target>  
+          <target>MRJ Service Invoice</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Invoice - Property Caption</note>
         </trans-unit>
@@ -2849,7 +2855,7 @@
         </trans-unit>
         <trans-unit id="Report 1054195013 - NamedType 3665354930" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bin Description</source>
-          <target>出荷先名</target> 
+          <target>出荷先名</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType BinDescLbl</note>
         </trans-unit>
@@ -2897,7 +2903,7 @@
         </trans-unit>
         <trans-unit id="Report 1054195013 - NamedType 1107639596" size-unit="char" translate="yes" xml:space="preserve">
           <source>Requested Date</source>
-          <target>依頼日</target> 
+          <target>依頼日</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType ReqDateLbl</note>
         </trans-unit>
@@ -2939,7 +2945,7 @@
         </trans-unit>
         <trans-unit id="Report 1054195013 - NamedType 3675990074" size-unit="char" translate="yes" xml:space="preserve">
           <source>User ID</source>
-          <target>ユーザーID</target> 
+          <target>ユーザーID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Parts Request Form - NamedType UserIDLbl</note>
         </trans-unit>
@@ -2975,7 +2981,7 @@
         </trans-unit>
         <trans-unit id="Report 21210417 - NamedType 2873454903" size-unit="char" translate="yes" xml:space="preserve">
           <source>Authorized</source>
-          <target>作業者等</target> 
+          <target>作業者等</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Pstd. Service Work Report - NamedType AuthorizedLbl</note>
         </trans-unit>
@@ -2993,7 +2999,7 @@
         </trans-unit>
         <trans-unit id="Report 21210417 - NamedType 2123708446" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cost of R</source>
-          <target>人数</target> 
+          <target>人数</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Pstd. Service Work Report - NamedType CostOfRLbl</note>
         </trans-unit>
@@ -3245,7 +3251,7 @@
         </trans-unit>
         <trans-unit id="Report 1293106958 - NamedType 2873454903" size-unit="char" translate="yes" xml:space="preserve">
           <source>Authorized</source>
-          <target>作業者等</target> 
+          <target>作業者等</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType AuthorizedLbl</note>
         </trans-unit>
@@ -3263,7 +3269,7 @@
         </trans-unit>
         <trans-unit id="Report 1293106958 - NamedType 2123708446" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cost of R</source>
-          <target>人数</target> 
+          <target>人数</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Service Work Report - NamedType CostOfRLbl</note>
         </trans-unit>
@@ -3771,7 +3777,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Service Order Ext - Action PartsRequest - Property Caption</note>
         </trans-unit>
-        
         <trans-unit id="PageExtension 3390929214 - Change 2161572060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2145436509">
           <source>Parts to Location Code</source>
           <target>パーツ出荷先場所コード</target>
@@ -3984,7 +3989,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 2480387432 - Field 158033398 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>Is New Entry</source>
-          <target>新規参入フラグ</target> 
+          <target>新規参入フラグ</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Ext - Field Is New Entry - Property Caption</note>
         </trans-unit>
@@ -4008,7 +4013,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 2480387432 - Field 1835655525 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>Overseas/Domestic</source>
-          <target>海外・国内</target> 
+          <target>海外・国内</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Ext - Field Overseas/Domestic - Property Caption</note>
         </trans-unit>
@@ -4026,7 +4031,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 2480387432 - Field 183215832 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>Standard,Quick Access,Rebuilt Parts,Document,SST,Chemical,Promotion,Oil,Others,J,K,L,M,N,O,P,Q</source>
-          <target>一般,クイックアクセス,レビルトパーツ,ドキュメント,SST,ケミカル,プロモーション,オイル類,その他,J,K,L,M,N,O,P,Q</target> 
+          <target>一般,クイックアクセス,レビルトパーツ,ドキュメント,SST,ケミカル,プロモーション,オイル類,その他,J,K,L,M,N,O,P,Q</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Ext - Field Parts Category - Property OptionCaption</note>
         </trans-unit>
@@ -4056,7 +4061,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 2480387432 - Field 2757549774 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>Shelf No. (Fukuoka)</source>
-          <target>カテゴリー</target> 
+          <target>カテゴリー</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Ext - Field Shelf No. (Fukuoka) - Property Caption</note>
         </trans-unit>
@@ -4152,31 +4157,31 @@
         </trans-unit>
         <trans-unit id="TableExtension 1222098016 - Field 2757549774 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
           <source>Shelf No. (Fukuoka)</source>
-          <target>Shelf No. (Fukuoka)</target> 
+          <target>Shelf No. (Fukuoka)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Shelf No. (Fukuoka) - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1222098016 - Field 2647033295 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
           <source>Shelf No. (Nagoya)</source>
-          <target>Shelf No. (Nagoya)</target>  
+          <target>Shelf No. (Nagoya)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Shelf No. (Nagoya) - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1222098016 - Field 2857199697 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
           <source>Shelf No. (Niigata)</source>
-          <target>Shelf No. (Niigata)</target> 
+          <target>Shelf No. (Niigata)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Shelf No. (Niigata) - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1222098016 - Field 2706142887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
           <source>Shelf No. (Osaka)</source>
-          <target>Shelf No. (Osaka)</target> 
+          <target>Shelf No. (Osaka)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Shelf No. (Osaka) - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1222098016 - Field 1462658874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
           <source>Shelf No. (Sendai)</source>
-          <target>Shelf No. (Sendai)</target> 
+          <target>Shelf No. (Sendai)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Item Jnl. Line Ext - Field Shelf No. (Sendai) - Property Caption</note>
         </trans-unit>
@@ -4488,7 +4493,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 1558449874 - Field 1965797751 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3770883554">
           <source>Cost Center Dim Code</source>
-          <target></target>
+          <target>コストセンター分析項目コード</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Item Line Ext - Field Cost Center Dim Code - Property Caption</note>
         </trans-unit>
@@ -4636,6 +4641,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Resource Group for Sort - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1360054054 - Field 3085629230 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
+          <source>Resource Group UOM</source>
+          <target>単位</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Resource Group UOM - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1360054054 - Field 2260457661 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
           <source>Sales Order Dim Code</source>
           <target>受注分析項目コード</target>
@@ -4671,12 +4682,6 @@
           <target>警告日付範囲2</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Warning Date Range 2 - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1360054054 - Field 2323538857 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 297536702">
-          <source>Work Exp. Res. Group Filter</source>
-          <target>作業費リソースグループフィルター</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Serv. Mgt. Setup Ext - Field Work Exp. Res. Group Filter - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2426476168 - Field 3720664786 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2662845818">
           <source>Fault Area Comment</source>
@@ -4860,7 +4865,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 3060134483 - Field 2308997076 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 521506452">
           <source>Product Series</source>
-          <target>シリーズ番号</target> 
+          <target>シリーズ番号</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Service Item Ext - Field Product Series - Property Caption</note>
         </trans-unit>

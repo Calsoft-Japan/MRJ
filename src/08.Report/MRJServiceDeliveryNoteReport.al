@@ -187,8 +187,8 @@ report 50089 "MRJ Service Delivery Note"
                     // DEV NOTE:
                     // Do not recalculate summarized amount by Unit Price * summarized Quantity.
                     // In summarized mode, Quantity can be accumulated while Unit Price is only from one line.
-                    // TempShipLine.Amount is accumulated from the actual posted shipment line amounts.
-                    FlatAmount := TempShipLine.Amount;
+                    // TempShipLine.Amount is accumulated from the actual posted shipment line amounts.                    
+                    FlatAmount := TempShipLine.Amount + TempShipLine."Shipment Line Discount Amount";
 
                     case TempShipLine.Type of
                         TempShipLine.Type::Item:
@@ -447,6 +447,10 @@ report 50089 "MRJ Service Delivery Note"
         boolFound: Boolean;
         bIsSetUnit: Boolean;
         PreResGrp: Code[20];
+        FaultReasonName: Text[50];
+        FaultReasonCodeMst: Record "Fault Reason Code";
+        Text50020: Label '%1（値引）', Comment = '%1 = Fault Reason Description';
+        TempLineNo: Integer; // ★追加：一時的な行番号用
     begin
         // Use TempShipLine as the one true summarized buffer
         TempShipLine.Reset();
@@ -454,6 +458,7 @@ report 50089 "MRJ Service Delivery Note"
 
         TotalAmt := 0;
         TotalGrossAmt := 0;
+        TempLineNo := -1; // ★マイナスから始める（既存のLine No.と被らないように）
 
         ServiceMgtSetup.Get();
 
@@ -503,6 +508,7 @@ report 50089 "MRJ Service Delivery Note"
                             // which caused old/new report total mismatch.
                             TempShipLine.Amount += ShipLineRec.Amount;
                             TempShipLine."Amount Including VAT" += ShipLineRec."Amount Including VAT";
+                            TempShipLine."Shipment Line Discount Amount" += ShipLineRec."Shipment Line Discount Amount";
 
                             TempShipLine.Modify();
                             boolFound := true;
@@ -521,6 +527,44 @@ report 50089 "MRJ Service Delivery Note"
                             TempShipLine.Description := ResGrp.Name;
 
                     TempShipLine.Insert();
+                end;
+
+                // ★ ここで「同じループ内」でもう一度、値引用の処理を行います。
+                if ShipLineRec."Line Discount %" > 0 then begin
+                    FaultReasonName := '';
+                    if FaultReasonCodeMst.Get(ShipLineRec."Fault Reason Code") then
+                        FaultReasonName := FaultReasonCodeMst.Description;
+
+                    // 一時テーブル内で「今回の原因コード」の値引専用行(Cost)が既にあるか探す
+                    TempShipLine.Reset();
+                    TempShipLine.SetRange(Type, TempServiceLine.Type::Cost);
+                    TempShipLine.SetRange("Fault Reason Code", ShipLineRec."Fault Reason Code");
+
+                    if TempShipLine.FindFirst() then begin
+                        // 既にあれば金額を加算（マイナスを引く）
+                        TempShipLine.Amount -= ShipLineRec."Shipment Line Discount Amount";
+                        TempShipLine.Modify();
+                    end else begin
+                        // なければ「値引用レコード」として新規作成
+                        TempShipLine.Reset();
+                        TempShipLine.Init();
+                        //TempShipLine."Document Type" := Enum::" Service Document Type "::Order;
+                        TempShipLine."Document No." := ShipLineRec."Document No.";
+                        TempShipLine."Line No." := TempLineNo; // -1, -2...
+                        TempLineNo -= 1;
+
+                        TempShipLine.Type := TempServiceLine.Type::Cost; // ★ここでCostを付与
+                        TempShipLine."Fault Reason Code" := ShipLineRec."Fault Reason Code";
+
+                        if FaultReasonName <> '' then
+                            TempShipLine.Description := StrSubstNo(Text50020, FaultReasonName)
+                        else
+                            TempShipLine.Description := '値引';
+
+                        TempShipLine.Amount := -ShipLineRec."Shipment Line Discount Amount";
+                        TempShipLine.Quantity := 1;
+                        TempShipLine.Insert();
+                    end;
                 end;
 
             until ShipLineRec.Next() = 0;

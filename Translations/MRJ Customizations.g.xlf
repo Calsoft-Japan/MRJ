@@ -2268,6 +2268,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Delivery Note - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3753925064 - Method 2489514524 - NamedType 136984654" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1（値引）</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Fault Reason Description</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report MRJ Service Delivery Note - Method SummarizeShipmentLinesProc - NamedType Text50020</note>
+        </trans-unit>
         <trans-unit id="Report 3753925064 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Options</source>
           <note from="Developer" annotates="general" priority="2"></note>
