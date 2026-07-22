@@ -619,7 +619,6 @@ report 50089 "MRJ Service Delivery Note"
         // A) Resource (by Resource Group No.)
         TempShipLine.Reset();
         TempShipLine.SetRange(Type, TempShipLine.Type::Resource);
-        TempShipLine.SetCurrentKey("Resource Group No.");
         if TempShipLine.FindSet() then
             repeat
                 InsertIntoShipBuffer(TempShipLine, TempSortBuffer, NextLineNo);
@@ -636,6 +635,7 @@ report 50089 "MRJ Service Delivery Note"
         // C) Others
         TempShipLine.Reset();
         TempShipLine.SetFilter(Type, '<>%1&<>%2', TempShipLine.Type::Resource, TempShipLine.Type::Item);
+        TempShipLine.SetCurrentKey("Fault Reason Code");
         if TempShipLine.FindSet() then
             repeat
                 InsertIntoShipBuffer(TempShipLine, TempSortBuffer, NextLineNo);
