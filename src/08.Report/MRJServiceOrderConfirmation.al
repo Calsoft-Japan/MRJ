@@ -412,7 +412,7 @@ report 50022 "MRJ Service Order Confirmation"
         if ServiceLineRec.FindSet() then
             repeat
                 // DEV NOTE:
-                // Use actual posted values from Service Shipment Line.
+                // Use actual posted values from Service Line.
                 Amt := ServiceLineRec.Amount;
                 GrossAmt := ServiceLineRec."Amount Including VAT";
 
@@ -420,7 +420,7 @@ report 50022 "MRJ Service Order Confirmation"
                 if LineBaseAmount = 0 then
                     continue;
 
-                // Resource group logic (if shipment line type supports Resource)
+                // Resource group logic
                 CurrentResGrp := '';
 
                 if ServiceLineRec.Type = ServiceLineRec.Type::Resource then begin

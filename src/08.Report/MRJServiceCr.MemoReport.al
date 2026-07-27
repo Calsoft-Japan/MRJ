@@ -373,6 +373,7 @@ report 50024 "MRJ Service Cr Memo"
         Found: Boolean;
         DiscountResLine: Record "Service Cr.Memo Line" temporary;
         HasDiscountResLine: Boolean;
+        PreResGrp: Code[20];
     begin
         TempCrMemoLine.Reset();
         TempCrMemoLine.DeleteAll();
@@ -481,6 +482,44 @@ report 50024 "MRJ Service Cr Memo"
                         TempCrMemoLine.Insert();
                     end;
                 end;
+            until LineRec.Next() = 0;
+
+        // When both "02 SERVICE" and "03 OUTSOURCE-L" line items are included
+        PreResGrp := '';
+        LineRec.Reset();
+        LineRec.SetRange("Document No.", SvcCrMemoHdr."No."); // link by Document No.
+        if LineRec.FindSet() then
+            repeat
+                LineBaseAmount := LineRec."Line Amount";
+                ;
+                if LineBaseAmount = 0 then
+                    continue;
+
+                // Resource group logic (if shipment line type supports Resource)
+                CurrResGrp := '';
+
+                if LineRec.Type = LineRec.Type::Resource then begin
+                    if Res.Get(LineRec."No.") then begin
+                        CurrResGrp := Res."Resource Group No.";
+
+                        if (ServiceMgtSetup."Resource Group Filter" <> '') and
+                           (StrPos(ServiceMgtSetup."Resource Group Filter", CurrResGrp) > 0) then begin
+                            // Compare with the Previous value
+                            if (PreResGrp <> '') and (CurrResGrp <> PreResGrp) then begin
+
+                                TempCrMemoLine.Reset();
+                                TempCrMemoLine.SetRange("Resource Group No.", ServiceMgtSetup."Resource Group for Sort");
+                                if TempCrMemoLine.FindFirst() then begin
+                                    TempCrMemoLine."Unit of Measure" := 'SET';
+                                    TempCrMemoLine.Quantity := 1;
+                                    TempCrMemoLine.Modify();
+                                end;
+                            end;
+                            PreResGrp := CurrResGrp;
+                        end;
+                    end;
+                end;
+
             until LineRec.Next() = 0;
 
         TempSortBuffer.Reset();
