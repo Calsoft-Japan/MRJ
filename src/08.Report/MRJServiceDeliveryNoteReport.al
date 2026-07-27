@@ -445,7 +445,6 @@ report 50089 "MRJ Service Delivery Note"
         TargetResGrp: Code[20];
         LineBaseAmount: Decimal;
         boolFound: Boolean;
-        bIsSetUnit: Boolean;
         PreResGrp: Code[20];
         FaultReasonName: Text[50];
         FaultReasonCodeMst: Record "Fault Reason Code";

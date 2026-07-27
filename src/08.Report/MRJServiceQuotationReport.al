@@ -384,6 +384,7 @@ report 50021 "MRJ Service Quotation"
         TempLineNo: Integer;
         boolFound: Boolean;
         Text50020: Label '%1（値引）', Comment = '%1 = Fault Reason Description';
+        PreResGrp: Code[20];
 
     begin
         TempServiceLine.Reset();
@@ -485,6 +486,49 @@ report 50021 "MRJ Service Quotation"
                         TempServiceLine.Insert();
                     end;
                 end;
+            until ServiceLineRec.Next() = 0;
+
+        // When both "02 SERVICE" and "03 OUTSOURCE-L" line items are included
+        PreResGrp := '';
+        ServiceLineRec.Reset();
+        ServiceLineRec.SetRange("Document Type", ServiceHeader."Document Type"); // link by Document Type
+        ServiceLineRec.SetRange("Document No.", ServiceHeader."No."); // link by Document No.
+        if ServiceLineRec.FindSet() then
+            repeat
+                // DEV NOTE:
+                // Use actual posted values from Service Shipment Line.
+                Amt := ServiceLineRec.Amount;
+                GrossAmt := ServiceLineRec."Amount Including VAT";
+
+                LineBaseAmount := Amt;
+                if LineBaseAmount = 0 then
+                    continue;
+
+                // Resource group logic (if shipment line type supports Resource)
+                CurrentResGrp := '';
+
+                if ServiceLineRec.Type = ServiceLineRec.Type::Resource then begin
+                    if Res.Get(ServiceLineRec."No.") then begin
+                        CurrentResGrp := Res."Resource Group No.";
+
+                        if (ServiceMgtSetup."Resource Group Filter" <> '') and
+                           (StrPos(ServiceMgtSetup."Resource Group Filter", CurrentResGrp) > 0) then begin
+                            // Compare with the Previous value
+                            if (PreResGrp <> '') and (CurrentResGrp <> PreResGrp) then begin
+
+                                TempServiceLine.Reset();
+                                TempServiceLine.SetRange("Resource Group No.", ServiceMgtSetup."Resource Group for Sort");
+                                if TempServiceLine.FindFirst() then begin
+                                    TempServiceLine."Unit of Measure Code" := 'SET';
+                                    TempServiceLine.Quantity := 1;
+                                    TempServiceLine.Modify();
+                                end;
+                            end;
+                            PreResGrp := CurrentResGrp;
+                        end;
+                    end;
+                end;
+
             until ServiceLineRec.Next() = 0;
 
         // --- 手順2: 並び替え（リソース -> アイテム -> 値引） ---
