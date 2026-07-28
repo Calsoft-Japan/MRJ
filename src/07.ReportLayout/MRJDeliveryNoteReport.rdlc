@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-07-28T06:48:21.9584463Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-07-28T06:51:33.7888098Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -1706,7 +1706,7 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>0.18115cm</Top>
+            <Top>0cm</Top>
             <Left>0.84544cm</Left>
             <Height>0.4982cm</Height>
             <Width>6.65562cm</Width>
@@ -1743,7 +1743,7 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>1.22415cm</Top>
+            <Top>1.043cm</Top>
             <Left>0.86763cm</Left>
             <Height>0.50952cm</Height>
             <Width>6.63343cm</Width>
@@ -1776,7 +1776,7 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>1.73367cm</Top>
+            <Top>1.55252cm</Top>
             <Left>0.86763cm</Left>
             <Height>0.49972cm</Height>
             <Width>6.63343cm</Width>
@@ -1979,7 +1979,7 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>2.76839cm</Top>
+            <Top>2.55196cm</Top>
             <Left>0.86763cm</Left>
             <Height>0.49972cm</Height>
             <Width>6.63343cm</Width>
@@ -2012,7 +2012,7 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>0.68915cm</Top>
+            <Top>0.508cm</Top>
             <Left>0.86763cm</Left>
             <Height>0.49972cm</Height>
             <Width>6.63343cm</Width>
@@ -2095,7 +2095,7 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>2.23339cm</Top>
+            <Top>2.05224cm</Top>
             <Left>0.86763cm</Left>
             <Height>0.49972cm</Height>
             <Width>6.63343cm</Width>
@@ -2248,7 +2248,7 @@
       <Width>17.80039cm</Width>
       <Page>
         <PageHeader>
-          <Height>2.43298cm</Height>
+          <Height>2.09261cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2272,7 +2272,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
+              <Top>0.08819cm</Top>
               <Left>16.56877cm</Left>
               <Height>9.8pt</Height>
               <Width>0.90422cm</Width>
@@ -2332,11 +2332,11 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>日付 -</Value>
+                      <Value>日付 ー</Value>
                       <Style>
                         <FontStyle>Normal</FontStyle>
                         <FontFamily>MS UI Gothic</FontFamily>
-                        <FontSize>9pt</FontSize>
+                        <FontSize>7pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                         <TextDecoration>None</TextDecoration>
                         <Color>#000000</Color>
@@ -2348,9 +2348,9 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.37114cm</Top>
-              <Left>12.57299cm</Left>
-              <Height>0.49417cm</Height>
+              <Top>0.43392cm</Top>
+              <Left>12.55984cm</Left>
+              <Height>0.37847cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
@@ -2375,7 +2375,7 @@
                       <Value>=Fields!PostingDateTxt.value</Value>
                       <Style>
                         <FontFamily>MS UI Gothic</FontFamily>
-                        <FontSize>9pt</FontSize>
+                        <FontSize>8pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -2385,9 +2385,9 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.37114cm</Top>
+              <Top>0.43392cm</Top>
               <Left>15.07299cm</Left>
-              <Height>0.45889cm</Height>
+              <Height>0.37847cm</Height>
               <Width>2.4cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
@@ -2413,7 +2413,7 @@
                       <Style>
                         <FontStyle>Normal</FontStyle>
                         <FontFamily>MS UI Gothic</FontFamily>
-                        <FontSize>9pt</FontSize>
+                        <FontSize>7pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                         <TextDecoration>None</TextDecoration>
                         <Color>#000000</Color>
@@ -2425,9 +2425,9 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.86531cm</Top>
-              <Left>12.57299cm</Left>
-              <Height>0.4814cm</Height>
+              <Top>0.81239cm</Top>
+              <Left>12.55984cm</Left>
+              <Height>0.3657cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
@@ -2452,7 +2452,7 @@
                       <Value>=Fields!ShipmentDateTxt.value</Value>
                       <Style>
                         <FontFamily>MS UI Gothic</FontFamily>
-                        <FontSize>9pt</FontSize>
+                        <FontSize>8pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -2462,9 +2462,9 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.86531cm</Top>
+              <Top>0.79475cm</Top>
               <Left>15.07299cm</Left>
-              <Height>0.4814cm</Height>
+              <Height>0.3657cm</Height>
               <Width>2.4cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
@@ -2496,7 +2496,7 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
+              <Top>0.08819cm</Top>
               <Left>15.07299cm</Left>
               <Height>9.80013pt</Height>
               <Width>1.42522cm</Width>
@@ -2521,7 +2521,7 @@
                       <Style>
                         <FontStyle>Normal</FontStyle>
                         <FontFamily>MS UI Gothic</FontFamily>
-                        <FontSize>9pt</FontSize>
+                        <FontSize>7pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                         <TextDecoration>None</TextDecoration>
                         <Color>#000000</Color>
@@ -2533,9 +2533,9 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>1.34671cm</Top>
-              <Left>12.57299cm</Left>
-              <Height>0.55196cm</Height>
+              <Top>1.1781cm</Top>
+              <Left>12.55984cm</Left>
+              <Height>0.43626cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>7</ZIndex>
               <Style>
@@ -2560,7 +2560,7 @@
                       <Value>=Fields!ShipmentNo.value</Value>
                       <Style>
                         <FontFamily>MS UI Gothic</FontFamily>
-                        <FontSize>9pt</FontSize>
+                        <FontSize>8pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -2570,9 +2570,9 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>1.34671cm</Top>
-              <Left>15.07299cm</Left>
-              <Height>0.55196cm</Height>
+              <Top>1.1781cm</Top>
+              <Left>15.05984cm</Left>
+              <Height>0.43626cm</Height>
               <Width>2.4cm</Width>
               <ZIndex>8</ZIndex>
               <Style>
@@ -2598,7 +2598,7 @@
                       <Style>
                         <FontStyle>Normal</FontStyle>
                         <FontFamily>MS UI Gothic</FontFamily>
-                        <FontSize>9pt</FontSize>
+                        <FontSize>7pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                         <TextDecoration>None</TextDecoration>
                       </Style>
@@ -2609,9 +2609,9 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>1.93394cm</Top>
-              <Left>12.57299cm</Left>
-              <Height>0.4814cm</Height>
+              <Top>1.64964cm</Top>
+              <Left>12.55984cm</Left>
+              <Height>0.40098cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>9</ZIndex>
               <Style>
@@ -2636,7 +2636,7 @@
                       <Value>=Fields!OrderNo.Value</Value>
                       <Style>
                         <FontFamily>MS UI Gothic</FontFamily>
-                        <FontSize>9pt</FontSize>
+                        <FontSize>8pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -2646,9 +2646,9 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>1.93394cm</Top>
-              <Left>15.07299cm</Left>
-              <Height>0.4814cm</Height>
+              <Top>1.61436cm</Top>
+              <Left>15.05984cm</Left>
+              <Height>0.43626cm</Height>
               <Width>2.4cm</Width>
               <ZIndex>10</ZIndex>
               <Style>
