@@ -184,7 +184,7 @@ report 50100 "MRJ Settlement Estimate"
                     FlatQty := TempShipLine.Quantity;
                     FlatUOM := TempShipLine."Unit of Measure";
                     FlatPrice := TempShipLine."Unit Price";
-                    FlatAmount := Round(FlatPrice * FlatQty, 1);
+                    FlatAmount := TempShipLine.Amount + TempShipLine."Shipment Line Discount Amount";
 
                     case TempShipLine.Type of
                         TempShipLine.Type::Item:
@@ -460,6 +460,9 @@ report 50100 "MRJ Settlement Estimate"
 
                         if TempShipLine.FindFirst() then begin
                             TempShipLine.Quantity += ShipLineRec.Quantity;
+                            TempShipLine.Amount += ShipLineRec.Amount;
+                            TempShipLine."Amount Including VAT" += ShipLineRec."Amount Including VAT";
+                            TempShipLine."Shipment Line Discount Amount" += ShipLineRec."Shipment Line Discount Amount";
                             TempShipLine.Modify();
                             boolFound := true;
                         end;
