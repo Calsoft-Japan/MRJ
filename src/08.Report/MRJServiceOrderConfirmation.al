@@ -455,6 +455,7 @@ report 50022 "MRJ Service Order Confirmation"
         // A. リソース
         TempServiceLine.Reset();
         TempServiceLine.SetRange(Type, TempServiceLine.Type::Resource);
+        TempServiceLine.SetCurrentKey("Resource Group No.");
         if TempServiceLine.FindSet() then repeat InsertIntoBuffer(TempServiceLine, TempSortBuffer, NextLineNo); until TempServiceLine.Next() = 0;
 
         // B. アイテム（通常明細）

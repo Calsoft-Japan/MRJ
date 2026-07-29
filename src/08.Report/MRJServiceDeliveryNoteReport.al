@@ -618,6 +618,7 @@ report 50089 "MRJ Service Delivery Note"
         // A) Resource (by Resource Group No.)
         TempShipLine.Reset();
         TempShipLine.SetRange(Type, TempShipLine.Type::Resource);
+        TempShipLine.SetCurrentKey("Resource Group No.");
         if TempShipLine.FindSet() then
             repeat
                 InsertIntoShipBuffer(TempShipLine, TempSortBuffer, NextLineNo);
