@@ -128,10 +128,7 @@ report 50100 "MRJ Settlement Estimate"
 
                 trigger OnAfterGetRecord()
                 begin
-                    if Quantity <> 0 then
-                        LineAmountCalc := Round("Unit Price" * Quantity, 1)
-                    else
-                        LineAmountCalc := Round("Unit Price", 1);
+                    LineAmountCalc := Amount;
                 end;
             }
 
