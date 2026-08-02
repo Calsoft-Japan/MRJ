@@ -416,10 +416,6 @@ report 50022 "MRJ Service Order Confirmation"
                 Amt := ServiceLineRec.Amount;
                 GrossAmt := ServiceLineRec."Amount Including VAT";
 
-                LineBaseAmount := Amt;
-                if LineBaseAmount = 0 then
-                    continue;
-
                 // Resource group logic
                 CurrentResGrp := '';
 

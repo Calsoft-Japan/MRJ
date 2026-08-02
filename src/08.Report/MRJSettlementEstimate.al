@@ -438,8 +438,6 @@ report 50100 "MRJ Settlement Estimate"
                 TotalGrossAmt += GrossAmt;
 
                 LineBaseAmount := Amt;
-                if LineBaseAmount = 0 then
-                    continue;
 
                 boolFound := false;
                 CurrentResGrp := '';
@@ -533,10 +531,6 @@ report 50100 "MRJ Settlement Estimate"
                 // Use actual posted values from Service Shipment Line.
                 Amt := ShipLineRec.Amount;
                 GrossAmt := ShipLineRec."Amount Including VAT";
-
-                LineBaseAmount := Amt;
-                if LineBaseAmount = 0 then
-                    continue;
 
                 // Resource group logic (if shipment line type supports Resource)
                 CurrentResGrp := '';

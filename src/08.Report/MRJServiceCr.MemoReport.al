@@ -490,10 +490,6 @@ report 50024 "MRJ Service Cr Memo"
         LineRec.SetRange("Document No.", SvcCrMemoHdr."No."); // link by Document No.
         if LineRec.FindSet() then
             repeat
-                LineBaseAmount := LineRec."Line Amount";
-                ;
-                if LineBaseAmount = 0 then
-                    continue;
 
                 // Resource group logic (if shipment line type supports Resource)
                 CurrResGrp := '';

@@ -500,10 +500,6 @@ report 50021 "MRJ Service Quotation"
                 Amt := ServiceLineRec.Amount;
                 GrossAmt := ServiceLineRec."Amount Including VAT";
 
-                LineBaseAmount := Amt;
-                if LineBaseAmount = 0 then
-                    continue;
-
                 // Resource group logic
                 CurrentResGrp := '';
 
