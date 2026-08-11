@@ -2938,6 +2938,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Fault Reason Codes Ext - Action Dimensions - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2248736029 - Control 2623957639 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 675304631">
+          <source>Dimension Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension GenProdPostGroup Ext - Control Dimension Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2248736029 - Control 2277534386 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 675304631">
+          <source>Dimension Value Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension GenProdPostGroup Ext - Control Dimension Value Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 836936761 - Control 54496332 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1180040559">
           <source>MRJ Customization</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3277,6 +3287,16 @@
           <source> ,Service Ledger,Resource Ledger</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Gen. Jnl. Line Ext - Field Source Ledger Entry Type - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2248736029 - Field 2623957639 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4020103050">
+          <source>Dimension Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GenProdPostGroup Ext - Field Dimension Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2248736029 - Field 2277534386 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4020103050">
+          <source>Dimension Value Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GenProdPostGroup Ext - Field Dimension Value Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3116663589 - Field 1479750654 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4274826855">
           <source>Access Level</source>
