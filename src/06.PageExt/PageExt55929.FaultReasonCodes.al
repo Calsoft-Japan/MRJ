@@ -1,4 +1,4 @@
-pageextension 50007 "Fault Reason Codes Ext" extends "Fault Reason Codes"
+pageextension 55929 "Fault Reason Codes Ext" extends "Fault Reason Codes"
 {
     actions
     {

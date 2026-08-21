@@ -2953,6 +2953,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Inv Setup Ext - Control MRJCustomization - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 362910397 - Control 297641447 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3595318222">
+          <source>Item Inventory Posting Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Item Ledger Entries Ext - Control Item Inv. Posting Group - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3456710516 - Control 1248813113 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>If you are using the “Storage Location” filter, this does not represent the total stock across all warehouses.</source>
           <note from="Developer" annotates="general" priority="2"></note>
